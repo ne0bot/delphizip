@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            TZMProgressDetails class
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="TZMProgressDetails;TZMProgressDetails,TZipMaster;">
+        <meta name="revised" content="2012-03-21">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="tzmpipelist_class.htm">Previous</a></li>
+                <li><a href="zipmstr_unit.htm#classes">Next</a></li>
+            </ul>
+            <h1>
+                TZMProgressDetails class
+            </h1>
+            <ul class="also-links">
+                <li><a href="onprogress_event.htm">OnProgress Event</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Unit</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="zipmstr_unit.htm">TZipMstr</a></p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="tight"><b>Type</b></p>
+                    <p class="tight">&nbsp; &nbsp;TZMProgressDetails = class</p> 
+                    <p class="tight"><span style="margin-left:2em">public</span></p> 
+					<ul class="ul-plain">
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_byteswritten_property.htm">BytesWritten</a>: Int64;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_delta_property.htm">Delta</a>: Int64;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_itemname_property.htm">ItemName</a>: <a href="tzmstring_type.htm">TZMString</a>;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_itemnumber_property.htm">ItemNumber</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_itempercent_property.htm">ItemPerCent</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_itemposition_property.htm">ItemPosition</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_itemsize_property.htm">ItemSize</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_order_property.htm">Order</a>: TZMProgressType;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_stop_property.htm">Stop</a>: Boolean;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_totalcount_property.htm">TotalCount</a>: Int64;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_totalpercent_property.htm">TotalPerCent</a>: Integer;;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_totalposition_property.htm">TotalPosition</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a href="pd_totalsize_property.htm">TotalSize</a>: Int64;</li>        
+        
+					</ul>
+                    <p class="tight"><b>Type</b><br>&nbsp; &nbsp; <a name="tzmprogresstype">TZMProgressType</a> = (NewFile, ProgressUpdate, EndOfItem, EndOfBatch,
+    TotalFiles2Process, TotalSize2Process, NewExtra, ExtraUpdate);</p>
+					<table border="1" summary="TZMProgress types">
+						<caption>TZMProgress  types</caption>
+						<tr>
+						  <th>NewFile</th><td>Before starting a new item</td>
+						</tr>
+						<tr>
+						  <th>ProgressUpdate</th><td>reports more of the file done</td>
+						</tr>
+						<tr>
+						  <th>EndOfItem</th><td>Finished item (it's file is closed)</td>
+						</tr>
+						<tr>
+						  <th>EndOfBatch</th><td>All items finished</td>
+						</tr>
+						<tr>
+						  <th>TotalFiles2Process</th><td>Reports the total items to process</td>
+						</tr>
+						<tr>
+						  <th>TotalSize2Process</th><td>Reports the total uncompressed size to process</td>
+						</tr>
+						<tr>
+						  <th>NewExtra</th><td>A new sub-operation is about to start</td>
+						</tr>
+						<tr>
+						  <th>ExtraUpdate</th><td>Reports sub-operation progress</td>
+						</tr>
+					</table>	
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Provides operation progress read-only details in the <a href="onprogress_event.htm">OnProgress</a> event.
+                    </p>				
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-03-21 10:56</div>
+    </body>
+</html>

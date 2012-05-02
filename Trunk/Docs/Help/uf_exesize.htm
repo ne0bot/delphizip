@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            ExeSize function
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="ExeSize;">
+        <meta name="revised" content="2012-03-19">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="uf_diskavailable.htm">Previous</a></li>
+                <li><a href="uf_exevers.htm">Next</a></li>
+            </ul>
+            <h1>
+                ExeSize function
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Unit</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="zmutils_unit.htm">ZMUtils</a></p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> ExeSize(<b>const</b> Name: <b>String</b>): Cardinal; <b>overload</b>
+                    </p>
+					<dl class="f">
+						<dt class="ft">Arguments</dt>
+						<dd class="fd">
+							<dl class="tight">
+								<dt><span class="mono">const Name: String</span></dt>
+								<dd>The name of sfx file</dd>   
+							</dl>
+						</dd>
+					</dl>
+				</dd>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> ExeSize(fileHandle: Integer): Cardinal; <b>overload</b>
+                    </p>
+					<dl class="f">
+						<dt class="ft">Arguments</dt>
+						<dd class="fd">
+							<dl class="tight"> 
+								<dt><span class="mono">fileHandle: Integer</span></dt>
+								<dd>The handle of an already opened file</dd>
+							</dl>
+						</dd>
+						<dt class="ft">Results</dt>
+						<dd class="fd">
+							<ul class="ul-left">
+								<li>Returns the executable part</li>
+							</ul>
+						</dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        This is meant to find the SFX stub size excluding any extra structures.
+                    </p>
+                    <p class="nobottom">
+                        In general SFX files are built
+                    </p>
+                    <ul class="clean">
+                        <li>SFX stub (the executable part)</li>
+                        <li>Required Information used to extract</li>
+                        <li>Zipped files.</li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-03-19 09:36</div>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            ValidUTF8 function
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="ValidUTF8;">
+        <meta name="revised" content="2012-03-09">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="ut_utf8seqlen.htm">Previous</a></li>
+                <li><a href="ut_wideissafe.htm">Next</a></li>
+            </ul>
+            <h1>
+                ValidUTF8 function
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Unit</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="zmutf8_unit.htm">ZMUTF8</a></p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> ValidUTF8(<b>const</b> str: AnsiString; len: integer = -1): integer; <b>overload</b>
+                    </p>
+                    <p class="f-decl">
+                        <b>function</b> ValidUTF8(<b>const</b> str: UTF8String; len: integer = -1): integer; <b>overload</b>
+                    </p>
+                    <p class="f-decl">
+                        <b>function</b> ValidUTF8(pstr: PAnsiChar; len: integer): integer; <b>overload</b>
+                    </p>  
+                    <dl class="tight"> 
+                <dt class="ft">Arguments</dt>
+                <dd class="fd">
+                    <dl>
+                        <dt><span class="mono">const str: AnsiString or UTF8String or PAnsiChar</span></dt>
+                        <dd>The string to test</dd>
+                        <dt><span class="mono">len: integer</span></dt>
+                        <dd>The length to test (-1 = full length)</dd>
+                    </dl>
+                </dd>       
+                <dt class="ft">Results</dt>
+                <dd class="fd">
+                    <ul class="ul-left">
+                        <li>return&nbsp; &gt; 0&nbsp; if some valid UTF8 characters are present</li>
+                    </ul>
+                </dd>
+                    </dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Test for valid UTF8 character(s) in the string
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-03-09 10:56</div>
+    </body>
+</html>

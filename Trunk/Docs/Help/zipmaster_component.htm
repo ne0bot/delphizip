@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>
+            ZipMaster component
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="ZipMaster;">
+        <meta name="revised" content="2012-02-17">
+        <meta name="copyright" content="Copyright &copy; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li>
+                    <a href="cnt.htm" target="cnt">Contents</a>
+                </li>
+                <li>
+                    <a href="idx.htm" target="cnt">Index</a>
+                </li>
+            </ul>
+            <h1>
+                ZipMaster component
+            </h1>
+            <ul class="also-links"> 
+				<li><a href="tzipmaster_component.htm">TZipMaster</a></li> 
+				<li><a href="tzipmaster_component.htm#properties">Properties</a></li> 
+				<li><a href="tzipmaster_component.htm#methods">Methods</a></li> 
+				<li><a href="tzipmaster_component.htm#events">Events</a></li>
+			</ul>
+        </div>
+        <div class="content">
+            <p>
+                <img src="ZipMaster.png" width="25" height="25" border="0" alt="ZipMaster icon"> <strong>TZipMaster - Version 1.91</strong>
+            </p>
+            <p>
+                &nbsp;
+            </p>
+            <p>
+                Main Unit
+            </p>
+            <p>
+                <a href="zipmstr_unit.htm">ZipMstr.pas</a>
+            </p>
+            <p>
+                TZipMaster is a control designed to simplify the handling of Zip compressed files.
+            </p>
+            <p>
+                Description:
+            </p>
+            <p>
+                TZipMaster is a non-visual VCL component for managing zip files with some functions being a wrapper for a combined version of freeware Zip and Unzip dlls.
+            </p>
+            <p>
+                At run time for zip and unzip operations, DelZip190.dll must be present on the hard disk where the application can find it - in ?:\WINDOWS\SYSTEM32 or else in your application directory, or a directory in the PATH.
+            </p>
+            <p>
+                If the DLL is statically linked to the component then the IDE must be able to locate and load the DLL .
+            </p>
+            <p>
+                It is also possible for an application to access a compressed version of the DLL stored in the it&#39;s resources (dynamic binding only).
+            </p>
+            <p>
+                The DLL is now fully re-entrant so multiple components (or applications) can share a single DLL .
+            </p>
+            <p>
+                This DLL is based on the <a href="infozip_information.htm">InfoZip</a> Official Freeware Zip/Unzip source code, but they are NOT equivalent to InfoZip&#39;s DLL&#39;s. We have modified the InfoZip source code to enhance their ease-of-use, power, and flexibility for use with Delphi and C++ Builder.&nbsp; Please do NOT contact InfoZip for issues regarding this port.
+            </p>
+            <p>
+                TZipMaster can encrypt and decrypt files through the <a href="password_property.htm">Password</a> property.
+            </p>
+            <p>
+                Many operations do not require the dll.
+            </p>
+            <p>
+                The <a href="onmessage_event.htm">OnMessage</a> event fires when the&nbsp; DLL reports status. The <a href="trace_property.htm">Trace</a> and <a href="verbose_property.htm">Verbose</a> properties control the amount of information written to the <a href="errmessage_property.htm">ErrMessage</a> property.
+            </p>
+            <p>
+                Overview&nbsp; of changes v1.91
+            </p>
+            <p>  
+                - for specific changes see <a href="changes_v1_91.htm">Details</a>
+            </p>
+            <p>
+                - for full package file details see <a href="source_files.htm">Source files</a>
+            </p>
+            <p>
+                &nbsp;&nbsp; Distributed under a new open source license see: <a href="copyright_and_distribution_policy.htm">Copyright and Distribution Policy</a>
+            </p>
+            <p>
+                updated 2012-02-17
+            </p>
+        </div>
+        <div class="foot">
+            2012-02-17 09:38
+        </div>
+    </body>
+</html>

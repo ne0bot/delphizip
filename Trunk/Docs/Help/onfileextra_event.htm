@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnFileExtra event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnFileExtra;OnFileExtra,TZipMaster;TZipMaster,OnFileExtra;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="onfilecomment_event.htm">Previous</a></li>
+                <li><a href="ongetnextdisk_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnFileExtra event
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> OnFileExtra: <a href="#tzmfileextraevent">TZMFileExtraEvent</a>;
+                    </p>
+					<p class="f-decl">
+						<b>Type</b><br>&nbsp; <a name="tzmfileextraevent">TZMFileExtraEvent</a> = <b>procedure</b>(Sender: TObject; const ForFile: <a href="tzmstring_type.htm">TZMString</a>; var Data: <a href="tzmrawbytes.htm">TZMRawBytes</a>; var IsChanged: Boolean) <b>of object</b>;
+					</p>
+					<dl class="f">
+						<dt class="ft-args">Arguments</dt>
+						<dd class="fd">
+							<dl class="notop">
+								<dt class="f-decl">Sender: TObject</dt>
+								<dd>This component</dd>
+								<dt class="f-decl"><b>const</b> ForFile: TZMString;</dt>
+								<dd>the name of file to set formatted extra data.</dd>
+								<dt class="f-decl"><b>var</b> Data: TZMRawBytes;</dt>
+								<dd>The formatted data to set</dd>
+								<dt class="f-decl"><b>var</b> IsChanged: Boolean;</dt>
+								<dd>Set True if data was set</dd>
+							</dl>
+						</dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Allows setting the Extra Data during an Add operation.
+                    </p>
+                    <p class="f-p">
+                        <span class="note">NOTE:</span> This is dangerous to do unless you are careful and know what you are doing.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-22 11:21</div>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=forms-1252">
+<LINK REL = "stylesheet" TYPE = "text/css" HREF = "mystyle.css"> 
+<TITLE>ToolButtons</TITLE>
+</HEAD>
+<BODY>
+	
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="ToolButtons">
+</OBJECT>
+
+
+<A NAME="IDH_ToolButtons"></A>
+<H1>ToolButtons</H1>
+<p>
+To know what a tool button is for, go over it with the mouse cursor and a little help will appear and
+at the bottom left of the main form a hint will appear.</p>
+<p>ZipSniffer has 13 Tool buttons in 4 groups on its main form from left to right :</p>
+<ol>
+	<li>File Group
+	<ul>
+	 <li>New : Creates a new child form, you can use this form as you like.</li>
+	 <li>Open : Opens a file selection dialog, the purpose is to open one of the log files, then it creates a new 
+	 child form and shows the content of the file in that form.</li>
+	 <li>Save : Not yet implmented.</li>
+  </ul></li>
+	<li>Edit Group
+	<ul>
+	 <li>Cut : Cuts the actual selection and saves it to the clipboard, make a selection in one of the child 
+		forms first.</li>
+	 <li>Copy : Copies the actual selection and puts it on the clipboard, make a selection in one of the child 
+		forms first.</li>
+	 <li>Paste : Pastes the clipboard content into the selected child form.</li> 
+	</ul></li>
+	<li>Window Group
+	<ul>
+		<li>Cascade: cascades the child forms.</li>
+		<li>Tile Horizontally : arranges child forms so that they are all the same size, tiled horizontally.</li>
+    <li>Tile Vertically : arranges child forms so that they are all the same size, tiled vertically.</li>
+  </ul></li>
+  <li>Options Group
+  <ul>
+  <li>Watch : toggles between logging and watching the received messages, when in <i><b>watch</b></i> state the 
+  		first message will create a new child form. In watch state the message are also send to the buffer and
+  		the log file can also be created.<br>
+  		The actual status is show at the bottom of the main form in the second panel.</li>
+    <li>Trace : Determines how the Trace property in the TZipMaster component is used, the actual state of Trace is
+    	indicated in the 4th panel,	it is a tri-state option:
+    <ul><li>Indeterminate (the default) : indicated by <i><b>'Trace ?'</b></i> will use the Trace options as it is set in the application
+    	using TZipMaster.</li>
+    	<li>Off : indicated by <i><b>'Trace off'</b></i> will force the Trace property to off.</li>
+    <li>On : indicated by <i><b>'Trace On'</b></i> will force the Trace property to on.</li></ul></li>
+    <li>Verbose : Determines how the Verbose property in the TZipMaster component is used, the actual state of Verbose is
+    	indicated in the 3th panel,	it is a tri-state option:
+    	<ul><li>Indeterminate (the default) : indicated by <i><b>'Verbose ?'</b></i> will use the Verbose options as it is set in the application
+    	using TZipMaster.</li>
+    	<li>Off : indicated by <i><b>'Verbose off'</b></i> will force the Verbose property to off.</li>
+      <li>On : indicated by <i><b>'Verbose On'</b></i> will force the Verbose property to on.</li></ul></li>
+    <li>Save Log : Creates a log file and puts the content of the message buffer in that file. The log file is named
+    	<i><b>dzlogxxx.txt</b></i> where xxx is a number from 001, if that file is already open then we use 002 and so on.
+    </li></ul></li> 
+</ol>
+</BODY>
+</HTML>

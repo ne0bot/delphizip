@@ -1,0 +1,104 @@
+// CN: Simplified Chinese
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 4, 2 // 0x0804
+{
+  DS_Canceled,               "用户取消操作"
+  DS_CopyCentral,            "重要目录"
+  LD_DllLoaded,              "压缩动态连接库(%s)已调入"
+  AD_NothingToZip,           "错误 - 未指定被压缩的文件!"
+  DL_NothingToDel,           "错误 - 没有选择要被删除得文件"
+  LD_NoDll,                  "未找到压缩动态连接库(%s)"
+  LI_WrongZipStruct,         "警告 - 压缩文件结构错误!"
+  PW_UnatAddPWMiss,          "错误 - 没有压缩文件所需密码"
+  PW_UnatExtPWMiss,          "错误 - 没有解压缩文件所需密码"
+  DS_AskDeleteFile,          "文件 %s 已存在\n您是否要覆盖掉该文件?"
+  DS_AskPrevFile,            "注意: 这是前第 %d 片备份磁盘!!!\n您确信要覆盖该磁盘上的文件?"
+  DS_InDrive,                "\n在磁盘: %s"
+  DS_InsertAVolume,          "请插入第 %.1d 张磁盘"
+  DS_InsertDisk,             "请插入最后一张磁盘"
+  DS_InsertVolume,           "请插入第 %1d 张磁盘(共 %.1d 张)"
+  PW_Caption,                "密码"
+  PW_MessageConfirm,         "确认密码 "
+  PW_MessageEnter,           "输入密码 "
+  ZB_OK,                     "确定(&O)"
+  ZB_Cancel,                 "取消(&C)"
+  AD_UnattPassword,          "采用自动模式(Unattended)时必须同时使用密码"
+  CZ_InputNotExe,            "错误 - 输入的文件不是可执行文件(.EXE)"
+  DS_CEHWrongSig,            "中间头(Central header)识别符号错误"
+  DS_DriveNoMount,           "磁盘 %s 未定义 "
+  DS_NoDiskSpace,            "磁盘没有足够空闲空间"
+  DS_NoInFile,               "指定文件不存在"
+  DS_NotaDrive,              " %s 是不可用的磁盘: "
+  DS_NoUnattSpan,            "不支持自动模式(Unattended)下的分盘压缩"
+  DS_NoValidZip,             "该压缩文件无效的压缩(ZIP)文件"
+  EX_UnAttPassword,          "警告 - 自动解压模式(Unattended Extract)可能并非所有文件都被解压"
+  GE_NoZipSpecified,         "错误 - 未指定压缩文件!"
+  GE_WrongPassword,          "错误 - 密码错误\n未提供密码"
+  SF_NoZipSFXBin,            "错误 - 找不到自解压头(SFX)文件(%s)"
+  SF_StringTooLong,          "错误 - 下列的四个字符串属性值中有长度超过255个字符的字符串"
+  AD_AutoSFXWrong,           "自动创建自解压(SFX)文件时发生错误 %.1d"
+  DS_CECommentLen,           "读取文件注释错误"
+  DS_CEHBadRead,             "读取中间头(central header)错误"
+  DS_CEHBadWrite,            "写入中间头(central header)发生错误"
+  DS_CENameLen,              "读取中间文件名(central file name)错误"
+  DS_DataDesc,               "读取/写入数据描述区(data descriptor area)错误"
+  DS_EOCBadRead,             "读取重要目录结尾(End Of Central Directory)错误"
+  DS_EOCBadWrite,            "写入重要目录结尾(End Of Central Directory)发生错误"
+  DS_ErrorUnknown,           "ReadSpan()、WriteSpan() 或 Rename()函数中发生未知错误\n"
+  DS_FailedSeek,             "文件指针定位时发生错误"
+  DS_FileOpen,               "压缩(ZIP)文件无法打开"
+  DS_LOHBadRead,             "读取局部头(local header)错误"
+  DS_LOHBadWrite,            "写入局部头(local header)发生错误"
+  DS_NoMem,                  "没有足够内存显示消息框(MsgBox)"
+  DS_NoOutFile,              "无法创建输出文件"
+  DS_NoTempFile,             "无法创建临时文件"
+  DS_NoVolume,               "无法设置卷标"
+  DS_NoWrite,                "写文件操作失败"
+  GE_FatalZip,               "压缩动态连接库(DelZip179.DLL)中发生致命错误"
+  GE_NoMem,                  "没有足够内存空间申请"
+  LI_ErrorUnknown,           "未知错误发生在 List() 函数中\n"
+  LI_ReadZipError,           "读取压缩文件时文件指针定位错误!"
+  DT_Language,               "CN: Simplified Chinese"
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnMergeZippedConflict event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnMergeZippedConflict;OnMergeZippedConflict,TZipMaster;TZipMaster,OnMergeZippedConflict;tzmconflictentry">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="onloadstr_event.htm">Previous</a></li>
+                <li><a href="onmessage_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnMergeZippedConflict event
+            </h1>
+            <ul class="also-links">
+                <li><a href="mergezippedfiles.htm">MergeZippedFiles</a></li>
+                <li><a href="copyzippedfiles.htm">CopyZippedFiles</a></li>
+                <li><a href="addzippedfiles.htm">AddZippedFiles</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b><br>&nbsp; OnMergeZippedConflict: <a href="#tzmmergezippedconflictevent">TZMMergeZippedConflictEvent</a>;
+                    </p>
+                    <p class="f-decl">
+                        <b>Type</b><br>&nbsp; <a name="tzmmergezippedconflictevent">TZMMergeZippedConflictEvent</a> = <b>procedure</b>(Sender: TObject; Existing, Conflicting: <a href="#tzmconflictentry">TZMConflictEntry</a>; <b>var</b> Resolve: <a href="#tzmresolutions">TZMResolutions</a>) <b>of object</b>;
+                    </p>
+					<dl class="f">
+						<dt class="ft-args">Arguments</dt>
+						<dd class="fd">
+							<dl class="notop">
+								<dt class="f-decl">Sender: TObject</dt>
+								<dd>This component</dd>
+								<dt class="f-decl">Existing: TZMConflictEntry</dt>
+								<dd>The existing enty</dd>
+								<dt class="f-decl">Conflicting: TZMConflictEntry</dt>
+								<dd>The conflicting entry</dd>
+								<dt class="f-decl"><b>var</b> Resolve: TZMResolutions</dt>
+								<dd>Set to resolve the conflict (default: zmrRename)</dd>
+							</dl>
+						</dd>
+					</dl>
+				</dd>
+                <dd class="fd">
+                    <p class="tight"><b>Type</b></p>
+                    <p class="tight">&nbsp; &nbsp;<a name="tzmconflictentry">TZMConflictEntry</a> = class</p> 
+                    <p class="tight"><span style="margin-left:2em">public</span></p> 
+					<ul class="ul-plain">
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property Entry: <a href="tzmdirentry_class.htm">TZMDirEntry;</a></li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public">  property <a name="zipname">ZipName</a>: TZMString;</li>
+					</ul>
+                    <p class="tight">&nbsp; &nbsp;end;</p>
+                    <p class="f-decl">
+                        <b>Type</b><br>&nbsp; <a name="tzmresolutions">TZMResolutions</a> = (zmrRename, zmrExisting, zmrConflicting);
+					</p>
+					<table summary="TZMResolution values" border="1">
+					<tr>
+					  <th>zmrExisting</th><td>Keep the existing entry</td>
+					</tr>
+					<tr>
+					  <th>zmrConflicting</th><td>use the conflicting entry (discard the existing)</td>
+					</tr>
+					<tr>
+					  <th>zmrRename</th><td>rename the conflicting entry to something safe</td>
+					</tr>
+					</table>					
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Occurs when during the execution of the function <a href="mergezippedfiles.htm">MergeZippedFiles</a> when it is necessary to know if a file in the destination archive may be overwritten. It is possible that the event does NOT occur because you have let the function MergeZippedFiles know that it is always or never Ok to overwrite.
+                    </p>
+                    <p class="f-p">
+                        You can choose to overwrite the file dst.<a href="de_filename_property.htm">FileName</a> 
+						by setting Resolve to <b>zmrConflicting</b> or rename the conflicting entry using zmrRename (the default).
+                    </p>
+                </dd>  
+                <dt class="ft">Example</dt>
+                <dd class="fd">
+<!-- Highlighted Pascal code generated by DelphiDabbler PasHi -->
+<pre class="pas-source"><span class="pas-kwd">procedure</span> <span class="pas-ident">TMainForm</span><span class="pas-sym">.</span><span class="pas-ident">ZipMasterMergeZippedConflict</span><span class="pas-sym">(</span><span class="pas-ident">Sender</span><span class="pas-sym">:</span> <span class="pas-ident">TObject</span><span class="pas-sym">;</span> <span class="pas-ident">Existing</span><span class="pas-sym">,</span> <span class="pas-ident">Conflicting</span><span class="pas-sym">:</span> <span class="pas-ident">TZMConflictEntry</span><span class="pas-sym">;</span> <span class="pas-kwd">var</span> <span class="pas-ident">Resolve</span><span class="pas-sym">:</span> <span class="pas-ident">TZMResolutions</span><span class="pas-sym">)</span><span class="pas-sym">;</span>
+<span class="pas-kwd">begin</span>
+  <span class="pas-kwd">if</span> <span class="pas-ident">Pos</span><span class="pas-sym">(</span><span class="pas-ident">Conflicting</span><span class="pas-sym">.</span><span class="pas-ident">Entry</span><span class="pas-sym">.</span><span class="pas-ident">FileName</span><span class="pas-sym">,</span> <span class="pas-str">'F_pbafd3.afd'</span><span class="pas-sym">)</span> <span class="pas-sym">&gt;</span> <span class="pas-num">0</span> <span class="pas-kwd">then</span>
+    <span class="pas-ident">Resolve</span> <span class="pas-sym">:=</span> <span class="pas-ident">zmrExisting</span>
+  <span class="pas-kwd">else</span> <span class="pas-kwd">if</span> <span class="pas-ident">Pos</span><span class="pas-sym">(</span><span class="pas-ident">Conflicting</span><span class="pas-sym">.</span><span class="pas-ident">Entry</span><span class="pas-sym">.</span><span class="pas-ident">FileName</span><span class="pas-sym">,</span> <span class="pas-str">'Mylib01.dll'</span><span class="pas-sym">)</span> <span class="pas-sym">&gt;</span> <span class="pas-num">0</span> <span class="pas-kwd">then</span> 
+    <span class="pas-ident">Resolve</span> <span class="pas-sym">:=</span> <span class="pas-ident">zmrRename</span>
+  <span class="pas-kwd">else</span> 
+    <span class="pas-ident">Resolve</span> <span class="pas-sym">:=</span> <span class="pas-ident">zmrConflicting</span><span class="pas-sym">;</span>
+<span class="pas-kwd">end</span><span class="pas-sym">;</span></pre>
+                 </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-22 11:04</div>
+    </body>
+</html>

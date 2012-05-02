@@ -1,0 +1,96 @@
+// PL: Polish
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x15, 1 // 0x0415
+{
+  DS_Canceled,               "Operacja anulowana przez u¿ytkownika"
+  LD_DllLoaded,              "%s biblioteka za³adowana"
+  AD_NothingToZip,           "B³¹d - brak plików do kompresji!"
+  DL_NothingToDel,           "B³¹d - brak plików do skasowania"
+  LD_NoDll,                  "Nie odnaleziono pliku %s!"
+  LI_WrongZipStruct,         "Ostrze¿enie - B³¹d w strukturze zip!"
+  PW_UnatAddPWMiss,          "B³¹d - brak has³a dla kompresji"
+  PW_UnatExtPWMiss,          "B³¹d - brak has³a dla rozpakowania"
+  DS_AskDeleteFile,          "Plik %s ju¿ istnieje \nCzy chcesz nadpisaæ istniej¹cy plik"
+  DS_AskPrevFile,            "UWAGA: To jest poprzedni dysk nr %d!!!\nCzy na pewno chcesz nadpisaæ jego zawartoœæ"
+  DS_InDrive,                "\ndo napêdu: %s"
+  DS_InsertDisk,             "Proszê w³o¿yæ ostatni dysk"
+  DS_InsertVolume,           "Proszê w³o¿yæ dysk %.1d z %.1d"
+  AD_UnattPassword,          "Praca z pomijaniem zapytañ niemo¿liwa bez has³a"
+  CZ_InputNotExe,            "B³¹d: wyjœciowy plik nie jest w³aœciwym plikiem .EXE"
+  DS_CEHWrongSig,            "Sygnatura nag³ówka podstawowego jest niew³aœciwa"
+  DS_DriveNoMount,           "Dysk nie jest okreœlony: %s"
+  DS_NoDiskSpace,            "Wskazany dysk nie ma wystarczaj¹cej iloœci wolnej przestrzeni"
+  DS_NoInFile,               "Plik wyjœciowy nie istnieje"
+  DS_NotaDrive,              "Niew³aœciwy dysk: %s"
+  DS_NoUnattSpan,            "Praca z pomijaniem zapytañ w czasie rozbijania archiwum na czêœci nie jest zaimplementowana"
+  DS_NoValidZip,             "Ten plik nie jest w³aœciwym archiwum Zip"
+  EX_UnAttPassword,          "Ostrze¿enie - Pomijanie zapytañ w czasie rozpakowania stwarza niebezpieczeñstwo pominiêcia niektórych plików"
+  GE_NoZipSpecified,         "B³¹d - nie wybrano pliku Zip, lub plik ju¿ nie istnieje!"
+  GE_WrongPassword,          "B³¹d - niew³aœciwe has³a\nHas³o zignorowane"
+  SF_NoZipSFXBin,            "B³¹d - Nie odnaleziono pliku %s!"
+  SF_StringTooLong,          "B³¹d - Ca³kowity rozmiar trzech w³aœciwoœci tekstowych przekracza 245!"
+  DS_CECommentLen,           "B³¹d odczytu komentarza pliku"
+  DS_CEHBadRead,             "B³¹d odczytu nag³ówka podstawowego"
+  DS_CEHBadWrite,            "B³¹d zapisu nag³ówka podstawowego"
+  DS_CENameLen,              "B³¹d odczytu podstawowej nazwy pliku"
+  DS_DataDesc,               "B³¹d odczytu/zapisu danych przestrzeni deskryptora"
+  DS_EOCBadRead,             "B³¹d odczytu koñca katalogu podstawowego (EOC)"
+  DS_EOCBadWrite,            "B³¹d zapisu koñca katalogu podstawowego"
+  DS_ErrorUnknown,           "Nieznany b³¹d w funkcji ReadSpan() lub WriteSpan()"
+  DS_FailedSeek,             "B³¹d przeszukiwania w pliku wyjœciowym"
+  DS_FileOpen,               "Nie uda³o siê otworzyæ archiwum Zip"
+  DS_LOHBadRead,             "B³¹d odczytu nag³ówka lokalnego"
+  DS_LOHBadWrite,            "B³¹d zapisu nag³ówka lokalnego"
+  DS_NoMem,                  "Brakuje pamiêci, aby pokazaæ okienko informacyjne"
+  DS_NoOutFile,              "Utworzenie pliku docelowego nie powiod³o siê"
+  DS_NoTempFile,             "Nie uda³o siê utworzyæ pliku tymczasowego"
+  DS_NoVolume,               "Nie uda³o siê nadaæ etykiety dysku"
+  DS_NoWrite,                "B³¹d zapisu w pliku docelowym"
+  GE_FatalZip,               "B³¹d krytyczny w DelZip179.DLL: wyj¹tek przerywaj¹cy"
+  GE_NoMem,                  "Wymagana pamiêæ nie jest dostêpna"
+  LI_ErrorUnknown,           "Nieznany b³¹d w funkcji List()"
+  LI_ReadZipError,           "B³¹d przeszukiwania archiwum Zip!"
+  DT_Language,               "PL: Polish"
+}

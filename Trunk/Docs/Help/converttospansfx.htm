@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            ConvertToSpanSFX method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="ConvertToSFX;ConvertToSpanSFX;ConvertToSpanSFX,TZipMaster;TZipMaster,ConvertToSpanSFX;">
+        <meta name="revised" content="2012-01-12">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="converttosfx.htm">Previous</a></li>
+                <li><a href="converttozip.htm">Next</a></li>
+            </ul>
+            <h1>
+                ConvertToSpanSFX method
+            </h1>
+            <ul class="also-links">
+                <li><a href="working_with_sfx.htm">Working with SFX</a></li>
+                <li><a href="sfxcaption_property.htm">SFXCaption</a></li>
+                <li><a href="sfxcommandline_property.htm">SFXCommandLine</a></li>
+                <li><a href="sfxdefaultdir_property.htm">SFXDefaultDir</a></li>
+                <li><a href="sfxicon_property.htm">SFXIcon</a></li>
+                <li><a href="sfxmessage_property.htm">SFXMessage</a></li>
+                <li><a href="sfxoptions_property.htm">SFXOptions</a></li>
+                <li><a href="sfxoverwritemode_property.htm">SFXOverwriteMode</a></li>
+                <li><a href="sfxpath_property.htm">SFXPath</a></li>
+                <li><a href="sfxregfailpath_property.htm">SFXRegFailPath</a></li>
+                <li><a href="sfx_stub.htm">SFXStub</a></li>
+                <li><a href="converttosfx.htm">ConvertToSFX</a></li>
+            </ul>
+        </div>
+        <dl class="f">
+            <dt class="ft">Applies to</dt>
+            <dd class="fd">
+                <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+            </dd>
+            <dt class="ft">Declaration</dt>
+            <dd class="fd">
+                <p class="f-decl">
+                    <b>function</b> ConvertToSpanSFX(<b>const</b> OutFile: <b>String</b>): Integer;
+                </p>
+            </dd>
+            <dt class="ft">Returns</dt>
+            <dd class="fd">
+                <p class="f-p">Returns 0 on success otherwise an <a href="errors_and_messages.htm">Error Code</a>.</p>
+            </dd>
+            <dt class="ft">Description</dt>
+            <dd class="fd">
+                <p class="f-p">
+                    Convert Zip archive to self-extracting .EXE with a detached header (loader) and convert the zip file to a spanned zip.
+                </p>
+                <p class="f-p">
+                    OutFile is the name of the resulting .EXE file and the base name for the spanned volumes.
+                </p>
+                <p class="f-p">
+                    This function returns 0 on success or a negative error value on failure <a href="errors_and_messages.htm">Error Code</a>.
+                </p>
+                <p class="tight">
+                    <span class="important">IMPORTANT:</span> Before using ConvertSFX, you may want to first set
+                </p>
+                <ul class="clean">
+                    <li><a href="sfxcaption_property.htm">SFXCaption</a></li>
+                    <li><a href="sfxcommandline_property.htm">SFXCommandLine</a></li>
+                    <li><a href="sfxdefaultdir_property.htm">SFXDefaultDir</a></li>
+                    <li><a href="sfxicon_property.htm">SFXIcon</a></li>
+                    <li><a href="sfxmessage_property.htm">SFXMessage</a></li>
+                    <li><a href="sfxoptions_property.htm">SFXOptions</a></li>
+                    <li><a href="sfxoverwritemode_property.htm">SFXOverwriteMode</a></li>
+                    <li><a href="sfxregfailpath_property.htm">SFXRegFailPath</a></li>
+                    <li>
+                    <p class="f-p"><a href="sfxpath_property.htm">SFXPath</a> property to the full pathname of the <a href="sfx_stub.htm">SFX stub</a>.<br>
+                     If you don&#39;t set this property, ZipMaster will automatically look for this file in the Current directory, the application directory, the Windows System and Windows directories and if present the directory specified by the <a href="dlldirectory_property.htm">DLLDirectory</a> property.
+                     </p>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+        <div class="foot">2012-01-12 10:51</div>
+    </body>
+</html>

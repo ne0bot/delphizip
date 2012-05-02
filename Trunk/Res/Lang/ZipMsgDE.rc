@@ -1,0 +1,114 @@
+// DE: German
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 7, 1 // 0x0407
+{
+  DS_Canceled,               "Abbruch der Operation durch den Benutzer"
+  DS_CopyCentral,            "Central Directory"
+  LD_DllLoaded,              "%s geladen"
+  AD_NothingToZip,           "Fehler - keine Dateien zu packen!"
+  DL_NothingToDel,           "Fehler - keine Dateien zum Löschen angegeben!"
+  DS_NoDiskSpan,             "Keine Unterstützung für geteilte Archive"
+  LD_BadDll,                 "Es wurde versucht, eine alte %s zu laden von "
+  LD_NoDll,                  "%s nicht gefunden!"
+  LI_WrongZipStruct,         "Warnung - Fehler in Archiv-Struktur!"
+  PW_UnatAddPWMiss,          "Fehler - kein Passwort zum Hinzufügen angegeben!"
+  PW_UnatExtPWMiss,          "Fehler - kein Passwort zum Entpacken angegeben!"
+  CF_OverwriteYN,            "Datei '%s' in '%s' überschreiben?"
+  DS_AskDeleteFile,          "Die Datei %s existiert bereits\nSoll die bestehende Datei überschrieben werden?"
+  DS_AskPrevFile,            "ACHTUNG: Diese Diskette wird bereits benutzt ( Nr. %d ) !!!\nWollen Sie die Daten wirklich überschreiben?"
+  DS_InDrive,                "\nin Laufwerk: %s"
+  DS_InsertAVolume,          "Legen Sie bitte die %.1d Diskette ein"
+  DS_InsertDisk,             "Bitte legen Sie die letzte Diskette ein"
+  DS_InsertVolume,           "Bitte legen Sie Diskette %.1d von %.1d ein"
+  PW_Caption,                "Passwort"
+  PW_MessageConfirm,         "Bestätigen Sie das Passwort:"
+  PW_MessageEnter,           "Geben Sie bitte das Passwort ein:"
+  ZB_OK,                     "&OK"
+  ZB_Cancel,                 "&Abbrechen"
+  ZB_Abort,                  "Abbrechen"
+  ZB_CancelAll,              "Alles abbrechen"
+  AD_InIsOutStream,          "Der Eingangsstream kann/darf nicht auf den Ausgangsstream gesetzt werden"
+  AD_InvalidName,            "Platzhalter (* und ?) sind bei den Dateinamen nicht zulässig"
+  AD_UnattPassword,          "Automatische Ausführung ohne Passwort ist nicht möglich!"
+  CF_SourceIsDest,           "Quell- und Ziel-Archiv sind identisch!"
+  CZ_InputNotExe,            "Fehler - gelesene Datei ist keine .EXE-Datei!"
+  DS_CEHWrongSig,            "Fehlerhafte Signatur eines zentralen Headers"
+  DS_DriveNoMount,           "Laufwerk %s ist nicht verfügbar"
+  DS_NoDiskSpace,            "Auf dem Datenträger ist nicht genügend Speicherplatz verfügbar"
+  DS_NoInFile,               "Zu lesende Datei nicht gefunden"
+  DS_NotaDrive,              "Unbekanntes Laufwerk: %s"
+  DS_NoUnattSpan,            "Unbeaufsichtigtes Verteilen auf mehrere Datenträger ist nicht implementiert"
+  DS_NoValidZip,             "Dieses (SFX-) Archiv ist keine gültige ZIP-Datei"
+  EX_UnAttPassword,          "Warnung - Automatisches Entpacken : Möglicherweise wurden nicht alle Dateien entpackt!"
+  GE_NoZipSpecified,         "Fehler - keine Archivdatei angegeben!"
+  GE_WrongPassword,          "Fehler - falsches Passwort\nPasswort ignoriert!"
+  SF_NoZipSFXBin,            "Fehler - %s nicht gefunden!"
+  SF_StringTooLong,          "Fehler - die Gesamtlänge der drei Texte ist größer als 245 Zeichen!"
+  AD_AutoSFXWrong,           "Beim Erstellen des SFX-Archivs trat der Fehler %.1d auf!"
+  CF_CopyFailed,             "Fehler beim Kopieren von '%s' nach '%s'!"
+  CF_SFXCopyError,           "Fehler beim Kopieren der SFX-Daten!"
+  DS_CECommentLen,           "Fehler beim Lesen eines Dateikommentars"
+  DS_CEHBadRead,             "Fehler beim Lesen eines zentralen Headers"
+  DS_CEHBadWrite,            "Fehler beim Schreiben eines zentralen Headers"
+  DS_CENameLen,              "Fehler beim Lesen eines zentralen Dateinamens"
+  DS_DataDesc,               "Fehler beim Lesen/Schreiben eines Datenbeschreibungs-Bereiches"
+  DS_EOCBadRead,             "Fehler beim Lesen der EOC-Struktur"
+  DS_EOCBadWrite,            "Fehler beim Schreiben des End Of Central Directory"
+  DS_ErrorUnknown,           "Unbekannter Fehler in Funktion ReadSpan() oder WriteSpan()"
+  DS_FailedSeek,             "Suchfehler in Eingabedatei"
+  DS_FileOpen,               "Archivdatei kann nicht geöffnet werden"
+  DS_LOHBadRead,             "Fehler beim Lesen eines lokalen Headers"
+  DS_LOHBadWrite,            "Fehler beim Schreiben eines lokalen Headers"
+  DS_NoMem,                  "Nicht genügend Speicher zum Anzeigen der Meldung verfügbar"
+  DS_NoOutFile,              "Kann Ausgabedatei nicht erzeugen"
+  DS_NoTempFile,             "Kann keine temporäre Datei anlegen"
+  DS_NoVolume,               "Das Volume Label ( Laufwerksbezeichnung ) konnte nicht geändert werden"
+  DS_NoWrite,                "Schreibfehler in Ausgabedatei"
+  GE_FatalZip,               "Fataler Fehler in DelZip179.DLL: Aktion abgebrochen!"
+  GE_NoMem,                  "Angeforderter Speicher konnte nicht reserviert werden!"
+  LI_ErrorUnknown,           "Unbekannter Fehler in List()-Funktion!"
+  LI_ReadZipError,           "Suchfehler beim Lesen des Archivs!"
+  DT_Language,               "DE: German"
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta name="generator" content=
+    "HTML-Kit Tools HTML Tidy plugin">
+    <meta http-equiv="content-type" content=
+    "text/html; charset=us-ascii">
+    <title>
+      Filespec Switches
+    </title>
+    <link rel="stylesheet" type="text/css" href="zmhelp.css">
+    <meta name="keywords" content="switches;filespecs;">
+    <meta name="revised" content="2012-01-17">
+    <meta name="copyright" content=
+    "Copyright &copy; DelphiZip 2009,2010,2011,2012">
+    <meta name="author" content="Russell Peters">
+  </head>
+  <body>
+    <div class="heading">
+      <ul class="nav-links">
+        <li>
+          <a href="cnt.htm" target="cnt">Contents</a>
+        </li>
+        <li>
+          <a href="idx.htm" target="cnt">Index</a>
+        </li>
+      </ul>
+      <h1>
+        Filespec Switches
+      </h1>
+    </div>
+    <div class="content">
+      <p class="f-p">
+        &nbsp; optional arguments between []
+      </p>
+      <p class="f-p">
+        &nbsp; MUST BE in specified order
+      </p>
+      <h3 class="nobottom">
+        Add and extract
+      </h3>
+      <p>
+        &nbsp; [<b>|</b> <i>OR</i> <b>&gt;</b>] <b>filespec</b> [
+        <b>/switch</b> [ <b>/switch</b> ...]] [<b>&lt;password</b>]
+      </p>
+      <ul class="clean">
+        <li>|&nbsp; stops recursing folders <span class="note">*add
+        only</span>
+        </li>
+        <li>&gt; forces recursion <span class="note">*add
+        only</span>
+        </li>
+      </ul>
+      <p>
+        <b>filespec</b> the required filename
+      </p>
+      <p class="nobottom">
+        <b>/<i>switch</i></b> optional switch of form /char=value
+        (note / must follow space)
+      </p>
+      <ul class="clean">
+        <li class="notop">
+          <b>c:</b> set compression (0..9) <span class="note">*add
+          only</span>
+        </li>
+        <li class="nobottom">
+          <b>e:</b> <i>excludes</i> _ override exclude specs
+          <span class="note">*add only</span>
+          <ul class="clean">
+            <li>if <i>excludes</i> begins with | they are
+            additional to global excludes
+            </li>
+            <li>if <i>excludes</i> is empty (/e:) no excludes are
+            used
+            </li>
+            <li>
+              <i>excludes</i> have the form&nbsp; filespec [|
+              filespec [| filepec] ...]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>f:</b> folder _ use new add root or extract base
+        </li>
+        <li>
+          <b>s</b> force recursion <span class="note">*add
+          only</span>
+        </li>
+        <li>
+          <b>s-</b> stops recursion <span class="note">*add
+          only</span>
+        </li>
+        <li>
+          <b>&lt;<i>password</i></b> encrypt with password [between
+          <b>&lt;</b> and end of line so must be last on line]
+        </li>
+      </ul>
+      <!-- <p><i>Excludes</i> have the form&nbsp; filespec [| filespec [| filepec] ...]</p>-->
+      <p class="nobottom">
+        It is also possible to override the AddRecurseDirs option
+        of the <a href="sfxdefaultdir_property.htm">AddOptions</a>
+        property by adding special characters at the beginning of
+        any entry:
+      </p>
+      <ul class="clean">
+        <li>|&nbsp; stops recursing folders <span class="note">*add
+        only</span>
+        </li>
+        <li>&gt; forces recursion <span class="note">*add
+        only</span>
+        </li>
+      </ul>
+      <p class="notop">
+        NOTE: This is <b>only</b> possible while Adding to a zip
+        archive, When using Extract, Delete or CopyZippedFiles
+        <b>never</b> use this!!!
+      </p>
+      <p>
+        Further it is possible to override the default password by
+        appending the file specification with a '&lt;' and then the
+        new password or leave it empty to cancel an existing
+        password temporarily as set in the <a href=
+        "encoding_cp_property.htm">Password</a> property.
+      </p>
+      <p>
+        NOTE: This is <b>only</b> possible while Adding to or
+        Extracting from a zip archive, When using Delete or
+        CopyZippedFiles <b>never</b> use this!!!
+      </p>
+      <h3 class="nobottom">
+        Merge
+      </h3>
+      <p>
+        [<b>zipname</b>] [&gt;&gt;<b>spec</b>] [[ /<b>switch</b>]
+        ...]
+      </p>
+      <div style="margin-left:30pt">
+        <table border="0" cellpadding="0" cellspacing="0" summary=
+        "switches table">
+          <!-- <tr>
+            <td width="120">
+              |
+            </td>
+            <td>
+              stops recursing folders
+            </td>
+            <td>
+              <font color="#808000">*add only</font>
+            </td>
+          </tr> -->
+          <!-- <tr>
+            <td>
+              &gt;
+            </td>
+            <td>
+              forces recursion
+            </td>
+            <td>
+              <font color="#808000">*add only</font>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              filespec
+            </td>
+            <td>
+              the required filename
+            </td>
+          </tr> -->
+          <tr>
+            <td width="120">
+              zipname
+            </td>
+            <td>
+              a source zip filename
+            </td>
+          </tr>
+          <tr>
+            <td>
+              &gt;&gt;spec
+            </td>
+            <td>
+              before any source zip is specified sets the default
+              select spec
+            </td>
+          </tr>
+          <tr>
+            <td>
+              &gt;&gt;spec
+            </td>
+            <td>
+              select files in current zip according to spec
+            </td>
+          </tr>
+          <tr>
+            <td>
+              &nbsp;/switch
+            </td>
+            <td>
+              optional switch of form /char:value (note / must
+              follow space)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              /char can be lower case or uppercase
+            </td>
+          </tr>
+         <!--  <tr>
+            <td>
+              C:n
+            </td>
+            <td>
+              set compression to n (0..9)
+            </td>
+            <td>
+              <font color="#808000">*add only</font>
+            </td>
+          </tr> -->
+          <tr>
+            <td>
+              E:[|][spec[|spec]...]
+            </td>
+            <td>
+              excludes _ override exclude specs
+            </td>
+          </tr>
+          <tr>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              if value begins with | they are additional to global
+              excludes otherwise use spec,
+            </td>
+          </tr>
+          <tr>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              changes to excludes occur at current line and
+              continue until changed,
+            </td>
+          </tr>
+          <tr>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              does not change already included files.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              when used on same line as '&gt;&gt;' it only applies
+              to that line and modifies the 'current' excludes.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              F:
+            </td>
+            <td>
+              folder _ use new add root or extract base
+            </td>
+          </tr>
+          <tr>
+            <td>
+              N[+ or -]
+            </td>
+            <td>
+              no rename with AddNewName (default +)
+            </td>
+          </tr>
+          <!-- <tr>
+            <td>
+              S[+ or -]
+            </td>
+            <td>
+              force/stops recursion(default+)
+            </td>
+            <td>
+              <font color="#808000">*add only</font>
+            </td>
+          </tr> -->
+          <tr>
+            <td>
+              X:[old]::[new]
+            </td>
+            <td>
+              translate old to new
+            </td>
+          </tr>
+          <!-- <tr>
+            <td>
+              &lt;password
+            </td>
+            <td>
+              encrypt with password [between &lt; and end of line]
+            </td>
+          </tr> -->
+        </table><!-- <br> -->
+      </div>
+    </div>
+    <div class="foot">
+      2012-01-17 11:28
+    </div>
+  </body>
+</html>

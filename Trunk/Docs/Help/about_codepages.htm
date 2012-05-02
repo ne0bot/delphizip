@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>
+            About Codepages
+        </title>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" >
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="Codepages;" >
+        <meta name="revised" content="2012-01-01" >
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012" >
+        <meta name="author" content="Russell Peters" >
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+            </ul>
+            <h1>
+                General Info About Codepages
+            </h1>
+        </div>
+        <p>
+            Codepages are basically just a character sets. A standard MS-DOS character set used codepage 850, which is called the &quot;OEM&quot; codepage. Windows 3.1 used this codepage also. Most Windows 95 and Windows NT systems use codepage 1252, which is for America and Western Europe. This one is called &quot;ISO 8859-1, Latin 1&quot;, which I will call &quot;ISO&quot;. There are other OEM and ISO codepages, but I want to limit this discussion to the 850 and 1252 codepages.
+        </p>
+        <hr>
+        <p>
+            Both the ISO and OEM codepages support the common accented characters used in Western Europe. However, the exact codes used for specific characters are different. Each of these also has some unique characters in the range $80 - $FF. We would like to be able to convert the accented character codes in the filenames when we extract them from a zip file.
+        </p>
+        <p>
+            In these two codepages, ISO and OEM, the bottom 128 codes are the same. Only the upper 128 codes are different. These upper codes are used for accented characters. Most ZIP files use only the lower 128 codes in their filenames, so the codepage used is irrelevant. It is only important when the non-English accented characters (or other upper codes) are used in filenames.&nbsp;
+        </p>
+        <p>
+            Each zip file header includes an indicator of which Operating System (OS) was used when it was created. We assume that the current OS is Win 95/98/NT using codepage 1252. If the zip file layout is based on codepage 850 ( i.e. was made on MS-DOS or Win 3.1 or made by WinZip ), then we can translate it so the extracted filenames will appear correctly. Note that this conversion can not be 100% accurate because each of these character sets has some unique symbols.
+        </p>
+        <p>
+            This is not an ideal world, though, and many zip files do not correctly identify which OS was used to make them. And, even if we know the OS it was made on, they may not have used codepage 850, and we may not be using codepage 1252 right now! So, I allow 3 different settings of the CodePage property so you can have full control over conversions.
+        </p>
+        <p>
+            In this release, you do not have the ability to convert text files made with one codepage to another codepage. At this time only&nbsp; filenames and zip file comments can be converted.
+        </p>
+        <p>
+            What about the other codepages: Korean, Japanese, Hebrew, etc? I don&#39;t know any way of translating those codes to codepage 1252, because most of their characters do not exist in codepage 1252. However, if you are using the Korean codepage, and the people you give your zip files to are also using the Korean codepage, then no translation is necessary! If you want to make a zip file for use by people in other countries, then you should make it using codepage 1252.
+        </p>
+        <div class="foot">2012-01-03 10:26</div>
+    </body>
+</html>

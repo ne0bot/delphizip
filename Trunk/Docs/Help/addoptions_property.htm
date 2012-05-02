@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta name="generator" content=
+    "HTML-Kit Tools HTML Tidy plugin">
+    <title>
+      AddOptions property
+    </title>
+    <meta http-equiv="content-type" content=
+    "text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="zmhelp.css">
+    <meta name="keywords" content=
+    "AddOptions;AddOptions,TZipMaster;TZipMaster,AddOptions;">
+    <meta name="revised" content="2012-01-03">
+    <meta name="copyright" content=
+    "Copyright &copy; DelphiZip 2009,2010,2011,2012">
+    <meta name="author" content="Russell Peters">
+  </head>
+  <body>
+    <div class="heading">
+      <ul class="nav-links">
+        <li>
+          <a href="cnt.htm" target="cnt">Contents</a>
+        </li>
+        <li>
+          <a href="idx.htm" target="cnt">Index</a>
+        </li>
+        <li>
+          <a href="addfrom_property.htm">Previous</a>
+        </li>
+        <li>
+          <a href="addstoresuffixes_property.htm">Next</a>
+        </li>
+      </ul>
+      <h1>
+        AddOptions property
+      </h1>
+    </div>
+    <dl class="f">
+      <dt class="ft">
+        Applies to
+      </dt>
+      <dd class="fd">
+        <p class="f-applies">
+          <a href="tzipmaster_component.htm">TZipMaster</a>
+          component
+        </p>
+      </dd>
+      <dt class="ft">
+        Declaration
+      </dt>
+      <dd class="fd">
+        <p class="f-decl">
+          <b>property</b> AddOptions: <a url="#tzmaddopts">TZMAddOpts</a>;
+        </p>
+		<p class="f-decl">
+			<b>type</b><br>&nbsp; <a name="tzmaddopts">TZMAddOpts</a> = <b>set</b> <b>of</b> <a url="#tzmaddoptsenum">TZMAddOptsEnum</a>;
+		</p>
+		<p class="f-decl">
+			<b>type</b><br>&nbsp; <a name="tzmaddoptsenum">TZMAddOptsEnum</a> = (AddDirNames, AddRecurseDirs, AddMove, AddFreshen, AddUpdate, AddHiddenFiles, AddArchiveOnly, AddResetArchive, AddEncrypt, AddEmptyDirs, AddVolume, AddFromDate, AddSafe, AddVersion, AddNTFS);
+		</p>
+      </dd>
+      <dt class="ft">
+        Description
+      </dt>
+      <dd class="fd">
+        <p class="f-p">
+          This property is used to modify the default action of the
+          <a href="add.htm">Add</a> method. If you want an option
+          to be <b>True</b>, you need to add it to the Set.
+        </p>
+        <p class="f-p">
+          Example: <span class=
+          "pas-source">ZipMaster1.AddOptions:=[AddDirNames,AddRecurseDirs];</span>
+        </p>
+        <dl class="f">
+          <dt class="ft">            
+            <a name="adddirnames">AddDirNames</a>
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, saves the pathname with each
+              filename. Drive ID's are never stored in Zip file
+              directories.
+            </p>
+            <p class="tight">
+              If <a href="#addemptydirs">AddEmptyDirs</a>
+              or <a href="#addntfs">AddNTFS</a> is also
+              true, empty directories are stored.
+            </p>
+            <p class="tight">
+              <span class="note">NOTE:</span> the root directory
+              name is never stored in a pathname; in other words,
+              the first character of a pathname stored in the zip
+              file's directory will never be a slash.
+            </p>
+          </dd>
+          <dt class="ft">
+            AddRecurseDirs
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If True, subdirectories below EACH given file
+              specification will be included in the Zip archive.
+              Defaults to <b>False</b>
+            </p>
+            <p class="tight">
+              <span class="note">NOTE:</span> It is also possible
+              to override this option by setting some special
+              characters at the beginning of a file specification
+              look for this at the <a href=
+              "fspecargs_property.htm">FSpecArgs</a> property.
+            </p>
+            <p class="tight">
+              <span class="warning">WARNING:</span> This is
+              potentially dangerous if the user does this from the
+              root directory. The hard drive may fill up with a
+              huge Zip file!
+            </p>
+          </dd>
+          <dt class="ft">
+            AddMove
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, after adding to archive, delete
+              original file.
+            </p>
+            <p class="tight">
+              <span class="warning">WARNING:</span> This is
+              potentially dangerous. Use with caution!&nbsp;
+            </p>
+          </dd>
+          <dt class="ft">
+            <a name="addfreshen">AddFreshen</a>
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, add newer files to archive (only for
+              files that are already in the archive).
+            </p>
+          </dd>
+          <dt class="ft">
+            <a name="addupdate">AddUpdate</a>
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, add newer files to archive (but, any
+              file in an file specification that isn't already in
+              the archive will also be added).
+            </p>
+            <p class="tight">
+              <span class="note">NOTE:</span> Freshen and Update
+              normally work on pre-existing archives. Freshen can
+              only freshen files in an existing archive
+            </p>
+          </dd>
+          <dt class="ft">
+            AddHiddenFiles
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, files with their Hidden or System
+              attributes set will be included in the Add operation.
+            </p>
+          </dd>
+          <dt class="ft">
+            AddArchiveOnly
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b> then only files with their archive bit
+              set will be added to the zip file.
+            </p>
+            <p class="tight">
+              <span class="note">NOTE:</span> When combined with
+              <a href=
+              "#addfreshen">AddFreshen</a>
+              or <a href=
+              "#addupdate">AddUpdate</a>
+              both conditions must be met i.e. the files to add
+              must be newer also.
+            </p>
+          </dd>
+          <dt class="ft">
+            AddResetArchive
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              Clears the archive bit after a successful Zip Add
+              action. It's not necessary to set AddArchiveOnly too.
+            </p>
+          </dd>
+          <dt class="ft">
+            <a name="addencrypt">AddEncrypt</a>
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, files will encrypted (standard zip
+              encryption)
+            </p>
+          </dd>
+          <dt class="ft">
+            <a name="addemptydirs">AddEmptyDirs</a> (was AddSeparateDirs)
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>TRUE</b> , add separate entries to the zip
+              archive that will hold the name of each directory
+              even if empty (No data is stored for these entries).
+            </p>
+            <p class="tight">
+              <span class="note">NOTE:</span> - These directory
+              entries are required to be able restore NTFS time
+              details see <a href=
+              "#addntfs">AddNTFS</a>.
+            </p>
+            <p class="tight">
+              <span class="note">NOTE:</span> - To use this, you
+              must also have <a href=
+              "#adddirnames">AddDirNames</a>
+              set. <b>Also see</b>: <a href=
+              "usedironlyentries_property.htm">UseDirOnlyEntries</a>
+            </p>
+          </dd>
+          <dt class="ft">
+            AddVolume
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, prefix the volume name
+            </p>
+          </dd>
+          <dt class="ft">
+            AddFromDate
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, only add files modified on or after
+              <a href="addfrom_property.htm">AddFrom</a>
+            </p>
+          </dd>
+          <dt class="ft">
+            AddSafe
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, forces using a temporary file before
+              replacing the original.
+            </p>
+          </dd>
+          <dt class="ft">
+            <a name="addversion">AddVersion</a>
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, renames the existing file instead of
+              deleting it
+            </p>
+          </dd>
+          <dt class="ft">
+            <a name="addntfs">AddNTFS</a>
+          </dt>
+          <dd class="fd">
+            <p class="tight">
+              If <b>True</b>, saves the NTFS time stamps
+            </p>
+            <p class="tight">
+              <span class="note">NOTE:</span> - This sets <a href=
+              "#addemptydirs">AddEmptyDirs</a>.
+            </p>
+          </dd>
+        </dl>
+      </dd>
+    </dl>
+    <div class="foot">
+      2012-03-15 10:31
+    </div>
+  </body>
+</html>

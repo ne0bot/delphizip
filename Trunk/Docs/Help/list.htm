@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            List method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="List;List,TZipMaster;TZipMaster,List;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="iszipsfx.htm">Previous</a></li>
+                <li><a href="maketempfilename.htm">Next</a></li>
+            </ul>
+            <h1>
+                List method
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> List: Integer;
+                    </p>
+                </dd>
+                <dt class="ft">Results</dt>
+                <dd class="fd">
+                    <ul class="ul-left">
+                        <li>Returns 0 on success otherwise an <a href="errcode_property.htm">ErrCode</a>.</li>
+                        <li>Sets <a href="errcode_property.htm">ErrCode</a> and <a href="errmessage_property.htm">ErrMessage</a></li>
+                    </ul>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        The List method will read the Zip archive and refresh the contents list.
+                    </p>
+                    <p class="f-p">
+                        This is a manual &quot;refresh&quot; of the &quot;Table of Contents&quot;.&nbsp; This occurs automatically whenever a filename is assigned to <a href="zipfilename_property.htm">ZipFileName</a>.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-22 10:39</div>
+    </body>
+</html>

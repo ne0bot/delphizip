@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            ExtErrCode property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="FullErrCode;FullErrCode,TZipMaster;TZipMaster,FullErrCode;">
+        <meta name="revised" content="2012-01-20">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="extaddstoresuffixes_property.htm">Previous</a></li>
+                <li><a href="extrbasedir_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                ExtErrCode property
+            </h1>
+            <ul class="also-links">
+                <li><a href="errcode_property.htm">ErrCode</a></li>
+                <li><a href="errmessage_property.htm">ErrMessage</a></li>
+                <li><a href="errors_and_messages.htm">Errors and Mssages</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> FullErrCode: Cardinal;
+                    </p>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Holds a copy of the last error code sent to your program by the DLL.
+                    </p>
+                    <p class="f-p">
+                        The difference between ErrCode and ExtErrCode is that ErrCode is only the Message identifier whereas ExtErrCode also identifies the unit and approximate line number.
+                    </p>
+                    <p class="f-p">
+                        To interpret this extra information you will have to perform a logical AND and shift as follows.
+                    </p>
+					<dl class="f">
+						<dt class="ft">Dll error code format</dt>
+						<dd class="fd>"
+							<p class="f-p">
+								0FFF FFFF&nbsp; LLLL LLLL&nbsp;&nbsp; LLLL MTTT&nbsp; EEEE EEEE&nbsp; {31 .. 0}
+							</p>
+							<p class="f-p">
+								F = file number (7 bits)
+							</p>
+							<p class="f-p">
+								L = line number (12 bits)
+							</p>
+							<p class="f-p">
+								M = message instead of error string
+							</p>
+							<p class="f-p">
+								T = type (3 bits)
+							</p>
+							<p class="f-p">
+								E = error/string code (8 bits)
+							</p>
+							<p class="f-p">
+								If this property is 0 then there is no error.
+							</p>
+							<p class="f-p">
+								Run-time only
+							</p>
+						</dd>
+						<dt class="ft">Component error code format</dt>
+						<dd class="fd>"
+							<p class="f-p">
+								0uFF FFFF&nbsp; FLLL LLLL&nbsp;&nbsp; LLLL LLuE&nbsp; EEEE EEEE&nbsp; {31 .. 0}
+							</p>
+							<p class="f-p">
+								F = file number (7 bits)
+							</p>
+							<p class="f-p">
+								L = line number (13 bits)
+							</p>
+							<p class="f-p">
+								E = error/string code (9 bits)
+							</p>
+							<p class="f-p">
+								u = unassigned.
+							</p>
+							<p class="f-p">
+								If this property is 0 then there is no error.
+							</p>
+							<p class="f-p">
+								Run-time only
+							</p>
+						</dd>
+					</dl>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-20 09:23</div>
+    </body>
+</html>

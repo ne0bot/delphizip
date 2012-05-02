@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnStatusDisk event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnStatusDisk;OnStatusDisk,TZipMaster;TZipMaster,OnStatusDisk;TZMDiskAction;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="onstatechange_event.htm">Previous</a></li>
+                <li><a href="onstream_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnStatusDisk event
+            </h1>
+            <ul class="also-links">
+                <li><a href="keepfreeondisk1_property.htm">KeepFreeOnDisk1</a></li>
+                <li><a href="maxvolumesize_property.htm">MaxVolumeSize</a></li>
+                <li><a href="minfreevolumesize_property.htm">MinFreeVolumeSize</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> OnStatusDisk: TZMStatusDiskEvent;
+                    </p>  
+                    <p class="f-decl">
+                        <b>Type</b><br>&nbsp; <a name="tzmstatusdiskevent">TZMStatusDiskEvent</a> = <b>Procedure</b>(Sender: TObject; PreviousDisk: Integer; PreviousFile: <b>String</b>; Status: <a href="#tzmzipdiskstatus">TZMZipDiskStatus</a>; <b>var</b> Action: <a href="#tzmdiskaction">TZMDiskAction</a>) <b>of object</b>;
+                    </p>
+					<dl class="f">
+						<dt class="ft-args">Arguments</dt>
+						<dd class="fd">
+							<dl class="notop">
+								<dt class="f-decl">Sender: TObject</dt>
+								<dd>The component firing the event</dd>
+								<dt class="f-decl">PreviousDisk: Integer</dt>
+								<dd>when applicable is the disknumber of the previous disk which could be overwritten</dd>
+								<dt class="f-decl">PreviousFile: String</dt>
+								<dd>the filename of the zip archive.</dd>
+								<dt class="f-decl">Status: TZMZipDiskStatus</dt>
+								<dd>The status</dd>
+								<dt class="f-decl"><b>var</b> Action: TZMDiskAction</dt>
+								<dd>The action to take</dd>
+							</dl>
+						</dd>
+					</dl>
+				</dd>
+				<dd class="fd">
+					<p class="f-decl">
+						<b>type</b><br>&nbsp; <a name="tzmzipdiskstatus">TZMZipDiskStatus</a> = <b>set</b> <b>of</b> <a href="#tzmzipdiskstatusenum">TZMZipDiskStatusEnum</a>;
+					</p>
+					<p class="f-decl">
+						<b>Type</b><br>&nbsp; <a name="tzmzipdiskstatusenum">TZMZipDiskStatusEnum</a> =  = (zdsEmpty, zdsHasFiles, zdsPreviousDisk, zdsSameFileName, zdsNotEnoughSpace);
+					</p>
+					<table border="1" summary="TZMZipDiskStatusEnum">
+						<tr>
+							<th>zdsEmpty</th>
+							<td>The disk is empty and ready to use.</td>
+						</tr>
+						<tr>
+							<th>zdsHasFiles</th>
+							<td>The disk is not empty and contains one or more file(s).</td>
+						</tr>
+						<tr>
+							<th>zdsPreviousDisk</th>
+							<td>It&#39;s possibly a previous disk from the backup set.</td>
+						</tr>
+						<tr>
+							<th>zdsSameFileName</th>
+							<td>The disk contains a file with the same filename as the zip archive.</td>
+						</tr>
+						<tr>
+							<th>zdsNotEnoughSpace</th>
+							<td>There is not enough space on the disk taken into account <a href="keepfreeondisk1_property.htm">KeepFreeOnDisk1</a>, <a href="keepfreeonalldisks_property.htm">MaxVolumeSize</a> and <a href="minfreevolumesize_property.htm">MinFreeVolumeSize</a>.</td>
+						</tr>
+					</table>						
+				</dd>
+				<dd class="fd">
+					<p class="f-decl">
+						<b>Type</b><br>&nbsp; <a name="tzmdiskaction">TZMDiskAction</a> = (zdaYesToAll, zdaOk, zdaErase, zdaReject, zdaCancel);
+					</p>
+					<table border="1" summary="TZMDiskAction">
+						<tr>
+							<th>zdaYesToAll</th>
+							<td>Continue spanning and do not ask again</td>
+						</tr>
+						<tr>
+							<th>zdaOk</th>
+							<td>Continue diskspanning (the default).</td>
+						</tr>
+						<tr>
+							<th>zdaErase</th>
+							<td>Erase the disk first.</td>
+						</tr>
+						<tr>
+							<th>zdaReject</th>
+							<td>Try again.</td>
+						</tr>
+						<tr>
+							<th>zdaCancel</th>
+							<td>Cancel the disk spanning operation.</td>
+						</tr>
+					</table>						
+				</dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+					Allows responding to changes in removeable disk status during a spanned operation.
+				</dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-22 11:32</div>
+    </body>
+</html>

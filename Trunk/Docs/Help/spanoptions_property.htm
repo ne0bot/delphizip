@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>
+            SpanOptions property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="SpanOptions;SpanOptions,TZipMaster;TZipMaster,SpanOptions;">
+        <meta name="revised" content="2012-02-12">
+        <meta name="copyright" content="Copyright &copy; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="sfxregfailpath_property.htm">Previous</a></li>
+                <li><a href="state_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                SpanOptions property
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">
+                    Applies to
+                </dt>
+                <dd class="fd">
+                    <p class="f-applies">
+                        <a href="tzipmaster_component.htm">TZipMaster</a> component
+                    </p>
+                </dd>
+                <dt class="ft">
+                    Declaration
+                </dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> SpanOptions: <a href="#tzmspanopts">TZMSpanOpts</a>;
+                    </p>
+                </dd>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>type</b><br>&nbsp; <a name="tzmspanopts">TZMSpanOpts</a> = <b>set</b> <b>of</b> <a href="#tzmspanoptsenum">TZMSpanOptsEnum</a>;
+                    </p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>type</b><br>&nbsp; <a name="tzmspanoptsenum">TZMSpanOptsEnum</a> = (spNoVolumeName, spCompatName, spWipeFiles, spTryFormat, spAnyTime, spExactName);
+                    </p>
+					<table summary="Span Options" border="1">
+						<tr>
+							<th>spNoVolumeName</th>
+							<td>If <b>True</b> then will use numbered files on removable drives</td>
+						</tr>
+						<tr>
+							<th>spCompatName</th>
+							<td>If <b>True</b> then uses names of the form name.zip + name.z01 ...</td>
+						</tr>
+						<tr>
+							<th>spWipeFiles</th>
+							<td>If <b>True</b>, removes the files from the removable drive before writing.&nbsp; <span class="warning">WARNING:</span> Deletes all files and Directories</td>
+						</tr>
+						<tr>
+							<th>spTryFormat</th>
+							<td>If <b>True</b> and spWipeFiles, try to Format removable disk.&nbsp; <span class="warning">WARNING:</span> Deletes all files and Directories</td>
+						</tr>
+						<tr>
+							<th>spAnyTime</th>
+							<td>If <b>True</b>, it ignores time stamps when locating last part of set (normally time stamps must match)</td>
+						</tr>
+						<tr>
+							<th>spExactName</th>
+							<td>If <b>True</b>, open the specified file instead of the last part</td>
+						</tr>
+					</table>
+                </dd>
+                <dt class="ft">
+                    Description
+                </dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        This property is used to modify the default action of the Disk spanning operations.
+                    </p>
+                    <p class="f-p">
+                        If you want an option to be <b>True</b>, you need to add it to the Set.
+                    </p>
+                <!--    <p class="f-p">
+                        The options (spNoVolumeName, spCompatName) may need to be the same for writing and reading zips
+                    </p> -->
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">
+            2012-02-12 09:52
+        </div>
+    </body>
+</html>

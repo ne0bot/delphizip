@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            TZipMaster component
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="TZipMaster;">
+        <meta name="revised" content="2012-02-27">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+				<li><a href="zipmstr_unit.htm">Previous</a></li>
+				<li><a href="zipmstr_unit.htm">Next</a></li>
+            </ul>
+            <h1>
+                TZipMaster component
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Unit</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="zipmstr_unit.htm">ZipMstr</a></p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="tight"><b>Type</b></p>
+                    <p class="tight">&nbsp;&nbsp;TZipMaster = class</p> 
+                    <p class="tight"><span style="margin-left:2em">public</span></p> 
+					<ul class="ul-plain">
+						<li><img class="bullet" src="WhtBullet.png" alt="public"><span class="pas-comment">// <a name="methods">Methods</a></span>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> procedure <a href="abortdll.htm">AbortDLL</a>;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="add.htm">Add</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="addstreamtofile.htm">AddStreamToFile</a>(const FileName: string;
+      FileDate, FileAttr: Dword): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="addstreamtostream.htm">AddStreamToStream</a>(InStream: TMemoryStream): TMemoryStream;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="addzippedfiles.htm">AddZippedFiles</a>(SrcZipMaster: TCustomZipMaster; merge: TZMMergeOpts):
+        Integer; deprecated;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="appendslash.htm">AppendSlash</a>(const sDir: string): string;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="changefiledetails.htm#tzmchangefunction">ChangeFileDetails</a>(func: TZMChangeFunction; var Data): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> procedure <a href="clear.htm">Clear</a>;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="converttosfx.htm">ConvertToSFX</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="converttospansfx.htm">ConvertToSpanSFX</a>(const OutFile: string): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="converttozip.htm">ConvertToZIP</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="copyzippedfiles.htm">CopyZippedFiles</a>;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="copy_file.htm">Copy_File</a>;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="deflate.htm">Deflate</a>;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="delete.htm">Delete</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="erasefile.htm">EraseFile</a>(const FName: string; How: TZMDeleteOpts): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="extract.htm">Extract</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="extractfiletostream.htm">ExtractFileToStream</a>(const FileName: string): TMemoryStream;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="extractstreamtostream.htm">ExtractStreamToStream</a>(InStream: TMemoryStream; OutSize: Longword)
+      : TMemoryStream;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="find.htm">Find</a>(const fspec: TZMString; var idx: Integer): TZMDirEntry;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="foreach.htm">ForEach</a>(func: TZMForEachFunction; var Data): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="fullversionstring.htm">FullVersionString</a>: string;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="getaddpassword.htm">GetAddPassword</a>: string; overload;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="getaddpassword.htm">GetAddPassword</a>(var Response: TMsgDlgBtn): string; overload;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="getenumerator.htm">GetEnumerator</a>: TZipMasterEnumerator;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="getextrpassword.htm">GetExtrPassword</a>: string; overload;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="getextrpassword.htm">GetExtrPassword</a>(var Response: TMsgDlgBtn): string; overload;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="getpassword.htm">GetPassword</a>(const DialogCaption, MsgTxt: string;
+      pwb: TMsgDlgButtons; var ResultStr: string): TMsgDlgBtn;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="indexof.htm">IndexOf</a>(const FName: TZMString): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="iszipsfx.htm">IsZipSFX</a>(const SFXExeName: string): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="list.htm">List</a>: Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="maketempfilename.htm">MakeTempFileName</a>(const Prefix, Extension: string): string;</li>  
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="mergezippedfiles.htm">MergeZippedFiles</a>(Opts: TZMMergeOpts): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="queryzip.htm">QueryZip</a>(const FName: TFileName): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="readspan.htm">ReadSpan</a>(const InFileName: string;
+      var OutFilePath: string): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="rename.htm">Rename</a>(RenameList: TList; DateTime: Integer;
+      How: TZMRenameOpts = htrDefault): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> procedure <a href="showexceptionerror.htm">ShowExceptionError</a>(const ZMExcept: Exception);</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> procedure <a href="showzipfmtmessage.htm">ShowZipFmtMessage</a>(id: Integer; const Args: array of const;
+      display: boolean);</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> procedure <a href="showzipmessage.htm">ShowZipMessage</a>(Ident: Integer; const UserStr: string);</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="undeflate.htm">Undeflate</a>(OutStream, InStream: TStream; Length: Int64;
+      var Method: TZMDeflates; var CRC: Cardinal): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="writespan.htm">WriteSpan</a>(const InFileName, OutFileName: string): Integer;</li>
+						<li><img class="bullet" src="WhtBullet.png" alt="public"> function <a href="ziploadstr.htm">ZipLoadStr</a>(id: Integer): string;</li>
+					</ul>
+            <ul class="cleantight">
+				<li><img class="bullet" src="WhtBullet.png" alt="public"><span class="pas-comment">// <a name="properties">Properties</a></span>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="active_property.htm">Active</a>: boolean;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="addcomplevel_property.htm">AddCompLevel</a>: Integer;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="addfrom_property.htm">AddFrom</a>: TDateTime;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="addoptions_property.htm">AddOptions</a>: TZMAddOpts;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="addstoresuffixes_property.htm">AddStoreSuffixes</a>: TZMAddStoreExts;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="build_property.htm">Build</a>: Integer;</li>
+                <li><img class="bullet" src="WhtBullet.png" alt="public"> property <a href="cancel_property.htm">Cancel</a>: boolean;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="confirmerase_property.htm">ConfirmErase</a>: boolean;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="count_property.htm">Count</a>: Integer;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="direntry_property.htm">DirEntry</a>: TZMDirEntry;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="dironlycnt_property.htm">DirOnlyCnt</a>: Integer;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="dll_build_property.htm">DLL_Build</a>: Integer;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="dll_load_property.htm">DLL_Load</a>: boolean;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="dll_path_property.htm">DLL_Path</a>: string;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="dll_version_property.htm">DLL_Version</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="dlldirectory_property.htm">DLLDirectory</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="encodeas_property.htm">EncodeAs</a>: TZMEncodingOpts;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="encoding_property.htm">Encoding</a>: TZMEncodingOpts;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="encoding_cp_property.htm">Encoding_CP</a>: cardinal;</li>
+                <li><img class="bullet" src="WhtBullet.png" alt="public"> property <a href="errcode_property.htm">ErrCode</a>: Integer;</li>
+                <li><img class="bullet" src="WhtBullet.png" alt="public"> property <a href="errmessage_property.htm">ErrMessage</a>: TZMString;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="extaddstoresuffixes_property.htm">ExtAddStoreSuffixes</a>: string;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="exterrcode_property.htm">ExtErrCode</a>: cardinal;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="extrbasedir_property.htm">ExtrBaseDir</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="extroptions_property.htm">ExtrOptions</a>: TZMExtrOpts;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="fspecargs_property.htm">FSpecArgs</a>: TStrings</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="fspecargsexcl_property.htm">FSpecArgsExcl</a>: TStrings;</li>
+                <li><img class="bullet" src="WhtBullet.png" alt="public"> property <a href="handle_property.htm">Handle</a>: HWND;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="howtodelete_property.htm">HowToDelete</a>: TZMDeleteOpts;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="isspanned_property.htm">IsSpanned</a>: boolean;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="keepfreeonalldisks_property.htm">KeepFreeOnAllDisks</a>: Cardinal;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="keepfreeondisk1_property.htm">KeepFreeOnDisk1</a>: Cardinal;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="language_property.htm">Language</a>: string;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="languageinfo_property.htm">LanguageInfo</a>[idx: Integer; info: Cardinal]: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="maxvolumesize_property.htm">MaxVolumeSize</a>: Int64;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="maxvolumesizekb_property.htm">MaxVolumeSizeKb</a>: cardinal;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="minfreevolumesize_property.htm">MinFreeVolumeSize</a>: cardinal;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="noskipping_property.htm">NoSkipping</a>: TZMSkipAborts;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="noreadaux_property.htm">NoReadAux</a>: Boolean;</li>
+                <li><img class="bullet" src="WhtBullet.png" alt="public"> property <a href="notmainthread_property.htm">NotMainThread</a>: boolean;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="password_property.htm">Password</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="passwordreqcount_property.htm">PasswordReqCount</a>: LongWord;</li>
+                <li><img class="bullet" src="WhtBullet.png" alt="public"> property <a href="pipes_property.htm">Pipes</a>: TZMPipeList;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="rootdir_property.htm">RootDir</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="sfxcaption_property.htm">SFXCaption</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="sfxcommandline_property.htm">SFXCommandLine</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="sfxdefaultdir_property.htm">SFXDefaultDir</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="sfxicon_property.htm">SFXIcon</a>: TIcon;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="sfxmessage_property.htm">SFXMessage</a>: string;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="sfxoffset_property.htm">SFXOffset</a>: Integer;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="sfxoptions_property.htm">SFXOptions</a>: TZMSFXOpts;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="sfxoverwritemode_property.htm">SFXOverwriteMode</a>: TZMOvrOpts;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="sfxpath_property.htm">SFXPath</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="sfxregfailpath_property.htm">SFXRegFailPath</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="spanoptions_property.htm">SpanOptions</a>: TZMSpanOpts;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="state_property.htm">State</a>: boolean;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="successcnt_property.htm">SuccessCnt</a>: Integer;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="tempdir_property.htm">TempDir</a>: string;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="totalsizetoprocess_property.htm">TotalSizeToProcess</a>: Int64;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="trace_property.htm">Trace</a>: boolean;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="unattended_property.htm">Unattended</a>: boolean;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="usedironlyentries_property.htm">UseDirOnlyEntries</a>: boolean;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="useutf8_property.htm">UseUTF8</a>: boolean;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="verbose_property.htm">Verbose</a>: boolean;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="version_property.htm">Version</a>: string;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="writeoptions_property.htm">WriteOptions</a>: TZMWriteOpts;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="zipcomment_property.htm">ZipComment</a>: AnsiString;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="zipeoc_property.htm">ZipEOC</a>: Int64;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="zipfilename_property.htm">ZipFileName</a>: string;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="zipfilesize_property.htm">ZipFileSize</a>: Int64;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="zipsoc_property.htm">ZipSOC</a>: Int64;</li>
+                <li><img class="bullet" src="BluBullet.png" alt="read only"> property <a href="zipstream_property.htm">ZipStream</a>: TMemoryStream;</li>
+            </ul>
+            <ul class="cleantight">
+				<li><img class="bullet" src="WhtBullet.png" alt="public"><span class="pas-comment">// <a name="events">Events</a></span>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="ondirupdate_event.htm">OnDirUpdate</a>: TNotifyEvent;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="oncheckterminate_event.htm">OnCheckTerminate</a>: <a href="oncheckterminate_event.htm#tzmcheckterminateevent">TZMCheckTerminateEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="oncopyzippedoverwrite_event.htm">OnCopyZippedOverwrite</a>: <a href="oncopyzippedoverwrite_event.htm#tzmcopyzippedoverwriteevent">TZMCopyZippedOverwriteEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="oncrc32error_event.htm">OnCRC32Error</a>: <a href="oncrc32error_event.htm#tzmcrc32errorevent">TZMCRC32ErrorEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onextractoverwrite_event.htm">OnExtractOverwrite</a>: <a href="onextractoverwrite_event.htm#tzmextractoverwriteevent">TZMExtractOverwriteEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onfilecomment_event.htm">OnFileComment</a>:  <a href="onfilecomment_event.htm#tzmfilecommentevent">TZMFileCommentEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onfileextra_event.htm">OnFileExtra</a>: <a href="onfileextra_event.htm#tzmfileextraevent">TZMFileExtraEvent</a></li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="ongetnextdisk_event.htm">OnGetNextDisk</a>: <a href="ongetnextdisk_event.htm#tzmgetnextdiskevent">TZMGetNextDiskEvent</a></li>   
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onloadstr_event.htm">OnLoadStr</a>: <a href="onloadstr_event.htm#tzmloadstrevent">TZMLoadStrEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onmergezippedconflict_event.htm">OnMergeZippedConflict</a>: <a href="onmergezippedconflict_event.htm#tzmmergezippedconflictevent">TZMMergeZippedConflictEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onmessage_event.htm">OnMessage</a>: <a href="onmessage_event.htm#tzmmessageevent">TZMMessageEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onnewname_event.htm">OnNewName</a>: <a href="onnewname_event.htm#tzmnewnameevent">TZMNewNameEvent</a></li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onpassworderror_event.htm">OnPasswordError</a>: <a href="onpassworderror_event.htm#tzmpassworderrorevent">TZMPasswordErrorEvent</a></li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onprogress_event.htm">OnProgress</a>: <a href="onprogress_event.htm#tzmprogressevent">TZMProgressEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onsetaddname_event.htm">OnSetAddName</a>: <a href="onsetaddname_event.htm#tzmsetaddnameevent">TZMSetAddNameEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onsetcomplevel_event.htm">OnSetCompLevel</a> <a href="onsetcomplevel_event.htm#tzmsetcomplevel">TZMSetCompLevel</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onsetextname_event.htm">OnSetExtName</a>:  <a href="onsetextname_event.htm#tzmsetextnameevent">TZMSetExtNameEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onskipped_event.htm">OnSkipped</a>: <a href="onskipped_event.htm#tzmskippedevent">TZMSkippedEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onstatechange_event.htm">OnStateChange</a>: <a href="onstatechange_event.htm#tzmstatechange">TZMStateChange</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onstatusdisk_event.htm">OnStatusDisk</a>: <a href="onstatusdisk_event.htm#tzmstatusdiskevent">TZMStatusDiskEvent</a>;</li>  
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onstream_event.htm">OnStream</a>: <a href="onstream_event.htm#tzmstreamevent">tzmstreamevent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="ontick_event.htm">OnTick</a>: <a href="ontick_event.htm#tzmtickevent">TZMTickEvent</a>;</li>
+                <li><img class="bullet" src="GrnBullet.png" alt="published"> property <a href="onzipdialog_event.htm">OnZipDialog</a>: <a href="onzipdialog_event.htm#tzmdialogevent">TZMDialogEvent</a>;</li>
+            </ul>
+            <p class="tight">&nbsp;&nbsp;end; 
+            <p>&nbsp;&nbsp;&nbsp; <img class="bullet" src="GrnBullet.png" alt="published"> Published&nbsp;&nbsp;&nbsp; <img class="bullet" src="BluBullet.png" alt="read only"> Read-Only</p> 
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    The component
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-02-27 09:58</div>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            STate property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="State;State,TZipMaster;TZipMaster,State;">
+        <meta name="revised" content="2012-01-06">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="spanoptions_property.htm">Previous</a></li>
+                <li><a href="successcnt_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                State property
+            </h1>
+        </div>
+        <dl class="f">
+            <dt class="ft">Applies to</dt>
+            <dd class="fd">
+                <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+            </dd>
+            <dt class="ft">Declaration</dt>
+            <dd class="fd">
+                <p class="f-decl">
+                    <b>property</b> State: TZMStates;
+                </p>
+			</dd>
+			<dd class="fd"> 
+				<p class="f-decl">
+					<b>type</b><br>&nbsp; <a name="tzmstates">TZMStates</a> = (zsDisabled, zsIdle, zsReentered, zsBusy, zsReentry);
+				</p>
+				<table border="1" summary="TZMStates">
+					<tr>
+						<th>zsDisabled</th>
+						<td>the component is not <a href="active_property.htm">Active</a></td>
+					</tr>
+					<tr>
+						<th>zsIdle</th>
+						<td>the component is not busy</td>
+					</tr>
+					<tr>
+						<th>zsReentered</th>
+						<td>the component is not busy but function just finished had reentry attempt</td>
+					</tr>
+					<tr>
+						<th>zsBusy</th>
+						<td>the component is executing an operation</td>
+					</tr>
+						<th>zsReentry</th>
+						<td>A reentry attempt while the component is executing an operation</td>
+					</tr>
+				</table>
+            </dd>
+            <dt class="ft">Description</dt>
+            <dd class="fd">
+                <p class="f-p">
+                    Used to check the state of an operation in progress.
+                </p>
+                <p class="f-p">
+                    Run-time only
+                </p>
+                <p class="f-p">
+                    Read-only
+                </p>
+            </dd>
+        </dl>
+        <div class="foot">2012-01-06 09:36</div>
+    </body>
+</html>
