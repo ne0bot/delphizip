@@ -1,0 +1,9 @@
+EXPORTS
+ DZ_Exec
+ DZ_Path
+ DZ_Abort
+ DZ_Banner
+ DZ_Version
+ DZ_PrivVersion
+ DllMain
+
