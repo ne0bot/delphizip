@@ -45,7 +45,7 @@ contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
  *************************************************************************** *)
 
-{$INCLUDE '..\..\ZipVers.inc'}
+{$INCLUDE 'ZipVers.inc'}
 {$IFDEF VERD6up}
 {$WARN UNIT_PLATFORM OFF}
 {$WARN SYMBOL_PLATFORM OFF}

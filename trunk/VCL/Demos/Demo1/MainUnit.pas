@@ -122,6 +122,8 @@ Type
       State: TGridDrawState; Var FormatOptions: TFormatOptions);
     Procedure StringGrid1EndSort(Sender: TObject; Col: LongInt);
     Procedure RenameButClick(Sender: TObject);
+  private
+    FDying: boolean;
   PUBLIC
     { Public declarations }
     DoIt: Boolean;
@@ -138,6 +140,7 @@ Type
       const Message: TZMString);
     procedure ZipMaster1Progress(Sender: TObject; details: TZMProgressDetails);
     procedure ZipMaster1Tick(Sender: TObject);
+    property Dying: boolean read FDying write FDying;
   PROTECTED
     FNewCount: Integer;
   End;
@@ -228,6 +231,7 @@ Begin
     Cells[5, 0] := 'Path';
   End;
   // Set up component
+  Dying := False;
   ZipMaster1 := TZipMaster.Create(Self);
   ZipMaster1.Active := True;
   ZipMaster1.DLLDirectory := '..\..\dll';
@@ -235,8 +239,9 @@ Begin
   ZipMaster1.OnProgress := ZipMaster1Progress;
   ZipMaster1.OnTick := ZipMaster1Tick;
   ZipMaster1.OnDirUpdate := ZipMaster1DirUpdate;
-  // load the dll
-  ZipMaster1.Dll_Load := True;
+ // // load the dll
+//  ZipMaster1.Dll_Load := True;  // dangerous - can send strings to Memo1 on
+   //   different form which may not be constructed yet
   { If we had args on the cmd line, then try to open the first one
     as a zip/exe file.  This is most useful in case user has an association
     to ".zip" that causes this program to run when user dble clicks on a zip
@@ -251,7 +256,7 @@ Begin
     ZipFName.Width := Width - 291
   Else
     ZipFName.Width := 0;
-  if Assigned(ZipMaster) then
+  if Assigned(ZipMaster1) then
     SetZipFName(ZipMaster1.ZipFilename, False);
 End;
 
@@ -262,7 +267,7 @@ End;
 
 Procedure TMainform.FormDestroy(Sender: TObject);
 Begin
-  ZipMaster1.Dll_Load := False;
+//  ZipMaster1.Dll_Load := False;
 End;
 
 Procedure TMainform.ZipOpenButClick(Sender: TObject);
@@ -390,6 +395,7 @@ Begin
 
   With ZipMaster1 Do
   Begin
+    ZipMaster1.DLL_Load := True; // load dll
     ExtrBaseDir := ExtractDir;
     ExtrOptions := [];
     If ExpandDirs Then
@@ -409,6 +415,7 @@ Begin
     Else
       IsOne := 's were';
     ShowMessage(IntToStr(SuccessCnt) + ' file' + IsOne + ' extracted');
+    ZipMaster1.DLL_Load := False; // finished - unload dll
   End; { end with }
 End;
 
@@ -479,6 +486,7 @@ Begin
     FSpecArgs.Clear;
     FSpecArgs.Assign(AddForm.SelectedList.Items); { specify filenames }
     AddForm.SelectedList.Clear;
+    ZipMaster1.DLL_Load := True; // load dll
     s := GetTickCount;
     Try
       Add;
@@ -492,6 +500,7 @@ Begin
     Else
       IsOne := 's were';
     ShowMessage(IntToStr(SuccessCnt) + ' file' + IsOne + ' added');
+    ZipMaster1.DLL_Load := False; // finished - unload dll
   End; { end with }
 End;
 
@@ -536,7 +545,7 @@ Begin
 
   s := GetTickCount;
   Try
-    ZipMaster1.Delete;
+    ZipMaster1.Delete;     // does not use dll
   Except
     ShowMessage('Fatal error trying to delete');
   End;
@@ -655,11 +664,15 @@ End;
 
 Procedure TMainform.Exit1Click(Sender: TObject);
 Begin
+  ZipMaster1.Cancel;
+  Dying := True;
   Close;
 End;
 
 Procedure TMainform.Zipcomment1Click(Sender: TObject);
 Begin
+  if Dying or (MsgForm = nil) then
+    Exit;
   If ZipMaster1.ZipComment <> '' Then
   Begin
     MsgForm.Memo1.Clear;
@@ -671,8 +684,15 @@ Begin
 End;
 
 Procedure TMainform.DLLversioninfo1Click(Sender: TObject);
+var
+  WasLoaded: Boolean;
 Begin
+  WasLoaded := ZipMaster1.DLL_Load;
+  if not WasLoaded then
+    ZipMaster1.DLL_Load := True; // load so path valid
   ShowMessage(ZipMaster1.FullVersionString + #10 + ZipMaster1.Dll_Path);
+  if not WasLoaded then
+    ZipMaster1.DLL_Load := False; // we loaded so unload
 End;
 
 // ***********************ZipMaster Event handling***************************
@@ -683,6 +703,8 @@ End;
 procedure TMainform.ZipMaster1Message(Sender: TObject; ErrCode: Integer;
   const Message: TZMString);
 Begin
+  if Dying or (MsgForm = nil) then
+    Exit;
   MsgForm.Memo1.Lines.Append(Message);
   PostMessage(MsgForm.Memo1.Handle, EM_SCROLLCARET, 0, 0);
   If (ErrCode > 0) And Not ZipMaster1.Unattended Then
@@ -691,6 +713,8 @@ End;
 
 Procedure TMainform.ZipMaster1DirUpdate(Sender: TObject);
 Begin
+  if Dying or (MsgForm = nil) then
+    Exit;
   FillGrid;
   FilesLabel.Caption := IntToStr(ZipMaster1.Count);
   If UpperCase(ExtractFileExt(ZipMaster1.ZipFilename)) = '.EXE' Then
@@ -702,6 +726,8 @@ End;
 procedure TMainform.ZipMaster1Progress(Sender: TObject; details:
     TZMProgressDetails);
 begin
+  if Dying or (MsgForm = nil) then
+    Exit;
   Case details.Order Of
     TotalSize2Process:
       Begin
