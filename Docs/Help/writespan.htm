@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            WriteSpan method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="TZipMaster,WriteSpan;WriteSpan;WriteSpan,TZipMaster;">
+        <meta name="revised" content="2012-01-14">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="undeflate.htm">Previous</a></li>
+                <li><a href="tzipmaster_component.htm#methods">Next</a></li>
+            </ul>
+            <h1>
+                WriteSpan method
+            </h1>
+            <ul class="also-links">
+                <li><a href="readspan.htm">ReadSpan</a></li>
+				<li><a href="working_with_multi-parts.htm">Working with multi-parts</a></li>
+                <li><a href="handling_of_multi_volume_zip_parts.htm">Handling of Multi Volume Zip parts</a></li>
+            </ul>
+        </div>
+        <div>
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> WriteSpan(<b>const</b> InFileName, OutFileName: <b>String</b>): Integer;
+                    </p>
+                </dd>
+                <dt class="ft">Arguments</dt>
+                <dd class="fd">
+                    <dl>
+                        <dt><span class="mono">const InFileName: String</span></dt>
+                        <dd>The name of the zip to split</dd>
+                        <dt><span class="mono">const OutFileName: String</span></dt>
+                        <dd>The name of the destination multi-part file</dd>
+						<dt><a href="maxvolumesize_property.htm">MaxVolumeSize</a></dt>
+						<dt><a href="keepfreeondisk1_property.htm">KeepFreeOnDisk1</a></dt>
+						<dt><a href="minfreevolumesize_property.htm">MinFreeVolumeSize</a></dt>
+                    </dl>
+                </dd>
+                <dt class="ft">Results</dt>
+                <dd class="fd">
+                    <ul class="ul-left">
+                        <li>Returns 0 on success otherwise a negative value equal to - <a href="errors_and_messages.htm">Error Code</a>.</li>
+                        <li>Sets <a href="errcode_property.htm">ErrCode</a> and <a href="errmessage_property.htm">ErrMessage</a></li>
+                    </ul>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        The WriteSpan method can be used to copy an existing zip archive file to one or more disks as a spanned archive.
+                    </p>
+                    <p class="f-p">
+                        With WriteSpan it is possible to make a spanned archive on (floppy) disk from a standard zip file.
+                    </p>
+                    <p class="f-p">
+                        InFileName is the name of the zipfile that must be converted.
+                    </p>
+                    <p class="f-p">
+                        OutFileName is the drive, path(optional) and file name of the destination file.
+                    </p>
+                    <p class="f-p">
+                        <span class="note">NOTE:</span> If &#39;OutFileName&#39; is on a fixed disk the input file will be split into parts with size <a href="maxvolumesize_property.htm">MaxVolumeSize</a> A file part on harddisk will look like: OutFileNameXXX.zip where XXX is a number.
+                    </p>
+                    <p class="f-p">
+                        It is possible to copy the files <a href="handling_of_multi_volume_zip_parts.htm">to diskette</a> when the filesize is &lt;= diskette size.
+                    </p>
+                    <p class="f-p">
+                        or to <a href="handling_of_multi_volume_zip_parts.htm">reassemble them</a> without diskettes after sending them over the internet for use with pkzip or winzip.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-14 11:53</div>
+    </body>
+</html>

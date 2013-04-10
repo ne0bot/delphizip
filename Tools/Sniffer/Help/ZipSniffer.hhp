@@ -1,0 +1,26 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=..\ZipSniffer.chm
+Contents file=ZipSniffer.hhc
+Default topic=ZipSniffer.html
+Display compile progress=No
+Index file=ZipSniffer.hhk
+Language=0x409 Engels (Verenigde Staten)
+Title=ZipSniffer
+
+
+[FILES]
+General.html
+lgpl-3.0.html
+MenuItems.html
+ToolButtons.html
+ZipSniffer.html
+
+[ALIAS]
+#include Alias.h
+
+[MAP]
+#include ZipSniffer.h
+
+[INFOTYPES]
+

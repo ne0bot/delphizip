@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            SFXDefaultDir property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="SFXDefaultDir;SFXDefaultDir,TZipMaster;TZipMaster,SFXDefaultDir;">
+        <meta name="revised" content="2012-02-09">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="sfxcommandline_property.htm">Previous</a></li>
+                <li><a href="sfxicon_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                SFXDefaultDir property
+            </h1>
+            <ul class="also-links">
+                <li><a href="working_with_sfx.htm">Working with SFX</a></li>
+                <li><a href="sfxcaption_property.htm">SFXCaption</a></li>
+                <li><a href="sfxcommandline_property.htm">SFXCommandLine</a></li>
+                <li><a href="sfxicon_property.htm">SFXIcon</a></li>
+                <li><a href="sfxmessage_property.htm">SFXMessage</a></li>
+                <li><a href="sfxoptions_property.htm">SFXOptions</a></li>
+                <li><a href="sfxoverwritemode_property.htm">SFXOverwriteMode</a></li>
+                <li><a href="sfxpath_property.htm">SFXPath</a></li>
+                <li><a href="sfxregfailpath_property.htm">SFXRegFailPath</a></li>
+                <li><a href="sfx_stub.htm">SFXStub</a></li>
+                <li><a href="converttosfx.htm">ConvertToSFX</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> SFXDefaultDir: <b>String</b>
+                    </p>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        SFXDefaultDir is the directory that will be used by the executable when extracting.
+                    </p>
+                    <p class="f-p">
+                        The directory can be changed in the SFX dialog box before extracting.
+                    </p>
+                    <p class="f-p">
+                        If you don&#39;t specify this, the user&#39;s current directory will be the default.
+                    </p>
+                    <p class="f-p">
+                        If you specify the special symbol <b>&gt;&lt;</b> here, then the user&#39;s temporary directory will be the default extraction directory.&nbsp; A Windows API call will be used at runtime to determine the name of this directory.
+                    </p>
+                    <p class="f-p">
+                        The path can also be read from the user&#39;s registry by typing a registry key.
+                    </p>
+                    <p class="f-p">
+                        Some examples:
+                        <ul>
+                            <li>HKEY_LOCAL_MACHINE\</li>
+                            <li>HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ProgramFilesDir</li>  
+                            <li>HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CommonFilesDir</li>
+                            <li>HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WallPaperDir</li>
+                            <li>HKEY_CURRENT_USER\Software\Borland\C++Builder\3.0\</li>
+                            <li>HKEY_CURRENT_USER\Software\Borland\Delphi\4.0\</li>
+                            <li>HKCU\Software\</li>
+                            <li>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\</li>  
+                            <li>HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\</li> 
+                            <li>Also creating subfolders in these registry-read paths is possible by entering a pipe ( &#39; | &#39; )</li>
+                            <li>and then the name of the new sub directory after the registry key.</li>
+                        </ul>
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-02-09 10:08</div>
+    </body>
+</html>

@@ -1,0 +1,165 @@
+// RU: Russian
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x19, 1 // 0x0419
+{
+  DS_UnknownError,           "Неизвестная ошибка"
+  DS_Canceled,               "Пользователь отменил операцию"
+  DS_CopyCentral,            "Главный каталог"
+  GE_Skipped,                "Пропущенно %s %d"
+  GE_TempZip,                "Временный zip-файл: %s"
+  LD_DllLoaded,              "%s загружена!"
+  LD_DllUnloaded,            "%s выгружена"
+  AD_NothingToZip,           "Ошибка - нет файлов для архивации!"
+  DL_NothingToDel,           "Ошибка - не выбраны файлы для удаления"
+  DS_NoDiskSpan,             "Многотомное архивирование не поддерживается"
+  DS_NoRenamePart,           "Последняя часть была : %s"
+  GE_EventEx,                "Исключение в событие "
+  LD_BadDll,                 "Немогу загрузить %s - Он старый или поврежденный"
+  LD_NoDll,                  "Файл %s не найден!"
+  LI_WrongZipStruct,         "Внимание - Ошибка в структуре zip файла!"
+  PW_UnatAddPWMiss,          "Ошибка - не указан пароль для добавления"
+  PW_UnatExtPWMiss,          "Ошибка - не указан пароль для разархивации"
+  PR_Archive,                "*Повторное установка бита Архивирован"
+  PR_CopyZipFile,            "*Копирование Zip файла"
+  PR_SFX,                    "*SFX"
+  PR_Header,                 "*??"
+  PR_Finish,                 "*Завершение"
+  PR_Copying,                "*Копирование"
+  PR_CentrlDir,              "*Центральная каталог"
+  PR_Checking,               "*Проверка"
+  PR_Loading,                "*Загрузка каталога"
+  PR_Joining,                "*Объеденение разбитого zip файла"
+  PR_Splitting,              "*Разбиение zip файла"
+  CF_OverwriteYN,            "Перезаписать файл '%s' файлом '%s' ?"
+  DS_AskDeleteFile,          "Файл %s уже существует\nВы хотите переписать этот файл?"
+  DS_AskPrevFile,            "ВНИМАНИЕ: Это предыдущий диск, не %d!!!\nВы уверены, что нужно перезаписать содержимое?"
+  DS_InDrive,                "\nв устройство: %s"
+  DS_InsertAVolume,          "Вставьте диск %.1d"
+  DS_InsertDisk,             "Вставьте последний диск"
+  DS_InsertVolume,           "Вставьте диск %.1d из %.1d"
+  FM_Confirm,                "Подтверждение"
+  FM_Erase,                  "Стиреть %s"
+  PW_Caption,                "Пароль"
+  PW_MessageConfirm,         "Подтверждение пароля "
+  PW_MessageEnter,           "Введите пароль "
+  ZB_Yes,                    "&Да"
+  ZB_No,                     "&Нет"
+  ZB_OK,                     "&ОК"
+  ZB_Cancel,                 "О&тмена"
+  ZB_Abort,                  "&Прервать"
+  ZB_Retry,                  "П&овторить"
+  ZB_Ignore,                 "П&ропуститьIgnore"
+  ZB_CancelAll,              "Отменить всё"
+  ZB_NoToAll,                "Нет для всех"
+  ZB_YesToAll,               "Да для всех"
+  AD_InIsOutStream,          "Входной поток неустановлен для выходного потока"
+  AD_InvalidName,            "Шаблоны не разрешены при указание имени файла или папки"
+  AD_NoDestDir,              "Папка '%s' назначения должна существовать!"
+  AD_UnattPassword,          "Попытка произвести автоматическое действие, не возможное без пароля"
+  CD_CEHDataSize,            "Суммарная длина CEH + FileName + FileComment + ExtraData первышает 65535"
+  CD_NoChangeDir,            "Немогу изменить путь"
+  CD_NoProtected,            "Немогу изменить свойства зашифрованного файла"
+  CF_SourceIsDest,           "Исходный архив находиться в той же папке что архив назначения!"
+  CZ_InputNotExe,            "Ошибка: входной файл не является .EXE файлом"
+  DS_CEHWrongSig,            "Сигнатура центрального заголовка неверна"
+  DS_DriveNoMount,           "Устройство %s НЕ определено"
+  DS_NoDiskSpace,            "На этом диске не хватает свободного места"
+  DS_NoInFile,               "Входной файл не существует"
+  DS_NotaDrive,              "Неверное имя диска: %s"
+  DS_NotChangeable,          "Немогу записать в %s"
+  DS_NoUnattSpan,            "Автоматическое разбиение архива на тома не применимо"
+  DS_NoValidZip,             "Данный архив не является Zip архивом"
+  EX_NoExtrDir,              "Папка '%s' для извлечения должна существовать"
+  EX_UnAttPassword,          "Внимание - Автоматическое Извлечение: возможно, не все файлы извлечены"
+  GE_NoZipSpecified,         "Ошибка - не указано имя zip файла!"
+  GE_WrongPassword,          "Ошибка - пароль НЕ совпадает\nПароль проигнорирован"
+  RN_InvalidDateTime,        "Неправильная дата/время для файла: "
+  SF_NoZipSFXBin,            "Ошибка - файл %s не найден!"
+  SF_StringTooLong,          "Ошибка - Одна или более из 4-х строк свойств, указанных ниже, больше 255 символов"
+  AD_AutoSFXWrong,           "Возникла ошибка %.1d при автоматическом создании SFX."
+  CF_CopyFailed,             "Копирование файл из '%s' в '%s' окончено неудачей"
+  CF_SFXCopyError,           "Ошибка во время копирования SFX данных"
+  CZ_BrowseError,            "Ошибка во время просмотра ресурсов."
+  CZ_ExeSections,            "Ошибка во время чтения исполнимой секции."
+  CZ_NoCopyIcon,             "Немогу скопировать значок."
+  CZ_NoExeIcon,              "Значки не найдены в ресурсах исполнимого файла."
+  CZ_NoExeResource,          "Ресурсы не найдены в исполнимом файле."
+  CZ_NoIcon,                 "Значки не найдены."
+  CZ_NoIconFound,            "Не найдено соответсвующий значок."
+  DS_CECommentLen,           "Ошибка при чтении комментарий к файлу"
+  DS_CEHBadRead,             "Ошибка при чтении центрального заголовка"
+  DS_CEHBadWrite,            "Ошибка при записи центрального заголовка"
+  DS_CENameLen,              "Ошибка при чтении центрального имени файла"
+  DS_DataDesc,               "Ошибка при чтении/записи области описания данных"
+  DS_EOCBadRead,             "Ошибка при чтении конца родительского каталога"
+  DS_EOCBadWrite,            "Ошибка при записи конца родительского каталога"
+  DS_ErrorUnknown,           "Неизвестная ошибка в функции ReadSpan() или WriteSpan()"
+  DS_FailedSeek,             "Ошибка позиционирования во входном файле"
+  DS_FileOpen,               "Zip файл не может быть открыт"
+  DS_LOHBadRead,             "Ошибка при чтении локального заголовка"
+  DS_LOHBadWrite,            "Ошибка при записи локального заголовка"
+  DS_NoMem,                  "Нехватает памяти для вывода окна сообщения(MsgBox)"
+  DS_NoOutFile,              "Ошибка создания выходного файла"
+  DS_NoTempFile,             "Невозможно создать времменый файл"
+  DS_NoVolume,               "Метка тома не может быть установлена"
+  DS_NoWrite,                "Ошибка записи в выходной файл"
+  GE_DLLCritical,            "критическая ошибка DLL %d"
+  GE_Except,                 "Исключение в обработчики события "
+  GE_FatalZip,               "Фатальная ошибка в модуле DelZip179.DLL: вызвано исключение аварийного завершения"
+  GE_Inactive,               "не активен"
+  GE_NoMem,                  "Невозможно выделить запрошенный объем памяти"
+  GE_RangeError,             "Индекс (%d) за границами диапозона 1..%d"
+  GE_Unknown,                " Неизвестная ошибка %d"
+  GE_WasBusy,                "Занят + %s"
+  LI_ErrorUnknown,           "Неизвестная ошибка в функции List()"
+  LI_ReadZipError,           "Ошибка позиционирования при чтении ZIP архива!"
+  TM_Deleting,               "Очистка дискеты - Удаление %s"
+  TM_Erasing,                "Очистка дискеты - Стирание %s"
+  TM_GetNewDisk,             "Трассировка : GetNewDisk открывает: %s"
+  TM_SystemError,            "Системная ошибка: %d"
+  DT_Author,                 "Аркадий Шапкин"
+  DT_Desc,                   "Русский"
+  DT_Language,               "RU: Russian"
+}

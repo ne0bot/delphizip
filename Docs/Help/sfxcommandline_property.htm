@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            SFXCommandLine property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="SFXCommandLine;SFXCommandLine,TZipMaster;TZipMaster,SFXCommandLine;">
+        <meta name="revised" content="2012-02-09">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="sfxcaption_property.htm">Previous</a></li>
+                <li><a href="sfxdefaultdir_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                SFXCommandLine property
+            </h1>
+            <ul class="also-links">
+                <li><a href="working_with_sfx.htm">Working with SFX</a></li>
+                <li><a href="sfxcaption_property.htm">SFXCaption</a></li>
+                <li><a href="sfxdefaultdir_property.htm">SFXDefaultDir</a></li>
+                <li><a href="sfxicon_property.htm">SFXIcon</a></li>
+                <li><a href="sfxmessage_property.htm">SFXMessage</a></li>
+                <li><a href="sfxoptions_property.htm">SFXOptions</a></li>
+                <li><a href="sfxoverwritemode_property.htm">SFXOverwriteMode</a></li>
+                <li><a href="sfxpath_property.htm">SFXPath</a></li>
+                <li><a href="sfxregfailpath_property.htm">SFXRegFailPath</a></li>
+                <li><a href="sfx_stub.htm">SFXStub</a></li>
+                <li><a href="converttosfx.htm">ConvertToSFX</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> SFXCommandLine: <a href="tzmstring_type.htm">TZMString</a>;
+                    </p>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        This is the command line that will be executed immediately after extracting the files.
+                    </p>
+                    <p class="f-p">
+                        Typically used to view the readme file, but can do anything.
+                    </p>
+                    <p class="f-p">
+                        There is a predefined symbol that can be used in the command line to tell you which target directory was actually used.
+                    </p>
+                    <dl class="f">
+                        <dt>Special symbols:</dt>
+                        <dd>    
+                        <table summary="">
+                            <tr>
+                                <th>&nbsp;<b>|</b></th><td>&nbsp; (Vertical bar) is the command / argument separator.</td>
+                            </tr>
+                            <tr>  
+                                <th>&nbsp;<b>&gt;&lt;</b></th><td>&nbsp; Is the actual extraction directory selected by user.</td>
+                            </tr>
+                        </table>
+                        </dd>
+                    </dl>
+                    <p class="f-p">
+                        <i>Example:</i> notepad.exe<b>|&gt;&lt;</b>Readme.txt
+                    </p>
+                    <p class="f-p">
+                        This will run notepad to show &quot;Readme.txt&quot; in the actual extraction dir.
+                    </p>
+                    <p class="f-p">
+                        You can also install .inf scripts, even with support for different sections depending on the
+                    </p>
+                    <p class="f-p">
+                        operating system
+                    </p>
+                    <p class="f-p">
+                        &quot;&gt;&lt;setup.inf&quot; will run the [DefaultInstall] section of &quot;EXTRACTPATH\setup.inf&quot;.
+                    </p>
+                    <p class="f-p">
+                        &quot;&gt;&lt;setup.inf|.ntx86&quot; will run the [DefaultInstall] section if the User&#39;s OS is Win95/98,
+                    </p>
+                    <p class="f-p">
+                        but [DefaultInstall.ntx86] section if it&#39;s Windows NT.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-02-09 09:31</div>
+    </body>
+</html>

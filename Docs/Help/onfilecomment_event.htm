@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnFileComment event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnFileComment;OnFileComment,TZipMaster;TZipMaster,OnFileComment;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="onextractoverwrite_event.htm">Previous</a></li>
+                <li><a href="onfileextra_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnFileComment event
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> OnFileComment: <a href="#tzmfilecommentevent">TZMFileCommentEvent</a>;
+                    </p>                    
+                    <p class="f-decl">
+                        <b>Type</b><br>&nbsp; <a name="tzmfilecommentevent">TZMFileCommentEvent</a> = <b>procedure</b>(Sender: TObject; ForFile: <a href="tzmstring_type.htm">TZMString</a>, <b>var</b> FileComment: <a href="tzmstring_type.htm">TZMString</a>, <b>var</b> IsChanged: Boolean) <b>of object</b>;
+                    </p>
+					<dl class="f">
+						<dt class="ft-args">Arguments</dt>
+						<dd class="fd">
+							<dl class="notop">
+								<dt class="f-decl">Sender: TObject</dt>
+								<dd>This component</dd>
+								<dt class="f-decl">ForFile: TZMString</dt>
+								<dd>the filename for which the filecomment could be set.</dd>
+								<dt class="f-decl"><b>var</b> FileComment: TZMString</dt>
+								<dd>the new or replacement comment</dd>
+								<dt class="f-decl"><b>var</b> IsChanged: Boolean</dt>
+								<dd>set True to set change</dd>
+							</dl>
+						</dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        OnFileComment event occurs when writing the central directory of the zip archive for every file in the archive.
+                    </p>
+                    <p class="f-p">
+                        FileComment is set to the first 255 characters of the old filecomment when present and can be set to a new comment, with a maximum of 511 characters, for the file, remember filecomments are not zipped and are stored as given.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-22 11:19</div>
+    </body>
+</html>

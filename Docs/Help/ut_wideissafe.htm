@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+        <meta http-equiv="content-type" content="text/html; charset=utf8">
+        <title>
+            WideIsSafe function
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="WideIsSafe;">
+        <meta name="revised" content="2012-03-09">
+        <meta name="copyright" content="Copyright &copy; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="ut_validutf8.htm">Previous</a></li>
+                <li><a href="ut_widetosafe.htm">Next</a></li>
+            </ul>
+            <h1>
+                WideIsSafe function
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">
+                    Unit
+                </dt>
+                <dd class="fd">
+                    <p class="f-applies">
+                        <a href="zmutf8_unit.htm">ZMUTF8</a>
+                    </p>
+                </dd>
+                <dt class="ft">
+                    Declaration
+                </dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <strong>function</strong> WideIsSafe(<strong>const</strong> wstr: <a href="tzmwidestring_type.htm">TZMWideString</a>; ToOEM: boolean): Boolean;
+                    </p>
+                    <dl class="tight">
+                        <dt class="ft">
+                            Arguments
+                        </dt>
+                        <dd class="fd">
+                            <dl>
+                                <dt>
+                                    <span class="mono">const wstr: TZMWideString</span>
+                                </dt>
+                                <dd>
+                                    The Wide (UTF16) string to test
+                                </dd>
+                                <dt>
+                                    <span class="mono">ToOEM: boolean</span>
+                                </dt>
+                                <dd>
+                                    Selects OEM or current code page
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dt class="ft">
+                            Results
+                        </dt>
+                        <dd class="fd">
+                            <ul class="ul-left">
+                                <li>Returns true if all characters in wstr are supported using
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </dd>
+                <dt class="ft">
+                    Description
+                </dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        code page CP_OEMCP when ToOEM is true,
+                    </p>
+                    <p class="f-p">
+                        codepage CP_ACP when ToOEM is false.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">
+            2012-03-09 11:06
+        </div>
+    </body>
+</html>

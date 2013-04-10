@@ -1,0 +1,153 @@
+// SL: Slovenia
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x24, 1 // 0x0424
+{
+  DS_UnknownError,           "Neznana napaka"
+  DS_Canceled,               "Uporabnik prekinil delo"
+  DS_CopyCentral,            "Glavno kazalo"
+  GE_Skipped,                "Preskoèen %s %d"
+  GE_TempZip,                "Zaèasen ZIP: %s"
+  LD_DllLoaded,              "Naložen %s"
+  LD_DllUnloaded,            "Izklopljen %s"
+  AD_NothingToZip,           "Napaka - ni datotek za pakiranje"
+  DL_NothingToDel,           "Napaka -  datoteke za brisanje niso vpisane"
+  DS_NoDiskSpan,             "Veè volumsko arhiviranje ni podprto"
+  DS_NoRenamePart,           "Zadnji del shranjen kot: %s"
+  GE_EventEx,                "Izjemna napaka v dogodku "
+  LD_BadDll,                 "Ne morem naložiti dattoeke %s - Ali je prestara ali pokvarjena"
+  LD_NoDll,                  "Napaka pri nalaganju %s"
+  LI_WrongZipStruct,         "Napaka - Napaka v strukturi ZIP-a"
+  PW_UnatAddPWMiss,          "Napaka - geslo za dodajanje ni vpisano"
+  PW_UnatExtPWMiss,          "Napaka - geslo za razpakiranje ni vpisano"
+  PR_Archive,                "*Resetiram Arhivski bit"
+  PR_CopyZipFile,            "*Kopiram Zip datoteko"
+  PR_SFX,                    "*SFX"
+  PR_Header,                 "*??"
+  PR_Finish,                 "*Zakljuèevanje"
+  PR_Copying,                "*Kopiranje"
+  PR_CentrlDir,              "*Centralna mapa"
+  PR_Checking,               "*Preverjanje"
+  PR_Loading,                "*Nalaganje mape"
+  PR_Joining,                "*Združujem razdeljeno ZIP datoteko"
+  PR_Splitting,              "*Razdružujem ZIP datoteko"
+  CF_OverwriteYN,            "Prepišem datoteko '%s' v '%s' ?"
+  DS_AskDeleteFile,          "Datoteka že obstaja %s\nAli jo povozim?"
+  DS_AskPrevFile,            "POZOR: To je prejšnji disk št. %d!!!\nAli ste preprièani, da želite pisati preko njega?"
+  DS_InDrive,                "\nv pogon: %s"
+  DS_InsertAVolume,          "Prosim, vstavite disk %.1d"
+  DS_InsertDisk,             "Prosim, vstavite zadnji disk"
+  DS_InsertVolume,           "Prosim, vstavite disk %.1d od %.1d"
+  FM_Confirm,                "Potrdi"
+  FM_Erase,                  "Brisanje "
+  PW_Caption,                "Geslo "
+  PW_MessageConfirm,         "Potrdite geslo"
+  PW_MessageEnter,           "Vnesite geslo"
+  ZB_Yes,                    "&Da"
+  ZB_No,                     "&Ne"
+  ZB_OK,                     "&V redu"
+  ZB_Cancel,                 "&Preklièi"
+  ZB_Abort,                  "&Konèaj"
+  ZB_Retry,                  "&Ponovi"
+  ZB_Ignore,                 "&Ignoriraj"
+  ZB_CancelAll,              "Preklièi vse"
+  ZB_NoToAll,                "Ne za vse"
+  ZB_YesToAll,               "Da za vse"
+  AD_InIsOutStream,          "Vhodni stream verjetno ni prirejen izhodnemu stream-u"
+  AD_InvalidName,            "Joker znaki niso dovoljeni za ime datoteke ali za specifikacijo datotek"
+  AD_NoDestDir,              "Ponorna mapa '%s' mora obstajati!"
+  AD_UnattPassword,          "Nenadzorovan potrebuje geslo za delo"
+  CD_CEHDataSize,            "Skupna dolžina CEH + ime datoteke + komentar datoteke + dodatni podatki presega 65535"
+  CD_NoChangeDir,            "Ne morem spremeniti poti"
+  CD_NoProtected,            "Ne morem spremeniti detajlov razširjene datoteke"
+  CF_SourceIsDest,           "Izvorni arhiv je enak ponornemu arhivu!"
+  CZ_InputNotExe,            "Napaka - vhodna datoteka ni tipa EXE"
+  DS_CEHWrongSig,            "Podpis glavne glave je napaèen"
+  DS_DriveNoMount,           "Pogon %s ne obstaja"
+  DS_NoDiskSpace,            "Premalo prostora na disku"
+  DS_NoInFile,               "Vhodna datoteka ne obstaja"
+  DS_NotaDrive,              "Pogona ni mogoèe najti: %s"
+  DS_NoUnattSpan,            "Nenadzorovana premostitev diska ni implementirana"
+  DS_NoValidZip,             "To ni veljaven Zip arhiv"
+  EX_UnAttPassword,          "Pozor - Unattended Extract. Mogoce niso vse datoteke razpakirane"
+  GE_NoZipSpecified,         "Napaka - ime datoteke Zip ni dodeljeno!"
+  GE_WrongPassword,          "Napaka - vnesena gesla niso pravilna\nGesla ignoriram"
+  RN_InvalidDateTime,        "Napaèen datum/ura v argumentu za datoteko: "
+  SF_NoZipSFXBin,            "Napaka - datoteke %s ni!"
+  SF_StringTooLong,          "Error - On or more of the 4 property strings mentioned below exceeds 255 characters!"
+  AD_AutoSFXWrong,           "Napaka %.1d pri samoizdelavi SFX glave"
+  CF_CopyFailed,             "Napaka pri kopiranju datoteko iz '%s' v '%s'"
+  CF_SFXCopyError,           "Napaka pri kopiranju SFX podatkov"
+  DS_CECommentLen,           "Napaka pri branju komentarja datoteke"
+  DS_CEHBadRead,             "Napaka pri branju glavne glave"
+  DS_CEHBadWrite,            "Napaka pri pisanju glavno glavo"
+  DS_CENameLen,              "Napaka pri branju glavnih datotek"
+  DS_DataDesc,               "Napaka pri branju/pisanju polja opisa"
+  DS_EOCBadRead,             "Napaka pri branju konca glavnega kazala"
+  DS_EOCBadWrite,            "Napaka pri pisanju konca glavnega kazala"
+  DS_ErrorUnknown,           "Neznana napaka v funkciji ReadSpan(), WriteSpan() ali Rename()\n"
+  DS_FailedSeek,             "Napaka pri pozicioniranju v vhodni datoteki"
+  DS_FileOpen,               "Ne morem odpreti datoteke ZIP"
+  DS_LOHBadRead,             "Napaka pri branju lokalne glave"
+  DS_LOHBadWrite,            "Napaka pri pisanju lokalno glavo"
+  DS_NoMem,                  "Premalo pomnilnika za MsgBox"
+  DS_NoOutFile,              "Nisem uspel ustvariti izhodne datoteke"
+  DS_NoTempFile,             "Neuspeh pri izdelavi zaèasne datoteke"
+  DS_NoVolume,               "Ne morem preimenovati pogona"
+  DS_NoWrite,                "Napaka pri pisanju ihodne datoteke"
+  GE_DLLCritical,            "kritièna napaka v DLL %d"
+  GE_Except,                 "Izjemna napaka v event handlerju "
+  GE_FatalZip,               "Huda napaka v DelZip179.DLL: Operacija je prekinjena."
+  GE_Inactive,               "ni aktiven"
+  GE_NoMem,                  "Premalo pomnilnika"
+  GE_RangeError,             "Index (%d) izven obsega 1..%d"
+  GE_Unknown,                " Neznana napaka %d"
+  GE_WasBusy,                "Zaposlen + %s"
+  LI_ErrorUnknown,           "Neznana napaka v funkciji List()\n"
+  LI_ReadZipError,           "Napaka pri pozicioniranju med branjem"
+  TM_Deleting,               "EraseFloppy - Brisanje %s"
+  TM_Erasing,                "EraseFloppy - Odstranjujem %s"
+  TM_GetNewDisk,             "Trace : GetNewDisk odpiranje: %s"
+  DT_Language,               "SL: Slovenia"
+}

@@ -1,0 +1,108 @@
+// MY: Malaysian
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x3E, 1 // 0x043E
+{
+  DS_Canceled,               "Pengguna membatalkan operasi"
+  DS_CopyCentral,            "Directory Pusat"
+  LD_DllLoaded,              "%s telah dimuatkan"
+  AD_NothingToZip,           "Ralat - tiada fail untuk di'zip'!"
+  DL_NothingToDel,           "Ralat - tiada yang fail dipilih untuk pemadaman"
+  LD_NoDll,                  "%s tidak dijumpai!"
+  LI_WrongZipStruct,         "Awas - Ralat dalam struktur zip!"
+  PW_UnatAddPWMiss,          "Ralat - tiada penambahan kata laluan diberikan"
+  PW_UnatExtPWMiss,          "Ralat - tiada pengeluaran kata laluan diberikan"
+  CF_OverwriteYN,            "Lampautulis fail '%s' pada '%s' ?"
+  DS_AskDeleteFile,          "Sudah terdapat sebuah fila %s\nAdakah anda ingin melampautulis fail ini"
+  DS_AskPrevFile,            "PERHATIAN: Ini ialah cekera terdahulu %d!!!\nAdakah anda pasti mahu melampautulis isi kandungannya"
+  DS_InDrive,                "\ndalam pemacu: %s"
+  DS_InsertAVolume,          "Sila masukkan cekera volume %.1d"
+  DS_InsertDisk,             "Sila masukkan cekera terakhir"
+  DS_InsertVolume,           "Sila masukkan cekera volume %.1d daripada %.1d"
+  PW_Caption,                "Kata Laluan"
+  PW_MessageConfirm,         "Pengesahan Kata Laluan "
+  PW_MessageEnter,           "Masukkkan Kata Laluan "
+  ZB_OK,                     "&Ok"
+  ZB_Cancel,                 "&Batal"
+  AD_UnattPassword,          "Kerja-kerja tanpa pengawasan tidak dibolehkan tanpa kata laluan"
+  CF_SourceIsDest,           "Arkib sumber sama seperti arkib tujuan!"
+  CZ_InputNotExe,            "Ralat: fail masukan bukan sebuah fail .EXE"
+  DS_CEHWrongSig,            "A central header signature is wrong"
+  DS_DriveNoMount,           "Pemacu %s TIDAK ditentukan"
+  DS_NoDiskSpace,            "Cekera keras tidak mempunyai ruang yang mencukupi"
+  DS_NoInFile,               "Fail masukan tidak wujud"
+  DS_NotaDrive,              "Bukan pemacu yang dibenarkan: %s"
+  DS_NoUnattSpan,            "Tiada implensati penyebaran cekera tanapa pengawasan"
+  DS_NoValidZip,             "Arkib ini bukan sebuah arkib ZIP yang sah"
+  EX_UnAttPassword,          "Awas - Pengeluaran tanpa pengawasan: kemingkinan tidak semua fail dikelurkan"
+  GE_NoZipSpecified,         "Ralat - tiada fail zip yang ditentukan!"
+  GE_WrongPassword,          "Ralat - kata Laluan TIDAK sepadan\nKata Laluan diabaikan"
+  SF_NoZipSFXBin,            "Ralat - %s not found!"
+  SF_StringTooLong,          "Ralat - On or more of the 4 property strings mentioned below exceeds 255 characters!"
+  AD_AutoSFXWrong,           "Ralat %.1d berlaku semasa penciptaan Auto SFX."
+  CF_CopyFailed,             "Penyalinan fail dari '%s' ke '%s' gagal"
+  CF_SFXCopyError,           "Ralat semasa menyalin data SFX"
+  DS_CECommentLen,           "Ralat semasa membaca komentar file"
+  DS_CEHBadRead,             "Ralat semasa membaca pengepala pusat"
+  DS_CEHBadWrite,            "Ralat semasa menulis pengepala pusat"
+  DS_CENameLen,              "Ralat semasa membaca nama fail pusat"
+  DS_DataDesc,               "Ralat semasa membaca/menulis kawasan butiran data"
+  DS_EOCBadRead,             "Ralat semasa membaca Hujung Direktori Pusat"
+  DS_EOCBadWrite,            "Ralat semasa menulis Hujung Direktori Pusat"
+  DS_ErrorUnknown,           "Ralat yang tidak diketahui dalam fungsi ReadSpan(), WriteSpan(), Rename() atau CopyZippedFiles()\n"
+  DS_FailedSeek,             "Ralat carian pada fail masukan"
+  DS_FileOpen,               "Fail Zip tidak boleh dibuka"
+  DS_LOHBadRead,             "Ralat semasa membaca pengepala lokal"
+  DS_LOHBadWrite,            "Ralat semasa menulis pengepala lokal"
+  DS_NoMem,                  "Ingatan tidak mencukupi untuk memaparkan MsgBox"
+  DS_NoOutFile,              "Penciptaan fail keluaran gagal"
+  DS_NoTempFile,             "Fail sementara tidak boleh dicipta"
+  DS_NoVolume,               "Label Volume tidak dapat disetkan"
+  DS_NoWrite,                "Ralat penulisan pada fail keluaran"
+  GE_FatalZip,               "Ralat dalam DelZip179.DLL: pembatalan pengecualian"
+  GE_NoMem,                  "Ingatan yang diminta tidak diperuntukan"
+  LI_ErrorUnknown,           "Ralat yang tidak diketahui dalam fungsi List()\n"
+  LI_ReadZipError,           "Ralat carian sewaktu membaca arkib Zip!"
+  DT_Language,               "MY: Malaysian"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            ZSplitStringLast function
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="ZSplitStringLast;">
+        <meta name="revised" content="2012-03-11">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="uf_zsplitstring.htm">Previous</a></li>
+                <li><a href="zmutils_unit.htm">Next</a></li>
+            </ul>
+            <h1>
+                ZSplitStringLast function
+            </h1>
+            <ul class="also-links">
+                <li><a href="uf_zsplitstring.htm">ZSplitString</a> function</li>
+                <li><a href="uf_splitqualifiedname.htm">SplitQualifiedName</a> procedure</li>
+                <li><a href="uf_qualifiedname.htm">QualifiedName function</a></li>
+                <li><a href="mergezippedfiles.htm">MergeZippedFiles</a> function</li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Unit</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="zmutils_unit.htm">ZMUtils</a></p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> ZSplitStringLast(<b>const</b> Delim, Raw: string; <b>var</b> Rest: string): String;
+                    </p>
+					<dl class="f">
+						<dt class="ft">Arguments</dt>
+						<dd class="fd">
+							<dl class="f">
+								<dt class="f-decl"><b>const</b> Delim: string</dt>
+								<dd>The deliminator to split on</dd>
+								<dt class="f-decl"><b>const</b> Raw: string</dt>
+								<dd>The string to split</dd>
+								<dt class="f-decl"><b>var</b> Rest: string</dt>
+								<dd>The part of the string before the delimiter</dd>
+							</dl>
+						</dd>
+						<dt class="ft">Results</dt>
+						<dd class="fd">
+							<ul class="ul-left">
+								<li>Returns the last part of the string.</li>
+							</ul>
+						</dd>					
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Splits a string into the parts before and after a delimiter.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-03-11 09:58</div>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+// FI: Finnish
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0xB, 1 // 0x040B
+{
+  DS_Canceled,               "Käyttäjä peruutti toiminnon"
+  DS_CopyCentral,            "Keskushakemisto"
+  LD_DllLoaded,              "%s ladattu"
+  AD_NothingToZip,           "Virhe - ei pakattavia tiedostoja!"
+  DL_NothingToDel,           "Virhe - ei poistettavia tiedostoja"
+  LD_NoDll,                  "Tiedostoa %s ei löydy!"
+  LI_WrongZipStruct,         "Varoitus - Virheellinen Zip-rakenne!"
+  PW_UnatAddPWMiss,          "Virhe - ei lisäys-salasanaa"
+  PW_UnatExtPWMiss,          "Virhe - ei purku-salasanaa"
+  CF_OverwriteYN,            "Korvataanko tiedosto '%s' kohteessa '%s' ?"
+  DS_AskDeleteFile,          "Tiedosto %s on jo olemassa\nKorvataanko tiedosto"
+  DS_AskPrevFile,            "HUOMAUTUS: Tämä on sarjan levyke numero %d!!!\nTyhjennetäänkö levyke"
+  DS_InDrive,                "\nlevyasemaan: %s"
+  DS_InsertAVolume,          "Anna levyke %.1d"
+  DS_InsertDisk,             "Anna viimeinen levyke"
+  DS_InsertVolume,           "Anna levyke %.1d / %.1d"
+  PW_Caption,                "Salasana"
+  PW_MessageConfirm,         "Anna salasana uudelleen "
+  PW_MessageEnter,           "Anna salasana "
+  ZB_OK,                     "&Ok"
+  ZB_Cancel,                 "&Peruuta"
+  ZB_Abort,                  "Keskeytä"
+  ZB_CancelAll,              "Peruuta kaikki"
+  AD_InIsOutStream,          "Tulo ja lähtö eivät voi olla samat"
+  AD_InvalidName,            "Jokerimerkkejä ei voi käyttää tiedoston nimessä"
+  AD_UnattPassword,          "Toiminta ilman valvontaa vaatii salasanan"
+  CF_SourceIsDest,           "Lähde- ja kohdepaketit samat!"
+  CZ_InputNotExe,            "Virhe: syötetiedosto ei ole .EXE tiedosto"
+  DS_CEHWrongSig,            "Keskusotsakkeen signature virheellinen"
+  DS_DriveNoMount,           "Levyasemaa %s ei ole määritelty"
+  DS_NoDiskSpace,            "Tällä levyllä ei ole riittävästi vapaata tilaa"
+  DS_NoInFile,               "Syötetiedostoa ei ole"
+  DS_NotaDrive,              "Virheellinen levyasema: %s"
+  DS_NoUnattSpan,            "Levykesarjaa ei voida luoda ilman valvontaa"
+  DS_NoValidZip,             "Tämä ei ole Zip-tiedosto"
+  EX_UnAttPassword,          "Varoitus - Kaikkia tiedostoja ei ehkä purettu"
+  GE_NoZipSpecified,         "Virhe - Zip-tiedostoa ei määritelty!"
+  GE_WrongPassword,          "Virhe - salasanat eivät täsmää\nSalasanaa ei huomioida"
+  SF_NoZipSFXBin,            "Virhe - %s ei löydy!"
+  SF_StringTooLong,          "Virhe - Ainakin yksi neljästä ominaisuusmerkkijonosta on yli 255 merkkiä pitkä!"
+  AD_AutoSFXWrong,           "Tapahtui virhe %.1d Auto SFX:n luonnissa."
+  CF_CopyFailed,             "Tiedoston kopiointi kohteesta '%s' kohteeseen '%s' epäonnistui"
+  CF_SFXCopyError,           "Virhe kopioitaessa SFX tietoja"
+  DS_CECommentLen,           "Virhe luettaessa tiedoston kommentteja"
+  DS_CEHBadRead,             "Virhe luettaessa keskusotsaketta"
+  DS_CEHBadWrite,            "Virhe kirjoitettaessa keskusotsaketta"
+  DS_CENameLen,              "Virhe luettaessa keskeistä tiedostonimeä"
+  DS_DataDesc,               "Virhe luettaessa/kirjoitettaessa tiedonkuvausta"
+  DS_EOCBadRead,             "Virhe luettaessa Keskushakemiston loppu"
+  DS_EOCBadWrite,            "Virhe kirjoitettaessa Keskushakemiston loppua"
+  DS_ErrorUnknown,           "Tuntematon virhe funktiossa ReadSpan(), WriteSpan(), Rename() tai CopyZippedFiles()\n"
+  DS_FailedSeek,             "Hakuvirhe syötetiedostossa"
+  DS_FileOpen,               "Zip-tiedostoa ei voitu avata"
+  DS_LOHBadRead,             "Virhe luettaessa paikallisotsaketta"
+  DS_LOHBadWrite,            "Virhe kirjoitettaessa paikallisotsaketta"
+  DS_NoMem,                  "Muisti ei riitä ilmoituksen (MsgBox) näyttämiseen"
+  DS_NoOutFile,              "Kohdetiedostoa ei voitu luoda"
+  DS_NoTempFile,             "Väliaikaistiedostoa ei voitu luoda"
+  DS_NoVolume,               "Levyn nimeä ei voitu muuttaa"
+  DS_NoWrite,                "Virhe kirjoitettaessa kohdetiedostoa"
+  GE_FatalZip,               "Peruuttamaton virhe moduulissa DelZip179.DLL: keskeyttävä poikkeus"
+  GE_NoMem,                  "Muistia ei voitu varata"
+  LI_ErrorUnknown,           "Tuntematon virhe funktiossa List()\n"
+  LI_ReadZipError,           "Hakuvirhe luettaessa Zip-pakettia!"
+  DT_Language,               "FI: Finnish"
+}

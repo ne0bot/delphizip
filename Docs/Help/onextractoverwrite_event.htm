@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnExtractOverwrite event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnExtractOverwrite;OnExtractOverwrite,TZipMaster;TZipMaster,OnExtractOverwrite;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="ondirupdate_event.htm">Previous</a></li>
+                <li><a href="onfilecomment_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnExtractOverwrite event
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> OnExtractOverwrite: <a href="#tzmextractoverwriteevent">TZMExtractOverwriteEvent</a>;
+                    </p>
+                    <p class="f-decl">
+                         <b>Type</b><br>&nbsp; <a name="tzmextractoverwriteevent">TZMExtractOverwriteEvent</a> = <b>procedure</b>(Sender: TObject; const ForFile: 
+                         <a href="tzmstring_type.htm">TZMString</a>; IsOlder: Boolean; var DoOverwrite: Boolean; DirIndex: Integer) <b>of object</b>;
+                    </p>
+					<dl class="f">
+						<dt class="ft-args">Arguments</dt>
+						<dd class="fd">
+							<dl class="notop">
+								<dt class="f-decl">Sender: TObject</dt>
+								<dd>This component</dd>
+								<dt class="f-decl"><b>const</b> ForFile: TZMString</dt>
+								<dd>the name of the file that will be overwritten.</dd>
+								<dt class="f-decl">IsOlder: Boolean</dt>
+								<dd>IsOlder indicates if the existing file, on disk, is older.</dd>
+								<dt class="f-decl"><b>var</b> DoOverwrite: Boolean</dt>
+								<dd>DoOverwrite can be set to <b>True</b> when you want the file to be overwritten.</dd>
+								<dt class="f-decl">DirIndex: Integer</dt>
+								<dd>DirIndex is the index of ForFile in the internal list. With this you have full access to all available archive file information for this file.</dd>
+							</dl>
+						</dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Occurs during <a href="extract.htm">Extract</a> operation before overwriting an existing file.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-22 11:11</div>
+    </body>
+</html>

@@ -1,0 +1,108 @@
+// HU: Hungarian
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0xE, 1 // 0x040E
+{
+  DS_Canceled,               "A felhasználó megszakította a mûködést"
+  DS_CopyCentral,            "Central könyvtár"
+  LD_DllLoaded,              "%s betöltve!"
+  AD_NothingToZip,           "Hiba - nincs mit tömöríteni!"
+  DL_NothingToDel,           "Hiba - nincs fájl kijelölve a törléshez"
+  LD_NoDll,                  "%s fájl nem található!"
+  LI_WrongZipStruct,         "Figyelem - Hiba a zip struktúrában!"
+  PW_UnatAddPWMiss,          "Hiba - a becsomagoláshoz nem adtál meg jelszót"
+  PW_UnatExtPWMiss,          "Hiba - a kicsomagoláshoz nem adtál meg jelszót"
+  CF_OverwriteYN,            "Felülírjam '%s' fájlt '%s' -ra ?"
+  DS_AskDeleteFile,          "Már létezik a fálj %s\n Felülírjam ezt a fájlt"
+  DS_AskPrevFile,            "FIGYELEM: EZ az elõzõ lemez %d!!!\nBiztosan felülírod a tartalmát"
+  DS_InDrive,                "\nin meghajtó: %s"
+  DS_InsertAVolume,          "Tedd be a(z) %.1d sorszámú lemezt"
+  DS_InsertDisk,             "Tedd be az utolsó lemezt"
+  DS_InsertVolume,           "Tedd be a(z) %.1d lemezt az %.1d -bõl"
+  PW_Caption,                "Jelszó"
+  PW_MessageConfirm,         "Jelszó megerõsítése"
+  PW_MessageEnter,           "Add meg a jelszót "
+  ZB_OK,                     "&Ok"
+  ZB_Cancel,                 "&Mégsem"
+  AD_UnattPassword,          "Nem ellenõrzött akció nem lehetséges jelszó nélkül"
+  CF_SourceIsDest,           "A forrásfájl ugyanaz mint a célfájl!"
+  CZ_InputNotExe,            "Hiba: az input fájl nem valódi .EXE fájl"
+  DS_CEHWrongSig,            "A central header aláírás hibás"
+  DS_DriveNoMount,           "%s meghajtó nincs definiálva"
+  DS_NoDiskSpace,            "Nincs elég hely a lemezen"
+  DS_NoInFile,               "Input fájl nem létezik"
+  DS_NotaDrive,              "Nem létezõ meghajtó: %s"
+  DS_NoUnattSpan,            "Nem ellenõrzött lemez szétdarabolása nem érvényes"
+  DS_NoValidZip,             "Ez az archív nem valódi Zip archív fájl"
+  EX_UnAttPassword,          "Figyelem - Nem ellenõrzött kicsomagolás: lehetséges, hogy az összesfáj kicsomagolása nem sikerül"
+  GE_NoZipSpecified,         "Hiba - nincsenek fájlok megadva az archiváláshoz"
+  GE_WrongPassword,          "Hiba - hibás jelszó\a beírt jelszavak nem egyeznek meg"
+  SF_NoZipSFXBin,            "Hiba - %s nem található!"
+  SF_StringTooLong,          "Hiba - A 4 közül egy vagy több tulajdonság meghaladta a 255 karaktert!"
+  AD_AutoSFXWrong,           "Hiba %.1d keletkezett az Auto SFX készítése közben."
+  CF_CopyFailed,             "A '%s' fájl másolása '%s' nem sikerült"
+  CF_SFXCopyError,           "Hiba az SFX adatok másolása közben"
+  DS_CECommentLen,           "Hiba a fájl comment olvasása közben"
+  DS_CEHBadRead,             "Hiba a central header olvasása közben"
+  DS_CEHBadWrite,            "Hiba a central header írása közben"
+  DS_CENameLen,              "Hiba a central fájl név olvasása közben"
+  DS_DataDesc,               "Hiba az adat leíró terület olvasása/írása közben"
+  DS_EOCBadRead,             "Hiba az Central Directory olvasása közben"
+  DS_EOCBadWrite,            "Hiba az ECD írása közben"
+  DS_ErrorUnknown,           "Ismeretlen Hiba a ReadSpan(), WriteSpan(), Rename() or CopyZippedFiles()\n funkcióban"
+  DS_FailedSeek,             "Keresési hiba az input fájlban"
+  DS_FileOpen,               "A zip fájlt nem tudom megnyitni"
+  DS_LOHBadRead,             "Hiba a local header olvasása közben"
+  DS_LOHBadWrite,            "Hiba a local header írása közben"
+  DS_NoMem,                  "Nincs elég memória a MsgBox megjelenítéséhez"
+  DS_NoOutFile,              "Az output fájl létrehozása megszakadt"
+  DS_NoTempFile,             "Temporary fájlt nem lehet létrehozni"
+  DS_NoVolume,               "Kötetcímke nem állítható be"
+  DS_NoWrite,                "Írási hiba az output fájlban"
+  GE_FatalZip,               "Fatális hiba a DelZip179.DLL fájlban: a program futása befejezõdött"
+  GE_NoMem,                  "Nincs elég memória"
+  LI_ErrorUnknown,           "Ismeretlen hiba in List() function\n"
+  LI_ReadZipError,           "Keresési hiba a Zip archív olvasása közben!"
+  DT_Language,               "HU: Hungarian"
+}

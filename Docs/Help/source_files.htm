@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>
+            Source files
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="Files;Tools;">
+        <meta name="revised" content="2012-02-12">
+        <meta name="copyright" content="Copyright &copy; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li>
+                    <a href="cnt.htm" target="cnt">Contents</a>
+                </li>
+                <li>
+                    <a href="idx.htm" target="cnt">Index</a>
+                </li>
+            </ul>
+            <h1>
+                Source files
+            </h1>
+        </div>
+        <div class="content">
+		    <p>
+                The required Delphi source files
+			</p>
+			<dl class="f">
+            <dt class="ft">&lt;install dir&gt;\</dt>
+			<dd class="fd">
+				<table summary="">
+					<tr>
+					  <th>ZipMstr.pas</th><td class="special">u</td> <td>main component source</td>
+					</tr>
+					<tr>
+					  <th>ZipMstr.res</th><td class="special">&nbsp;</td> <td>components version resource</td>
+					</tr>
+					<tr>
+					  <th>ZipVers.inc</th><td class="special">i</td> <td>required - defines for Delphi versions (only 4 and later supported)</td>
+					</tr>
+					<tr>
+					  <th>ZMArgSplit.pas</th><td class="special">i</td> <td>splits command arguments</td>
+					</tr>
+					<tr>
+					  <th>ZMCenDir.pas</th><td class="special">i</td> <td>exposes the zip file central directory to outside world</td>
+					</tr>
+					<tr>
+					  <th>ZMCompat.pas</th><td class="special">i</td> <td>support for earlier Delphi versions</td>
+					</tr>
+					<tr>
+					  <th>ZMConfig191.inc</th> <td class="special">i</td> <td>ZipMaster configuration settings</td>
+					</tr>
+					<tr>
+					  <th>ZMCore.pas</th><td class="special">i</td> <td>basic internal support functions and event triggering</td>
+					</tr>
+					<tr>
+					  <th>ZMCtx.pas</th><td class="special">i</td> <td>Dialog box help context values</td>
+					</tr>
+					<tr>
+					  <th>ZMDefMsgs.pas</th> <td class="special">i +</td> <td>default message strings and tables</td>
+					</tr>
+					<tr>
+					  <th>ZMDelZip.pas</th><td class="special">i</td> <td>dll interface definitions</td>
+					</tr>
+					<tr>
+					  <th>ZMDlg.pas</th><td class="special">i</td> <td>dialog box support</td>
+					</tr>
+					<tr>
+					  <th>ZMDllLoad.pas</th><td class="special">i</td> <td>handles loading the dll</td>
+					</tr>
+					<tr>
+					  <th>ZMDllOpr.pas</th><td class="special">i</td> <td>performs tasks requiring the dll</td>
+					</tr>
+					<tr>
+					  <th>ZMDrv.pas</th><td class="special">i</td> <td>drive level support for zip files</td>
+					</tr>
+					<tr>
+					  <th>ZMEOC.pas</th> <td class="special">i</td> <td>performs operations on the eoc</td>
+					</tr>
+					<tr>
+					  <th>ZMFileOpr.pas</th> <td class="special">i</td> <td>Operations upon the zip file</td>
+					</tr>
+					<tr>
+					  <th>ZMHash.pas</th> <td class="special">i</td> <td>support for hashing directory entries for faster finds</td>
+					</tr>
+					<tr>
+					  <th>ZMInflt.pas</th> <td class="special">i</td> <td>extractor for deflated streams</td>
+					</tr>
+					<tr>
+					  <th>ZMIRec.pas</th> <td class="special">i</td> <td>performs operations on central directory entries</td>
+					</tr>
+					<tr>
+					  <th>ZMLister.pas</th> <td class="special">i</td> <td>Loads and lists a zip archive</td>
+					</tr>
+					<tr>
+					  <th>ZMMatch.pas</th> <td class="special">u</td> <td>wild compares of file specs</td>
+					</tr>
+					<tr>
+					  <th>ZMModOpr.pas</th> <td class="special">i</td> <td>Operations that modify zip entries</td>
+					</tr>
+					<tr>
+					  <th>ZMMsg.pas</th> <td class="special">u +</td> <td>message values</td>
+					</tr>
+					<tr>
+					  <th>ZMMsgStr.pas</th> <td class="special">i +</td> <td>handles message string storage and language selection</td>
+					</tr>
+					<tr>
+					  <th>ZMSFXInt.pas</th> <td class="special">i</td> <td>sfx stub interface</td>
+					</tr>
+					<tr>
+					  <th>ZMStructs.pas</th> <td class="special">u</td> <td>definition of internal zip structures</td>
+					</tr>
+					<tr>
+					  <th>ZMUTF8.pas</th> <td class="special">u</td> <td>support for UTF8/16 conversions</td>
+					</tr>
+					<tr>
+					  <th>ZMUtils.pas</th> <td class="special">u</td> <td>some functions to make life easier</td>
+					</tr>
+					<tr>
+					  <th>ZMWorkFile.pas</th> <td class="special">i</td> <td>basic in/out for zip files</td>
+					</tr>
+					<tr>
+					  <th>ZMWrkr.pas</th> <td class="special">i</td> <td>does the work</td>
+					</tr>
+					<tr>
+					  <th>ZMWUtils.pas</th> <td class="special">u</td> <td>some WideString functions</td>
+					</tr>
+					<tr>
+					  <th>ZMWZip.pas</th> <td class="special">i</td> <td>basic in/out for zip files</td>
+					</tr>
+					<tr>
+					  <th>ZMXcpt.pas</th> <td class="special">u</td> <td>EZipMaster definitions</td>
+					</tr>
+					<tr>
+					  <th>ZMZipFile.pas</th> <td class="special">i</td> <td>performs operations on a zip file</td>
+					</tr>
+					<tr>
+					  <th>ZMZippedOpr.pas</th> <td class="special">i</td> <td>performs copying and merging zip entries</td>
+					</tr>
+				</table>
+			</dd>
+            <dt class="ft">&lt;install dir&gt;\demos\ <span class="note">(optional)</span></dt>
+			<dd class="fd">
+				<table summary="">
+					<tr>
+					  <th>Demo1\</th> <td class="special">&nbsp;</td> <td>zip adder/extractor</td>
+					</tr>
+					<tr>
+					  <th>Demo2\</th> <td class="special">&nbsp;</td> <td>quick add/extract and dll test</td>
+					</tr>
+					<tr>
+					  <th>Demo3\</th> <td class="special">&nbsp;</td> <td>another add/extract example</td>
+					</tr>
+					<tr>
+					  <th>Demo4\</th> <td class="special">&nbsp;</td> <td>simple self installer</td>
+					</tr>
+					<tr>
+					  <th>Demo5\</th> <td class="special">&nbsp;</td> <td>make exe file (sfx)</td>
+					</tr>
+					<tr>
+					  <th>Demo6\</th> <td class="special">&nbsp;</td> <td>span multiple disks</td>
+					</tr>
+					<tr>
+					  <th>Demo7\</th> <td class="special">&nbsp;</td> <td>extract from stream</td>
+					</tr>
+				<!--	<tr>
+					  <th>Demo8\</th> <td class="special">&nbsp;</td> <td></td>
+					</tr> -->
+					<tr>
+					  <th>Demo9\</th> <td class="special">&nbsp;</td> <td>use in thread</td>
+					</tr>
+					<tr>
+					  <th>Demo11\</th> <td class="special">&nbsp;</td> <td>Using MergeZipped</td>
+					</tr>
+					<tr>
+					  <th>SortGrid\</th> <td class="special">&nbsp;</td> 
+					  <td>
+						<table summary="">
+							<tr>
+								<td colspan="3">(optional) sort grid component (used in Demos)</td>
+							</tr>
+							<tr>
+							  <th>SortGrid.pas</th> <td class="special">&nbsp;</td> <td>main unit</td>
+							</tr>
+							<tr>
+							  <th>SortGrid.res</th> <td class="special">&nbsp;</td> <td>It's resources</td>
+							</tr>
+							<tr>
+							  <th>SortGrid.dcr</th> <td class="special">&nbsp;</td> <td>It's decoration</td>
+							</tr>
+							<tr>
+							  <th>SortGridreg.pas</th> <td class="special">&nbsp;</td> <td>used to register component in the IDE </td>
+							</tr>
+							<tr>
+							  <th>SortGridPreview.pas</th> <td class="special">&nbsp;</td> <td>Print preview</td>
+							</tr>
+							<tr>
+							  <th>SortGridPreview.dfm</th> <td class="special">&nbsp;</td> <td>Preview form</td>
+							</tr>
+						</table>
+					  </td>
+					</tr>
+				</table>
+			</dd>
+            <dt class="ft">&lt;install dir&gt;\DLL\</dt>
+			<dd class="fd">
+				<table summary="">
+					<tr>
+					  <th>DelZip190.dll</th> <td class="special">&nbsp;</td> <td>required dll</td>
+					</tr>
+					<tr>
+					  <th>DelZip190.lib</th> <td class="special">&nbsp;</td> <td>library file for static binding the dll (CBuilder)</td>
+					</tr>
+				</table>
+			</dd>
+            <dt class="ft">&lt;install dir&gt;\Docs\</dt>
+			<dd class="fd">
+				<table summary="">
+					<tr>
+					  <th>licence.txt</th> <td class="special">&nbsp;</td> <td>a copy of the licence</td>
+					</tr>
+					<tr>
+					  <th>ReadMe.txt</th> <td class="special">&nbsp;</td> <td></td>
+					</tr>
+					<tr>
+					  <th>Install.txt</th> <td class="special">&nbsp;</td> <td></td>
+					</tr>
+					<tr>
+					  <th>Debug.txt</th> <td class="special">&nbsp;</td> <td></td>
+					</tr>
+					<tr>
+					  <th>ZipMaster.chm</th> <td class="special">&nbsp;</td> <td>compiled html help file</td>
+					</tr>
+					<tr>
+					  <th>dzsfx.chm</th> <td class="special">&nbsp;</td> <td>sfx help file</td>
+					</tr>
+				</table>
+			</dd>
+            <dt class="ft">&lt;install dir&gt;\Packages\</dt>
+			<dd class="fd">
+				<table summary="">
+					<tr>
+					  <th>ZipMaster.dcr</th> <td class="special">i</td> <td>package decoration</td>
+					</tr>
+					<tr>
+					  <th>ZipMaster.ico</th> <td class="special">i</td> <td>package icon</td>
+					</tr>
+					<tr>
+					  <th>ZMstr191D*.dpk</th> <td class="special">&nbsp;</td> <td>package source (* is the Delphi version)</td>
+					</tr>
+					<tr>
+					  <th>ZMstr191D*.res</th> <td class="special">i</td> <td>package resource</td>
+					</tr>
+				</table>
+			</dd>
+            <dt class="ft">&lt;install dir&gt;\Res\</dt>
+			<dd class="fd">
+				<table summary="">
+					<tr>
+					  <th></th>
+					  <td>
+						<table summary="">
+							<tr>
+							  <th>DZ_Dll191.bin</th> <td class="special">i +</td> <td>compressed copy of dll</td>
+							</tr>
+							<tr>
+							  <th>DZ_STR191.bin</th> <td class="special">i +</td> <td>compressed copy of language files</td>
+							</tr>
+							<tr>
+							  <th>ZMSFX191.bin</th> <td class="special">i +</td> <td>Ansi SFX stub with languages attached</td>
+							</tr>
+							<tr>
+							  <th>ZMSFX.exe</th> <td class="special">&nbsp;</td> <td>Ansi SFX stub without languages attached</td>
+							</tr>
+							<tr>
+							  <th>ZMSFXU191.bin</th> <td class="special">i +</td> <td>Unicode SFX stub with languages attached</td>
+							</tr>
+							<tr>
+							  <th>ZMSFXU.exe</th> <td class="special">&nbsp;</td> <td>Unicode SFX stub without languages attached</td>
+							</tr>
+							<tr>
+							  <th>ZMRes191_all.rc</th> <td class="special">i +</td> <td>Resource script including dll, sfx and str <span class="note">Note:</span> do not attempt to also use individual resources</td>
+							</tr>
+							<tr>
+							  <th>ZMRes191_all.res</th> <td class="special">+</td> <td>Compiled resource (link to application)</td>
+							</tr>
+							<tr>
+							  <th>ZMRes191_dll.rc</th> <td class="special">i +</td> <td>Resource script to include the compressed dll</td>
+							</tr>
+							<tr>
+							  <th>ZMRes191_dll.res</th> <td class="special">+</td> <td>Compiled resource (link to application)</td>
+							</tr>
+							<tr>
+							  <th>ZMRes191_sfx.rc</th> <td class="special">i +</td> <td>Resource script to include the sfx stub</td>
+							</tr>
+							<tr>
+							  <th>ZMRes191_sfx.res</th> <td class="special">+</td> <td>Compiled resource (link to application)</td>
+							</tr>
+							<tr>
+							  <th>ZMRes191_str.rc</th> <td class="special">i +</td> <td>Resource script to include the language strings</td>
+							</tr>
+							<tr>
+							  <th>ZMRes191_str.res</th> <td class="special">+</td> <td>Compiled resource (link to application)</td>
+							</tr>
+							<tr>
+							  <th>Langs\</th> <td class="special">&nbsp;</td> 
+							  <td>
+								<table summary="">
+									<tr>
+										<td colspan="3">(optional) Language source files (used in <a href="zipresmaker.htm">ZipResMaker</a>)</td>
+									</tr>
+									<tr>
+									  <th>ZipMsg.h</th> <td class="special">&nbsp;</td> <td>master message identifier header file</td>
+									</tr>
+									<tr>
+									  <th>ZipMsgUS.rc</th> <td class="special">&nbsp;</td> <td>default message resource script</td>
+									</tr>
+									<tr>
+									  <th>ZipMsg??.rc</th> <td class="special">&nbsp;</td> <td>resource language script files</td>
+									</tr>
+									<tr>
+									  <th>SFX_??.txt</th> <td class="special">&nbsp;</td> <td>language files for sfx</td>
+									</tr>
+								</table>
+							  </td>
+							</tr>
+						</table>
+					  </td>
+					</tr>
+				</table>
+			</dd>
+            <dt class="ft">&lt;install dir&gt;\Tools\ <span class="note">(optional)</span></dt>
+			<dd class="fd">
+				<table summary="">
+					<caption>some tools for building/updating</caption>
+					<tr>
+					  <th>RCUPD\</th> <td class="special">&nbsp;</td> <td>language string updater by <a href="http://personal.auna.com/xav58806/RcUpd.html">Xavier Mor-Mur</a> <b>- Now a separate download</b></td>
+					</tr>
+					<tr>
+					  <th>ZIPRESMAKER</th> <td class="special">&nbsp;</td> <td>resource maker for ZipMaster</td>
+					</tr>
+					<tr>
+					  <th>ZIPFIX</th> <td class="special">&nbsp;</td> <td>Fixer for zips (out of date)</td>
+					</tr>
+					<tr>
+					  <th>ExtErrors</th> <td class="special">&nbsp;</td> <td>Utility to fix line numbers in extended error definitions</td>
+					</tr>
+					<tr>
+					  <th>Sniffer</th> <td class="special">&nbsp;</td> <td>Utility to snoop on messages during operations</td>
+					</tr>
+				</table>
+			</dd>
+			<dt class="ft"><span class="specialnote">Notes</span></dt>
+			<dd class="fd">
+				<table summary="special notes" border="1">
+					<tr>
+					  <th><span class="specialnote">+</span></th> <td>written or modified by <a href="zipresmaker.htm">ZipResMaker</a></td>
+					</tr>
+					<tr>
+					  <th><span class="specialnote">i</span></th> <td>internal use only</td>
+					</tr>
+					<tr>
+					  <th><span class="specialnote">u</span></th> <td>can be used if needed by applications using ZipMaster</td>
+					</tr>
+				</table>
+			</dd>
+		</dl>
+			
+            <p>
+                <span class="note">Note:</span> <b>&lt;install dir&gt; is the installation directory - will need to be added to the search path</b>
+            </p>
+        </div>
+        <div class="foot">
+            2012-04-19 12:10
+        </div>
+    </body>
+</html>

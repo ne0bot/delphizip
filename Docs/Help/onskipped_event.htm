@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnSkipped event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnSkipped;OnSkipped,TZipMaster;TZipMaster,OnSkipped;TZMProgressDetails,Stop;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="onsetextname_event.htm">Previous</a></li>
+                <li><a href="onstatechange_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnSkipped event
+            </h1>
+            <ul class="also-links">
+                <li><a href="noskipping_property.htm">NoSkipping</a></li>
+                <li><a href="noskipping_property.htm#tzmskipaborts">TZMSkipAborts</a></li>
+                <li><a href="noskipping_property.htm#tzmskiptypes">TZMSkipTypes</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> OnSkipped: <a href="#tzmskippedevent">TZMSkippedEvent</a>;
+                    </p>
+				</dd>
+                <dd class="fd">
+					<p class="f-decl">
+						<b>Type</b><br>&nbsp; <a name="tzmskippedevent">TZMSkippedEvent</a> = procedure(Sender: TObject; const ForFile: <a href="tzmstring_type.htm">TZMString</a>; SkipType: TZMSkipTypes; var ExtError: Integer) <b>of object</b>;
+					</p>
+					<dl class="f">
+						<dt class="ft-args">Arguments</dt>
+						<dd class="fd">
+							<dl class="notop">
+								<dt class="f-decl">Sender: TObject</dt>
+								<dd>The component firing the event</dd>
+								<dt class="f-decl"><b>const</b> ForFile: TZMString</dt>
+								<dd>The file that will be skipped</dd>
+								<dt class="f-decl">SkipType: TZMSkipTypes</dt>
+								<dd>Reason for skipping</dd>
+								<dt class="f-decl"><b>var</b> ExtError: Integer</dt>
+								<dd>
+									<ul class="ul-left">
+										<li>On entry ExtError will be the &gt;= 0 if <a href="noskipping_property.htm">NoSkipping</a> for that <a href="noskipping_property.htm#tzmskiptypes">type</a> is false</li>
+										<li>On return if &lt; 0 the operation will abort.</li>
+									</ul>
+								</dd>
+							</dl>
+						</dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Fired when an operation fails to process an instruction or file.
+                    </p>
+                    <p class="f-p">
+                        On entry ExtError will be the &gt;= 0 if <a href="noskipping_property.htm">NoSkipping</a> for that <a href="noskipping_property.htm#tzmskiptypes">type</a> is false
+                    </p>
+                    <p class="f-p">
+                        If ExtError &lt; 0 upon return from a handler the operation will abort.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-22 11:31</div>
+    </body>
+</html>

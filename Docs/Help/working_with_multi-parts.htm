@@ -1,0 +1,76 @@
+<head>
+        <title>
+            Working with multi-part Zip files
+        </title>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" >
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="multi-part zips" >
+        <meta name="revised" content="2012-01-14" >
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012" >
+        <meta name="author" content="Russell Peters" >
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="zipstream_property.htm">Previous</a></li>
+                <li><a href="addstreamtofile.htm">Next</a></li>
+            </ul>
+            <h2>
+                Working with multi-part Zip files
+            </h2>
+            <ul class="also-links">
+                <li><a href="addoptions_property.htm">AddOptions</a></li>
+                <li><a href="writeoptions_property.htm">WriteOptions</a></li>
+                <li><a href="working_with_sfx.htm">Working with SFX</a></li>
+            </ul>
+        </div>
+		<div class="content">
+			<dl class="f">
+				<dt class="ft">Properties when writing</dt>
+				<dd class="fd">
+					<dl class="notop">
+						<dt><a href="writeoptions_property.htm">WriteOptions</a> property</dt>
+						<dd class="fd">controls how to write the resulting zip</dd>
+						<dt><a href="spanoptions_property.htm">SpanOptions</a> property</dt>
+						<dd class="fd">Controls how to span the resulting zip</dd>
+						<dt><a href="maxvolumesize_property.htm">MaxVolumeSize</a> property</dt>
+						<dd class="fd">Controls the size for each part of multi-part zip</dd>
+						<dt><a href="maxvolumesizekb_property.htm">MaxVolumeSizeKb</a> property</dt>
+						<dd class="fd">Controls the size for each part of multi-part zip</dd>
+						<dt><span class="note">Floppy Disk only</span></dt>
+							<dd class="fd">
+							<dl class="notop">
+								<dt><a href="keepfreeonalldisks_property.htm">KeepFreeOnAllDisks</a> property</dt>
+								<dd class="fd">When writing zips spanning several floppy disks controls how much space to keep free</dd>
+								<dt><a href="keepfreeondisk1_property.htm">KeepFreeOnDisk1</a> property</dt>
+								<dd class="fd">When writing zips spanning several floppy disks controls how much extra space to keep free on the first disk</dd>
+								<dt><a href="minfreevolumesize_property.htm">MinimumFreeVolumeSize</a> property</dt>
+								<dd class="fd">When writing zips spanning several floppy disks controls how much space must be available on disk (default 65536 bytes)</dd>
+								<dt><a href="onstatusdisk_event.htm">OnStatusDisk</a> property</dt>
+								<dd class="f-d">When writing zips spanning several floppy disks responds to changes of floppy status</dd>
+							</dl>
+						</dd>
+						<dt><a href="encodeas_property.htm">EncodeAs</a> property</dt>
+						<dd class="fd">Controls how to store the file name (and comment) in the zip's central directory</dd>
+					</dl>
+				</dd>
+				<dt class="ft">Properties when reading</dt>
+				<dd class="fd">
+					<dl class="notop">
+						<dt><a href="spanoptions_property.htm">SpanOptions</a> property</dt>
+						<dd class="fd">Controls how to span the resulting zip</dd>
+						<dt><a href="encoding_property.htm">Encoding</a> property</dt>
+						<dd class="fd">Controls how to read the file name (and comment) in the zip's central directory</dd>
+					</dl>
+				</dd>
+				<dt class="ft">Description</dt>
+				<dd class="fd">
+					<p class="f-p">Where possible when loading a multi-part zip it will look for the last to load but it safest to specify that part</p>
+				</dd>
+			</dl>
+		</div>
+		<div class="foot">2012-01-17 10:23</div>
+    </body>
+</html>

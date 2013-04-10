@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            Changes v1.9.1.x
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="revised" content="2012-03-17">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+            </ul>
+            <h1>
+                Changes v1.9.1.x 
+            </h1>
+            <ul class="also-links">
+                <li><a href="changes_v1_9.htm">Changes 1.9.0.x</a></li>
+            </ul>
+        </div>
+        <dl class="f">
+            <dt class="ft">New</dt>
+            <dd>
+				<dl class="f">
+					<dt class="ft">Types</dt>
+					<dd>
+						<dl>
+							<dt><b>Class</b> <A HREF="onmergezippedconflict_event.htm#tzmconflictentry">TZMConflictEntry</A</dt>
+							<dd>
+								<p class="tight">class with <a HREF="tzmdirentry_class.htm">TZMDirEntry</a> and the ZipName of files that cause a merge conflict</p>
+							</dd>
+						</dl>
+					</dd>
+					<dt class="ft">Enumerations</dt>
+					<dd class="fd">
+						<dl>
+							<dt><A HREF="onmergezippedconflict_event.htm#tzmresolutions">TZMResolutions</A></dt>
+							<dd>Possible options to resolve merge conflicts</dd>
+						</dl>
+					</dd>
+					<dt class="ft">Functions</dt>
+					<dd class="fd">
+						<dl>
+							<dt><a href="mergezippedfiles.htm">MergeZippedFiles</a></dt>
+							<dd>merge specified files from multiple zip files (replaces CopyZippedFiles)</dd>
+							<dt><A HREF="uf_attribstr.htm">AttribStr</A></dt>
+							<dd>retuns the given file attributes as a string</dd>
+							<dt><A HREF="uf_file_age.htm">File_Age</A></dt>
+							<dd>stable replacement for depreciated FileAge</dd>
+							<dt><A HREF="uf_file_delete.htm">File_Delete</A></dt>
+							<dd>deletes the given file</dd>
+							<dt><A HREF="uf_filetimetolocaldostime.htm">FileTimeToLocalDOSTime</A></dt>
+							<dd>converts FILETIME struct to DOS time stamp</dd>
+							<dt><A HREF="uf_zsplitstring.htm">ZSplitString</A></dt>
+							<dd>splits a string at given delimiter</dd>
+						</dl>
+					</dd>
+					<dt class="ft">Properties</dt>
+					<dd class="fd">
+						<dl>
+							<dt><a href="languageid_property.htm"></a></dt>
+							<dt>State: <a href="state_property.htm#tzmstates">TZMStates</a>;</dt>
+							<dd>Replaces the Busy property</dd>
+						</dl>
+					</dd>
+					<dt class="ft">Events</dt>
+					<dd class="fd">
+						<dl>
+							<dt><a href="onmergezippedconflict_event.htm">OnMergeZippedConflict</a></dt>
+							<dd>Triggered on name conflicts when merging zips</dd>
+							<dt>OnStateChange: <a href="onstatechange_event.htm">TZMStateChange</a></dt>
+							<dd>Triggered on changes to component state</dd>
+						</dl>
+					</dd>
+				</dl>
+            </dd>
+            <dt class="ft">Changed</dt>
+            <dd>
+				<dl class="f">
+					<dt class="ft">Enumerations</dt>
+					<dd class="fd">
+						<dl>
+							<dt><A HREF="state_property.htm#tzmstates">TZMStates</A></dt>
+							<dd>updated to include zsReentered and zsReentry</dd>
+							<dt><a href="noskipping_property.htm#tzmskiptypes">TZMSkipTypes</a></dt>
+							<dd>stNothingToDo added</dd>
+							<dt>TZMReplaceOpts</dt>
+							<dd>replaced by <a href="mergezippedfiles.htm#tzmmergeopts">TZMMergeOpts</a></dd>
+						</dl>
+					</dd>
+					<dt class="ft">Functions</dt>
+					<dd class="fd">
+						<dl>
+							<dt><a href="delete.htm">Delete</a></dt>
+							<dd>Now allows delete of files in list prepared by other function (MergeZippedFiles)</dd>
+						</dl>
+					</dd>
+					<dt class="ft">Properties</dt>
+					<dd class="fd">
+						<dl>
+							<dt><a href="addoptions_property.htm">AddOptions.AddSafe</a></dt>
+							<dd>Removed use <a href="writeoptions_property.htm">TZMWriteOpts.zwoSafe</a> instead</dd>
+							<dt><a href="language_property.htm">Language</a></dt>
+							<dd>Number values no longer allowed for identification use <a href="languageid_property.htm">LanguageID</a> instead</dd>
+							<dt><a href="writeoptions_property.htm">WriteOptions</a></dt>
+							<dd>zwoSafe added</dd>
+						</dl>
+					</dd>
+					<dt class="ft">Events</dt>
+					<dd class="fd">
+						<dl>
+							<dt>OnStateChange: <a href="onstatechange_event.htm">TZMStateChange</a></dt>
+							<dd>Now also triggered by re-entry</dd>
+						</dl>
+					</dd>
+					<dt class="ft">Resources</dt>
+					<dd class="fd">
+						<dl>
+							<dt>Language messages</dt>
+							<dd>
+								<ul>
+									<li>Changed storage format and numbering see: <a href="errors_and_messages.htm">Error Codes</a></li>
+									<li>Now are deflated instead compressed see: <a href="resourse_format.htm">Resource format</a></li>
+								</ul>
+							</dd>
+							<dt>Dll stored in resources</dt>
+							<dd>Now are deflated instead compressed see: <a href="resourse_format.htm">Resource format</a></dd>
+						</dl>
+					</dd>
+				</dl>
+			</dd>
+        </dl>
+        <div class="foot">2012-04-18 10:08</div>
+    </body>
+</html>

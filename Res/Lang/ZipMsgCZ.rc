@@ -1,0 +1,97 @@
+// CZ: Czech
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 5, 1 // 0x0405
+{
+  DS_Canceled,               "Uživatel pøerušil operaci"
+  LD_DllLoaded,              "%s byl nahrán"
+  AD_NothingToZip,           "Chyba - žádné soubory k archivaci!"
+  DL_NothingToDel,           "Chyba - nejsou vybrány soubory pro mazání"
+  LD_NoDll,                  "%s nenalezen!"
+  LI_WrongZipStruct,         "Varování - chyba ve struktuøe ZIP souboru!"
+  PW_UnatAddPWMiss,          "Chyba - nezadáno heslo pro pøidání"
+  PW_UnatExtPWMiss,          "Chyba - nezadáno heslo pro vybalení"
+  DS_AskDeleteFile,          "Zde již je soubor %s\nOpravdu chcete pøepsat tento soubor"
+  DS_AskPrevFile,            "UPOZORNÌNÍ: Toto je pøedchozí disk è. %d!!!\nOpravdu chcete pøepsat jeho obsah"
+  DS_InDrive,                "\ndo mechaniky: %s"
+  DS_InsertAVolume,          "Vložte disk se jménem %.1d"
+  DS_InsertDisk,             "Vložte poslední disk"
+  DS_InsertVolume,           "Vložte disk se jménem %.1d z %.1d"
+  AD_UnattPassword,          "Nekomentovaná akce není možná bez hesla"
+  CZ_InputNotExe,            "Chyba: vstupní soubor není .EXE soubor"
+  DS_CEHWrongSig,            "Podpis centrálního záhlaví je chybný"
+  DS_DriveNoMount,           "Disk %s není definován"
+  DS_NoDiskSpace,            "Tento disk nemá dostatek volného místa"
+  DS_NoInFile,               "Vstupní sounor neexistuje"
+  DS_NotaDrive,              "Chybné zadání disku: %s"
+  DS_NoUnattSpan,            "Nekomentované vytváøení vícesvazkového archivu není implementováno"
+  DS_NoValidZip,             "Tento archiv není platným ZIP archivem"
+  EX_UnAttPassword,          "Varování - Nekomentované vybalení: možná nebudou vybaleny všechny soubory"
+  GE_NoZipSpecified,         "Chyba - ZIP soubor nebyl specifikován!"
+  GE_WrongPassword,          "Chyba - chybné heslo\nHeslo ignorováno"
+  SF_NoZipSFXBin,            "Chyba - %s nenalezen!"
+  SF_StringTooLong,          "Chyba - Celková velikost 3 textových vlastností pøekroèila 245!"
+  DS_CECommentLen,           "Chyba bìhem ètení souborového komentáøe"
+  DS_CEHBadRead,             "Chyba bìhem ètení spoleèného záhlaví"
+  DS_CEHBadWrite,            "Chyba bìhem zápisu centrálního záhlaví"
+  DS_CENameLen,              "Chyba bìhem ètení centrálního jména souboru"
+  DS_DataDesc,               "Chyba bìhem ètení/zápisu datové popisné oblasti"
+  DS_EOCBadRead,             "Chyba bìhem ètení konce centrálního adresáøe"
+  DS_EOCBadWrite,            "Chyba bìhem zápisu konce centrálního adresáøe"
+  DS_ErrorUnknown,           "Neznámá chyba ve funkci ReadSpan() nebo WriteSpan()"
+  DS_FailedSeek,             "Nalezena chyba ve vstupním souboru"
+  DS_FileOpen,               "ZIP soubor nemùže být otevøen"
+  DS_LOHBadRead,             "Chyba bìhem ètení lokálního záhlaví"
+  DS_LOHBadWrite,            "Chyba bìhem zápisu lokálního záhlaví"
+  DS_NoMem,                  "Nedostatek pamìti pro zobrazení hlášení"
+  DS_NoOutFile,              "Nepodaøilo se vytvoøit výstupní soubor"
+  DS_NoTempFile,             "Nelze vytvoøit pracovní soubor"
+  DS_NoVolume,               "Nelze nastavit jméno disku"
+  DS_NoWrite,                "Chyba pøi zápisu do výstupního souboru"
+  GE_FatalZip,               "Fatální chyba v DelZip179.DLL: pøerušení výjimkou"
+  GE_NoMem,                  "Nedostatek pamìti"
+  LI_ErrorUnknown,           "Neznámá chyba funkce List()"
+  LI_ReadZipError,           "Nalezena chyba pøi ètení ZIP archivu!"
+  DT_Language,               "CZ: Czech"
+}
