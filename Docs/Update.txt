@@ -1,6 +1,12 @@
 Recent changes
 1.9.1.0010
 Release
+1.9.1.0011
+Changes
+  leading spaces in path segments are now accepted instead of causing error (updated dll too).
+  SFX stub has been renamed to include its version.
+  various minor bug fixes
+1.9.1.0012
+  Combined build for x32 and x64 windows targets
+  Separate Design and Run-time packages for XE* compilers
 
-
-       

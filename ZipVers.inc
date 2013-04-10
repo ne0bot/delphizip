@@ -1,6 +1,6 @@
-{$ifndef WIN32}
-  Only 32 bit Windows supported!
-{$endif}
+//{$ifndef WIN32}
+//  Only 32 bit Windows supported!
+//{$endif}
 {$B-,H+,X+,T+,R-,V+,Z-}
 
 {$IfDef CLR}
@@ -38,6 +38,9 @@
   {$IF (CompilerVersion >= 23)} // Delphi XE2 or newer   - UNICODE
     {$DEFINE VERDXE2up}
   {$IFEND}
+  {$IF (CompilerVersion >= 24)} // Delphi XE3 or newer   - UNICODE
+    {$DEFINE VERDXE3up}
+  {$IFEND}
 {$ELSE}
   {$DEFINE VERpre6}
   {$IfDef VER120}
@@ -72,6 +75,9 @@
   {$ObjExportAll On}
 {$Endif}
 
+{$IFDEF VER180}
+{$WARN SYMBOL_DEPRECATED OFF}
+{$ENDIF}
 //{$IFDEF VERD6up}
 //{$WARN UNIT_PLATFORM OFF}
 //{$WARN SYMBOL_PLATFORM OFF}

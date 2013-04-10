@@ -100,8 +100,8 @@ type
     fShowProgress: TZipShowProgress;
     fStampDate: Cardinal;
     function GetExists: Boolean;
-    function GetFile_Size: Int64;
-    procedure SetFile_Size(const Value: Int64);
+//    function GetFile_Size: Int64;
+//    procedure SetFile_Size(const Value: Int64);
     procedure SetHandle(const Value: Integer);
   protected
     function Copy_File(Source: TZMWorkFile): Integer;
@@ -155,7 +155,7 @@ type
     property BytesWritten: Int64 read fBytesWritten write fBytesWritten;
     property Exists: Boolean read GetExists;
     property FileName: String read fFileName write SetFileName;
-    property File_Size: Int64 read GetFile_Size write SetFile_Size;
+//    property File_Size: Int64 read GetFile_Size write SetFile_Size;
     property Handle: Integer read FHandle write SetHandle;
     property IsOpen: Boolean read fIsOpen;
     property IsTemp: Boolean read fIsTemp write fIsTemp;
@@ -615,20 +615,20 @@ begin
     ZeroMemory(@FileInfo, sizeof(_BY_HANDLE_FILE_INFORMATION));
 end;
 
-function TZMWorkFile.GetFile_Size: Int64;
-var
-  cposn: Int64;
-begin
-  if IsOpen then
-  begin
-    cposn := Position;
-    Result := FileSeek(Handle, 0, soFromEnd);
-    if cposn <> Result then
-      Position := cposn;
-  end
-  else
-    Result := -1;
-end;
+//function TZMWorkFile.GetFile_Size: Int64;
+//var
+//  cposn: Int64;
+//begin
+//  if IsOpen then
+//  begin
+//    cposn := Position;
+//    Result := FileSeek(Handle, 0, soFromEnd);
+//    if cposn <> Result then
+//      Position := cposn;
+//  end
+//  else
+//    Result := -1;
+//end;
 
 function TZMWorkFile.GetPosition: Int64;
 begin
@@ -803,19 +803,19 @@ begin
   end;
 end;
 
-procedure TZMWorkFile.SetFile_Size(const Value: Int64);
-var
-  cposn: Int64;
-begin
-  if IsOpen and (Value >= 0) and (Value < File_Size)  then
-  begin
-    cposn := Position;
-    Position := Value;
-    SetEndOfFile;   // truncate
-    if cposn < Value then
-      Position := cposn;  // restore position
-  end;
-end;
+//procedure TZMWorkFile.SetFile_Size(const Value: Int64);
+//var
+//  cposn: Int64;
+//begin
+//  if IsOpen and (Value >= 0) and (Value < File_Size)  then
+//  begin
+//    cposn := Position;
+//    Position := Value;
+//    SetEndOfFile;   // truncate
+//    if cposn < Value then
+//      Position := cposn;  // restore position
+//  end;
+//end;
 
 procedure TZMWorkFile.SetHandle(const Value: Integer);
 begin

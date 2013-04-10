@@ -7,7 +7,7 @@ TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
   Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
 Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
 Copyright (C) 1992-2008 Eric W. Engler
-Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+Copyright (C) 2009, 2010, 2011, 2012, 2013 Russell Peters and Roger Aelbrecht
 
 All rights reserved.
 For the purposes of Copyright and this license "DelphiZip" is the current
@@ -42,7 +42,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
  *************************************************************************** *)
-//modified 2011-11-20
+//modified 2013-02-14
 
 {$INCLUDE   '.\ZipVers.inc'}
 
@@ -109,7 +109,7 @@ function VersStr(vers: Integer; Comma: Boolean = False): String;
 // stable replacement for depreciated FileAge()
 function File_Age(const FName: String): Cardinal;
 
-procedure File_Close(var fh: Integer);
+procedure File_Close(var fh: THandle);//Integer);
 
 procedure File_Delete(const FName: String);
 
@@ -180,7 +180,7 @@ function NameIsBad(const astr: String; AllowWild: Boolean): Boolean;
  // return exe size (if < 4G)
  //    0 _ not exe
 function ExeSize(const Name: String): Cardinal; overload;
-function ExeSize(fileHandle: Integer): Cardinal; overload;
+function ExeSize(fileHandle: THandle{Integer}): Cardinal; overload;
 
 
  // check for SFX header or detached header
@@ -192,7 +192,7 @@ const
   cstSFX19 = 19;      // found 1.9 SFX headers
   cstDetached = 2048; // is detached - if name specified ZipName will modified for it
 
-function CheckSFXType(const fileHandle: Integer; var ZipName: String;
+function CheckSFXType(const fileHandle: THandle{Integer}; var ZipName: String;
   var size: Integer): Integer; overload;
 function CheckSFXType(const Name: String; var ZipName: String;
   var size: Integer): Integer; overload;
@@ -482,9 +482,9 @@ begin
   Result := Cardinal(-1);
 end;
 
-procedure File_Close(var fh: Integer);
+procedure File_Close(var fh: THandle);//Integer);
 var
-  h: Integer;
+  h: THandle;//Integer;
 begin
   if fh <> Invalid_Handle then
   begin
@@ -782,7 +782,7 @@ var
   EOC: TZipEndOfCentral;
   EOCLoc: TZip64EOCLocator;
   EOCPossible: Boolean;
-  FileHandle: Integer;
+  FileHandle: THandle;//Integer;
   File_Sze: Int64;
   fn:  String;
   fs:  Int64;
@@ -1326,7 +1326,7 @@ var
   I: Integer;
   c: Char;
 begin
-  Result := (astr = '') or (astr[1] = ' ') or (astr[1] = '\') or
+  Result := (astr = '') or {(astr[1] = ' ') or} (astr[1] = '\') or
     (Length(astr) > MAX_PATH);
   if not Result then
     for I := 1 to Length(astr) do
@@ -1345,13 +1345,13 @@ begin
       end;
     end;
   if not Result then
-    Result := (AnsiPos('..', astr) > 0) or (AnsiPos('\ ', astr) > 0) or
+    Result := (AnsiPos('..', astr) > 0) or {(AnsiPos('\ ', astr) > 0) or}
       (AnsiPos(' \', astr) > 0);
 end;
 
  // return exe size (if < 4G)
  //    0 _ not exe
-function ExeSize(fileHandle: Integer): Cardinal;
+function ExeSize(fileHandle: THandle{Integer}): Cardinal;
 var
   bad: Boolean;
   did: Integer;
@@ -1368,7 +1368,7 @@ const
 begin
   Result := 0;
   bad := True;
-  if fileHandle <> -1 then
+  if fileHandle <> Invalid_Handle then
   begin
     try
       FileSeek(fileHandle, 0, soFromBeginning);
@@ -1414,11 +1414,11 @@ end;
 
 function ExeSize(const Name: String): Cardinal;
 var
-  fh: Integer;
+  fh: THandle;//Integer;
 begin
   Result := 0;
   fh := _Z_FileOpen(Name, fmOpenRead);
-  if fh <> -1 then
+  if fh <> Invalid_Handle then
   begin
     Result := ExeSize(fh);
     File_Close(fh);
@@ -1438,7 +1438,7 @@ end;
 // -10 = all other exceptions
 
 // check for SFX header or detached header
-function CheckSFXType(const fileHandle: Integer; var ZipName: String;
+function CheckSFXType(const fileHandle: THandle{Integer}; var ZipName: String;
   var size: Integer): Integer;
 type
   T_header = packed record
@@ -1556,13 +1556,13 @@ end;
 function CheckSFXType(const Name: String; var ZipName: String;
   var size: Integer): Integer;
 var
-  fh: Integer;
+  fh: THandle;//Integer;
 begin
   Result := 0;
   if AnsiCompareText(ExtractFileExt(Name), '.exe') = 0 then
   begin
     fh := _Z_FileOpen(Name, fmOpenRead);
-    if fh <> -1 then
+    if fh <> Invalid_Handle then
     begin
       ZipName := Name;
       Result := CheckSFXType(fh, ZipName, size);

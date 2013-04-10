@@ -6,7 +6,7 @@ TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
   Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
 Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
 Copyright (C) 1992-2008 Eric W. Engler
-Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+Copyright (C) 2009, 2010, 2011, 2012, 2013 Russell Peters and Roger Aelbrecht
 
 All rights reserved.
 For the purposes of Copyright and this license "DelphiZip" is the current
@@ -41,7 +41,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
  *************************************************************************** *)
-//modified 2012-03-26
+//modified 2013-02-14
 
 interface
 
@@ -820,10 +820,16 @@ begin
         end;
 
       zacCount: { total number of files to process }
+      begin
         Details.SetCount(File_Size);
+        fInternal^.fTotalSizeToProcess := 0;
+      end;
 
       zacSize: { total size of all files to be processed }
+      begin
         Details.SetSize(File_Size);
+        fInternal^.fTotalSizeToProcess := File_Size;
+      end;
 
       zacXItem: { progress type 15 = Start new extra operation }
         begin

@@ -7,7 +7,7 @@ TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
   Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
 Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
 Copyright (C) 1992-2008 Eric W. Engler
-Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+Copyright (C) 2009, 2010, 2011, 2012, 2013 Russell Peters and Roger Aelbrecht
 
 All rights reserved.
 For the purposes of Copyright and this license "DelphiZip" is the current
@@ -42,7 +42,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
  *************************************************************************** *)
-//modified 2011-03-20
+//modified 2013-02-14
 
 interface
                       
@@ -60,7 +60,7 @@ type
     zsVFAT, zsMVS, zsBEOS, zsTANDEM, zsTHEOS);
 
 const
-  Invalid_Handle = -1;
+  Invalid_Handle = THandle(-1);
   PathDelimAlt = '/';
   WILD_MULTI = '*';
   WILD_CHAR = '?';

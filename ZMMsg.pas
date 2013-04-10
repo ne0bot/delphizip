@@ -258,9 +258,9 @@ Const
  
 // name of compressed resource data
 const 
-  DZRES_Str = 'DZResStr';  // compressed language strings
-  DZRES_SFX = 'DZResSFX';  // stored UPX Dll version as string
-  DZRES_Dll = 'DZResDll';  // stored UPX Dll
+  DZRES_Str = 'DZResStr191';  // compressed language strings
+  DZRES_SFX = 'DZResSFX191';  // stored UPX Dll version as string
+  DZRES_Dll = 'DZResDll191';  // stored UPX Dll
  
 implementation
  

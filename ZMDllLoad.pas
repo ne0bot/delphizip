@@ -154,13 +154,17 @@ type
     function LoadLib(worker: TZMWorkBase; FullPath: String; MustExist: Boolean):
         Integer;
     procedure ReleaseLib;
+{$IFNDEF Win64}
     procedure RemoveTempDLL;
+{$ENDIF}
   protected
     function Counts_Dec(worker: TZMWorkBase; aMaster: TCustomZipMaster): Integer;
     function Counts_Find(Master: TCustomZipMaster): Integer;
     function Counts_Inc(worker: TZMWorkBase): Integer;
     procedure Empty;
+{$IFNDEF Win64}
     function ExtractResDLL(worker: TZMWorkBase; OnlyVersion: Boolean): Integer;
+{$ENDIF}
     function LoadDLL(worker: TZMWorkBase): Integer;
     function UnloadDLL: Integer;
     property IsLoaded: Boolean Read GetIsLoaded;
@@ -236,7 +240,9 @@ begin
   FreeAndNil(Guard);
 {$ENDIF}
   hndl := 0;
+{$IFNDEF Win64}
   RemoveTempDLL;
+{$ENDIF}
   inherited;
 end;
 
@@ -469,6 +475,7 @@ begin
   end;
 end;
 
+{$IFNDEF Win64}
 function TZMDLLLoader.ExtractResDLL(worker: TZMWorkBase; OnlyVersion: Boolean):
     Integer;
 const
@@ -545,6 +552,7 @@ begin
     end;
   end;
 end;
+{$ENDIF}
 
 function TZMDLLLoader.GetIsLoaded: Boolean;
 begin
@@ -575,10 +583,12 @@ begin
     DLLDirectory := DelimitPath(worker.Master.DLLDirectory, False);
     if DLLDirectory = '><' then
     begin
+{$IFNDEF Win64}
       // use res dll (or else)
       if (TmpFileName <> '') or (ExtractResDLL(worker, False) >= MIN_DLL_BUILD) then
         LoadLib(worker, TmpFileName, True);
       if fver <= 0 then
+{$ENDIF}
         raise EZipMaster.CreateMsgStr(__ERR_LD_NoDLL, DelZipDLL_Name);
       Result := fVer;
       exit;
@@ -602,6 +612,9 @@ begin
       if (dpth <> '') and not _Z_DirExists(dpth) then
         FullPath := '';
     end;
+{$IFDEF Win64}
+    AllowResDLL := False;
+{$ELSE}
     AllowResDLL := DLLDirectory = ''; // only if no path specified
     if AllowResDLL then
     begin
@@ -611,7 +624,9 @@ begin
       if fHasResDLL < MIN_DLL_BUILD then
         AllowResDLL := False;  // none or bad version
     end;
+{$ENDIF}
     DBuild := LoadLib(worker, PathConcat(FullPath, DelZipDLL_Name), not AllowResDLL);
+{$IFNDEF Win64}
     // if not loaded we only get here if allowResDLL is true;
     if DBuild < MIN_DLL_BUILD then
     begin
@@ -625,6 +640,7 @@ begin
         end;
       end;
     end;
+{$ENDIF}
   end;
   Result := fVer;
 end;
@@ -688,7 +704,8 @@ begin
       if worker.Verbosity >= zvVerbose then
         worker.ReportMsg(__ERR_LD_LoadErr, [fLoadErr, SysErrorMessage(fLoadErr),
           fLoadPath]);
-      raise EZipMaster.CreateMsgStr(__ERR_LD_NoDLL, FullPath);
+      raise EZipMaster.CreateMsgStr(__ERR_LD_NoDLL, FullPath + #13#10 + SysErrorMessage(fLoadErr));
+//      raise EZipMaster.CreateMsgStr(__ERR_LD_NoDLL, FullPath);
     end;
     Result := 0;
     exit;
@@ -740,8 +757,10 @@ begin
   begin
     Empty;
     fPath := '';
+{$IFNDEF Win64}
     if fKillTemp then
       RemoveTempDLL;
+{$ENDIF}
   end;
 end;
 
@@ -771,6 +790,7 @@ begin
   end;
 end;
 
+{$IFNDEF Win64}
 procedure TZMDLLLoader.RemoveTempDLL;
 var
   t: String;
@@ -781,6 +801,7 @@ begin
   if (t <> '') and _Z_FileExists(t) then
     _Z_DeleteFile(t);
 end;
+{$ENDIF}
 
 procedure TZMDLLLoader.Unload(worker: TZMWorkBase);
 begin
@@ -870,11 +891,12 @@ end;
 // remove from list
 procedure _DLL_Remove(Master: TCustomZipMaster);
 begin
-{$IFDEF STATIC_LOAD_DELZIP_DLL}
-  // nothing to do
-{$ELSE}
+{$IFNDEF STATIC_LOAD_DELZIP_DLL}
+  if G_LoadedDLL <> nil then
+  begin
   G_LoadedDLL.Counts_Dec(nil, Master); // unload if only loaded by Master
   G_LoadedDLL.Remove(Master); // remove from list
+  end;
 {$ENDIF}
 end;
 

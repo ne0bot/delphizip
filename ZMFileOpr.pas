@@ -71,6 +71,8 @@ type
     function GetMaxVolumeSize: Int64;
     function LoadFromBinFile(var stub: TStream; var Specified: Boolean)
       : Integer;
+    function LoadFromBinFile1(var stub: TStream; var Specified: Boolean; const
+        DefaultName: string): Integer;
     function LoadFromResource(var stub: TStream; const sfxtyp: string): Integer;
     function PrepareStub: Integer;
     function SearchResDirEntry(ResStart: PIRD; entry: PIRDirE;
@@ -165,7 +167,8 @@ type
   TFileNameIs = (fiExe, fiZip, fiOther, fiEmpty);
 
 const
-  SFXBinDefault: string = 'ZMSFX19.bin';
+  SFXBinDefault: string = 'ZMSFX191.bin';
+  SFXBinUDefault: string = 'ZMSFXU191.bin';
   SFXBufSize: Word      = $2000;
 
 // get the kind of filename
@@ -607,6 +610,20 @@ end;
 
 function TZMFileOpr.LoadFromBinFile(var stub: TStream;
   var Specified: Boolean): Integer;
+begin
+{$IFDEF VERD2009up}
+  Result := LoadFromBinFile1(stub, Specified, SFXBinUDefault);
+  if Result <= 0 then
+    Result := LoadFromBinFile1(stub, Specified, SFXBinDefault);
+{$ELSE}
+  Result := LoadFromBinFile1(stub, Specified, SFXBinDefault);
+  if Result <= 0 then
+    Result := LoadFromBinFile1(stub, Specified, SFXBinUDefault);
+{$ENDIF}
+end;
+
+function TZMFileOpr.LoadFromBinFile1(var stub: TStream; var Specified: Boolean;
+    const DefaultName: string): Integer;
 var
   BinExists: Boolean;
   binpath: string;
@@ -619,7 +636,7 @@ begin
   path := XPath;
   // if no name specified use default
   if ExtractFileName(XPath) = '' then
-    path := path + SFXBinDefault;
+    path := path + DefaultName;//SFXBinDefault;
   binpath := path;
   if (Length(XPath) > 1) and
     ((XPath[1] = '.') or (ExtractFilePath(XPath) <> '')) then
