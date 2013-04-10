@@ -7,7 +7,7 @@ TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
   Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
 Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
 Copyright (C) 1992-2008 Eric W. Engler
-Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+Copyright (C) 2009, 2010, 2011, 2012, 2013 Russell Peters and Roger Aelbrecht
 
 All rights reserved.
 For the purposes of Copyright and this license "DelphiZip" is the current
@@ -45,6 +45,12 @@ updates: http://www.delphizip.org
 
 interface
 
+
+
+
+
+
+
 uses Windows;
 
 (* zacArg - return string
@@ -53,8 +59,8 @@ uses Windows;
      1 = password
      2 = RootDir
      3 = ExtractDir
-     4 = FSpecArgs      Arg3 = index
-     5 = FSpecArgsExcl  Arg3 = index
+     4 = FSpecArgs      Arg3 = Index
+     5 = FSpecArgsExcl  Arg3 = Index
 *)
 
 type
@@ -223,7 +229,7 @@ type
   end;
   pDLLCommands = ^TDLLCommands;
 
-  const
+const
   ZPasswordFollows = '<';
   ZSwitchFollows = '|';
   ZForceNoRecurse = '|'; // leading
@@ -313,14 +319,18 @@ E = error/string code (8 bits = 256 errors)
   CALLBACK_ERROR     =     -5;  // unknown error
 
 const
-//  NEW_ENCODING_OS  = 0;
-//  NEW_ENCODING_VER = 25;//30;
-//  NEW_ENCODING_VEM = 25;//$001E;
+////  NEW_ENCODING_OS  = 0;
+////  NEW_ENCODING_VER = 25;//30;
+////  NEW_ENCODING_VEM = 25;//$001E;
   OUR_VEM = 30;
   Def_VER = 20;
 
 const
+{$IFDEF WIN64}
+  DelZipDLL_Name = 'DelZip64.dll';
+{$ELSE}
   DelZipDLL_Name = 'DelZip190.dll';
+{$ENDIF}
   DelZipDLL_Execfunc = 'DZ_Exec';
   DelZipDLL_Abortfunc = 'DZ_Abort';
   DelZipDLL_Versfunc = 'DZ_Version';

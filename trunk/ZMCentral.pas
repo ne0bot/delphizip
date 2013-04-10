@@ -879,6 +879,7 @@ begin
   // finished Central
   if Result >= 0 then
   begin
+//    FlushDiskBuffer; // 18/06/2012 9:38:10 AM
     Result := WriteEOC;
     if Result >= 0 then
     begin

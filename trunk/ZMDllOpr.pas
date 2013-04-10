@@ -321,14 +321,15 @@ begin
 end;
 
 (* ? TZMDLLOpr.AddStreamToFile
-  // EWE: I think 'FileName' is the name you want to use in the zip file to
+  //'FileName' is the name you want to use in the zip file to
   // store the contents of the stream under.
 *)
 procedure TZMDLLOpr.AddStreamToFile(const FileName: String;
   FileDate, FileAttr: Dword);
 const
-  __ERR_AD_NothingToZip = __UNIT__ + (344 shl 10) + AD_NothingToZip;
-  __ERR_AD_InvalidName = __UNIT__ + (349 shl 10) + AD_InvalidName;
+  __ERR_AD_NothingToZip = __UNIT__ + (345 shl 10) + AD_NothingToZip;
+//  __ERR_AD_InvalidName = __UNIT__ + (349 shl 10) + AD_InvalidName;
+  __ERR_BadName = __UNIT__ + (351 shl 10) + AD_BadFileName; // 23/08/2012 8:48:50 AM
 var
   FatDate: Word;
   FatTime: Word;
@@ -344,9 +345,16 @@ begin
     ShowZipMessage(__ERR_AD_NothingToZip, '');
     exit;
   end;
-  if IsWild(fn) then
+  // 24/08/2012 strip drive etc like 1.79
+  if ExtractFileDrive(fn) <> '' then
+    fn := Copy(fn, 3, Length(fn) - 2);
+  if (fn <> '') and ((fn[1] = '/') or (fn[1] = '\')) then
+    fn := Copy(fn, 2, Length(fn) -1);
+//  if IsWild(fn) then
+  if NameIsBad(fn, false) then  // 23/08/2012 8:48:57 AM
   begin
-    ShowZipMessage(__ERR_AD_InvalidName, '');
+    ShowZipMessage(__ERR_BadName, ' : ' + fn); // 23/08/2012 8:49:03 AM
+//    ShowZipMessage(__ERR_AD_InvalidName, '');
     exit;
   end;
   IncludeSpecs.Clear();
@@ -811,7 +819,7 @@ end;
 // return proper ErrCode for dll error
 function TZMDLLOpr.DllToErrCode(DLL_error: Integer): integer;
 begin
-  Result := DLL_error and $1F;//255;
+  Result := DLL_error and $3F;
   if Result <> 0 then
     Result := DZ_RES_GOOD + Result;
   if Result > DZ_ERR_DUPNAME then
@@ -1200,7 +1208,7 @@ var
 begin
   ErrorCode := CB.Arg1; // error
   if ErrorCode <> 0 then
-    DllErrCode := ErrorCode;
+    DllErrCode := DllToErrCode(ErrorCode);
   ti := CB.Arg2; // type
   if ReportSkipping(CB.msg, DllToErrCode(ErrorCode), TZMSkipTypes(pred(ti and MAX_BYTE))) then
     Result := CALLBACK_TRUE;

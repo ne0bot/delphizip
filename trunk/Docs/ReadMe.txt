@@ -1,7 +1,7 @@
 
-			Welcome to the Delphi Zip v1.91
+			Welcome to the Delphi Zip v1.9.1
                    This is the Delphi Edition for version 4 and later only
-					April 18, 2012
+					April 18, 2012 (updated 5 March 2013)
 						 
 Major Changes
 
@@ -53,6 +53,7 @@ The required Delphi source files (files marked with '+' are written by ZipResMak
 			ZMModOpr.pas	 - operations that modify the zip file
 +           ZMMsg.pas		 - message values
             ZMMsgStr.pas	 - handles message string storage and language selection
+			ZMReg.pas		 - registers design package (XE* only)
             ZMSFXInt.pas	 - SFX stub interface structures and definitions
             ZMStructs.pas	 - definition of internal zip structures 
             ZMUTF8.pas		 - functions for handling UTF8/UTF16
@@ -71,14 +72,44 @@ The required Delphi source files (files marked with '+' are written by ZipResMak
 			ZMRes191_sfx.res	 - compiled resource for including sfx stub (link to application) 
 			ZMRes191_dll.rc	 - resource script for including compressed dll
 			ZMRes191_dll.res	 - compiled resource for including compressed dll (link to application)(optional)
-			ZMSFX.bin		 - Ansi sfx stub
-			ZMSFXU.bin		 - Unicode sfx stub (requires XP or later)
+			ZMSFX191.bin		 - Ansi sfx stub
+			ZMSFXU191.bin		 - Unicode sfx stub (requires XP or later)DefStr.bin
+			
+	...\SFX\
+			DefStr.bin			- Default (US) strings (compressed)
+			ZMSFX191.dpr		- Pre D2009 stub project
+			ZMSFX191.exe		- prebuilt 'raw' stub (use ZipResMaker to prepare)
+			ZMSFXDefs.pas		- defines, constants
+			ZMSFXDialogs.pas	- code handling for the various dialogs
+			ZMSFXDLG.rc			- resource script for dialogs
+			ZMSFXDLG.res		- compiled resources for dialogs
+			ZMSFXInflate.pas	- inflate code for use within the stub
+			ZMSFXProcs.pas		- the main stub code
+			ZMSFXStrings.pas	- strings and string handling
+			ZMSFXStructs.pas	- various structures used
+			ZMSFXU191.dpr		- D2009+ stub project (XP+ only)
+			ZMSFXU191.exe		- prebuilt stub
+			ZMSFXU_ver.rc		- resource script
+			ZMSFXU_ver.res		- compiled resources
+			ZMSFXVars.pas		- variables
+			ZMSFXWinTrust.pas	- checks signed exe
+			ZMSFX_ver.rc		- resource script
+			ZMSFX_ver.res		- resources			
 
     ...\Packages\ 
             ZMstr190D?.bpk   - design and run-time package (? is compiler version)
+    ...\Packages\XE*
+			ZipMaster.groupproj - project group file
+			ZipMasterR.dpk		- run-time package file
+			ZipMasterR.dproj	- run-time package file
+			ZipMasterR.res		- run-time package resources
+			ZipMasterD.dpk		- design package file
+			ZipMasterD.dproj	- design package file
+			ZipMasterD.res		- design package resources
 
     ...\DLL\
             DelZip190.dll	 - required dll
+			DelZip64.dll	 - dll for x64
 
     ...\DOCS\
             licence.txt		 - a copy of the licence

@@ -62,7 +62,8 @@ type
   private
     fAllowedSize: Int64;
     fDiskNr: Integer;
-    fFile_Size: Int64;
+    FFile_Size: Int64;
+//    FFlushing: boolean;
     fInfo: Cardinal;
     fLastWrite: TFileTime;
     FRealFileName: String;
@@ -79,6 +80,7 @@ type
     function GetLastWritten: Cardinal;
     function GetMaxVolumeSize: Int64;
     function GetMinFreeVolumeSize: Cardinal;
+    procedure SetFile_Size(const Value: Int64);
     procedure SetKeepFreeOnAllDisks(const Value: Cardinal);
     procedure SetKeepFreeOnDisk1(const Value: Cardinal);
     procedure SetMaxVolumeSize(const Value: Int64);
@@ -87,7 +89,7 @@ type
   protected
     fBufferPosition: Integer;
     fConfirmErase: Boolean;
-    fDiskBuffer: TByteBuffer;
+//    fDiskBuffer: TByteBuffer;
     FDiskWritten: Cardinal;
     fIsMultiPart: Boolean;
     FNewDisk: Boolean;
@@ -135,7 +137,7 @@ type
     function Write(const Buffer; Len: Integer): Integer; override;
     function Writes(const Buffer; const Lens: array of Integer): Integer; override;
     property DiskNr: Integer read fDiskNr write fDiskNr;
-    property File_Size: Int64 read fFile_Size write fFile_Size;
+    property File_Size: Int64 read FFile_Size write SetFile_Size;
     property info: Cardinal read fInfo write fInfo;
     property IsMultiPart: Boolean read fIsMultiPart write fIsMultiPart;
     property KeepFreeOnAllDisks: Cardinal read GetKeepFreeOnAllDisks write
@@ -232,8 +234,8 @@ end;
 procedure TZMWorkZip.AfterConstruction;
 begin
   inherited;
-  fDiskBuffer := nil;
-  fBufferPosition := -1;
+//  fDiskBuffer := nil;
+//  fBufferPosition := -1;
   fInfo := 0;
   fIsMultiPart := false;
   fNumbering := znsNone;
@@ -350,8 +352,8 @@ begin
     if Src is TZMWorkZip then
     begin
       zsrc := TZMWorkZip(Src);
-      fDiskBuffer := nil;
-      fBufferPosition := -1;
+//      fDiskBuffer := nil;
+//      fBufferPosition := -1;
       Move(zsrc.fSavedFileInfo, fSavedFileInfo, SizeOf(fSavedFileInfo));
       fAllowedSize := zsrc.fAllowedSize;
       fDiskNr := zsrc.fDiskNr;
@@ -381,7 +383,7 @@ begin
     IsTemp := False;  // avoid deleting again
   end;
   FreeAndNil(fWorkDrive);
-  fDiskBuffer := nil; // ++ discard contents
+//  fDiskBuffer := nil; // ++ discard contents
   WBuf := nil;
   inherited;
 end;
@@ -560,8 +562,8 @@ end;
 
 procedure TZMWorkZip.File_Close;
 begin
-  if fDiskBuffer <> nil then
-    FlushDiskBuffer;
+//  if fDiskBuffer <> nil then
+//    FlushDiskBuffer;
   inherited;
 end;
 
@@ -658,28 +660,31 @@ begin
 end;
 
 procedure TZMWorkZip.FlushDiskBuffer;
-var
-  did: Integer;
-  Len: Integer;
+//var
+//  did: Integer;
+//  Len: Integer;
 begin
-  Len := fBufferPosition;
-  fBufferPosition := -1; // stop retrying on error
-  if fDiskBuffer <> nil then
-  begin
-    KeepAlive;
-    CheckCancel;
-    if Len > 0 then
-    begin
-      repeat
-        did := DoWrite(fDiskBuffer[0], Len);
-        if did <> Len then
-        begin
-          NewFlushDisk; // abort or try again on new disk
-        end;
-      until (did = Len);
-    end;
-    fDiskBuffer := nil;
-  end;
+//  if fDiskBuffer <> nil then
+//  begin
+//    Len := fBufferPosition;
+//    fBufferPosition := -1; // stop retrying on error
+//    FFlushing := True;
+//    KeepAlive;
+//    CheckCancel;
+//    if Len > 0 then
+//    begin
+////      repeat
+////        did := DoWrite(fDiskBuffer[0], Len);
+//        did := Write(fDiskBuffer[0], Len);
+//        if did <> Len then
+//        begin
+//          raise EZipMaster.CreateMsgDisp(DS_WriteError, True);
+////          NewFlushDisk; // abort or try again on new disk
+//        end;
+////      until (did = Len);
+//    end;
+//    fDiskBuffer := nil;
+//  end;
 end;
 
 function TZMWorkZip.GetKeepFreeOnAllDisks: Cardinal;
@@ -748,9 +753,9 @@ end;
 
 function TZMWorkZip.GetPosition: Int64;
 begin
-  if fDiskBuffer <> nil then
-    Result := fBufferPosition
-  else
+//  if fDiskBuffer <> nil then
+//    Result := fBufferPosition
+//  else
     Result := inherited GetPosition;
 end;
 
@@ -1040,12 +1045,13 @@ begin
       if not WorkDrive.RenameDisk(VolName(DiskNr)) then
         raise EZipMaster.CreateMsgDisp(__ERR_DS_NoVolume, True);
     end;
-    // if it is a floppy buffer it
-    if (not WorkDrive.DriveIsFixed) and (AllowedSize <= MaxDiskBufferSize) then
-    begin
-      SetLength(fDiskBuffer, AllowedSize);
-      fBufferPosition := 0;
-    end;
+//    // if it is a floppy buffer it
+//    if (not WorkDrive.DriveIsFixed) and (AllowedSize <= MaxDiskBufferSize)// then
+//      and not FFlushing then // 18/06/2012 9:22:56 AM
+//    begin
+//      SetLength(fDiskBuffer, AllowedSize);
+//      fBufferPosition := 0;
+//    end;
   end;
 end;
 
@@ -1153,6 +1159,14 @@ begin
   begin
     inherited SetFileName(Value);
     WorkDrive.DriveStr := Value;
+  end;
+end;
+
+procedure TZMWorkZip.SetFile_Size(const Value: Int64);
+begin
+  if FFile_Size <> Value then
+  begin
+    FFile_Size := Value;
   end;
 end;
 
@@ -1320,13 +1334,13 @@ begin { WriteSplit }
         MaxLen := Integer(AllowedSize);
       if Len < MaxLen then
         MaxLen := Len;
-      if fDiskBuffer <> nil then
-      begin
-        Move(Buf^, fDiskBuffer[fBufferPosition], MaxLen);
-        Res := MaxLen;
-        Inc(fBufferPosition, MaxLen);
-      end
-      else
+//      if (fDiskBuffer <> nil) and not FFlushing then // 18/06/2012 9:22:32 AM
+//      begin
+//        Move(Buf^, fDiskBuffer[fBufferPosition], MaxLen);
+//        Res := MaxLen;
+//        Inc(fBufferPosition, MaxLen);
+//      end
+//      else
         Res := inherited Write(Buf^, MaxLen);
       if Res < 0 then
         raise EZipMaster.CreateMsgDisp(__ERR_DS_NoWrite, True);

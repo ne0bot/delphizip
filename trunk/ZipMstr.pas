@@ -7,7 +7,7 @@ TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
   Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
 Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
 Copyright (C) 1992-2008 Eric W. Engler
-Copyright (C) 2009, 2010, 2011, 2012 Russell Peters and Roger Aelbrecht
+Copyright (C) 2009, 2010, 2011, 2012, 2013 Russell Peters and Roger Aelbrecht
 
 All rights reserved.
 For the purposes of Copyright and this license "DelphiZip" is the current
@@ -42,7 +42,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
  *************************************************************************** *)
-//modified 2012-05-01
+//modified 2013-03-05
 {$I   '.\ZipVers.inc'}
 {$I   '.\ZMConfig191.inc'}
 
@@ -53,11 +53,16 @@ uses
   ZMXcpt, ZMStructs;
 
 const
-  ZIPMASTERBUILD: string =  '1.9.1.0010';
-  ZIPMASTERDATE: string  =  '1/05/2012';
-  ZIPMASTERPRIV: Integer = 1910010;
+  ZIPMASTERBUILD: string =  '1.9.1.0012';
+  ZIPMASTERDATE: string  =  '6/03/2013';
+  ZIPMASTERPRIV: Integer = 1910012;
+{$IFDEF WIN64}
+  DELZIPVERSION          = 191;
+  MIN_DLL_BUILD          = 1910111;
+{$ELSE}
   DELZIPVERSION          = 190;
-  MIN_DLL_BUILD          = 1900107;
+  MIN_DLL_BUILD          = 1900111;
+{$ENDIF}
 
 const
   ZMPWLEN = 80;
@@ -535,7 +540,7 @@ type
 
   TZMWorkBase = class;
   // the main component
-{$IFDEF VERDXE2up} [ComponentPlatformsAttribute(pidWin32)] {$ENDIF}
+{$IFDEF VERDXE2up} [ComponentPlatformsAttribute(pidWin32 or pidWin64)] {$ENDIF}
   TCustomZipMaster = class(TComponent)
   private
     { Private versions of property variables }
@@ -1079,7 +1084,7 @@ const
   ZMDefAddStoreSuffixes = [assGIF .. assJAR, assJPG .. ass7Zp,
     assMP3 .. assAVI];
 
-procedure Register;
+//procedure Register;
 
 implementation
 
@@ -1103,7 +1108,7 @@ const
 
 const
   SZipMasterSniffer = 'ZipMaster Sniffer';
-  STZipSniffer      = 'TZipSniffer';
+  STZipSniffer      = 'TSnifferForm';//'TZipSniffer';
   WM_SNIFF_START    = WM_APP + $3F42;
   WM_SNIFF_STOP     = WM_APP + $3F44;
   SNIFF_MASK        = $FFFFFF;
@@ -1111,10 +1116,10 @@ const
     : string = 'ZMRes_???.res is probably not linked to the executable' + #10
     + 'Missing String ID is: %d ';
 
-procedure Register;
-begin
-  RegisterComponents('DelphiZip', [TZipMaster]);
-end;
+//procedure Register;
+//begin
+//  RegisterComponents('DelphiZip', [TZipMaster]);
+//end;
 
 { TZMProgressDetails }
 function TZMProgressDetails.GetItemPerCent: Integer;
@@ -1297,7 +1302,7 @@ begin
   fDelaying := 0;
   BusyFlag := 0;
   FCurWaitCount := 0;
-  fInternal.fNotMainThread := False;
+  fInternal.fNotMainThread := GetCurrentThreadID <> MainThreadID;
   fInternal.FNoReadAux := False;
   fInternal.FAuxChanged := False;
   FFSpecArgs := TStringList.Create;
@@ -1536,9 +1541,9 @@ const
   __ERR_DS_NoOutFile1 = __UNIT__ + (1573 shl 10) + DS_NoOutFile;
   __ERR_DS_UnknownError = __UNIT__ + (1580 shl 10) + DS_UnknownError;
 var
-  InFile: Integer;
+  InFile: THandle;//Integer;
   In_Size: Int64;
-  OutFile: Integer;
+  OutFile: THandle;//Integer;
   Out_Size: Int64;
 begin
   In_Size := -1;
@@ -1548,12 +1553,12 @@ begin
   if not _Z_FileExists(InFileName) then
     Exit;
   InFile := _Z_FileOpen(InFileName, fmOpenRead or fmShareDenyWrite);
-  if InFile <> -1 then
+  if InFile <> Invalid_Handle then
   begin
     if _Z_FileExists(OutFileName) then
     begin
       OutFile := _Z_FileOpen(OutFileName, fmOpenWrite or fmShareExclusive);
-      if OutFile = -1 then
+      if OutFile = Invalid_Handle then
       begin
         Result := -__ERR_DS_NoOutFile; // might be read-only or source
         File_Close(InFile);
@@ -1563,7 +1568,7 @@ begin
       _Z_EraseFile(OutFileName, HowToDelete = htdFinal);
     end;
     OutFile := _Z_FileCreate(OutFileName);
-    if OutFile <> -1 then
+    if OutFile <> Invalid_Handle then
     begin
       Result := CopyBuffer(InFile, OutFile, -1);
       if (Result = 0) and (FileSetDate(OutFile, FileGetDate(InFile)) <> 0) then
@@ -2471,7 +2476,7 @@ begin
     Result := True;
     try
       Start;
-      if (fLister <> nil) and FileExists(ZipFileName) then
+      if (fLister <> nil) and (IsSpanned or FileExists(ZipFileName)) then
       begin
         lister := TheLister(fLister);
         if not lister.CurrentIsValid then
@@ -3147,7 +3152,8 @@ end;
 
 procedure TCustomZipMaster.SetNotMainThread(const Value: boolean);
 begin
-  //
+  if not ReEntry then
+    fInternal.fNotMainThread := Value;
 end;
 
 procedure TCustomZipMaster.SetOnLoadStr(const Value: TZMLoadStrEvent);
@@ -3540,19 +3546,22 @@ begin
   fSniffer := FindSniffer;
   if fSniffer <> 0 then
   begin
+    s := '';
     if Owner <> nil then
     begin
-      s := Owner.Name;
-      if s <> '' then
-        s := s + '.';
+      s := Owner.Name + '.';
+//      if s <> '' then
+//        s := s + '.';
     end;
-    if name = '' then
-      s := '<unknown>.'
-    else
-      s := s + name;
-    if NotMainThread then
-      s := '*' + s;
-    ReportToSniffer(0, 'Starting ' + s);
+//    if name = '' then
+//      s := '<unknown>.'
+//    else
+//      s := s + name;
+//    if NotMainThread then
+//      s := '*' + s;
+//    ReportToSniffer(0, 'Starting ' + s);
+    ReportToSniffer(0, Format('Starting %u.%u:%s<%p>(%s)',
+        [MainThreadID, GetCurrentThreadID, s, pointer(self), Name]));
   end;
   // 'lock' spec lists
   fInternal.fIncludeSpecs.Assign(FSpecArgs);

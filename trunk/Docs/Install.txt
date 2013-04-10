@@ -1,5 +1,5 @@
 Delphi Zip
-Version 1.91
+Version 1.9.1.0012
 
 DOES NOT support before Delphi 4
 
@@ -14,7 +14,7 @@ version before installing this release.
 Instructions for manual installation - don't know why you would want too but...
  
 
-This ZIP should go into a base directory of \ZipMstr191.
+This ZIP should go into a base directory of \ZipMstr191 (normally in "Public Documents\RAD Studio")
 
 
 IMPORTANT!
@@ -22,7 +22,8 @@ IMPORTANT!
 You need to copy the redistributable modules to your desired
 directory on your development computer.  
 
-Copy \ZipMstr191\DLL\DelZip190.DLL to your Windows System directory.
+Copy \ZipMstr191\DLL\DelZip190.DLL to your Windows x32 System directory.
+x64 Windows - Copy \ZipMstr191\DLL\DelZip64.DLL to your Windows x64 System directory.
 Copy \ZipMstr191\SFX\RES\dzsfx??.BIN to your Windows System directory. ??=language
 
 
@@ -47,7 +48,7 @@ understand a step, get help before you start the install!
 
 
 1. You MUST install this package on a computer that has Delphi (any 
-   version from 4 thru 7).
+   version from 4 thru 7 or later).
 
 2. The VCLs included with this release are:
       TZipMaster191 - the main ZIP support VCL
@@ -78,12 +79,17 @@ understand a step, get help before you start the install!
     If you are not installing into same directory as previous version then the old version 
       must be completely removed. 
 
+	Delphi XE, XE2, XE3
+      From the directory is was installed/unzipped
+		a) open the Packages\XE*\ZipMaster.groupproj project
+		b) Compile/Build ZipMasterR17.bpl (for XE3 x64 need to build both 32 and 64 bit run-time packages)
+		c) Compile/Build and install ZipMasterD17.bpl  (design package 32 bit only)
   
     Delphi 4, 5, 6, and 7:
       Here's some new instructions that will install into a new package.
     Preferred method
       1) From the Delphi directory 
-         a) open and build ZMstr190D?.dpk (where ? is Delphi version) Design and Run-Time package
+         a) open and build ZMstr191D?.dpk (where ? is Delphi version) Design and Run-Time package
       
     OR
       1) Menu | Component | Install Component...
