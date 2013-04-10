@@ -38,7 +38,7 @@
 #define DZ_VER_MAJOR  1
 #define DZ_VER_MINOR  9
 #define DZ_VER_REVISION  0
-#define DZ_VER_BUILD  116
+#define DZ_VER_BUILD  118
 
 #ifdef _WIN64
    #ifdef _DEBUG

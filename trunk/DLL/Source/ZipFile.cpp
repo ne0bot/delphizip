@@ -702,17 +702,23 @@ int ZipFunc::TrashDir(const DZStrW &dir)
 {
     DZStrW tmp = StrExcSep(dir);
 
-    if (tmp.IsEmpty())
+	if (tmp.IsEmpty())
 		return -1;
 
     if (Verbose)
-        Notify(IVERBOSE, _T("trashing directory %s (if empty)"), tmp.c_str());
+		Notify(IVERBOSE, _T("trashing directory %s (if empty)"), tmp.c_str());
 
-    int err = EraseFile(tmp, fHowToMove);
-    if (err && Verbose < 0)
-	  Notify(IWARNING, _T("error deleting %s {%x}"), tmp.c_str(), err);
+	if (!RemoveDirectory(tmp.c_str()))
+	{
+	  if (Verbose < 0)
+		Notify(IWARNING, _T("error deleting %s {%s}"), tmp.c_str(), LastSystemMsg().c_str());
+	  return 1;
+	}
+//	int err = EraseFile(tmp, fHowToMove);
+//	if (err && Verbose < 0)
+//	  Notify(IWARNING, _T("error deleting %s {%x}"), tmp.c_str(), err);
 
-    return 0;
+	return 0;
 }
 
 
@@ -736,9 +742,11 @@ int ZipFunc::trash(void)
 
     for (z = fzfiles; z != NULL; z = z->nxt)
     {
-        if (z->mark == 1 || z->trash)
+//		if (z->mark == 1 || z->trash)
+//		if (z->mark == MARK_NEW /*1*/ || z->trash)
+		if (z->mark > 0 || z->trash)
         {
-            z->mark = 1;
+			z->mark = 1;
             DZStrW f = z->FullPath();
 			if (!z->GetIsFolder())
             {
@@ -785,7 +793,7 @@ int ZipFunc::trash(void)
 
     if (n == 1 && prv)
     {
-        TrashDir(prv->FullPath());
+		TrashDir(prv->FullPath());
         n = 0;
     }
 
@@ -837,9 +845,9 @@ int ZipFunc::trash(void)
             if (*p == '\0')
                 continue;
 
-            if (i == 0 || !ZMatch(p, dlist[i - 1]))
+			if (i == 0 || !ZMatch(p, dlist[i - 1]))
                 TrashDir(p);
-        }
+		}
 
         // clean up
 		for (int ii = 0; ii < dcnt; ii++)
