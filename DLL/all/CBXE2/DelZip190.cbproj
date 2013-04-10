@@ -13,9 +13,20 @@
 		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
 			<Base>true</Base>
 		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+			<Base_Win32>true</Base_Win32>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
 		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
 			<Cfg_1>true</Cfg_1>
 			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+			<Cfg_1_Win32>true</Cfg_1_Win32>
+			<CfgParent>Cfg_1</CfgParent>
+			<Cfg_1>true</Cfg_1>
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
@@ -23,7 +34,7 @@
 			<CfgParent>Base</CfgParent>
 			<Base>true</Base>
 		</PropertyGroup>
-		<PropertyGroup Condition="'$(Platform)'=='Win32' and '$(Cfg_2)'=='true' or '$(Cfg_2_Win32)'!=''">
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
 			<Cfg_2_Win32>true</Cfg_2_Win32>
 			<CfgParent>Cfg_2</CfgParent>
 			<Cfg_2>true</Cfg_2>
@@ -54,7 +65,7 @@
 			<TASM_MaxSymbolLength>32</TASM_MaxSymbolLength>
 			<TASM_CaseSensitivity>All</TASM_CaseSensitivity>
 			<Defines>_USE_ASM_;ALLOW_WIN98;$(Defines)</Defines>
-			<PackageImports>rtl.bpi;$(PackageImports).bpi</PackageImports>
+			<PackageImports>rtl.bpi;$(PackageImports).bpi;$(PackageImports)</PackageImports>
 			<ILINK_GenerateImportLibrary>true</ILINK_GenerateImportLibrary>
 			<OutputExt>dll</OutputExt>
 			<AllPackageLibs>rtl.lib</AllPackageLibs>
@@ -68,6 +79,10 @@
 			<BCC_wpar>false</BCC_wpar>
 			<BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
 			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win32)'!=''">
+			<VerInfo_Build>119</VerInfo_Build>
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip/Unzip support dll;FileVersion=1.9.0.119;InternalName=;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013, Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP, UNZIP;OriginalFilename=;ProductName=DelphiZip;ProductVersion=1.9.0.0119;Comments=</VerInfo_Keys>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1)'!=''">
 			<IncludePath>C:\Program Files (x86)\Embarcadero\RAD Studio\9.0\include\windows\sdk;$(IncludePath)</IncludePath>
@@ -98,6 +113,13 @@
 			<BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
 			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)\debug;$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
 		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<Debugger_HostApplication>C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\191\Test\DllTest\Win32\Debug\DllTest.exe</Debugger_HostApplication>
+			<IntermediateOutputDir>Debug\xe2</IntermediateOutputDir>
+			<VerInfo_Build>119</VerInfo_Build>
+			<UsingDelphiRTL>false</UsingDelphiRTL>
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip/Unzip support dll;FileVersion=1.9.0.119;InternalName=;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013, Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP, UNZIP;OriginalFilename=;ProductName=DelphiZip;ProductVersion=1.9.0.0119;Comments=</VerInfo_Keys>
+		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
 			<FinalOutputDir>..\..\..\VCL\DLL\</FinalOutputDir>
 			<ILINK_MapFileType>DetailedSegments</ILINK_MapFileType>
@@ -108,6 +130,9 @@
 			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)\release;$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+			<VerInfo_Build>119</VerInfo_Build>
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip/Unzip support dll;FileVersion=1.9.0.119;InternalName=;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013, Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP, UNZIP;OriginalFilename=;ProductName=DelphiZip;ProductVersion=1.9.0.0119;Comments=</VerInfo_Keys>
+			<UsingDelphiRTL>false</UsingDelphiRTL>
 			<IntermediateOutputDir>Release\xe</IntermediateOutputDir>
 		</PropertyGroup>
 		<ItemGroup>
@@ -152,10 +177,11 @@
 			<DefFile Include="..\..\Source\DelZipExp.def">
 				<BuildOrder>53</BuildOrder>
 			</DefFile>
-			<ResourceCompile Include="..\..\Source\dz190.rc">
+			<None Include="..\..\Source\dz190.rc">
+				<Exclude>True</Exclude>
 				<Form>dz190.res</Form>
 				<BuildOrder>52</BuildOrder>
-			</ResourceCompile>
+			</None>
 			<CppCompile Include="..\..\Source\DZFrame.cpp">
 				<DependentOn>..\..\Source\DZFrame.h</DependentOn>
 				<BuildOrder>14</BuildOrder>
@@ -355,53 +381,11 @@
 					</ProjectProperties>
 					<Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\fmidesigner160.bpl">FMI Form designer and property and component editors</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\bcbie160.bpl">Embarcadero C++Builder Internet Explorer Components Package</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dcl31w160.bpl">Delphi 1.0 Compatibility Components</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dclado160.bpl">Embarcadero ADO DB Components</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dclbcbsmp160.bpl">C++Builder Sample Components Package</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dclbde160.bpl">Embarcadero BDE DB Components</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dcldbxcds160.bpl">Embarcadero SimpleDataset Component (DBX)</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dclib160.bpl">Embarcadero InterBase Express Components</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dclmcn160.bpl">Embarcadero DataSnap Connection Components</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dclsoap160.bpl">Embarcadero SOAP Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Program Files (x86)\Raize\CS5\Bin\CodeSiteExpressPkg_Design160.bpl">CodeSite Express 5.1</Excluded_Packages>
-						<Excluded_Packages Name="$(BDS)\RaveReports\Lib\dclRave.bpl">Rave Reports 10.0 BE Package</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dclIndyProtocols160.bpl">Indy 10 Protocols Design Time</Excluded_Packages>
-						<Excluded_Packages Name="$(BDSBIN)\dclwebsnap160.bpl">Embarcadero WebSnap Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\SynEdit_DXE2.bpl">SynEdit component suite</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\VirtualTreesD.bpl">(untitled)</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvAppFrmDesign160.bpl">JVCL Application and Form Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvBandsDesign160.bpl">JVCL Band Objects</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvBDEDesign160.bpl">JVCL BDE Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvCmpDesign160.bpl">JVCL Non-Visual Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvControlsDesign160.bpl">JVCL Visual Controls</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvCryptDesign160.bpl">JVCL Encryption and Compression</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvCustomDesign160.bpl">JVCL Custom Controls</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvDlgsDesign160.bpl">JVCL Dialog Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvDockingDesign160.bpl">JVCL Docking Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvDotNetCtrlsDesign160.bpl">JVCL DotNet Controls</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvGlobusDesign160.bpl">JVCL Globus Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvHMIDesign160.bpl">JVCL HMI Controls</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvJansDesign160.bpl">JVCL Jans Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvManagedThreadsDesign160.bpl">JVCL Managed Threads</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvMMDesign160.bpl">JVCL Multimedia and Image Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvNetDesign160.bpl">JVCL Network Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvPageCompsDesign160.bpl">JVCL Page Style Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvPascalInterpreterDesign160.bpl">JVCL Interpreter Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvPluginSystemDesign160.bpl">JVCL Plugin Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvPrintPreviewDesign160.bpl">JVCL Print Preview Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvRuntimeDesignDesign160.bpl">JVCL Runtime Design Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvStdCtrlsDesign160.bpl">JVCL Standard Controls</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvSystemDesign160.bpl">JVCL System Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvTimeFrameworkDesign160.bpl">JVCL Time Framework</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvWizardsDesign160.bpl">JVCL Wizard</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvXPCtrlsDesign160.bpl">JVCL XP Controls</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k160.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp160.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dclIPIndyImpl160.bpl">IP Abstraction Indy Implementation Design Time</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k160.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dclofficexp160.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
-						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\BPL\ZBldr191C15.bpl">File C:\Users\Public\Documents\RAD Studio\9.0\BPL\ZBldr191C15.bpl not found</Excluded_Packages>
 					</Excluded_Packages>
 					<Parameters_Win32>
 						<Parameters_Win32 Name="HostApplication">C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\191\MoveTest\Win32\Debug\MoveTest.exe</Parameters_Win32>
