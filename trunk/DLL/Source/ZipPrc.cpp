@@ -555,8 +555,8 @@ int ZipFunc::ZipProcess(void)
 	for (f = ffound; f != NULL;)
 	{
 		if (faction == PURGE || faction == FRESHEN
-//				|| (t = zfiletime(f->xname, NULL, NULL, NULL)) == 0
-				|| (!zfiletime(f->xname, NULL, NULL, &t))
+				|| (!zfiletime(f->FullPath(), NULL, NULL, &t))
+//				|| (!zfiletime(f->xname, NULL, NULL, &t))
 				|| t < fbefore
 				|| (ZMatch(f->FullPath(), fzipfile)))
 		{
