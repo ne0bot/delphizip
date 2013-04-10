@@ -1,6 +1,6 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{0F0214E2-A864-4027-A880-37AF0144FF42}</ProjectGuid>
+        <ProjectGuid>{CD33F236-4AD3-4C20-B6E4-02AA6770E0F7}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
         <Projects Include="ZipMasterR.dproj">

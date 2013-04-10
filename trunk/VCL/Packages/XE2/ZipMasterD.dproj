@@ -1,6 +1,6 @@
 	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<PropertyGroup>
-			<ProjectGuid>{D64A2841-4F9E-4689-9996-97D4559370FB}</ProjectGuid>
+			<ProjectGuid>{358425B1-032A-4ACC-B5BA-05DEE4F20C84}</ProjectGuid>
 			<MainSource>ZipMasterD.dpk</MainSource>
 			<Base>True</Base>
 			<Config Condition="'$(Config)'==''">Release</Config>
@@ -68,10 +68,10 @@
 			<VerInfo_MinorVer>9</VerInfo_MinorVer>
 			<DCC_UnitSearchPath>..\..\;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Delphi zip component;FileVersion=1.9.1.13;InternalName=TZipMaster;LegalCopyright=Copyright 2013, Russell Peters;LegalTrademarks=;OriginalFilename=ZipMstr;ProductName=ZipMaster;ProductVersion=1.9.1.13;Comments=</VerInfo_Keys>
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Delphi zip component;FileVersion=1.9.1.14;InternalName=TZipMaster;LegalCopyright=Copyright 2013, Russell Peters;LegalTrademarks=;OriginalFilename=ZipMstr;ProductName=ZipMaster;ProductVersion=1.9.1.14;Comments=</VerInfo_Keys>
 			<VerInfo_Release>1</VerInfo_Release>
 			<VerInfo_Locale>1033</VerInfo_Locale>
-			<VerInfo_Build>13</VerInfo_Build>
+			<VerInfo_Build>14</VerInfo_Build>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
 			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
