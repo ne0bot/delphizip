@@ -74,6 +74,7 @@ Type
     FormInitialWidth: Integer;
 
     ProgressBar2: TProgressBar;
+    procedure BeforeDestruction; override;
   End;
 
 Var
@@ -83,6 +84,13 @@ Implementation
 
 Uses mainunit, ZipMstr;
 {$R *.DFM}
+
+procedure TMsgform.BeforeDestruction;
+begin
+  if MainForm <> nil then
+    MainForm.Dying := True;
+  inherited;
+end;
 
 Procedure TMsgform.DismissButClick(Sender: TObject);
 Begin

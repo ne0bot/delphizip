@@ -1,6 +1,6 @@
 	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<PropertyGroup>
-			<ProjectGuid>{FD31F895-C390-4F7D-85E5-1759758FA79E}</ProjectGuid>
+			<ProjectGuid>{B0E2F3CA-E513-4C4E-A8C9-E188119BB498}</ProjectGuid>
 			<MainSource>ZipMasterR.dpk</MainSource>
 			<Base>True</Base>
 			<Config Condition="'$(Config)'==''">Release</Config>
@@ -42,7 +42,7 @@
 		<PropertyGroup Condition="'$(Base)'!=''">
 			<DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
 			<DCC_F>false</DCC_F>
-			<DesignOnlyPackage>true</DesignOnlyPackage>
+			<RuntimeOnlyPackage>true</RuntimeOnlyPackage>
 			<VerInfo_Locale>3081</VerInfo_Locale>
 			<VerInfo_MinorVer>9</VerInfo_MinorVer>
 			<DCC_K>false</DCC_K>
@@ -59,8 +59,8 @@
 			<DCC_ImageBase>00400000</DCC_ImageBase>
 			<DCC_S>false</DCC_S>
 			<DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;$(DCC_Namespace)</DCC_Namespace>
-			<VerInfo_Build>14</VerInfo_Build>
-			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Delphi zip component;FileVersion=1.9.1.14;InternalName=TZipMaster;LegalCopyright=Copyright 2013, Russell Peters;LegalTrademarks=;OriginalFilename=ZipMstr;ProductName=ZipMaster;ProductVersion=1.9.1.14;Comments=</VerInfo_Keys>
+			<VerInfo_Build>15</VerInfo_Build>
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Delphi zip component;FileVersion=1.9.1.15;InternalName=TZipMaster;LegalCopyright=Copyright 2013, Russell Peters;LegalTrademarks=;OriginalFilename=ZipMstr;ProductName=ZipMaster;ProductVersion=1.9.1.15;Comments=</VerInfo_Keys>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base_Win64)'!=''">
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
