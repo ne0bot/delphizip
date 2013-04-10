@@ -1,0 +1,409 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{6B4E939A-2487-4488-A75B-6D309B33A55F}</ProjectGuid>
+			<ProjectVersion>13.4</ProjectVersion>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Base>True</Base>
+			<AppType>Library</AppType>
+			<FrameworkType>None</FrameworkType>
+			<Platform Condition="'$(Platform)'==''">Win32</Platform>
+			<TargetedPlatforms>1</TargetedPlatforms>
+			<Platform>Win32</Platform>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<LinkPackageImports>rtl.bpi</LinkPackageImports>
+			<VerInfo_MinorVer>9</VerInfo_MinorVer>
+			<VerInfo_Build>115</VerInfo_Build>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<UsePackages>true</UsePackages>
+			<UsingDelphiRTL>true</UsingDelphiRTL>
+			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip/Unzip support dll;FileVersion=1.9.0.115;InternalName=;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013, Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP, UNZIP;OriginalFilename=;ProductName=DelphiZip;ProductVersion=1.9.0.0115;Comments=</VerInfo_Keys>
+			<Manifest_File>None</Manifest_File>
+			<VerInfo_Locale>3081</VerInfo_Locale>
+			<BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
+			<BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+			<BCC_StringsInReadOnlyDataSeg>true</BCC_StringsInReadOnlyDataSeg>
+			<BCC_EnableBatchCompilation>true</BCC_EnableBatchCompilation>
+			<ILINK_DisableIncrementalLinking>true</ILINK_DisableIncrementalLinking>
+			<BCC_SlowExceptionEpilogues>true</BCC_SlowExceptionEpilogues>
+			<BCC_HonorMemPtrPrecision>true</BCC_HonorMemPtrPrecision>
+			<BCC_IntegerTypeEnums>true</BCC_IntegerTypeEnums>
+			<ILINK_MapFileType>Publics</ILINK_MapFileType>
+			<NoVCL>true</NoVCL>
+			<BCC_InstructionSet>5</BCC_InstructionSet>
+			<TASM_MaxSymbolLength>32</TASM_MaxSymbolLength>
+			<TASM_CaseSensitivity>All</TASM_CaseSensitivity>
+			<Defines>_USE_ASM_;ALLOW_WIN98;$(Defines)</Defines>
+			<PackageImports>rtl.bpi;$(PackageImports).bpi</PackageImports>
+			<ILINK_GenerateImportLibrary>true</ILINK_GenerateImportLibrary>
+			<OutputExt>dll</OutputExt>
+			<AllPackageLibs>rtl.lib</AllPackageLibs>
+			<Multithreaded>true</Multithreaded>
+			<ProjectType>CppDynamicLibrary</ProjectType>
+			<_TCHARMapping>wchar_t</_TCHARMapping>
+			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+			<DynamicRTL>false</DynamicRTL>
+			<IncludePath>..\..\Source\;..\..\Source\Cows\;..\..\all\CBXE2\;C:\Program Files (x86)\Embarcadero\RAD Studio\9.0\include\dinkumware;C:\Program Files (x86)\Embarcadero\RAD Studio\9.0\include\windows;C:\Program Files (x86)\Embarcadero\RAD Studio\9.0\include\windows\rtl;C:\Program Files (x86)\Embarcadero\RAD Studio\9.0\include\windows\crtl;$(IncludePath)</IncludePath>
+			<ILINK_LibraryPath>..\..\Source\;..\..\Source\Cows\;..\..\all\CBXE2\;$(BDS)\lib;$(BDS)\lib\obj;$(BDS)\lib\psdk;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<BCC_wpar>false</BCC_wpar>
+			<BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
+			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<IncludePath>C:\Program Files (x86)\Embarcadero\RAD Studio\9.0\include\windows\sdk;$(IncludePath)</IncludePath>
+			<BCC_SelectedWarnings>false</BCC_SelectedWarnings>
+			<BCC_AllWarnings>true</BCC_AllWarnings>
+			<FinalOutputDir>..\..\..\VCL\DLL\Debug\</FinalOutputDir>
+			<BCC_MonitorGlobalAndStackData>true</BCC_MonitorGlobalAndStackData>
+			<BCC_MonitorThis>true</BCC_MonitorThis>
+			<BCC_MonitorInlinePtrAccess>true</BCC_MonitorInlinePtrAccess>
+			<ILINK_DisableIncrementalLinking>true</ILINK_DisableIncrementalLinking>
+			<BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
+			<ILINK_MapFileType>DetailedSegments</ILINK_MapFileType>
+			<BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+			<BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+			<Defines>_DEBUG;$(Defines)</Defines>
+			<BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+			<IntermediateOutputDir>Debug</IntermediateOutputDir>
+			<BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+			<DCC_Define>DEBUG</DCC_Define>
+			<BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+			<TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+			<BCC_StackFrames>true</BCC_StackFrames>
+			<ILINK_LibraryPath>$(BDS)\lib\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+			<TASM_Debugging>Full</TASM_Debugging>
+			<BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)\debug;$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<FinalOutputDir>..\..\..\VCL\DLL\</FinalOutputDir>
+			<ILINK_MapFileType>DetailedSegments</ILINK_MapFileType>
+			<Defines>NDEBUG;$(Defines)</Defines>
+			<IntermediateOutputDir>Release</IntermediateOutputDir>
+			<ILINK_LibraryPath>$(BDS)\lib\release;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<TASM_Debugging>None</TASM_Debugging>
+			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)\release;$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<ItemGroup>
+			<ResFiles Include="DelZip190.res">
+				<BuildOrder>52</BuildOrder>
+			</ResFiles>
+			<CppCompile Include="..\..\Source\Common.cpp">
+				<DependentOn>..\..\Source\Common.h</DependentOn>
+				<BuildOrder>8</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Cows\FuncImport.cpp">
+				<BuildOrder>1</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Cows\funcs.cpp">
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<AsmCompile Include="..\..\Source\Cows\jmps.asm">
+				<BuildOrder>7</BuildOrder>
+			</AsmCompile>
+			<CppCompile Include="..\..\Source\Cows\kernelW.cpp">
+				<BuildOrder>3</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Cows\MbcsBuffer.cpp">
+				<DependentOn>..\..\Source\Cows\MbcsBuffer.h</DependentOn>
+				<BuildOrder>4</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Cows\shellW.cpp">
+				<BuildOrder>5</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Cows\userW.cpp">
+				<BuildOrder>6</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Crc32.cpp">
+				<BuildOrder>9</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\CrcTab.cpp">
+				<BuildOrder>10</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Crypt.cpp">
+				<BuildOrder>11</BuildOrder>
+			</CppCompile>
+			<DefFile Include="..\..\Source\DelZipExp.def">
+				<BuildOrder>53</BuildOrder>
+			</DefFile>
+			<ResourceCompile Include="..\..\Source\dz190.rc">
+				<Form>dz190.res</Form>
+				<BuildOrder>52</BuildOrder>
+			</ResourceCompile>
+			<CppCompile Include="..\..\Source\DZFrame.cpp">
+				<DependentOn>..\..\Source\DZFrame.h</DependentOn>
+				<BuildOrder>14</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\DZMatch.cpp">
+				<BuildOrder>15</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\DZOper.cpp">
+				<DependentOn>..\..\Source\DZOper.h</DependentOn>
+				<BuildOrder>16</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\DZRaw.cpp">
+				<DependentOn>..\..\Source\DZRaw.h</DependentOn>
+				<BuildOrder>17</BuildOrder>
+			</CppCompile>
+			<ResourceCompile Include="..\..\Source\dz_msgs.rc">
+				<Form>dz_msgs.res</Form>
+				<BuildOrder>51</BuildOrder>
+			</ResourceCompile>
+			<CppCompile Include="..\..\Source\DZ_StrW.cpp">
+				<DependentOn>..\..\Source\DZ_StrW.h</DependentOn>
+				<BuildOrder>13</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\enter.cpp">
+				<DependentOn>..\..\Source\enter.h</DependentOn>
+				<BuildOrder>18</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Helpers.cpp">
+				<DependentOn>..\..\Source\Helpers.h</DependentOn>
+				<BuildOrder>19</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\lngmtch.cpp">
+				<BuildOrder>20</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UInflate.cpp">
+				<BuildOrder>21</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzCrypt.cpp">
+				<BuildOrder>22</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzExec.cpp">
+				<BuildOrder>23</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzFIO.cpp">
+				<BuildOrder>24</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzInf.cpp">
+				<DependentOn>..\..\Source\UnzInf.h</DependentOn>
+				<BuildOrder>25</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzOp.cpp">
+				<DependentOn>..\..\Source\UnzOp.h</DependentOn>
+				<BuildOrder>26</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzProc.cpp">
+				<BuildOrder>27</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzSS.cpp">
+				<BuildOrder>28</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzSup.cpp">
+				<DependentOn>..\..\Source\UnzSup.h</DependentOn>
+				<BuildOrder>29</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzWin32.cpp">
+				<BuildOrder>30</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzXplode.cpp">
+				<BuildOrder>31</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\UnzXtrct.cpp">
+				<BuildOrder>32</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZBits.cpp">
+				<BuildOrder>33</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZCrypt.cpp">
+				<BuildOrder>34</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZDeflate.cpp">
+				<BuildOrder>35</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipDflt.cpp">
+				<DependentOn>..\..\Source\ZipDflt.h</DependentOn>
+				<BuildOrder>36</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipFile.cpp">
+				<BuildOrder>37</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipFIO.cpp">
+				<BuildOrder>38</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipFnc.cpp">
+				<DependentOn>..\..\Source\ZipFnc.h</DependentOn>
+				<BuildOrder>39</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipMain.cpp">
+				<BuildOrder>40</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipOp.cpp">
+				<DependentOn>..\..\Source\ZipOp.h</DependentOn>
+				<BuildOrder>41</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipPrc.cpp">
+				<BuildOrder>42</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipRead.cpp">
+				<BuildOrder>43</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipSel.cpp">
+				<BuildOrder>44</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipSS.cpp">
+				<BuildOrder>45</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipUp.cpp">
+				<BuildOrder>46</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipWin32.cpp">
+				<BuildOrder>47</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZStrings.cpp">
+				<DependentOn>..\..\Source\ZStrings.h</DependentOn>
+				<BuildOrder>48</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZTreeAsm.cpp">
+				<BuildOrder>49</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZTrees.cpp">
+				<BuildOrder>50</BuildOrder>
+			</CppCompile>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')" Project="$(BDS)\Bin\CodeGear.Cpp.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<ProjectExtensions>
+			<Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+			<Borland.ProjectType>CppDynamicLibrary</Borland.ProjectType>
+			<BorlandProject>
+				<CPlusPlusBuilder.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">9</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">116</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">3081</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">DelphiZip</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">Freeware Zip/Unzip support dll</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.9.0.116</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName">DelZip190</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalCopyright">Copyright © 2009, 2010, 2011, 2012, 2013 Russell Peters</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalTrademarks">Uses code from InfoZip ZIP, UNZIP</VersionInfoKeys>
+						<VersionInfoKeys Name="OriginalFilename">DelZip190.dll</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductName">DelphiZip</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">1.9.0.116</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Debugging>
+						<Debugging Name="DebugSourceDirs">C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\191\DLL\Source;C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\191\DLL\all\CBXE2;C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\191\Test</Debugging>
+					</Debugging>
+					<Parameters>
+						<Parameters Name="HostApplication">C:\Users\Russell\Documents\RAD Studio\Projects\Temp\TestZip\Out\TestZip.exe</Parameters>
+						<Parameters Name="RemoteHost"/>
+						<Parameters Name="RemotePath"/>
+						<Parameters Name="RemoteParams"/>
+						<Parameters Name="RemoteLauncher"/>
+						<Parameters Name="UseRemoteLauncher">False</Parameters>
+						<Parameters Name="RemoteCWD"/>
+						<Parameters Name="RemoteDebug">False</Parameters>
+						<Parameters Name="Debug Symbols Search Path">e:\symbols</Parameters>
+						<Parameters Name="DebugSourceDirs">C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\191\Dll\Source;C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\191\VCL;C:\Users\Russell\Documents\RAD Studio\Projects\Temp\TestZip</Parameters>
+					</Parameters>
+					<ProjectProperties>
+						<ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+						<ProjectProperties Name="ManagePaths">True</ProjectProperties>
+						<ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+					</ProjectProperties>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\fmidesigner160.bpl">FMI Form designer and property and component editors</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcbie160.bpl">Embarcadero C++Builder Internet Explorer Components Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcl31w160.bpl">Delphi 1.0 Compatibility Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclado160.bpl">Embarcadero ADO DB Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclbcbsmp160.bpl">C++Builder Sample Components Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclbde160.bpl">Embarcadero BDE DB Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcldbxcds160.bpl">Embarcadero SimpleDataset Component (DBX)</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclib160.bpl">Embarcadero InterBase Express Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclmcn160.bpl">Embarcadero DataSnap Connection Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclsoap160.bpl">Embarcadero SOAP Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Program Files (x86)\Raize\CS5\Bin\CodeSiteExpressPkg_Design160.bpl">CodeSite Express 5.1</Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\RaveReports\Lib\dclRave.bpl">Rave Reports 10.0 BE Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclIndyProtocols160.bpl">Indy 10 Protocols Design Time</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclwebsnap160.bpl">Embarcadero WebSnap Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\SynEdit_DXE2.bpl">SynEdit component suite</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\VirtualTreesD.bpl">(untitled)</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvAppFrmDesign160.bpl">JVCL Application and Form Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvBandsDesign160.bpl">JVCL Band Objects</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvBDEDesign160.bpl">JVCL BDE Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvCmpDesign160.bpl">JVCL Non-Visual Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvControlsDesign160.bpl">JVCL Visual Controls</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvCryptDesign160.bpl">JVCL Encryption and Compression</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvCustomDesign160.bpl">JVCL Custom Controls</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvDlgsDesign160.bpl">JVCL Dialog Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvDockingDesign160.bpl">JVCL Docking Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvDotNetCtrlsDesign160.bpl">JVCL DotNet Controls</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvGlobusDesign160.bpl">JVCL Globus Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvHMIDesign160.bpl">JVCL HMI Controls</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvJansDesign160.bpl">JVCL Jans Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvManagedThreadsDesign160.bpl">JVCL Managed Threads</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvMMDesign160.bpl">JVCL Multimedia and Image Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvNetDesign160.bpl">JVCL Network Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvPageCompsDesign160.bpl">JVCL Page Style Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvPascalInterpreterDesign160.bpl">JVCL Interpreter Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvPluginSystemDesign160.bpl">JVCL Plugin Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvPrintPreviewDesign160.bpl">JVCL Print Preview Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvRuntimeDesignDesign160.bpl">JVCL Runtime Design Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvStdCtrlsDesign160.bpl">JVCL Standard Controls</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvSystemDesign160.bpl">JVCL System Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvTimeFrameworkDesign160.bpl">JVCL Time Framework</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvWizardsDesign160.bpl">JVCL Wizard</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JvXPCtrlsDesign160.bpl">JVCL XP Controls</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k160.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp160.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclIPIndyImpl160.bpl">IP Abstraction Indy Implementation Design Time</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k160.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclofficexp160.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\BPL\ZBldr191C15.bpl">File C:\Users\Public\Documents\RAD Studio\9.0\BPL\ZBldr191C15.bpl not found</Excluded_Packages>
+					</Excluded_Packages>
+					<Parameters_Win32>
+						<Parameters_Win32 Name="HostApplication">C:\Users\Russell\Documents\RAD Studio\Projects\Temp\TestZip\Out\TestZip.exe</Parameters_Win32>
+						<Parameters_Win32 Name="DebugSourceDirs">C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\191\DLL\Source</Parameters_Win32>
+					</Parameters_Win32>
+				</CPlusPlusBuilder.Personality>
+				<Platforms>
+					<Platform value="OSX32">False</Platform>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>
