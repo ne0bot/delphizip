@@ -462,7 +462,7 @@ int ZipFunc::ZipProcess(void)
         // if -update or -freshen with no args, do all, but, when present, apply
         //   filters
         for (z = fzfiles; z != NULL; z = z->nxt)
-			z->mark = fpcount ? !ZMatch(fExcludes, z->GetIName()) : 1;
+			z->mark = fpcount ? !ZMatch(fExcludes, z->GetIName()) : MARK_UPDATE;
     }
 
     // NOTE: "k" is being redefined below this point. Now, it going to
@@ -496,7 +496,7 @@ int ZipFunc::ZipProcess(void)
                                 !(FileAttr &A_ARCHIVE)))
                        )
                     {
-                        z->mark = MARK_KEEP;      // keep
+						z->mark = MARK_KEEP;      // keep
                         z->trash = (t && t >= fbefore);
                         // delete if -um or -fm
 
@@ -905,7 +905,7 @@ int ZipFunc::ZipProcess(void)
 			ffiles_acted_on++;
 		}
         else
-        if (z->mark == MARK_PURGE)
+		if (z->mark == MARK_PURGE)
         {
             // desired action is DELETE, this file marked
 			Notify(0, _T("deleting: %s"), z->Getiname());
@@ -1003,7 +1003,7 @@ int ZipFunc::ZipProcess(void)
         }
         *zlast = z;     // link to prev->nxt (allow cleanup)
         z->nxt = NULL;
-        z->mark = MARK_NEW;
+		z->mark = MARK_NEW;
 
 		// zip it up
 		if (z->options.namenew)
@@ -1130,7 +1130,7 @@ int ZipFunc::ZipProcess(void)
         diag(_T("resetting archive bits"));
 
         for (z = fzfiles; z != NULL; z = z->nxt)
-            if (z->mark)
+			if (z->mark > 0) // new || updated
                 cnt++;
 
         if (cnt)
@@ -1147,7 +1147,7 @@ int ZipFunc::ZipProcess(void)
 
         for (z = fzfiles; z != NULL; z = z->nxt)
         {
-            if (z->mark)
+            if (z->mark > 0)
             {
                 if (++cnt == 30)
                 {

@@ -23,6 +23,12 @@
 			<CfgParent>Base</CfgParent>
 			<Base>true</Base>
 		</PropertyGroup>
+		<PropertyGroup Condition="'$(Platform)'=='Win32' and '$(Cfg_2)'=='true' or '$(Cfg_2_Win32)'!=''">
+			<Cfg_2_Win32>true</Cfg_2_Win32>
+			<CfgParent>Cfg_2</CfgParent>
+			<Cfg_2>true</Cfg_2>
+			<Base>true</Base>
+		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
 			<LinkPackageImports>rtl.bpi</LinkPackageImports>
 			<VerInfo_MinorVer>9</VerInfo_MinorVer>
@@ -80,7 +86,7 @@
 			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
 			<Defines>_DEBUG;$(Defines)</Defines>
 			<BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
-			<IntermediateOutputDir>Debug</IntermediateOutputDir>
+			<IntermediateOutputDir>Debug\xe</IntermediateOutputDir>
 			<BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
 			<DCC_Define>DEBUG</DCC_Define>
 			<BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
@@ -96,10 +102,13 @@
 			<FinalOutputDir>..\..\..\VCL\DLL\</FinalOutputDir>
 			<ILINK_MapFileType>DetailedSegments</ILINK_MapFileType>
 			<Defines>NDEBUG;$(Defines)</Defines>
-			<IntermediateOutputDir>Release</IntermediateOutputDir>
+			<IntermediateOutputDir>Release\xe</IntermediateOutputDir>
 			<ILINK_LibraryPath>$(BDS)\lib\release;$(ILINK_LibraryPath)</ILINK_LibraryPath>
 			<TASM_Debugging>None</TASM_Debugging>
 			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)\release;$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+			<IntermediateOutputDir>Release\xe</IntermediateOutputDir>
 		</PropertyGroup>
 		<ItemGroup>
 			<ResFiles Include="DelZip190.res">
@@ -303,7 +312,7 @@
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">9</VersionInfo>
 						<VersionInfo Name="Release">0</VersionInfo>
-						<VersionInfo Name="Build">116</VersionInfo>
+						<VersionInfo Name="Build">118</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -315,13 +324,13 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">DelphiZip</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription">Freeware Zip/Unzip support dll</VersionInfoKeys>
-						<VersionInfoKeys Name="FileVersion">1.9.0.116</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.9.0.118</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName">DelZip190</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalCopyright">Copyright © 2009, 2010, 2011, 2012, 2013 Russell Peters</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks">Uses code from InfoZip ZIP, UNZIP</VersionInfoKeys>
 						<VersionInfoKeys Name="OriginalFilename">DelZip190.dll</VersionInfoKeys>
 						<VersionInfoKeys Name="ProductName">DelphiZip</VersionInfoKeys>
-						<VersionInfoKeys Name="ProductVersion">1.9.0.116</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">1.9.0.118</VersionInfoKeys>
 						<VersionInfoKeys Name="Comments"/>
 					</VersionInfoKeys>
 					<Debugging>
@@ -395,7 +404,7 @@
 						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\BPL\ZBldr191C15.bpl">File C:\Users\Public\Documents\RAD Studio\9.0\BPL\ZBldr191C15.bpl not found</Excluded_Packages>
 					</Excluded_Packages>
 					<Parameters_Win32>
-						<Parameters_Win32 Name="HostApplication">C:\Users\Russell\Documents\RAD Studio\Projects\Temp\TestZip\Out\TestZip.exe</Parameters_Win32>
+						<Parameters_Win32 Name="HostApplication">C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\191\MoveTest\Win32\Debug\MoveTest.exe</Parameters_Win32>
 						<Parameters_Win32 Name="DebugSourceDirs">C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\191\DLL\Source</Parameters_Win32>
 					</Parameters_Win32>
 				</CPlusPlusBuilder.Personality>

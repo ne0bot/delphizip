@@ -44,11 +44,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
 ************************************************** */
-//Generated 2012-11-25
+//Generated 2013-03-30
  
 1 VERSIONINFO
-FILEVERSION 1,9,0,116
-PRODUCTVERSION 1,9,0,116
+FILEVERSION 1,9,0,118
+PRODUCTVERSION 1,9,0,118
 FILEOS 0x4
 FILETYPE 0x1
 FILESUBTYPE 0x0L
@@ -59,14 +59,14 @@ FILESUBTYPE 0x0L
 	{
 	    VALUE "CompanyName", "DelphiZip\0"
 	    VALUE "FileDescription", "Freeware Zip/Unzip\0"
-	    VALUE "FileVersion", "1.9.0.0116\0"
+	    VALUE "FileVersion", "1.9.0.0118\0"
 	    VALUE "InternalName", "\0"
 	    VALUE "LegalCopyright", "Copyright © 2012, 2013 Russell Peters\0"
 	    VALUE "LegalTrademarks", "Uses code from InfoZip ZIP, UNZIP\0"
 	    VALUE "OriginalFilename", "DelZip190.dll\0"
 	    VALUE "ProductName", "DelphiZip\0"
-	    VALUE "ProductVersion", "1.9.0.0016\0"
-	    VALUE "Comments","\0"
+	    VALUE "ProductVersion", "1.9.0.0118\0"
+	    VALUE "Comments","Ansi/Unicode\0"
 	}
   }
   BLOCK "VarFileInfo"
