@@ -44,14 +44,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
 ************************************************** */
-//Generated 2012-04-24
+//Generated 2013-04-10
  
 
 RES_RC_TPT TEXT "res.rc.tpt"
  
 1 VERSIONINFO
-FILEVERSION 1,9,1,4
-PRODUCTVERSION 1,9,1,4
+FILEVERSION 1,9,1,5
+PRODUCTVERSION 1,9,1,5
 FILEOS 0x4
 FILETYPE 0x1
 FILESUBTYPE 0x0L
@@ -62,9 +62,9 @@ FILESUBTYPE 0x0L
 	{
 	    VALUE "CompanyName", "DelphiZip\0"
 	    VALUE "FileDescription", "ZipMaster tool\0"
-	    VALUE "FileVersion", "1.9.1.0004\0"
+	    VALUE "FileVersion", "1.9.1.0005\0"
 	    VALUE "InternalName", "ZipResMaker.exe\0"
-	    VALUE "LegalCopyright", "Copyright © 2012, Russell Peters\0"
+	    VALUE "LegalCopyright", "Copyright © 2013, Russell Peters\0"
 	    VALUE "LegalTrademarks", "\0"
 	    VALUE "OriginalFilename", "ZipResMaker.exe\0"
 	    VALUE "ProductName", "ZipMaster.ZipResMaker\0"

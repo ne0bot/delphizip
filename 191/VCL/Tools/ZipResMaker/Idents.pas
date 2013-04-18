@@ -765,6 +765,7 @@ begin
 //    Clear;
     EmptyMsgs;
     Result := 0;
+	CP := 0; // use default unless stated
     NeedTok := rcIdentifier;
     Tok := rcNone;
     TxtP := PAnsiChar(RCText.Memory);

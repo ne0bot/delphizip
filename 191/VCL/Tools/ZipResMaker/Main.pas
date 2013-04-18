@@ -50,9 +50,9 @@ uses
   AppEvnts, SFXMakeStr, Template;
 
 const
-  ZIPRESMAKERBUILD: String =  '1.9.1.0004';
-  ZIPRESMAKERDATE: String  =  '20/04/2012';
-  ZIPRESMAKERPRIV: Integer = 1910004;
+  ZIPRESMAKERBUILD: String =  '1.9.1.0006';
+  ZIPRESMAKERDATE: String  =  '03/02/2013';
+  ZIPRESMAKERPRIV: Integer = 1910006;
   
 type
   ZPaths = (zphRoot, zphDll, zphSFX, zphLang, zphRes, zphBin,
@@ -72,9 +72,9 @@ const
   BinName: String  = '$(ZM_Res)\SFXLang_';
   BinExt           = '.bin';
   SFXStrings       = '$(ZM_SFX)\ZMSFXStrings.pas';
-  DefSFXExe        = 'ZMSFX.exe';
+  DefSFXExe        = 'ZMSFX191.exe';
   DefSFXBin        = 'ZMSFX191.bin';
-  DefSFXUExe       = 'ZMSFXU.exe';
+  DefSFXUExe       = 'ZMSFXU191.exe';
   DefSFXUBin       = 'ZMSFXU191.bin';
 
 type
@@ -945,90 +945,6 @@ begin
     Lbls.Free;
   end;
 end;
-// TODO: CompileStrings
-// // each resource entry is of format
-// // lang_id: word
-// // comp_size: word
-// // name_size: word
-// // name[name_size]: byte
-// // data[comp_size]: byte  (res file)
-//function TForm1.CompileStrings(src: TStrings; dest: TStream): Integer;
-//var
-//idx, p, i: Integer;
-//lbl: string;
-//fn, s: String;
-//cb: TMemoryStream;
-//c:  Char;
-//lrf: Word;
-//lids: array of Word;  // avoid duplicates
-//begin
-//Result := -1;
-//if (not assigned(src)) or (src.Count < 1) or (not assigned(dest)) then
-//  exit;
-//Inc(Result);
-//SetLength(lids, 64);
-//for idx := 0 to pred(src.Count) do
-//begin
-//  s := Trim(src[idx]);
-//  if s = '' then
-//    continue;
-//  lbl := '';
-//  for p := 1 to length(s) do
-//  begin
-//    c := s[p];
-//    if not CharInSet(c, ['A'..'Z', 'a'..'z', '_', '0'..'9']) then
-//      break;
-//    lbl := lbl + c;
-//  end;
-//  lbl := Uppercase(lbl);
-//  if (lbl = '') or (lbl = 'US') then
-//    continue;  // don't add US
-//  lbl := Uppercase(lbl);
-//  fn  := Path('$(ZM_Lang)\ZipMsg') + lbl + '.res';
-//  if not FileExists(fn) then
-//    continue;
-//  lrf := ToolSupp.LIdOfRes(fn);
-//  if (lrf = $FFFF) or (lrf = 0) then
-//    continue;
-//  i := pred(Result);
-//  while i >= 0 do
-//    if lrf <> lids[i] then
-//      Dec(i)
-//    else
-//      break;
-//  if (i >= 0) or (lrf = $0409) then
-//  begin
-//    Show(Format('Cannot add %s language %x already included', [fn, lrf]), True);
-//    continue;
-//  end;
-//  cb := nil;
-//  Show('Compressing ' + s + '   ' + fn);
-//  try
-//    try
-//      cb := TMemoryStream.Create;
-//      if CompressRes(cb, fn, UTF8String(lbl)) > 6 then
-//      begin
-//        cb.Position := 0;
-//        dest.CopyFrom(cb, cb.Size);               // data
-//        if HIGH(lids) <= (Result + 1) then
-//          SetLength(lids, Result + 16);
-//        lids[Result] := lrf;
-//        Inc(Result);
-//      end
-//      else
-//        Show('Compression error', True);
-//    except
-//      on e: Exception do
-//      begin
-//        Show('String compiler exception: ' + e.Message, True);
-//        raise;
-//      end;
-//    end;
-//  finally
-//    FreeAndNil(cb);
-//  end;
-//end;
-//end;
 
 function TForm1.CompStreams(strm1, strm2: TStream): Integer;
 const
