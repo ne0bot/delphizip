@@ -101,7 +101,7 @@ uses
 { $WARN SYMBOL_PLATFORM OFF}
 
 const
-  DelphiRegKey: array [4..14] of String = (
+  DelphiRegKey: array [4..16] of String = (
     'Software\Borland\Delphi\4.0',
     'Software\Borland\Delphi\5.0',
     'Software\Borland\Delphi\6.0',
@@ -112,7 +112,9 @@ const
     'Software\Borland\BDS\5.0',
     'Software\CodeGear\BDS\6.0',
     'Software\CodeGear\BDS\7.0',
-    'Software\CodeGear\BDS\8.0');
+    'Software\Embarcadero\BDS\8.0',
+    'Software\Embarcadero\BDS\9.0',
+    'Software\Embarcadero\BDS\10.0');
   CBuilderRegKey: array [4..6] of String = (
     'Software\Borland\C++Builder\4.0',
     'Software\Borland\C++Builder\5.0',

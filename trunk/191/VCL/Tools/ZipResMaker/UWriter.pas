@@ -192,7 +192,7 @@ begin
     ustrs.Add('  TZipMaster VCL by Chris Vleghert and Eric W. Engler');
     ustrs.Add('');
     ustrs.Add('  ' + VCL_VER_STRING);//ToolSupp.VerString[vsVer]);//v1.90');
-    ustrs.Add('      Copyright (C) 2009, 2010, 2011, 2012  Russell Peters');
+    ustrs.Add('      Copyright (C) 2009, 2010, 2011, 2012, 2013  Russell Peters');
     ToolSupp.Licence(ustrs);
     ustrs.Add(' ');
     ustrs.Add('  modified '+ DateTimeToStr(Now));
@@ -284,7 +284,7 @@ begin
     ustrs.Add('  TZipMaster VCL by Chris Vleghert and Eric W. Engler');
     ustrs.Add('');
     ustrs.Add('  ' + VCL_VER_STRING);
-    ustrs.Add('      Copyright (C) 2008, 2009, 2010, 2011, 2012  Russell Peters');
+    ustrs.Add('      Copyright (C) 2008, 2009, 2010, 2011, 2012, 2013  Russell Peters');
     ustrs.Add(' ');
     ToolSupp.Licence(ustrs);
     ustrs.Add('  modified '+ DateTimeToStr(Now));

@@ -53,9 +53,9 @@ uses
   ZMXcpt, ZMStructs;
 
 const
-  ZIPMASTERBUILD: string =  '1.9.1.0016';
-  ZIPMASTERDATE: string  =  '30/03/2013';
-  ZIPMASTERPRIV: Integer = 1910016;
+  ZIPMASTERBUILD: string =  '1.9.1.0017';
+  ZIPMASTERDATE: string  =  '10/04/2013';
+  ZIPMASTERPRIV: Integer = 1910017;
 {$IFDEF WIN64}
   DELZIPVERSION          = 191;
   MIN_DLL_BUILD          = 1910111;

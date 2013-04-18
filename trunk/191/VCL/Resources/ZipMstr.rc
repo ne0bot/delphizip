@@ -1,0 +1,32 @@
+MAINICON ICON "ZipMstr.ico"
+
+
+1 VERSIONINFO
+FILEVERSION 1,79,3,0
+PRODUCTVERSION 1,79,3,0
+FILEOS 0x4
+FILETYPE 0x1
+{
+BLOCK "StringFileInfo"
+{
+	BLOCK "0C0904E4"
+	{
+		VALUE "CompanyName", "DelphiZip"
+		VALUE "FileDescription", "Freeware zip component"
+		VALUE "FileVersion", "1.79.03.00"
+		VALUE "InternalName", "ZipMaster"
+		VALUE "LegalCopyright", "Copyright (c) 2006"
+		VALUE "LegalTrademarks", ""
+		VALUE "OriginalFilename", "ZipMstrD10D.dpk"
+		VALUE "ProductName", "DelphiZip ZipMaster"
+		VALUE "ProductVersion", "1.79"
+		VALUE "Comments", ""
+	}
+}
+
+BLOCK "VarFileInfo"
+{
+	VALUE "Translation", 0x0C09 0x04E4
+}
+}
+
