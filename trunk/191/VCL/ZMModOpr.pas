@@ -229,7 +229,8 @@ var
   SkippedFiles: TStringList;
 begin
   Result := 0;
-  if (IncludeSpecs.Count < 1) or (@func = nil) then
+//  if (IncludeSpecs.Count < 1) or (@func = nil) then
+  if (IncludeSpecs.Count < 1) or not assigned(func) then
     raise EZipMaster.CreateMsgDisp(__ERR_GE_InvalidArguments, true);
   SkippedFiles := TStringList.Create;
   try

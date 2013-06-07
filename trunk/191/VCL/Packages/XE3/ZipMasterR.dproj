@@ -1,6 +1,6 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{873C7C12-E49B-40D2-A762-B7FC35CF56FD}</ProjectGuid>
+        <ProjectGuid>{6C05E5E6-B2B6-4D10-A7DF-D3B592E0B5B3}</ProjectGuid>
         <MainSource>ZipMasterR.dpk</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Release</Config>
@@ -42,7 +42,7 @@
     <PropertyGroup Condition="'$(Base)'!=''">
         <DCC_TypedAtParameter>true</DCC_TypedAtParameter>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Build>16</VerInfo_Build>
+        <VerInfo_Build>18</VerInfo_Build>
         <VerInfo_Release>1</VerInfo_Release>
         <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
         <DCC_UnitSearchPath>..\..;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
@@ -61,7 +61,7 @@
         <DCC_E>false</DCC_E>
         <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;$(DCC_Namespace)</DCC_Namespace>
         <DCC_K>false</DCC_K>
-        <VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Delphi zip component;1.9.1.0016;InternalName=ZipMaster;LegalCopyright=Copyright 2013, Russell Peters;LegalTrademarks=;OriginalFilename=ZipMasterR;ProductName=TZipMaster;ProductVersion=1.9.1;Comments=;CFBundleName=;CFBundleDisplayName=;CFBundleIdentifier=;CFBundleVersion=;CFBundlePackageType=;CFBundleSignature=;CFBundleAllowMixedLocalizations=;CFBundleExecutable=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Delphi zip component;1.9.1.0018;InternalName=ZipMaster;LegalCopyright=Copyright 2013, Russell Peters;LegalTrademarks=;OriginalFilename=ZipMasterR;ProductName=TZipMaster;ProductVersion=1.9.1;Comments=;CFBundleName=;CFBundleDisplayName=;CFBundleIdentifier=;CFBundleVersion=;CFBundlePackageType=;CFBundleSignature=;CFBundleAllowMixedLocalizations=;CFBundleExecutable=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>

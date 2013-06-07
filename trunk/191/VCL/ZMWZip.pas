@@ -221,7 +221,8 @@ begin
   if hLib <> 0 then
   begin
     @SHFormatDrive := GetProcAddress(hLib, 'SHFormatDrive');
-    if @SHFormatDrive <> nil then
+//    if @SHFormatDrive <> nil then
+    if assigned(SHFormatDrive) then
       try
         Result := SHFormatDrive(WND, drv, SHFMT_ID_DEFAULT, SHFMT_OPT_FULL);
       finally

@@ -380,7 +380,7 @@ begin
               if SplitZip.Numbering = znsVolume then
               begin
                 GetVolumeInformation(PChar(@OutDrv.DriveStr), VolName, MAX_PATH,
-                  @DiskSerial, Dummy1, Dummy2, nil, 0);
+                  PDWORD(@DiskSerial), Dummy1, Dummy2, nil, 0);
                 if (StrComp(VolName, SPKBACK001) = 0) then
                   RightDiskInserted := true;
               end

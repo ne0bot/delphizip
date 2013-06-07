@@ -55,7 +55,7 @@ type
    private
     fDiskName: string;
     fDiskReadOnly: Boolean;
-    fDiskSerial: cardinal;
+    fDiskSerial: DWORD;//cardinal;
     FDriveIsFloppy: Boolean;
     fDriveLetter: Char;
     fDriveStr: string;
@@ -200,7 +200,7 @@ begin
   // Since v1.52c no exception will be raised here; moved to List() itself.
   // 1.72 only get Volume label for removable drives
   if (not GetVolumeInformation(Pchar(DriveStr), VolNameAry,
-    NamLen, @fDiskSerial, SysLen, SysFlags, Nil, 0)) then
+    NamLen, PDWORD(@fDiskSerial), SysLen, SysFlags, Nil, 0)) then
   begin
     // W'll get this if there is a disk but it is not or wrong formatted
     // so this disk can only be used when we also want formatting.

@@ -217,7 +217,8 @@ begin
 
     if _Z_ForceDirectory(ExtractFilePath(sDir), MKDir) then
     begin
-      if @MKDir <> nil then
+//      if @MKDir <> nil then
+      if Assigned(MKDir) then
         Result := MKDir(sDir)
       else
 {$IFDEF UNICODE}
