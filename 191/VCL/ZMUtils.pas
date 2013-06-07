@@ -1920,7 +1920,7 @@ begin
 
         str.Seek(RecEnt.un2.OffsetToDirectory and
           (not IMAGE_RESOURCE_DATA_IS_DIRECTORY) + PointerToRawData,
-          soFromBeginning);
+          TSeekOrigin(soFromBeginning));
         Result := FindFirstIcon(rec, iLevel + 1, PointerToRawData, str);
         if Result then
           Break;
@@ -1928,7 +1928,7 @@ begin
       else
       begin
         // is resource bin data
-        str.Seek(RecEnt.un2.OffsetToData + PointerToRawData, soFromBeginning);
+        str.Seek(RecEnt.un2.OffsetToData + PointerToRawData, TSeekOrigin(soFromBeginning));
         if str.Read(rec, sizeof(rec)) <> sizeof(rec) then
           raise EZipMaster.CreateMsgDisp(__ERR_CZ_BrowseError2, true);
         Result := true;
@@ -1995,7 +1995,7 @@ begin
     raise EZipMaster.CreateMsgDisp(__ERR_CZ_NoExeResource1, true);
 
   // go to resource data
-  str.Seek(hdrSection.PointerToRawData, soFromBeginning);
+  str.Seek(hdrSection.PointerToRawData, TSeekOrigin(soFromBeginning));
 
   // recourse through the resource dirs to find an icon
   if not FindFirstIcon(recIcon, 0, hdrSection.PointerToRawData, str) then
@@ -2220,7 +2220,7 @@ begin
         if (pIDE^.dwBytesInRes = recIcon.Size) and (pIDE^.bReserved = 0) then
         begin
           // matching icon found, replace
-          strIco.Seek(pIDE^.dwImageOffset, soFromBeginning);
+          strIco.Seek(pIDE^.dwImageOffset, TSeekOrigin(soFromBeginning));
           str.Seek(Integer(hdrSection.PointerToRawData) -
             Integer(hdrSection.VirtualAddress) + Integer(recIcon.OffsetToData),
             soFromBeginning);

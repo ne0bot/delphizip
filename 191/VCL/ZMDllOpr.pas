@@ -252,7 +252,7 @@ begin
                 raise EZipMaster.CreateMsgDisp(_ERR_DS_SeekError, true);
 {$ENDIF}
               Strm := TObject(StrmP) as TStream;
-              ArgLL := Strm.Seek(ArgLL, ArgI);
+              ArgLL := Strm.Seek(ArgLL, TSeekOrigin(ArgI));
               if ArgLL >= 0 then
                 Result := CALLBACK_TRUE;
             end;

@@ -69,7 +69,7 @@ function CharInSet(C: AnsiChar; const CharSet: TCharSet): Boolean;
 {$ENDIF}
 
 
-function MakeStrP(const str: String): PAnsiChar;
+//function MakeStrP(const str: String): PAnsiChar;
 
 implementation
 
@@ -141,20 +141,20 @@ end;
 
 {$endif}
 
-function MakeStrP(const str: String): PAnsiChar;
-{$ifdef UNICODE}
-var
-  StrA: AnsiString;
-{$endif}
-begin
-{$ifdef UNICODE}
-  StrA := AnsiString(str);
-  Result := AnsiStrAlloc(Length(StrA) + 1);
-  StrPLCopy(Result, StrA, Length(StrA) + 1);
-{$else}
-  Result := StrAlloc(Length(Str) + 1);
-  StrPLCopy(Result, Str, Length(Str) + 1);
-{$endif}
-end;
+//function MakeStrP(const str: String): PAnsiChar;
+//{$ifdef UNICODE}
+//var
+//  StrA: AnsiString;
+//{$endif}
+//begin
+//{$ifdef UNICODE}
+//  StrA := AnsiString(str);
+//  Result := AnsiStrAlloc(Length(StrA) + 1);
+//  StrPLCopy(Result, StrA, Length(StrA) + 1);
+//{$else}
+//  Result := StrAlloc(Length(Str) + 1);
+//  StrPLCopy(Result, Str, Length(Str) + 1);
+//{$endif}
+//end;
 
 end.
