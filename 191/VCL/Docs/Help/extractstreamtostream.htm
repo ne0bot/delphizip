@@ -38,7 +38,8 @@
                 <dt class="ft">Declaration</dt>
                 <dd class="fd">
                     <p class="f-decl">
-                        <b>function</b> ExtractStreamToStream(InStream: TMemoryStream; OutSize: Longword): TMemoryStream;
+                        <b>function</b> ExtractStreamToStream(InStream: TMemoryStream; OutSize: Longword; 
+						   HeaderType: <a href="tzmzheader_type.htm">TZMZHeader</a> = zzNormal): TMemoryStream;
                     </p>
                 </dd>
                 <dt class="ft">Arguments</dt>
@@ -47,7 +48,9 @@
                         <dt><span class="mono">InStream: TMemoryStream</span></dt>
                         <dd>The stream to extract</dd>
                         <dt><span class="mono">OutSize: Longword</span></dt>
-                        <dd>Initial output allocation</dd>
+                        <dd>Initial output memory allocation size</dd>
+                        <dt><span class="mono">HeaderType: TZMZHeader</span></dt>
+                        <dd>Controls reading 6 byte <a href="tzm_streamheader_rec.htm">header</a></dd>
                     </dl>
                 </dd>
                 <dt class="ft">Results</dt>

@@ -42,6 +42,7 @@ contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
  *************************************************************************** *)
 //modified 2013-02-14
+{$INCLUDE   '.\ZipVers.inc'}
 
 interface
 

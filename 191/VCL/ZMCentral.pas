@@ -7,7 +7,7 @@ TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
   Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
 Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
 Copyright (C) 1992-2008 Eric W. Engler
-Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+Copyright (C) 2009, 2010, 2011, 2012, 2013 Russell Peters and Roger Aelbrecht
 
 All rights reserved.
 For the purposes of Copyright and this license "DelphiZip" is the current
@@ -1773,20 +1773,20 @@ begin
   posn := 0;
   if length(Result) > 1 then
   begin
-    if Result[1] = ':' then
+    if Result[2{1}] = ':' then  // 8/08/2013 10:48:30 AM
     begin
       posn := 2;
       if (Length(Result) > 2) and (Result[3] = PathDelim{Alt}) then
         posn := 3;
     end
     else
-    if (Result[1] = PathDelimAlt) and (Result[2] = PathDelim{Alt}) then
+    if (Result[1] = PathDelim{Alt}) and (Result[2] = PathDelim) then // 8/08/2013 10:52:20 AM
     begin
       posn := 3;
-      while (posn < Length(Result)) and (Result[posn] <> PathDelim{Alt}) do
+      while (posn < Length(Result)) and (Result[posn] <> PathDelim) do
         Inc(posn);
       Inc(posn);
-      while (posn < Length(Result)) and (Result[posn] <> PathDelimAlt) do
+      while (posn < Length(Result)) and (Result[posn] <> PathDelim{Alt}) do // 8/08/2013 10:53:05 AM
         Inc(posn);
       if posn >= Length(Result) then
       begin

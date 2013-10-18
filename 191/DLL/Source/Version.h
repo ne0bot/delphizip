@@ -10,7 +10,7 @@
 
   parts Copyright (C) 1997 Mike White, Eric W. Engler
 ************************************************************************
- Copyright (C) 2009, 2010  by Russell J. Peters, Roger Aelbrecht
+ Copyright (C) 2009, 2010, 2011, 2012, 2013 by Russell J. Peters, Roger Aelbrecht
 
    This file is part of TZipMaster Version 1.9.
 
@@ -38,7 +38,7 @@
 #define DZ_VER_MAJOR  1
 #define DZ_VER_MINOR  9
 #define DZ_VER_REVISION  0
-#define DZ_VER_BUILD  119
+#define DZ_VER_BUILD  120
 
 #ifdef _WIN64
    #ifdef _DEBUG

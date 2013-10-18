@@ -1,6 +1,6 @@
 	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<PropertyGroup>
-			<ProjectGuid>{6C40050C-A530-4FF5-A044-9A60CA320F4F}</ProjectGuid>
+			<ProjectGuid>{13DC8BE5-0DE2-4E68-BC35-86C74999A963}</ProjectGuid>
 			<MainSource>ZipMasterR.dpk</MainSource>
 			<Base>True</Base>
 			<Config Condition="'$(Config)'==''">Debug</Config>
@@ -118,7 +118,7 @@
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">9</VersionInfo>
 						<VersionInfo Name="Release">1</VersionInfo>
-						<VersionInfo Name="Build">18</VersionInfo>
+						<VersionInfo Name="Build">22</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -130,7 +130,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">DelphiZip</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription">Freeware Delphi zip component</VersionInfoKeys>
-						<VersionInfoKeys Name="FileVersion">1.9.1.18</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.9.1.22</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName">TZipMaster</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalCopyright">Copyright 2012, 2013 Russell Peters</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks"/>

@@ -7,7 +7,7 @@ TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
   Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
 Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
 Copyright (C) 1992-2008 Eric W. Engler
-Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+Copyright (C) 2009, 2010, 2011, 2012, 2013 Russell Peters and Roger Aelbrecht
 
 All rights reserved.
 For the purposes of Copyright and this license "DelphiZip" is the current
@@ -186,7 +186,8 @@ type
         TZMDeflates; var crc: Cardinal): Integer; override;
     procedure Extract;
     procedure ExtractFileToStream(const FileName: String);
-    procedure ExtractStreamToStream(InStream: TMemoryStream; OutSize: Longword);
+    procedure ExtractStreamToStream(InStream: TMemoryStream; OutSize: Longword;
+        HeaderType: TZMZHeader);
     procedure Undeflate(OutStream, InStream: TStream; Length: Int64; var Method:
         tzMDeflates; var crc: Cardinal);
     property DLL_Load: Boolean read GetDLL_Load write SetDLL_Load;
@@ -391,11 +392,11 @@ begin
   end;
   if assigned(InStream) and (InStream.size > 0) then
   begin
-    if AddEncrypt in AddOptions then
-    begin
-      ShowZipMessage(__ERR_DS_NoEncrypt, '');
-      exit;
-    end;
+//    if AddEncrypt in AddOptions then  // 15/08/2013 8:57:38 AM
+//    begin
+//      ShowZipMessage(__ERR_DS_NoEncrypt, '');
+//      exit;
+//    end;
     ZipStream.size := 0;
     Method := zmDeflate;
     Header.Method := METHOD_DEFLATED;
@@ -492,7 +493,7 @@ var
   Args: TZSSArgs;
   CmdRecP: pDLLCommands;
   i: Integer;
-  ncrypt: boolean;
+//  ncrypt: boolean;
 begin
   Result := -__ERR_DS_NoInStream;
   if not assigned(InStream) then
@@ -504,14 +505,14 @@ begin
   if InStream = ZipStream then
     exit;
   CmdRecP := nil;
-  ncrypt := (Method = zmStoreEncrypt) or (Method = zmDeflateEncrypt);
+//  ncrypt := (Method = zmStoreEncrypt) or (Method = zmDeflateEncrypt);
   // We can not do an Unattended Add if we don't have a password.
   Result := -__ERR_AD_UnattPassword;
-  if Unattended and ncrypt and (Password = '') then
-    exit;
+//  if Unattended and ncrypt and (Password = '') then
+//    exit;
   if Length < 0 then
     Length := InStream.size;
-  if (Method = zmDeflate) or (Method = zmDeflateEncrypt) then
+  if (Method = zmDeflate) {or (Method = zmDeflateEncrypt)} then
     Args.Method := 8
   else
     Args.Method := 0;
@@ -523,9 +524,9 @@ begin
   if _DLL_Load(self) <= 0 then
     exit;
   try
-    if ncrypt then
-      AddOptions := AddOptions + [addEncrypt]
-    else
+//    if ncrypt then
+//      AddOptions := AddOptions + [addEncrypt]
+//    else
       AddOptions := AddOptions - [addEncrypt];
     CmdRecP := SetupZipCmd('');
     CmdRecP^.fSS := @Args;
@@ -1502,21 +1503,19 @@ begin
     ZipStream.Clear();
 end;
 
-(* ? TZMDLLOpr.ExtractStreamToStream
-  1.73 14 July 2003 RA initial SuccessCnt
-  *)
-procedure TZMDLLOpr.ExtractStreamToStream(InStream: TMemoryStream;
-  OutSize: Longword);
+procedure TZMDLLOpr.ExtractStreamToStream(InStream: TMemoryStream; OutSize:
+    Longword; HeaderType: TZMZHeader);
 const
-  __ERR_AZ_NothingToDo = __UNIT__ + (1516 shl 10) + AZ_NothingToDo;
-  __ERR_AD_InIsOutStream = __UNIT__ + (1521 shl 10) + AD_InIsOutStream;
-  __ERR_DS_Unsupported = __UNIT__ + (1534 shl 10) + DS_Unsupported;
-  __ERR_DS_BadCRC = __UNIT__ + (1544 shl 10) + DS_BadCRC;
+  __ERR_DS_SeekError = __UNIT__ + (1556 shl 10) + DS_SeekError;
+  __ERR_AZ_NothingToDo = __UNIT__ + (1523 shl 10) + AZ_NothingToDo;
+  __ERR_AD_InIsOutStream = __UNIT__ + (1528 shl 10) + AD_InIsOutStream;
+  __ERR_DS_Unsupported = __UNIT__ + (1562 shl 10) + DS_Unsupported;
+  __ERR_DS_BadCRC = __UNIT__ + (1576 shl 10) + DS_BadCRC;
 var
   crc: Cardinal;
   Header: TZM_StreamHeader;
   Method: TZMDeflates;
-  realsize: Int64;
+  realsize: Integer;
 begin
   ZipStream.Clear();
   if not assigned(InStream) then
@@ -1529,25 +1528,50 @@ begin
     ShowZipMessage(__ERR_AD_InIsOutStream, '');
     exit;
   end;
-  realsize := InStream.Size - SizeOf(TZM_StreamHeader);
-  if realsize > 0 then
+  realsize := Integer(InStream.Size - InStream.Position) - SizeOf(TZM_StreamHeader);
+  Method := zmDeflate;
+  crc := 0;
+  ZipStream.SetSize(OutSize);
+  if (HeaderType = zzAuto) and (realsize < 0) then
+    HeaderType := zzCompat; // assume a few bytes of data only
+  if (HeaderType <> zzCompat) and (realsize >= 0) then
   begin
+//    if realsize >= 0{SizeOf(TZM_StreamHeader)} then
+//    begin
     InStream.ReadBuffer(Header, SizeOf(TZM_StreamHeader));
     case Header.Method of
-      METHOD_DEFLATED or TZMDeflateEncrypt: Method := zmDeflateEncrypt;
-      METHOD_DEFLATED: Method := zmDeflate;
-      METHOD_STORED: Method := zmStore;
+//      METHOD_DEFLATED or TZMDeflateEncrypt:
+//        Method := zmDeflateEncrypt;
+      METHOD_DEFLATED:
+        Method := zmDeflate;
+      METHOD_STORED:
+        Method := zmStore;
     else
+      if HeaderType = zzAuto then
+      begin
+        HeaderType := zzCompat;
+        realsize := realsize + SizeOf(TZM_StreamHeader);
+        if InStream.Seek(-sizeof(TZM_StreamHeader), soCurrent) < 0 then
+        begin
+          ShowZipMessage(__ERR_DS_SeekError, '');
+          Exit;
+        end;
+      end
+      else
       begin
         ShowZipMessage(__ERR_DS_Unsupported, '');
-        ZipStream.size := 0;
         Exit;
       end;
     end;
-    crc := Header.CRC;
+    CRC := Header.CRC;
+//    end;
+  end;
+  if realsize > 0 then
+  begin
     Undeflate(ZipStream, InStream, realsize, Method, crc);
     if SuccessCnt = 1 then
-    begin      if crc <> Header.CRC then
+    begin
+      if (HeaderType = zzNormal) and (crc <> Header.CRC) then
       begin
         ShowZipMessage(__ERR_DS_BadCRC, '');
         ZipStream.size := 0;
@@ -1555,6 +1579,11 @@ begin
     end
     else
       ZipStream.size := 0;
+  end
+  else
+  begin
+    ZipStream.Size := 0;
+    SuccessCnt := 1;
   end;
 end;
 
@@ -1964,7 +1993,7 @@ var
   Args: TZSSArgs;
   CmdRecP: pDLLCommands;
   i: Integer;
-  ncrypt: boolean;
+//  ncrypt: boolean;
 begin
   if not assigned(InStream) then
   begin
@@ -1981,22 +2010,22 @@ begin
     ShowZipMessage(__ERR_AD_InIsOutStream, '');
     exit;
   end;
-  ncrypt := (Method = zmStoreEncrypt) or (Method = zmDeflateEncrypt);
-  // We can not do an Unattended Add if we don't have a password.
-  if Unattended and ncrypt and (Password = '') then
-  begin
-    ShowZipMessage(__ERR_EX_UnAttPassword, '');
-    exit;
-  end;
+//  ncrypt := (Method = zmStoreEncrypt) or (Method = zmDeflateEncrypt);
+//  // We can not do an Unattended Add if we don't have a password.
+//  if Unattended and ncrypt and (Password = '') then
+//  begin
+//    ShowZipMessage(__ERR_EX_UnAttPassword, '');
+//    exit;
+//  end;
   if Length < 0 then
     Length := InStream.size;
   CmdRecP := nil;
-  if (Method = zmDeflate) or (Method = zmDeflateEncrypt) then
+  if (Method = zmDeflate) {or (Method = zmDeflateEncrypt)} then
     Args.Method := METHOD_DEFLATED
   else
     Args.Method := METHOD_STORED;
-  if ncrypt then
-    Args.Method := Args.Method or TZMDeflateEncrypt;
+//  if ncrypt then
+//    Args.Method := Args.Method or TZMDeflateEncrypt;
   Args.fSSInput := InStream;
   Args.fSSOutput := OutStream;
   Args.size := Length;

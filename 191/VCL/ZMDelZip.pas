@@ -44,12 +44,7 @@ updates: http://www.delphizip.org
  *************************************************************************** *)
 
 interface
-
-
-
-
-
-
+{$I   '.\ZipVers.inc'}
 
 uses Windows;
 

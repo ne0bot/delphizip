@@ -6,6 +6,7 @@
 #include <windows.h>
 #include <malloc.h>
 #include <string.h>
+#include <stdio.h>
 #include <stdarg.h>
 
 //#define BAD_MEM_EXCEPT -999
@@ -34,6 +35,9 @@
     DelphiZip maillist subscribe at http://www.freelists.org/list/delphizip 
 ************************************************************************/
 
+#ifndef MAXINT
+const int MAXINT = 0x7FFFFFFF;
+#endif
 int DZ_MIN(int arg1, int arg2);
 int DZ_MAX(int arg1, int arg2);
 unsigned int DZ_UMIN(unsigned int arg1, unsigned int arg2);
@@ -142,6 +146,7 @@ inline    dzstrw_imp* __fastcall _IMP_Ptr(wchar_t* p) const
 		DZStrW& __fastcall operator+=(const wchar_t* str);
 		DZStrW& __fastcall operator+=(wchar_t ch);
 		wchar_t __fastcall operator[](unsigned idx) const;
+		wchar_t __fastcall operator[](int idx) const;
 		bool operator!()const {return !imp;}
 		bool operator==(const DZStrW& other)const{return other.Compare(c_str())==0;}
 		bool operator!=(const DZStrW& other)const{return other.Compare(c_str())!=0;}
