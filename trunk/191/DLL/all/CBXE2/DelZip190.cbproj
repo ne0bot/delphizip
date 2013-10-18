@@ -2,7 +2,7 @@
 		<PropertyGroup>
 			<ProjectGuid>{6B4E939A-2487-4488-A75B-6D309B33A55F}</ProjectGuid>
 			<ProjectVersion>13.4</ProjectVersion>
-			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Config Condition="'$(Config)'==''">Release</Config>
 			<Base>True</Base>
 			<AppType>Library</AppType>
 			<FrameworkType>None</FrameworkType>
@@ -43,12 +43,12 @@
 		<PropertyGroup Condition="'$(Base)'!=''">
 			<LinkPackageImports>rtl.bpi</LinkPackageImports>
 			<VerInfo_MinorVer>9</VerInfo_MinorVer>
-			<VerInfo_Build>115</VerInfo_Build>
+			<VerInfo_Build>120</VerInfo_Build>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
 			<UsePackages>true</UsePackages>
 			<UsingDelphiRTL>true</UsingDelphiRTL>
 			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
-			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip/Unzip support dll;FileVersion=1.9.0.115;InternalName=;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013, Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP, UNZIP;OriginalFilename=;ProductName=DelphiZip;ProductVersion=1.9.0.0115;Comments=</VerInfo_Keys>
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip/Unzip support dll;FileVersion=1.9.0.120;InternalName=;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013, Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP, UNZIP;OriginalFilename=;ProductName=DelphiZip;ProductVersion=1.9.0.0120;Comments=</VerInfo_Keys>
 			<Manifest_File>None</Manifest_File>
 			<VerInfo_Locale>3081</VerInfo_Locale>
 			<BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>

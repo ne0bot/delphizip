@@ -42,7 +42,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
  *************************************************************************** *)
-//modified 2013-03-05
+//modified 2013-08-08
 {$I   '.\ZipVers.inc'}
 {$I   '.\ZMConfig191.inc'}
 
@@ -53,9 +53,9 @@ uses
   ZMXcpt, ZMStructs;
 
 const
-  ZIPMASTERBUILD: string =  '1.9.1.0019';
-  ZIPMASTERDATE: string  =  '7/06/2013';
-  ZIPMASTERPRIV: Integer = 1910019;
+  ZIPMASTERBUILD: string =  '1.9.1.0023';
+  ZIPMASTERDATE: string  =  '18/10/2013';
+  ZIPMASTERPRIV: Integer = 1910023;
 {$IFDEF WIN64}
   DELZIPVERSION          = 191;
   MIN_DLL_BUILD          = 1910111;
@@ -164,8 +164,10 @@ type
   TZMZipDiskStatus = set of TZMZipDiskStatusEnum;
   TZMDiskAction = (zdaYesToAll, zdaOk, zdaErase, zdaReject, zdaCancel);
 
-  TZMDeflates = (zmStore, zmStoreEncrypt, zmDeflate, zmDeflateEncrypt);
+  TZMDeflates = (zmStore, {zmStoreEncrypt,} zmDeflate{, zmDeflateEncrypt});// 15/08/2013 8:55:47 AM
   TZMVerbosity = (zvOff, zvVerbose, zvTrace, zvNoisy);
+
+  TZMZHeader = (zzNormal, zzCompat, zzAuto); // 10/08/2013 9:43:20 AM
 
 type
   TZMSFXOpt = (soAskCmdLine,
@@ -785,8 +787,8 @@ type
     function EraseFile(const FName: string; How: TZMDeleteOpts): Integer;
     function Extract: Integer;
     function ExtractFileToStream(const FileName: string): TMemoryStream;
-    function ExtractStreamToStream(InStream: TMemoryStream; OutSize: Longword)
-      : TMemoryStream;
+    function ExtractStreamToStream(InStream: TMemoryStream; OutSize: Longword;
+        HeaderType: TZMZHeader = zzNormal): TMemoryStream;
     function Find(const fspec: TZMString; var idx: Integer): TZMDirEntry;
     function ForEach(func: TZMForEachFunction; var Data): Integer;
     function FullVersionString: string;
@@ -1725,7 +1727,7 @@ begin
 end;
 
 function TCustomZipMaster.ExtractStreamToStream(InStream: TMemoryStream;
-  OutSize: Longword): TMemoryStream;
+    OutSize: Longword; HeaderType: TZMZHeader = zzNormal): TMemoryStream;
 var
   DllWorker: TZMDLLOpr;
 begin
@@ -1734,7 +1736,7 @@ begin
     try
       Start;
       DllWorker := TZMDLLOpr.Create(Self);
-      DllWorker.ExtractStreamToStream(InStream, OutSize);
+      DllWorker.ExtractStreamToStream(InStream, OutSize, HeaderType);
       if SuccessCnt = 1 then
         Result := ZipStream;
       done;

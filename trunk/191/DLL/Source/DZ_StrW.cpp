@@ -2,13 +2,13 @@
 #pragma hdrstop
 
 #include "DZ_StrW.h"
+#include <stdio.h>
+#ifdef _WIN64
+#include <stdarg.h>
+#endif
 #include <tchar.h>
 //#include "common.h"
 #include "dz_errs.h"
-#ifndef _WIN64
-#include <stdio.h>
-//#include "DivMod64.h"
-#endif
 
 #undef _DZ_FILE_
 #define _DZ_FILE_ DZ_DZ_STRW_CPP
@@ -57,6 +57,9 @@ int DZ_MAX(int arg1, int arg2)
 	return arg2 > arg1 ? arg2 : arg1;
 }
 
+#ifdef _WIN64
+  #define __fastcall
+#endif
 unsigned int DZ_UMIN(unsigned int arg1, unsigned int arg2)
 {
 	return arg2 < arg1 ? arg2 : arg1;
@@ -109,7 +112,7 @@ dzstrw_imp* __fastcall DZStrW::NewImp(const wchar_t* src, int maxLen)
 #else	
 	wcsncpy(nimp->data, src, (size_t)len);
 #endif	
-    nimp->data[len] = 0;         // mark end - in case
+    nimp->data[len] = (wchar_t)0;         // mark end - in case
     nimp->len = (unsigned int)wcslen(nimp->data);
     return nimp;
 }
@@ -129,7 +132,7 @@ dzstrw_imp* __fastcall DZStrW::NewImp(const char* src, int maxLen)
 
 	dzstrw_imp* nimp = NewImp(space >= maxLen ? space : maxLen); // make new
 	int wcnt = MultiByteToWideChar(0, 0, src, len, nimp->data, (int)nimp->capacity);
-	nimp->data[wcnt] = 0;
+	nimp->data[wcnt] = (wchar_t)0;
     nimp->len = (unsigned int)wcslen(nimp->data);
     return nimp;
 
@@ -159,14 +162,14 @@ unsigned __fastcall DZStrW::Length(void) const
     return _Length(_IMP_Ptr(imp));
 }
 
-/*unsigned*/ long __fastcall DZStrW::_IncImpRefs(dzstrw_imp* _imp)
+long __fastcall DZStrW::_IncImpRefs(dzstrw_imp* _imp)
 {
     if (_imp)
 		return InterlockedIncrement(& (_imp->refs));
     return 0;
 }
 
-/*unsigned*/ long __fastcall DZStrW::_DecImpRefs(dzstrw_imp* _imp)
+long __fastcall DZStrW::_DecImpRefs(dzstrw_imp* _imp)
 {
 	if (_imp->refs)
 		return InterlockedDecrement(& (_imp->refs));
@@ -256,7 +259,7 @@ void __fastcall DZStrW::_Append(const wchar_t* src, int maxLen)
 #else			
 			wcsncpy(bf, src, len);
 #endif			
-            _imp->data[nlen] = 0;
+            _imp->data[nlen] = (wchar_t)0;
             _imp->len = (unsigned)wcslen(_imp->data);
         }
     }
@@ -447,7 +450,14 @@ wchar_t __fastcall DZStrW::operator[](unsigned idx) const
     return *(imp + idx);
 }
 
-wchar_t * __fastcall DZStrW::GetBuffer(int minsize)
+wchar_t __fastcall DZStrW::operator[](int idx) const
+{
+    if (!imp || (unsigned int)idx >= Length())
+        return 0;
+    return *(imp + idx);
+}
+
+wchar_t* __fastcall DZStrW::GetBuffer(int minsize)
 {
     dzstrw_imp* _imp = _IMP_Ptr(imp);
 
@@ -676,8 +686,8 @@ int convert(unsigned __int64 value, int radix, wchar_t *buffer, bool upper)
     *p = 0;
     while (value)
 	{
-//		int cv = DivMod64(value, radix);
-		int cv = (int)(((unsigned int)value) & 0xff) % radix;
+		//int cv = (int)(((unsigned int)value) & 0x7fff) % radix;
+		int cv = (int)(value % radix);
 		value = value / (unsigned long long)radix;
 		wchar_t c;// = digits[DivMod64(value, radix) & 15];
 		if (cv <= 9)
@@ -709,16 +719,16 @@ int __cdecl DZStrW::FormatV(const wchar_t *fmt, va_list argList)
     int i;
     int j;
 	__int64 n = 0;
-//    int arg;
+    //int arg;
     wchar_t c;
-    const char *CPtr;
-	const wchar_t *WPtr;
     int zero;
     bool right;
     wchar_t flag;
     int width;
     int prec;
     const wchar_t *p;
+    const char *CPtr;
+    const wchar_t *WPtr;
     wchar_t temp[MAXDIGITS+1+55];
 
     Release();
@@ -928,7 +938,7 @@ DZStrW __fastcall DZStrW::Mid(unsigned pos, unsigned len) const
 {
     if (!imp || pos > Length())
         return DZStrW();
-	return DZStrW(imp + pos, DZ_MIN((int)len, (int)(Length() - pos)));
+    return DZStrW(imp + pos, DZ_MIN((int)len, (int)Length() - pos));
 }
 
 
@@ -1185,8 +1195,8 @@ dzstra_imp* __fastcall DZStrA::NewImp(unsigned siz)
 {
     unsigned datasize = (1 + siz) * sizeof(char);
     unsigned rawsize = sizeof(dzstra_imp) + datasize;
-	if (rawsize & RAW_SIZE_MASK)//63)
-		rawsize = (rawsize | RAW_SIZE_MASK/*63*/) + 1;
+    if (rawsize & RAW_SIZE_MASK)
+        rawsize = (rawsize | RAW_SIZE_MASK) + 1;
 
     dzstra_imp* _imp = (dzstra_imp*) (new char[rawsize]);
     if (! _imp)
@@ -1249,14 +1259,14 @@ unsigned __fastcall DZStrA::Length(void) const
     return _Length(_IMP_Ptr(imp));
 }
 
-/*unsigned*/int __fastcall DZStrA::_IncImpRefs(dzstra_imp* _imp)
+int __fastcall DZStrA::_IncImpRefs(dzstra_imp* _imp)
 {
     if (_imp)
         return InterlockedIncrement(& (_imp->refs));
     return 0;
 }
 
-/*unsigned*/int __fastcall DZStrA::_DecImpRefs(dzstra_imp* _imp)
+int __fastcall DZStrA::_DecImpRefs(dzstra_imp* _imp)
 {
     if (_imp && _imp->refs)
 		return InterlockedDecrement(& (_imp->refs));
