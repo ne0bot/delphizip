@@ -42,7 +42,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
 ************************************************** *)
-//Generated 2013-10-18
+//Generated 2013-12-13
  
 {$R *.RES}
 {$R Zipmaster.dcr}
