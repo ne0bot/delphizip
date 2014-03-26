@@ -1,0 +1,337 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{18CE611F-C8C0-4D7F-98A1-853B60AB253C}</ProjectGuid>
+			<ProjectVersion>13.4</ProjectVersion>
+			<FrameworkType>None</FrameworkType>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Release</Config>
+			<Platform Condition="'$(Platform)'==''">Win32</Platform>
+			<TargetedPlatforms>1</TargetedPlatforms>
+			<AppType>Library</AppType>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+			<Base_Win32>true</Base_Win32>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+			<Cfg_1_Win32>true</Cfg_1_Win32>
+			<CfgParent>Cfg_1</CfgParent>
+			<Cfg_1>true</Cfg_1>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+			<Cfg_2_Win32>true</Cfg_2_Win32>
+			<CfgParent>Cfg_2</CfgParent>
+			<Cfg_2>true</Cfg_2>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<AllPackageLibs>rtl.lib</AllPackageLibs>
+			<UsingDelphiRTL>true</UsingDelphiRTL>
+			<VerInfo_Release>2</VerInfo_Release>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<VerInfo_MinorVer>9</VerInfo_MinorVer>
+			<VerInfo_Build>118</VerInfo_Build>
+			<PackageImports>rtl;xmlrtl;$(PackageImports)</PackageImports>
+			<ProjectType>CppDynamicLibrary</ProjectType>
+			<Multithreaded>true</Multithreaded>
+			<_TCHARMapping>wchar_t</_TCHARMapping>
+			<ILINK_LibraryPath>..\..\Source\Cows\;..\..\Source\;C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\192\DLL\all\XE2\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+			<ILINK_AllWarnings>true</ILINK_AllWarnings>
+			<IncludePath>..\..\Source\Cows\;..\..\Source\;C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\192\DLL\all\XE2\;..\..\Source;..\..\Source\Cows;$(IncludePath)</IncludePath>
+			<UsePackages>false</UsePackages>
+			<ILINK_GenerateImportLibrary>true</ILINK_GenerateImportLibrary>
+			<Manifest_File>None</Manifest_File>
+			<VerInfo_Locale>3081</VerInfo_Locale>
+			<ILINK_SelectedWarnings>false</ILINK_SelectedWarnings>
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip/Unzip support;FileVersion=1.9.2.118;InternalName=DelZip.dll;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013 Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP, UNZIP;OriginalFilename=;ProductName=;ProductVersion=1.9.2.0118;Comments=x32</VerInfo_Keys>
+			<Defines>_USE_ASM;ALLOW_WIN98;$(Defines)</Defines>
+			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+			<DynamicRTL>false</DynamicRTL>
+			<IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
+			<FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
+			<BCC_wpar>false</BCC_wpar>
+			<BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+			<BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
+			<ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win32)'!=''">
+			<ILINK_Verbose>true</ILINK_Verbose>
+			<BCC_SelectedWarnings>false</BCC_SelectedWarnings>
+			<BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
+			<UsingDelphiRTL>false</UsingDelphiRTL>
+			<BCC_AllWarnings>true</BCC_AllWarnings>
+			<VerInfo_Build>120</VerInfo_Build>
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip compression;FileVersion=1.9.2.120;InternalName=DelZip192;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013 Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP;OriginalFilename=;ProductName=DelphiZip;ProductVersion=1.9.2.119;Comments=</VerInfo_Keys>
+			<TASM_CaseSensitivity>Global</TASM_CaseSensitivity>
+			<TASM_MaxSymbolLength>32</TASM_MaxSymbolLength>
+			<TASM_GenerateListingFile>true</TASM_GenerateListingFile>
+			<ILINK_MapFileType>Publics</ILINK_MapFileType>
+			<DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+			<BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+			<Defines>_DEBUG;$(Defines)</Defines>
+			<BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+			<BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+			<DCC_Define>DEBUG</DCC_Define>
+			<BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+			<TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+			<BCC_StackFrames>true</BCC_StackFrames>
+			<ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+			<TASM_Debugging>Full</TASM_Debugging>
+			<BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+			<ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip compression;FileVersion=1.9.2.115;InternalName=DelZip192;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013 Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP;OriginalFilename=;ProductName=DelphiZip;ProductVersion=1.9.2.115;Comments=</VerInfo_Keys>
+			<VerInfo_Build>115</VerInfo_Build>
+			<VerInfo_Release>2</VerInfo_Release>
+			<FinalOutputDir>..\..\..\VCL\DLL\Debug\</FinalOutputDir>
+			<Debugger_HostApplication>C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\192\Test2\Test_XE2.exe</Debugger_HostApplication>
+			<BCC_StringsInReadOnlyDataSeg>true</BCC_StringsInReadOnlyDataSeg>
+			<BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
+			<_TCHARMapping>wchar_t</_TCHARMapping>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<Defines>NDEBUG;$(Defines)</Defines>
+			<TASM_Debugging>None</TASM_Debugging>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+			<LinkPackageStatics>rtl.lib</LinkPackageStatics>
+			<BCC_InstructionSet>5</BCC_InstructionSet>
+			<Debugger_HostApplication>C:\Users\Russell\Documents\RAD Studio\Projects\DelZip\192\Test2\Test_XE2.exe</Debugger_HostApplication>
+			<VerInfo_Build>115</VerInfo_Build>
+			<VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip Compression;FileVersion=1.9.2.115;InternalName=DelZip192;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013 Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP;OriginalFilename=DelZip192.dll;ProductName=;ProductVersion=1.9.2.115;Comments=</VerInfo_Keys>
+			<ILINK_LibraryPath>..\..\all\XE2\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<FinalOutputDir>..\..\..\VCL\DLL\</FinalOutputDir>
+			<IncludePath>..\..\all\XE2\;$(IncludePath)</IncludePath>
+		</PropertyGroup>
+		<ItemGroup>
+			<CppCompile Include="..\..\Source\Common.cpp">
+				<DependentOn>..\..\Source\Common.h</DependentOn>
+				<BuildOrder>1</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Cows\FuncImport.cpp">
+				<BuildOrder>44</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Cows\funcs.cpp">
+				<BuildOrder>45</BuildOrder>
+			</CppCompile>
+			<AsmCompile Include="..\..\Source\Cows\jmps.asm">
+				<BuildOrder>52</BuildOrder>
+			</AsmCompile>
+			<CppCompile Include="..\..\Source\Cows\kernelW.cpp">
+				<BuildOrder>46</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Cows\MbcsBuffer.cpp">
+				<DependentOn>..\..\Source\Cows\MbcsBuffer.h</DependentOn>
+				<BuildOrder>47</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Cows\shellW.cpp">
+				<BuildOrder>48</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Cows\userW.cpp">
+				<BuildOrder>49</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Crc32.cpp">
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\CrcTab.cpp">
+				<BuildOrder>3</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Crypt.cpp">
+				<BuildOrder>4</BuildOrder>
+			</CppCompile>
+			<DefFile Include="..\..\Source\DelZipExp.def">
+				<BuildOrder>52</BuildOrder>
+			</DefFile>
+			<CppCompile Include="..\..\Source\DivMod64.cpp">
+				<DependentOn>..\..\Source\DivMod64.h</DependentOn>
+				<BuildOrder>5</BuildOrder>
+			</CppCompile>
+			<ResourceCompile Include="..\..\Source\dz192.rc">
+				<Form>dz192.res</Form>
+				<BuildOrder>41</BuildOrder>
+			</ResourceCompile>
+			<CppCompile Include="..\..\Source\DZFrame.cpp">
+				<DependentOn>..\..\Source\DZFrame.h</DependentOn>
+				<BuildOrder>7</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\DZMatch.cpp">
+				<BuildOrder>8</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\DZOper.cpp">
+				<DependentOn>..\..\Source\DZOper.h</DependentOn>
+				<BuildOrder>9</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\DZRaw.cpp">
+				<DependentOn>..\..\Source\DZRaw.h</DependentOn>
+				<BuildOrder>10</BuildOrder>
+			</CppCompile>
+			<ResourceCompile Include="..\..\Source\dz_msgs.rc">
+				<Form>dz_msgs.res</Form>
+				<BuildOrder>50</BuildOrder>
+			</ResourceCompile>
+			<CppCompile Include="..\..\Source\DZ_StrW.cpp">
+				<DependentOn>..\..\Source\DZ_StrW.h</DependentOn>
+				<BuildOrder>6</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\enter.cpp">
+				<DependentOn>..\..\Source\enter.h</DependentOn>
+				<BuildOrder>11</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\Helpers.cpp">
+				<DependentOn>..\..\Source\Helpers.h</DependentOn>
+				<BuildOrder>12</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\lngmtch.cpp">
+				<BuildOrder>13</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZBits.cpp">
+				<BuildOrder>26</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZCrypt.cpp">
+				<BuildOrder>27</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZDeflate.cpp">
+				<BuildOrder>28</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipDflt.cpp">
+				<DependentOn>..\..\Source\ZipDflt.h</DependentOn>
+				<BuildOrder>29</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipFile.cpp">
+				<BuildOrder>30</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipFIO.cpp">
+				<BuildOrder>31</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipFnc.cpp">
+				<DependentOn>..\..\Source\ZipFnc.h</DependentOn>
+				<BuildOrder>32</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipMain.cpp">
+				<BuildOrder>33</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipOp.cpp">
+				<DependentOn>..\..\Source\ZipOp.h</DependentOn>
+				<BuildOrder>34</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipPrc.cpp">
+				<BuildOrder>35</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipRead.cpp">
+				<BuildOrder>36</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipSel.cpp">
+				<BuildOrder>37</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipSS.cpp">
+				<BuildOrder>38</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipUp.cpp">
+				<BuildOrder>39</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZipWin32.cpp">
+				<BuildOrder>40</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZStrings.cpp">
+				<DependentOn>..\..\Source\ZStrings.h</DependentOn>
+				<BuildOrder>41</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZTreeAsm.cpp">
+				<BuildOrder>42</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\..\Source\ZTrees.cpp">
+				<BuildOrder>43</BuildOrder>
+			</CppCompile>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+			<Borland.ProjectType>CppDynamicLibrary</Borland.ProjectType>
+			<BorlandProject>
+				<CPlusPlusBuilder.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">3081</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<ProjectProperties>
+						<ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+						<ProjectProperties Name="ManagePaths">True</ProjectProperties>
+						<ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+					</ProjectProperties>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\fmidesigner160.bpl">FMI Form designer and property and component editors</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k160.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp160.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclIPIndyImpl160.bpl">IP Abstraction Indy Implementation Design Time</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k160.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclofficexp160.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+				</CPlusPlusBuilder.Personality>
+				<Deployment/>
+				<Platforms>
+					<Platform value="OSX32">False</Platform>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')" Project="$(BDS)\Bin\CodeGear.Cpp.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+	</Project>

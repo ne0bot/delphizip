@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            Handling of Multi Volume Zip parts
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="Multi Volume Zip Parts;">
+        <meta name="revised" content="2012-01-20">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+            </ul>
+            <h1>
+                A) How to copy each part to diskette afterwards:
+            </h1>
+        </div>
+        <div class="content">
+            <p>1) Make the MV archive on harddisk. Your filenames will be, for example:</p>
+            <p>&#39;Test001.zip&#39;, &#39;Test002.zip&#39;, &#39;Test003.zip&#39;</p>
+            <p>2) Copy each of them to it&#39;s own diskette.</p>
+            <p>3) Rename each file on diskette to &#39;Test.zip&#39;</p>
+            <p>4) Set the label of the diskettes to &#39;PKBACK# 001&#39;, &#39;PKBACK# 002&#39; and &#39;PKBACK# 003&#39;</p>
+            <p>( Note the space between # and the first digit! )</p>
+            <p>5) Start reading from the last diskette.</p>
+            <p><a href=></a>B) How to reassemble the pieces at the client side after sending the files over the internet, without using diskettes.</p>
+            <p>1) Start a DOS window and &quot;CD&quot; to the directory with Test???.zip</p>
+            <p>2) Concatenate them with:</p>
+            <p>&quot;Copy /B Test001.zip+Test002.zip+Test003.zip Test.zip&quot; or shorter:&nbsp; &quot;Copy /B Test???.zip Test.zip&quot;</p>
+            <p>(Do not enter the quotes.)</p>
+            <p>3) Fix the internal directory structure with: PKZipFix Test.zip</p>
+            <p>Note: PKZipFix.EXE comes with pkzip v2.04g.</p>
+            <p>4) Rename the resulting file &#39;PKfixed.zip&#39; to &#39;Test.zip&#39; (This is now a normal zip file and should be 4 bytes smaller than the sum of the parts.</p>
+            <p>&nbsp;</p>
+            <p>NOTE1: There is no time penalty making the archive directly on diskettes because the ZipMaster and ZipBuilder components internally use a temporary file on harddisk.</p>
+            <p>NOTE2: Harddisk spanning is not supported by PKZip and WinZip, so if you want to use files created this way with these programs you will have to use one of the above mentioned methods.</p>
+        </div>
+        <div class="foot">2012-01-20 10:00</div>
+    </body>
+</html>

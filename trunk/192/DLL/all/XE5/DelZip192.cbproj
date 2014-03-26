@@ -1,0 +1,350 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8F53D912-8EFA-4E48-86F4-9BE4FB24BC41}</ProjectGuid>
+        <ProjectVersion>15.3</ProjectVersion>
+        <FrameworkType>None</FrameworkType>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Release</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Library</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <_TCHARMapping>char</_TCHARMapping>
+        <ILINK_LibraryPath>..\..\Source\Cows\;..\..\Source\;192\DLL\all\XE5\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ProjectType>CppDynamicLibrary</ProjectType>
+        <IncludePath>..\..\Source\Cows\;..\..\Source\;192\DLL\all\XE5\;$(IncludePath)</IncludePath>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+        <ILINK_GenerateImportLibrary>true</ILINK_GenerateImportLibrary>
+        <Multithreaded>true</Multithreaded>
+        <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+        <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
+        <FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
+        <BCC_wpar>false</BCC_wpar>
+        <BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+        <BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <ILINK_ClearState>true</ILINK_ClearState>
+        <ILINK_AllWarnings>true</ILINK_AllWarnings>
+        <TASM_AllWarnings>true</TASM_AllWarnings>
+        <VerInfo_Release>2</VerInfo_Release>
+        <BCC_AllWarnings>true</BCC_AllWarnings>
+        <Manifest_File>None</Manifest_File>
+        <_TCHARMapping>wchar_t</_TCHARMapping>
+        <ILINK_SelectedWarnings>false</ILINK_SelectedWarnings>
+        <BCC_StringsInReadOnlyDataSeg>true</BCC_StringsInReadOnlyDataSeg>
+        <TASM_SelectedWarnings>false</TASM_SelectedWarnings>
+        <BCC_SelectedWarnings>false</BCC_SelectedWarnings>
+        <TASM_CaseSensitivity>Global</TASM_CaseSensitivity>
+        <VerInfo_MinorVer>9</VerInfo_MinorVer>
+        <VerInfo_Build>119</VerInfo_Build>
+        <BCC_MergeDuplicateStrings>true</BCC_MergeDuplicateStrings>
+        <BCC_InstructionSet>5</BCC_InstructionSet>
+        <BCC_Defines>ALLOW_WIN98;$(BCC_Defines)</BCC_Defines>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <PackageImports>rtl;$(PackageImports)</PackageImports>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip compression;FileVersion=1.9.2.119;InternalName=DelZip192;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013, 2014 Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP;OriginalFilename=;ProductName=DelphiZip;ProductVersion=1.9.2.119;Comments=</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+        <BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <Defines>_DEBUG;$(Defines)</Defines>
+        <BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+        <BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+        <DCC_Define>DEBUG</DCC_Define>
+        <BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+        <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+        <BCC_StackFrames>true</BCC_StackFrames>
+        <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+        <TASM_Debugging>Full</TASM_Debugging>
+        <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+        <BCC_EnableCPPExceptions>true</BCC_EnableCPPExceptions>
+        <BCC_DisableFramePtrElimOpt>true</BCC_DisableFramePtrElimOpt>
+        <BCC_DisableSpellChecking>true</BCC_DisableSpellChecking>
+        <CLANG_UnwindTables>true</CLANG_UnwindTables>
+        <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <_TCHARMapping>wchar_t</_TCHARMapping>
+        <BCC_InstructionSet>5</BCC_InstructionSet>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_MinorVer>9</VerInfo_MinorVer>
+        <BCC_AllWarnings>true</BCC_AllWarnings>
+        <Manifest_File>None</Manifest_File>
+        <VerInfo_Build>119</VerInfo_Build>
+        <VerInfo_Release>2</VerInfo_Release>
+        <BCC_SelectedWarnings>false</BCC_SelectedWarnings>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <Defines>NDEBUG;$(Defines)</Defines>
+        <TASM_Debugging>None</TASM_Debugging>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Release>2</VerInfo_Release>
+        <_TCHARMapping>wchar_t</_TCHARMapping>
+        <Manifest_File>None</Manifest_File>
+        <BCC_Defines>ALLOW_WIN98;_UNICODE;UNICODE;$(BCC_Defines)</BCC_Defines>
+        <VerInfo_Keys>CompanyName=DelphiZip;FileDescription=Freeware Zip compression;FileVersion=1.9.2.119;InternalName=DelZip192;LegalCopyright=Copyright © 2009, 2010, 2011, 2012, 2013, 2014 Russell Peters;LegalTrademarks=Uses code from InfoZip ZIP;OriginalFilename=DelZip192x32;ProductName=DelphiZip;ProductVersion=1.9.2.119;Comments=</VerInfo_Keys>
+        <VerInfo_MinorVer>9</VerInfo_MinorVer>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Build>119</VerInfo_Build>
+    </PropertyGroup>
+    <ItemGroup>
+        <PCHCompile Include="DelZip192PCH1.h">
+            <BuildOrder>0</BuildOrder>
+        </PCHCompile>
+        <CppCompile Include="..\..\Source\Common.cpp">
+            <DependentOn>..\..\Source\Common.h</DependentOn>
+            <BuildOrder>1</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\Cows\FuncImport.cpp">
+            <BuildOrder>44</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\Cows\funcs.cpp">
+            <BuildOrder>45</BuildOrder>
+        </CppCompile>
+        <AsmCompile Include="..\..\Source\Cows\jmps.asm">
+            <BuildOrder>52</BuildOrder>
+        </AsmCompile>
+        <CppCompile Include="..\..\Source\Cows\kernelW.cpp">
+            <BuildOrder>46</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\Cows\MbcsBuffer.cpp">
+            <DependentOn>..\..\Source\Cows\MbcsBuffer.h</DependentOn>
+            <BuildOrder>47</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\Cows\shellW.cpp">
+            <BuildOrder>48</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\Cows\userW.cpp">
+            <BuildOrder>49</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\Crc32.cpp">
+            <BuildOrder>2</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\CrcTab.cpp">
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\Crypt.cpp">
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <DefFile Include="..\..\Source\DelZipExp.def">
+            <BuildOrder>52</BuildOrder>
+        </DefFile>
+        <ResourceCompile Include="..\..\Source\dz192.rc">
+            <Form>dz192.res</Form>
+            <BuildOrder>41</BuildOrder>
+        </ResourceCompile>
+        <CppCompile Include="..\..\Source\DZFrame.cpp">
+            <DependentOn>..\..\Source\DZFrame.h</DependentOn>
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\DZMatch.cpp">
+            <BuildOrder>8</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\DZOper.cpp">
+            <DependentOn>..\..\Source\DZOper.h</DependentOn>
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\DZRaw.cpp">
+            <DependentOn>..\..\Source\DZRaw.h</DependentOn>
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
+        <ResourceCompile Include="..\..\Source\dz_msgs.rc">
+            <Form>dz_msgs.res</Form>
+            <BuildOrder>50</BuildOrder>
+        </ResourceCompile>
+        <CppCompile Include="..\..\Source\DZ_StrW.cpp">
+            <DependentOn>..\..\Source\DZ_StrW.h</DependentOn>
+            <BuildOrder>6</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\enter.cpp">
+            <DependentOn>..\..\Source\enter.h</DependentOn>
+            <BuildOrder>11</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\Helpers.cpp">
+            <DependentOn>..\..\Source\Helpers.h</DependentOn>
+            <BuildOrder>12</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\lngmtch.cpp">
+            <BuildOrder>13</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZBits.cpp">
+            <BuildOrder>26</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZCrypt.cpp">
+            <BuildOrder>27</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZDeflate.cpp">
+            <BuildOrder>28</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipDflt.cpp">
+            <DependentOn>..\..\Source\ZipDflt.h</DependentOn>
+            <BuildOrder>29</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipFile.cpp">
+            <BuildOrder>30</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipFIO.cpp">
+            <BuildOrder>31</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipFnc.cpp">
+            <DependentOn>..\..\Source\ZipFnc.h</DependentOn>
+            <BuildOrder>32</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipMain.cpp">
+            <BuildOrder>33</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipOp.cpp">
+            <DependentOn>..\..\Source\ZipOp.h</DependentOn>
+            <BuildOrder>34</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipPrc.cpp">
+            <BuildOrder>35</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipRead.cpp">
+            <BuildOrder>36</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipSel.cpp">
+            <BuildOrder>37</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipSS.cpp">
+            <BuildOrder>38</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipUp.cpp">
+            <BuildOrder>39</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZipWin32.cpp">
+            <BuildOrder>40</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZStrings.cpp">
+            <DependentOn>..\..\Source\ZStrings.h</DependentOn>
+            <BuildOrder>41</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZTreeAsm.cpp">
+            <BuildOrder>42</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\..\Source\ZTrees.cpp">
+            <BuildOrder>43</BuildOrder>
+        </CppCompile>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+        <Borland.ProjectType>CppDynamicLibrary</Borland.ProjectType>
+        <BorlandProject>
+            <CPlusPlusBuilder.Personality>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">3081</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                    <VersionInfoKeys Name="CFBundleName"/>
+                    <VersionInfoKeys Name="CFBundleDisplayName"/>
+                    <VersionInfoKeys Name="UIDeviceFamily"/>
+                    <VersionInfoKeys Name="CFBundleIdentifier"/>
+                    <VersionInfoKeys Name="CFBundleVersion"/>
+                    <VersionInfoKeys Name="CFBundlePackageType"/>
+                    <VersionInfoKeys Name="CFBundleSignature"/>
+                    <VersionInfoKeys Name="CFBundleAllowMixedLocalizations"/>
+                    <VersionInfoKeys Name="UISupportedInterfaceOrientations"/>
+                    <VersionInfoKeys Name="CFBundleExecutable"/>
+                    <VersionInfoKeys Name="CFBundleResourceSpecification"/>
+                    <VersionInfoKeys Name="LSRequiresIPhoneOS"/>
+                    <VersionInfoKeys Name="CFBundleInfoDictionaryVersion"/>
+                    <VersionInfoKeys Name="CFBundleDevelopmentRegion"/>
+                    <VersionInfoKeys Name="package"/>
+                    <VersionInfoKeys Name="label"/>
+                    <VersionInfoKeys Name="versionCode"/>
+                    <VersionInfoKeys Name="versionName"/>
+                    <VersionInfoKeys Name="persistent"/>
+                    <VersionInfoKeys Name="restoreAnyVersion"/>
+                    <VersionInfoKeys Name="installLocation"/>
+                    <VersionInfoKeys Name="largeHeap"/>
+                    <VersionInfoKeys Name="theme"/>
+                </VersionInfoKeys>
+                <ProjectProperties>
+                    <ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+                    <ProjectProperties Name="ManagePaths">True</ProjectProperties>
+                    <ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+                </ProjectProperties>
+            </CPlusPlusBuilder.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Cpp.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>

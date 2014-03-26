@@ -1,0 +1,14 @@
+# file list for Demo11
+| *.h|*.c??
+;;;| *.* /e:*.css
+F:\ZMTestZips\Tst_Cpy_1.zip
+| /e:*o.html
+F:\ZMTestZips\Tst_Cpy_2.zip
+F:\ZMTestZips\Tst_Cpy_3.zip
++ rmenu.css
+F:\ZMTestZips\Tst_Cpy_7.zip
+| *.* /e:*o.html
+F:\ZMTestZips\Tst_Cpy_4.zip
+| *.txt /e:*o.html
+F:\ZMTestZips\Tst_Cpy_1b.zip
+| *.h|*.c??

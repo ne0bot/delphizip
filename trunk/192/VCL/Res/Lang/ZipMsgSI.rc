@@ -1,0 +1,153 @@
+// SL: Slovenia
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x24, 1 // 0x0424
+{
+  ZS_UnknownError,           "Neznana napaka"
+  ZS_Canceled,               "Uporabnik prekinil delo"
+  ZS_CopyCentral,            "Glavno kazalo"
+  ZS_Skipped,                "Preskoèen %s %d"
+  ZS_TempZip,                "Zaèasen ZIP: %s"
+  ZS_DllLoaded,              "Naložen %s"
+  ZS_DllUnloaded,            "Izklopljen %s"
+  ZS_NothingToZip,           "Napaka - ni datotek za pakiranje"
+  ZS_NothingToDel,           "Napaka -  datoteke za brisanje niso vpisane"
+  DS_NoDiskSpan,             "Veè volumsko arhiviranje ni podprto"
+  ZS_NoRenamePart,           "Zadnji del shranjen kot: %s"
+  ZS_EventEx,                "Izjemna napaka v dogodku "
+  ZS_BadDll,                 "Ne morem naložiti dattoeke %s - Ali je prestara ali pokvarjena"
+  ZS_NoDll,                  "Napaka pri nalaganju %s"
+  ZS_WrongZipStruct,         "Napaka - Napaka v strukturi ZIP-a"
+  ZC_UnatAddPWMiss,          "Napaka - geslo za dodajanje ni vpisano"
+  ZC_UnatExtPWMiss,          "Napaka - geslo za razpakiranje ni vpisano"
+  ZP_Archive,                "*Resetiram Arhivski bit"
+  ZP_CopyZipFile,            "*Kopiram Zip datoteko"
+  ZP_SFX,                    "*SFX"
+  ZP_Header,                 "*??"
+  ZP_Finish,                 "*Zakljuèevanje"
+  ZP_Copying,                "*Kopiranje"
+  ZP_CentrlDir,              "*Centralna mapa"
+  ZP_Checking,               "*Preverjanje"
+  ZP_Loading,                "*Nalaganje mape"
+  ZP_Joining,                "*Združujem razdeljeno ZIP datoteko"
+  ZP_Splitting,              "*Razdružujem ZIP datoteko"
+  CF_OverwriteYN,            "Prepišem datoteko '%s' v '%s' ?"
+  ZS_AskDeleteFile,          "Datoteka že obstaja %s\nAli jo povozim?"
+  ZS_AskPrevFile,            "POZOR: To je prejšnji disk št. %d!!!\nAli ste preprièani, da želite pisati preko njega?"
+  ZS_InDrive,                "\nv pogon: %s"
+  ZS_InsertAVolume,          "Prosim, vstavite disk %.1d"
+  ZS_InsertDisk,             "Prosim, vstavite zadnji disk"
+  ZS_InsertVolume,           "Prosim, vstavite disk %.1d od %.1d"
+  ZS_Confirm,                "Potrdi"
+  ZS_Erase,                  "Brisanje "
+  ZC_Caption,                "Geslo "
+  ZC_MessageConfirm,         "Potrdite geslo"
+  ZC_MessageEnter,           "Vnesite geslo"
+  ZC_Yes,                    "&Da"
+  ZC_No,                     "&Ne"
+  ZC_OK,                     "&V redu"
+  ZC_Cancel,                 "&Preklièi"
+  ZC_Abort,                  "&Konèaj"
+  ZC_Retry,                  "&Ponovi"
+  ZC_Ignore,                 "&Ignoriraj"
+  ZC_CancelAll,              "Preklièi vse"
+  ZC_NoToAll,                "Ne za vse"
+  ZC_YesToAll,               "Da za vse"
+  ZS_InIsOutStream,          "Vhodni stream verjetno ni prirejen izhodnemu stream-u"
+  ZS_InvalidName,            "Joker znaki niso dovoljeni za ime datoteke ali za specifikacijo datotek"
+  ZS_NoDestDir,              "Ponorna mapa '%s' mora obstajati!"
+  ZS_UnattPassword,          "Nenadzorovan potrebuje geslo za delo"
+  ZS_CEHDataSize,            "Skupna dolžina CEH + ime datoteke + komentar datoteke + dodatni podatki presega 65535"
+  ZS_NoChangeDir,            "Ne morem spremeniti poti"
+  ZS_NoProtected,            "Ne morem spremeniti detajlov razširjene datoteke"
+  ZS_SourceIsDest,           "Izvorni arhiv je enak ponornemu arhivu!"
+  ZS_InputNotExe,            "Napaka - vhodna datoteka ni tipa EXE"
+  ZS_CEHWrongSig,            "Podpis glavne glave je napaèen"
+  ZS_DriveNoMount,           "Pogon %s ne obstaja"
+  ZS_NoDiskSpace,            "Premalo prostora na disku"
+  ZS_NoInFile,               "Vhodna datoteka ne obstaja"
+  DS_NotaDrive,              "Pogona ni mogoèe najti: %s"
+  ZS_NoUnattSpan,            "Nenadzorovana premostitev diska ni implementirana"
+  ZS_NoValidZip,             "To ni veljaven Zip arhiv"
+  ZS_UnAttPassword,          "Pozor - Unattended Extract. Mogoce niso vse datoteke razpakirane"
+  ZS_NoZipSpecified,         "Napaka - ime datoteke Zip ni dodeljeno!"
+  ZS_WrongPassword,          "Napaka - vnesena gesla niso pravilna\nGesla ignoriram"
+  ZS_InvalidDateTime,        "Napaèen datum/ura v argumentu za datoteko: "
+  ZS_NoZipSFXBin,            "Napaka - datoteke %s ni!"
+  ZS_StringTooLong,          "Error - On or more of the 4 property strings mentioned below exceeds 255 characters!"
+  ZS_AutoSFXWrong,           "Napaka %.1d pri samoizdelavi SFX glave"
+  ZS_CopyFailed,             "Napaka pri kopiranju datoteko iz '%s' v '%s'"
+  ZS_SFXCopyError,           "Napaka pri kopiranju SFX podatkov"
+  ZS_CECommentLen,           "Napaka pri branju komentarja datoteke"
+  ZS_CEHBadRead,             "Napaka pri branju glavne glave"
+  ZS_CEHBadWrite,            "Napaka pri pisanju glavno glavo"
+  ZS_CENameLen,              "Napaka pri branju glavnih datotek"
+  ZS_DataDesc,               "Napaka pri branju/pisanju polja opisa"
+  ZS_EOCBadRead,             "Napaka pri branju konca glavnega kazala"
+  ZS_EOCBadWrite,            "Napaka pri pisanju konca glavnega kazala"
+  ZS_ErrorUnknown,           "Neznana napaka v funkciji ReadSpan(), WriteSpan() ali Rename()\n"
+  ZS_FailedSeek,             "Napaka pri pozicioniranju v vhodni datoteki"
+  ZS_FileOpen,               "Ne morem odpreti datoteke ZIP"
+  ZS_LOHBadRead,             "Napaka pri branju lokalne glave"
+  ZS_LOHBadWrite,            "Napaka pri pisanju lokalno glavo"
+  DS_NoMem,                  "Premalo pomnilnika za MsgBox"
+  ZS_NoOutFile,              "Nisem uspel ustvariti izhodne datoteke"
+  ZS_NoTempFile,             "Neuspeh pri izdelavi zaèasne datoteke"
+  ZS_NoVolume,               "Ne morem preimenovati pogona"
+  ZS_NoWrite,                "Napaka pri pisanju ihodne datoteke"
+  ZS_DLLCritical,            "kritièna napaka v DLL %d"
+  ZS_Except,                 "Izjemna napaka v event handlerju "
+  ZS_FatalZip,               "Huda napaka v DelZip179.DLL: Operacija je prekinjena."
+  ZS_Inactive,               "ni aktiven"
+  ZS_NoMem,                  "Premalo pomnilnika"
+  ZS_RangeError,             "Index (%d) izven obsega 1..%d"
+  ZS_Unknown,                " Neznana napaka %d"
+  GE_WasBusy,                "Zaposlen + %s"
+  LI_ErrorUnknown,           "Neznana napaka v funkciji List()\n"
+  ZS_ReadZipError,           "Napaka pri pozicioniranju med branjem"
+  ZS_Deleting,               "EraseFloppy - Brisanje %s"
+  ZS_Erasing,                "EraseFloppy - Odstranjujem %s"
+  ZS_GetNewDisk,             "Trace : GetNewDisk odpiranje: %s"
+  ZX_Language,               "SL: Slovenia"
+}

@@ -1,0 +1,390 @@
+Turbo Assembler	 Version 5.4	    07-14-12 19:02:07	    Page 1
+..\..\Source\Cows\jmps.asm
+
+
+
+      1						 .486p
+      2	00000000				 model flat
+      3
+      4						 extern	zCompareStringW	: proc
+      5						 global	CompareStringW : proc
+      6						 extern	zCreateDirectoryW : proc
+      7						 global	CreateDirectoryW : proc
+      8						 extern	zCreateFileW : proc
+      9						 global	CreateFileW : proc
+     10						 extern	zDeleteFileW : proc
+     11						 global	DeleteFileW : proc
+     12						 extern	zFindFirstFileW	: proc
+     13						 global	FindFirstFileW : proc
+     14						 extern	zFindNextFileW : proc
+     15						 global	FindNextFileW :	proc
+     16						 extern	zFindResourceW : proc
+     17						 global	FindResourceW :	proc
+     18						 extern	zFreeEnvironmentStringsW : proc
+     19						 global	FreeEnvironmentStringsW	: proc
+     20						 extern	zGetCurrentDirectoryW :	proc
+     21						 global	GetCurrentDirectoryW : proc
+     22						 extern	zGetDriveTypeW : proc
+     23						 global	GetDriveTypeW :	proc
+     24						 extern	zGetFileAttributesW : proc
+     25						 global	GetFileAttributesW : proc
+     26						 extern	zGetFullPathNameW : proc
+     27						 global	GetFullPathNameW : proc
+     28						 extern	zGetModuleFileNameW : proc
+     29						 global	GetModuleFileNameW : proc
+     30						 extern	zGetModuleHandleW : proc
+     31						 global	GetModuleHandleW : proc
+     32						 extern	zGetShortPathNameW : proc
+     33						 global	GetShortPathNameW : proc
+     34						 extern	zGetStringTypeW	: proc
+     35						 global	GetStringTypeW : proc
+     36						 extern	zGetTempPathW :	proc
+     37						 global	GetTempPathW : proc
+     38						 extern	zGetVolumeInformationW : proc
+     39						 global	GetVolumeInformationW :	proc
+     40						 extern	zIsDebuggerPresent : proc
+     41						 global	IsDebuggerPresent : proc
+     42						 extern	zLCMapStringW :	proc
+     43						 global	LCMapStringW : proc
+     44						 extern	zMoveFileWithProgressW : proc
+     45						 global	MoveFileWithProgressW :	proc
+     46						 extern	zRemoveDirectoryW : proc
+     47						 global	RemoveDirectoryW : proc
+     48						 extern	zSetFileAttributesW : proc
+     49						 global	SetFileAttributesW : proc
+     50						 extern	zlstrlenW : proc
+     51						 global	lstrlenW : proc
+     52						 extern	zOutputDebugStringW : proc
+     53						 global	OutputDebugStringW : proc
+     54						 extern	zSHFileOperationW : proc
+     55						 global	SHFileOperationW : proc
+     56						 extern	zCharToOemW : proc
+     57						 global	CharToOemW : proc
+Turbo Assembler	 Version 5.4	    07-14-12 19:02:07	    Page 2
+..\..\Source\Cows\jmps.asm
+
+
+
+     58						 extern	zLoadStringW : proc
+     59						 global	LoadStringW : proc
+     60						 extern	zMessageBoxW : proc
+     61						 global	MessageBoxW : proc
+     62						 extern	zOemToCharW : proc
+     63						 global	OemToCharW : proc
+     64						 extern	zCharUpperW : proc
+     65						 global	CharUpperW : proc
+     66						 extern	zCharLowerW : proc
+     67						 global	CharLowerW : proc
+     68						 extern	zCharUpperBuffW	: proc
+     69						 global	CharUpperBuffW : proc
+     70						 extern	zCharNextW : proc
+     71						 global	CharNextW : proc
+     72
+     73						 public	_u_jmps
+     74
+     75	00000000			 _DATA	 segment dword public use32 'DATA'
+     76	00000000			 _u_jmps:
+     77	00000000  00000000e			 dd zCompareStringW
+     78	00000004  00000000e			 dd zCreateDirectoryW
+     79	00000008  00000000e			 dd zCreateFileW
+     80	0000000C  00000000e			 dd zDeleteFileW
+     81	00000010  00000000e			 dd zFindFirstFileW
+     82	00000014  00000000e			 dd zFindNextFileW
+     83	00000018  00000000e			 dd zFindResourceW
+     84	0000001C  00000000e			 dd zFreeEnvironmentStringsW
+     85	00000020  00000000e			 dd zGetCurrentDirectoryW
+     86	00000024  00000000e			 dd zGetDriveTypeW
+     87	00000028  00000000e			 dd zGetFileAttributesW
+     88	0000002C  00000000e			 dd zGetFullPathNameW
+     89	00000030  00000000e			 dd zGetModuleFileNameW
+     90	00000034  00000000e			 dd zGetModuleHandleW
+     91	00000038  00000000e			 dd zGetShortPathNameW
+     92	0000003C  00000000e			 dd zGetStringTypeW
+     93	00000040  00000000e			 dd zGetTempPathW
+     94	00000044  00000000e			 dd zGetVolumeInformationW
+     95	00000048  00000000e			 dd zIsDebuggerPresent
+     96	0000004C  00000000e			 dd zLCMapStringW
+     97	00000050  00000000e			 dd zMoveFileWithProgressW
+     98	00000054  00000000e			 dd zRemoveDirectoryW
+     99	00000058  00000000e			 dd zSetFileAttributesW
+    100	0000005C  00000000e			 dd zlstrlenW
+    101	00000060  00000000e			 dd zOutputDebugStringW
+    102	00000064  00000000e			 dd zSHFileOperationW
+    103	00000068  00000000e			 dd zCharToOemW
+    104	0000006C  00000000e			 dd zLoadStringW
+    105	00000070  00000000e			 dd zMessageBoxW
+    106	00000074  00000000e			 dd zOemToCharW
+    107	00000078  00000000e			 dd zCharUpperW
+    108	0000007C  00000000e			 dd zCharLowerW
+    109	00000080  00000000e			 dd zCharUpperBuffW
+    110	00000084  00000000e			 dd zCharNextW
+    111	00000088			 _DATA	 ends
+    112
+    113	00000000			 _TEXT	 segment dword public use32 'CODE'
+    114	00000000			 CompareStringW	proc near
+Turbo Assembler	 Version 5.4	    07-14-12 19:02:07	    Page 3
+..\..\Source\Cows\jmps.asm
+
+
+
+    115	00000000  FF 25	00000000r		 jmp dword ptr [_u_jmps	+ 0 ]
+    116	00000006			 CompareStringW	endp
+    117
+    118	00000006			 CreateDirectoryW proc near
+    119	00000006  FF 25	00000004r		 jmp dword ptr [_u_jmps	+ 4 ]
+    120	0000000C			 CreateDirectoryW endp
+    121
+    122	0000000C			 CreateFileW proc near
+    123	0000000C  FF 25	00000008r		 jmp dword ptr [_u_jmps	+ 8 ]
+    124	00000012			 CreateFileW endp
+    125
+    126	00000012			 DeleteFileW proc near
+    127	00000012  FF 25	0000000Cr		 jmp dword ptr [_u_jmps	+ 12 ]
+    128	00000018			 DeleteFileW endp
+    129
+    130	00000018			 FindFirstFileW	proc near
+    131	00000018  FF 25	00000010r		 jmp dword ptr [_u_jmps	+ 16 ]
+    132	0000001E			 FindFirstFileW	endp
+    133
+    134	0000001E			 FindNextFileW proc near
+    135	0000001E  FF 25	00000014r		 jmp dword ptr [_u_jmps	+ 20 ]
+    136	00000024			 FindNextFileW endp
+    137
+    138	00000024			 FindResourceW proc near
+    139	00000024  FF 25	00000018r		 jmp dword ptr [_u_jmps	+ 24 ]
+    140	0000002A			 FindResourceW endp
+    141
+    142	0000002A			 FreeEnvironmentStringsW proc near
+    143	0000002A  FF 25	0000001Cr		 jmp dword ptr [_u_jmps	+ 28 ]
+    144	00000030			 FreeEnvironmentStringsW endp
+    145
+    146	00000030			 GetCurrentDirectoryW proc near
+    147	00000030  FF 25	00000020r		 jmp dword ptr [_u_jmps	+ 32 ]
+    148	00000036			 GetCurrentDirectoryW endp
+    149
+    150	00000036			 GetDriveTypeW proc near
+    151	00000036  FF 25	00000024r		 jmp dword ptr [_u_jmps	+ 36 ]
+    152	0000003C			 GetDriveTypeW endp
+    153
+    154	0000003C			 GetFileAttributesW proc near
+    155	0000003C  FF 25	00000028r		 jmp dword ptr [_u_jmps	+ 40 ]
+    156	00000042			 GetFileAttributesW endp
+    157
+    158	00000042			 GetFullPathNameW proc near
+    159	00000042  FF 25	0000002Cr		 jmp dword ptr [_u_jmps	+ 44 ]
+    160	00000048			 GetFullPathNameW endp
+    161
+    162	00000048			 GetModuleFileNameW proc near
+    163	00000048  FF 25	00000030r		 jmp dword ptr [_u_jmps	+ 48 ]
+    164	0000004E			 GetModuleFileNameW endp
+    165
+    166	0000004E			 GetModuleHandleW proc near
+    167	0000004E  FF 25	00000034r		 jmp dword ptr [_u_jmps	+ 52 ]
+    168	00000054			 GetModuleHandleW endp
+    169
+    170	00000054			 GetShortPathNameW proc	near
+    171	00000054  FF 25	00000038r		 jmp dword ptr [_u_jmps	+ 56 ]
+Turbo Assembler	 Version 5.4	    07-14-12 19:02:07	    Page 4
+..\..\Source\Cows\jmps.asm
+
+
+
+    172	0000005A			 GetShortPathNameW endp
+    173
+    174	0000005A			 GetStringTypeW	proc near
+    175	0000005A  FF 25	0000003Cr		 jmp dword ptr [_u_jmps	+ 60 ]
+    176	00000060			 GetStringTypeW	endp
+    177
+    178	00000060			 GetTempPathW proc near
+    179	00000060  FF 25	00000040r		 jmp dword ptr [_u_jmps	+ 64 ]
+    180	00000066			 GetTempPathW endp
+    181
+    182	00000066			 GetVolumeInformationW proc near
+    183	00000066  FF 25	00000044r		 jmp dword ptr [_u_jmps	+ 68 ]
+    184	0000006C			 GetVolumeInformationW endp
+    185
+    186	0000006C			 IsDebuggerPresent proc	near
+    187	0000006C  FF 25	00000048r		 jmp dword ptr [_u_jmps	+ 72 ]
+    188	00000072			 IsDebuggerPresent endp
+    189
+    190	00000072			 LCMapStringW proc near
+    191	00000072  FF 25	0000004Cr		 jmp dword ptr [_u_jmps	+ 76 ]
+    192	00000078			 LCMapStringW endp
+    193
+    194	00000078			 MoveFileWithProgressW proc near
+    195	00000078  FF 25	00000050r		 jmp dword ptr [_u_jmps	+ 80 ]
+    196	0000007E			 MoveFileWithProgressW endp
+    197
+    198	0000007E			 RemoveDirectoryW proc near
+    199	0000007E  FF 25	00000054r		 jmp dword ptr [_u_jmps	+ 84 ]
+    200	00000084			 RemoveDirectoryW endp
+    201
+    202	00000084			 SetFileAttributesW proc near
+    203	00000084  FF 25	00000058r		 jmp dword ptr [_u_jmps	+ 88 ]
+    204	0000008A			 SetFileAttributesW endp
+    205
+    206	0000008A			 lstrlenW proc near
+    207	0000008A  FF 25	0000005Cr		 jmp dword ptr [_u_jmps	+ 92 ]
+    208	00000090			 lstrlenW endp
+    209
+    210	00000090			 OutputDebugStringW proc near
+    211	00000090  FF 25	00000060r		 jmp dword ptr [_u_jmps	+ 96 ]
+    212	00000096			 OutputDebugStringW endp
+    213
+    214	00000096			 SHFileOperationW proc near
+    215	00000096  FF 25	00000064r		 jmp dword ptr [_u_jmps	+ 100 ]
+    216	0000009C			 SHFileOperationW endp
+    217
+    218	0000009C			 CharToOemW proc near
+    219	0000009C  FF 25	00000068r		 jmp dword ptr [_u_jmps	+ 104 ]
+    220	000000A2			 CharToOemW endp
+    221
+    222	000000A2			 LoadStringW proc near
+    223	000000A2  FF 25	0000006Cr		 jmp dword ptr [_u_jmps	+ 108 ]
+    224	000000A8			 LoadStringW endp
+    225
+    226	000000A8			 MessageBoxW proc near
+    227	000000A8  FF 25	00000070r		 jmp dword ptr [_u_jmps	+ 112 ]
+    228	000000AE			 MessageBoxW endp
+Turbo Assembler	 Version 5.4	    07-14-12 19:02:07	    Page 5
+..\..\Source\Cows\jmps.asm
+
+
+
+    229
+    230	000000AE			 OemToCharW proc near
+    231	000000AE  FF 25	00000074r		 jmp dword ptr [_u_jmps	+ 116 ]
+    232	000000B4			 OemToCharW endp
+    233
+    234	000000B4			 CharUpperW proc near
+    235	000000B4  FF 25	00000078r		 jmp dword ptr [_u_jmps	+ 120 ]
+    236	000000BA			 CharUpperW endp
+    237
+    238	000000BA			 CharLowerW proc near
+    239	000000BA  FF 25	0000007Cr		 jmp dword ptr [_u_jmps	+ 124 ]
+    240	000000C0			 CharLowerW endp
+    241
+    242	000000C0			 CharUpperBuffW	proc near
+    243	000000C0  FF 25	00000080r		 jmp dword ptr [_u_jmps	+ 128 ]
+    244	000000C6			 CharUpperBuffW	endp
+    245
+    246	000000C6			 CharNextW proc	near
+    247	000000C6  FF 25	00000084r		 jmp dword ptr [_u_jmps	+ 132 ]
+    248	000000CC			 CharNextW endp
+    249
+    250	000000CC			 _TEXT	 ends
+    251
+    252					       end
+Turbo Assembler	 Version 5.4	    07-14-12 19:02:07	    Page 6
+Symbol Table
+
+
+
+
+Symbol Name		Type   Value			   Cref	(defined at #)
+
+??DATE			Text   "07-14-12"
+??FILENAME		Text   "jmps	"
+??TIME			Text   "19:02:07"
+??VERSION		Number 0504
+@32BIT			Text   1			   #2
+@CODE			Text   FLAT			   #2
+@CODESIZE		Text   0			   #2
+@CPU			Text   5550H			   #1
+@CURSEG			Text   _TEXT			   #75	#113
+@DATA			Text   FLAT			   #2
+@DATASIZE		Text   0			   #2
+@FILENAME		Text   JMPS
+@INTERFACE		Text   000H			   #2
+@MODEL			Text   1			   #2
+@STACK			Text   FLAT			   #2
+@WORDSIZE		Text   4			   #1  #75  #113
+ALLOW_WIN98		Text
+CHARLOWERW		Near32 FLAT:00BA		   #238
+CHARNEXTW		Near32 FLAT:00C6		   #246
+CHARTOOEMW		Near32 FLAT:009C		   #218
+CHARUPPERBUFFW		Near32 FLAT:00C0		   #242
+CHARUPPERW		Near32 FLAT:00B4		   #234
+COMPARESTRINGW		Near32 FLAT:0000		   #114
+CREATEDIRECTORYW	Near32 FLAT:0006		   #118
+CREATEFILEW		Near32 FLAT:000C		   #122
+DELETEFILEW		Near32 FLAT:0012		   #126
+FINDFIRSTFILEW		Near32 FLAT:0018		   #130
+FINDNEXTFILEW		Near32 FLAT:001E		   #134
+FINDRESOURCEW		Near32 FLAT:0024		   #138
+FREEENVIRONMENTSTRINGS	Near32 FLAT:002A		   #142
+W
+GETCURRENTDIRECTORYW	Near32 FLAT:0030		   #146
+GETDRIVETYPEW		Near32 FLAT:0036		   #150
+GETFILEATTRIBUTESW	Near32 FLAT:003C		   #154
+GETFULLPATHNAMEW	Near32 FLAT:0042		   #158
+GETMODULEFILENAMEW	Near32 FLAT:0048		   #162
+GETMODULEHANDLEW	Near32 FLAT:004E		   #166
+GETSHORTPATHNAMEW	Near32 FLAT:0054		   #170
+GETSTRINGTYPEW		Near32 FLAT:005A		   #174
+GETTEMPPATHW		Near32 FLAT:0060		   #178
+GETVOLUMEINFORMATIONW	Near32 FLAT:0066		   #182
+ISDEBUGGERPRESENT	Near32 FLAT:006C		   #186
+LCMAPSTRINGW		Near32 FLAT:0072		   #190
+LOADSTRINGW		Near32 FLAT:00A2		   #222
+LSTRLENW		Near32 FLAT:008A		   #206
+MESSAGEBOXW		Near32 FLAT:00A8		   #226
+MOVEFILEWITHPROGRESSW	Near32 FLAT:0078		   #194
+OEMTOCHARW		Near32 FLAT:00AE		   #230
+OUTPUTDEBUGSTRINGW	Near32 FLAT:0090		   #210
+REMOVEDIRECTORYW	Near32 FLAT:007E		   #198
+SETFILEATTRIBUTESW	Near32 FLAT:0084		   #202
+SHFILEOPERATIONW	Near32 FLAT:0096		   #214
+ZCHARLOWERW		Near32 ----:---- Extern		   #66	108
+ZCHARNEXTW		Near32 ----:---- Extern		   #70	110
+Turbo Assembler	 Version 5.4	    07-14-12 19:02:07	    Page 7
+Symbol Table
+
+
+
+ZCHARTOOEMW		Near32 ----:---- Extern		   #56	103
+ZCHARUPPERBUFFW		Near32 ----:---- Extern		   #68	109
+ZCHARUPPERW		Near32 ----:---- Extern		   #64	107
+ZCOMPARESTRINGW		Near32 ----:---- Extern		   #4  77
+ZCREATEDIRECTORYW	Near32 ----:---- Extern		   #6  78
+ZCREATEFILEW		Near32 ----:---- Extern		   #8  79
+ZDELETEFILEW		Near32 ----:---- Extern		   #10	80
+ZFINDFIRSTFILEW		Near32 ----:---- Extern		   #12	81
+ZFINDNEXTFILEW		Near32 ----:---- Extern		   #14	82
+ZFINDRESOURCEW		Near32 ----:---- Extern		   #16	83
+ZFREEENVIRONMENTSTRING	Near32 ----:---- Extern		   #18	84
+SW
+ZGETCURRENTDIRECTORYW	Near32 ----:---- Extern		   #20	85
+ZGETDRIVETYPEW		Near32 ----:---- Extern		   #22	86
+ZGETFILEATTRIBUTESW	Near32 ----:---- Extern		   #24	87
+ZGETFULLPATHNAMEW	Near32 ----:---- Extern		   #26	88
+ZGETMODULEFILENAMEW	Near32 ----:---- Extern		   #28	89
+ZGETMODULEHANDLEW	Near32 ----:---- Extern		   #30	90
+ZGETSHORTPATHNAMEW	Near32 ----:---- Extern		   #32	91
+ZGETSTRINGTYPEW		Near32 ----:---- Extern		   #34	92
+ZGETTEMPPATHW		Near32 ----:---- Extern		   #36	93
+ZGETVOLUMEINFORMATIONW	Near32 ----:---- Extern		   #38	94
+ZISDEBUGGERPRESENT	Near32 ----:---- Extern		   #40	95
+ZLCMAPSTRINGW		Near32 ----:---- Extern		   #42	96
+ZLOADSTRINGW		Near32 ----:---- Extern		   #58	104
+ZLSTRLENW		Near32 ----:---- Extern		   #50	100
+ZMESSAGEBOXW		Near32 ----:---- Extern		   #60	105
+ZMOVEFILEWITHPROGRESSW	Near32 ----:---- Extern		   #44	97
+ZOEMTOCHARW		Near32 ----:---- Extern		   #62	106
+ZOUTPUTDEBUGSTRINGW	Near32 ----:---- Extern		   #52	101
+ZREMOVEDIRECTORYW	Near32 ----:---- Extern		   #46	98
+ZSETFILEATTRIBUTESW	Near32 ----:---- Extern		   #48	99
+ZSHFILEOPERATIONW	Near32 ----:---- Extern		   #54	102
+_DEBUG			Text
+_USE_ASM		Text
+_U_JMPS			Near32 FLAT:0000		   73  #76  115	 119  123  127	131  135  139  143  147	 151  155  159	  +
+							   163	167  171  175  179  183	 187  191  195	199  203  207  211  215	  +
+							   219	223  227  231  235  239	 243  247
+
+Groups & Segments	Bit Size Align	Combine	Class	   Cref	(defined at #)
+
+DGROUP			Group				   #2
+  _DATA			32  0088 Dword	Public	DATA	   #2  #75
+FLAT			Group				   2
+_TEXT			32  00CC Dword	Public	CODE	   #2  #113
+

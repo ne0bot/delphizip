@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnGetNextDisk event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnGetNextDisk;OnGetNextDisk,TZipMaster;TZipMaster,OnGetNextDisk;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="onfileextra_event.htm">Previous</a></li>
+                <li><a href="onloadstr_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnGetNextDisk event
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> OnGetNextDisk: <a href="#tzmgetnextdiskevent">TZMGetNextDiskEvent</a>;
+                    </p>
+					<p class="f-decl">
+						<b>Type</b><br>&nbsp; <a name="tzmgetnextdiskevent">TZMGetNextDiskEvent</a> = <b>procedure</b>(Sender: TObject; DiskSeqNo, DiskTotal: Integer; Drive: <b>String</b>, <b>var</b> Cancel: Boolean) <b>of object</b>;
+					</p>
+					<dl class="f">
+						<dt class="ft-args">Arguments</dt>
+						<dd class="fd">
+							<dl class="notop">
+								<dt class="f-decl">Sender: TObject</dt>
+								<dd>This component</dd>
+								<dt class="f-decl">DiskSeqNo: Integer;</dt>
+								<dd>the sequence number of the disk needed or is zero when it concerns a diskspan read action.</dd>
+								<dt class="f-decl">DiskTotal: Integer;</dt>
+								<dd>DiskTotal the total number of needed disks. This is an estimate based on some known values or it is zero when the number could not be calculated.</dd>
+								<dt class="f-decl">Drive: String</dt>
+								<dd>the drive name, e.g. &#39;A:&#39;.</dd>
+								<dt class="f-decl"><b>var</b> Cancel: Boolean</dt>
+								<dd>Cancel, can be set to <b>True</b> to cancel the spanning operation, default <b>False</b>.</dd>
+							</dl>
+						</dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Occurs when reading or writing multi-disk sets.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-03-05 11:23</div>
+    </body>
+</html>

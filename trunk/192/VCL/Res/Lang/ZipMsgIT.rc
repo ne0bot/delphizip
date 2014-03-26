@@ -1,0 +1,98 @@
+// IT: Italian
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x10, 1 // 0x0410
+{
+  ZS_Canceled,               "L'utente ha interrotto l'operazione"
+  ZS_DllLoaded,              "Caricamento della %s"
+  ZS_NothingToZip,           "Errore - nessun file da comprimere!"
+  ZS_NothingToDel,           "Errore - nessun file selezionato per la cancellazione"
+  DS_NoDiskSpan,             "Attraversare di dischetto non ha sostenuto"
+  ZS_BadDll,                 "Ha tentato di caricare vecchio %s da "
+  ZS_NoDll,                  "%s non trovata!"
+  ZS_WrongZipStruct,         "Attenzione - Errore nella struttura zip!"
+  ZC_UnatAddPWMiss,          "Errore - manca la password di aggiunta dei file"
+  ZC_UnatExtPWMiss,          "Errore - manca la password di estrazione dei file"
+  ZS_AskDeleteFile,          "C'Š gia un file %s\nVuoi sovvrascriverlo"
+  ZS_AskPrevFile,            "ATTENZIONE: Questo Š il disco precedente nø %d!!!\nSei sicuro di voler sovvrascriverne il contenuto"
+  ZS_InDrive,                "\nnel drive: %s"
+  ZS_InsertDisk,             "Cortesemente, inserisci l'ultimo disco"
+  ZS_InsertVolume,           "Cortesemente, inserisci il disco %.1d di %.1d"
+  ZS_UnattPassword,          "Azione impossibile da eseguire senza una password"
+  ZS_InputNotExe,            "Errore: il file inserito non Š un file .EXE"
+  ZS_CEHWrongSig,            "La firma di intestazione centrale Š sbagliata"
+  ZS_DriveNoMount,           "Il drive NON Š definito: %s"
+  ZS_NoDiskSpace,            "Questo disco non ha abbastanza spazio libero"
+  ZS_NoInFile,               "Il file inserito non esiste"
+  DS_NotaDrive,              "Drive non valido: %s"
+  ZS_NoUnattSpan,            "La funzione di suddivisione del file ZIP non Š implementata"
+  ZS_NoValidZip,             "Questo archivio non Š un archivio Zip valido"
+  ZS_UnAttPassword,          "Attenzione - Estrazione non eseguita: Š possibile che non tutti i file siano stati estratti"
+  ZS_NoZipSpecified,         "Errore - Non Š stato specificato nessun file Zip!"
+  ZS_WrongPassword,          "Errore - password NON accetata\nPassword ignorata"
+  ZS_NoZipSFXBin,            "Errore - %s non trovato!"
+  ZS_StringTooLong,          "Errore - La dimensione totale delle 3 proriet… di testo eccede 245!"
+  ZS_CECommentLen,           "Errore leggendo un file di commento"
+  ZS_CEHBadRead,             "Errore leggendo un'intestazione centrale"
+  ZS_CEHBadWrite,            "Errore scrivendo un'intestazione centrale"
+  ZS_CENameLen,              "Errore leggendo un nome di file centrale"
+  ZS_DataDesc,               "Errore leggendo/scrivendo un'area di descrizione dei dati"
+  ZS_EOCBadRead,             "Errore leggendo End Of Central Directory"
+  ZS_EOCBadWrite,            "Errore scrivendo End Of Central Directory"
+  ZS_ErrorUnknown,           "Errore sconusciuto nella funzione ReadSpan() o WriteSpan()"
+  ZS_FailedSeek,             "Errore di ricerca nel file inserito"
+  ZS_FileOpen,               "Il file Zip non pu• essere aperto"
+  ZS_LOHBadRead,             "Errore leggendo un'intestazione locale"
+  ZS_LOHBadWrite,            "Errore scrivendo un'intestazione locale"
+  DS_NoMem,                  "Memmoria insufficiente per visualizzare il MsgBox"
+  ZS_NoOutFile,              "Creazione del file di emissione fallita"
+  ZS_NoTempFile,             "Impossibile creare il file temporaneo"
+  ZS_NoVolume,               "Impossibile assegnare il nome al volume"
+  ZS_NoWrite,                "Errore nella scrittura del file di emissione"
+  ZS_FatalZip,               "Errore fatale in DelZip179.DLL: eccezione abortiva"
+  ZS_NoMem,                  "Memoria richiesta non disponibile"
+  LI_ErrorUnknown,           "Errore sconoscuto nella funzione List()"
+  ZS_ReadZipError,           "Errore di ricerca leggendo l'archvio Zip!"
+  ZX_Language,               "IT: Italian"
+}

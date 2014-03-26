@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            Find method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="Find;Find,TZipMaster;TZipMaster,Find;">
+        <meta name="revised" content="2012-01-18">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="extractstreamtostream.htm">Previous</a></li>
+                <li><a href="foreach.htm">Next</a></li>
+            </ul>
+            <h1>
+                Find method
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> Find(<b>const</b> fspec: <a href="tzmstring_type.htm">TZMString</a>; <b>var</b> idx: Integer): <a href="tzmdirentry_class.htm">TZMDirEntry</a>;
+                    </p>
+                </dd>
+                <dt class="ft">Arguments</dt>
+                <dd class="fd">
+                    <dl>
+                        <dt><span class="mono">const fspec: TZMString</span></dt>
+                        <dd>The file spec to find - can include wildcards</dd>
+                        <dt><span class="mono">var idx: Integer</span></dt>
+                        <dd>The index to start after</dd>
+                    </dl>
+                </dd>
+                <dt class="ft">Results</dt>
+                <dd class="fd">
+                    <ul class="ul-left">
+                        <li>Returns the resulting TZMDirEntry</li>
+                    </ul>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Finds the first occurance of fspec <b>after</b> idx.
+                    </p>
+                    <p class="f-p">
+                        If found sets idx to the found index and returns a read-only copy of the entry.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-18 10:24</div>
+    </body>
+</html>

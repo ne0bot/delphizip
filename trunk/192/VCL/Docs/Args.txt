@@ -1,0 +1,31 @@
+entry = spec [|entry]
+global_spec = entry
+switches = switch [switches]
+
+Merge
+[>>global_spec] [global_switches]   // before any file is specified
+zipname [switches]                  // use global_spec
+[zipname] >>entry [switches]
+
+
+Add
+[global_switches] [>password]      // before any file is specified
+file_spec [switches] [>password]            
+
+Extract
+[global_switches] [>password]      // before any file is specified
+file_spec [switches] [>password]   
+
+Switch
+  exclude = /E:[|][spec[|spec]...] 
+  No Name Event = /N[+ or -]  flags not to use AddNewName/ExtNewName (default N- _ use event)
+  Xlate name = /X:[old]::[new]  replace 'old' with 'new' - must result in valid internal name
+
+  Subdirs = /S[+ or -] flags recurse into subdirs (default N- _ no)  - Add only
+  Base/Root folder = /F:new_path                - Add or Extract
+  Compression level = /n where n = 0..9 - Add only     
+
+(possibles)
+  Date = /D:???
+  Attributes = /A:[+/]-A or R or S or ?  Add/Extract
+      

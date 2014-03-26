@@ -1,0 +1,109 @@
+// FR: French
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0xC, 1 // 0x040C
+{
+  ZS_Canceled,               "Opération annulée par l'utilisateur"
+  ZS_DllLoaded,              "%s chargée"
+  ZS_NothingToZip,           "Erreur - aucun fichier à compresser!"
+  ZS_NothingToDel,           "Erreur - Aucun fichier n'est sélectionné pour effacement"
+  DS_NoDiskSpan,             "Le Traverser de disque n'a pas soutenu"
+  ZS_BadDll,                 "A tenté de charger vieux %s de "
+  ZS_NoDll,                  "%s : librairie introuvable!"
+  ZS_WrongZipStruct,         "Avertissement - La structure de l'archive est erronnée!"
+  ZC_UnatAddPWMiss,          "Erreur - aucun mot de passe donné pour l'ajout de fichiers"
+  ZC_UnatExtPWMiss,          "Erreur - aucun mot de passe donné pour l'extraction de fichiers"
+  CF_OverwriteYN,            "Écraser le fixhier '%s' dans '%s' ?"
+  ZS_AskDeleteFile,          "Un fichier %s est déjà présent.\nEtes-vous sûr de vouloir écraser ce fichier"
+  ZS_AskPrevFile,            "ATTENTION: Le disque actuellement inséré est le disque n°%d!!!\nEtes-vous sûr de vouloir écraser son contenu"
+  ZS_InDrive,                "\ndans le lecteur: %s"
+  ZS_InsertDisk,             "Insérer le dernier disque"
+  ZS_InsertVolume,           "Insérer le volume n°%.1d sur %.1d"
+  ZC_Caption,                "Mot de Passe"
+  ZC_MessageConfirm,         "Confirmer le Mot de Passe "
+  ZC_MessageEnter,           "Entrer le Mot de Passe "
+  ZC_OK,                     "&Ok"
+  ZC_Cancel,                 "&Annuler"
+  ZC_Abort,                  "Avorter"
+  ZC_CancelAll,              "Annuler Tout"
+  ZS_UnattPassword,          "Action sans surveillance impossible à accomplir sans mot de passe"
+  ZS_SourceIsDest,           "L'Archive source est la même que l'archive destination!"
+  ZS_InputNotExe,            "Erreur: le fichier d'entrée n'est pas un fichier exécutable .EXE"
+  ZS_CEHWrongSig,            "La signature d'un en-tête central est erronée"
+  ZS_DriveNoMount,           "Lecteur non défini: %s"
+  ZS_NoDiskSpace,            "Espace disque insuffisant sur le disque sélectionné"
+  ZS_NoInFile,               "Le fichier spécifié en entrée n'existe pas"
+  DS_NotaDrive,              "Lecteur non valide: %s"
+  ZS_NoUnattSpan,            "L'écriture d'archive sans surveillance sur plusieurs disques n'est pas supportée"
+  ZS_NoValidZip,             "L'archive sélectionnée n'a pas un format ZIP correct"
+  ZS_UnAttPassword,          "Avertissement - Extraction effectuée sans surveillance: il est possible que certains fichiers n'aient pas été extraits"
+  ZS_NoZipSpecified,         "Erreur - Aucune archive ZIP n'a été spécifiée!"
+  ZS_WrongPassword,          "Erreur - mots de passe différents\nMot de passe ignoré"
+  ZS_NoZipSFXBin,            "Erreur - %s : exécutable introuvable!"
+  ZS_StringTooLong,          "Erreur - La taille totale des 3 propriétés de type texte dépasse 245 octets!"
+  ZS_CopyFailed,             "Erreur de copie du fichier '%s' à '%s'"
+  ZS_SFXCopyError,           "Erreur durant la copie des données SFX"
+  ZS_CECommentLen,           "Erreur de lecture de commentaire de fichier"
+  ZS_CEHBadRead,             "Erreur de lecture d'un en-tête central"
+  ZS_CEHBadWrite,            "Erreur d'écriture de l'en-tête central"
+  ZS_CENameLen,              "Erreur de lecture d'un nom de fichier central"
+  ZS_DataDesc,               "Erreur d'accés en lecture/écriture de la zone du descripteur de données"
+  ZS_EOCBadRead,             "Erreur de lecture de la fin du répertoire central"
+  ZS_EOCBadWrite,            "Erreur lors de l'écriture de la fin du répertoire central"
+  ZS_ErrorUnknown,           "Erreur inattendue dans les fonctions ReadSpan() ou WriteSpan()"
+  ZS_FailedSeek,             "Erreur de positionnement dans le fichier d'entrée"
+  ZS_FileOpen,               "Le fichier Zip n'a pas pu être ouvert"
+  ZS_LOHBadRead,             "Erreur de lecture d'un en-tête local"
+  ZS_LOHBadWrite,            "Erreur d'écriture d'un en-tête local"
+  DS_NoMem,                  "Mémoire insuffisante pour afficher la boîte de dialogue (MsgBox)"
+  ZS_NoOutFile,              "Erreur de création du fichier de sortie"
+  ZS_NoTempFile,             "Le fichier temporaire n'a pu être créé"
+  ZS_NoVolume,               "Le nom de volume n'a pas pu être attribué"
+  ZS_NoWrite,                "Erreur d'écriture sur le fichier de sortie"
+  ZS_FatalZip,               "Erreur fatale dans DelZip179.DLL: exception d'arrêt"
+  ZS_NoMem,                  "Mémoire insuffisante"
+  LI_ErrorUnknown,           "Erreur de type inconnu intervenue dans la méthode List()"
+  ZS_ReadZipError,           "Erreur de positionnement lors de la lecture de l'archive ZIP"
+  ZX_Language,               "FR: French"
+}

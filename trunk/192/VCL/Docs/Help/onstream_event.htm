@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnStream event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnStream;OnStream,TZipMaster;TZipMaster,OnStream;">
+        <meta name="revised" content="2012-01-24">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="onstatusdisk_event.htm">Previous</a></li>
+                <li><a href="ontick_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnStream event
+            </h1>
+            <ul class="also-links">
+                <li><a href="tzmpipe_class.htm">TZMPipe</a></li>
+                <li><a href="tzmpipelist_class.htm">TZMPipeList</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> OnStream: <a href="#tzmstreamevent">TZMStreamEvent</a>;
+                    </p> 
+                    <p class="f-decl">
+                        <b>type</b><br>&nbsp; <a name="tzmstreamevent">TZMStreamEvent</a> = <b>procedure</b>(Sender: TObject; opr: <a href="#tzmstreamop">TZMStreamOp</a>; snumber: integer;
+                        &nbsp;<b>var</b> strm: TStream; <b>var</b> stat: <a href="#tzmsstats">TZMSStats</a>; <b>var</b> done: Boolean) <b>of object</b>;
+					</p>
+					<dl class="f">
+						<dt class="ft-args">Arguments</dt>
+						<dd class="fd">
+							<dl class="notop">
+								<dt class="f-decl">Sender: TObject</dt>
+								<dd>The component firing the event</dd>
+								<dt class="f-decl">opr: TZMStreamOp</dt>
+								<dd>The operation being performed</dd>
+								<dt class="f-decl">snumber: integer</dt>
+								<dd>The number assigned the stream</dd>
+								<dt class="f-decl"><b>var</b> strm: TStream</dt>
+								<dd>Reference to the stream</dd>
+								<dt class="f-decl"><b>var</b> stat: TZMSStats</dt>
+								<dd>Used to identify stream properties</dd>
+								<dt class="f-decl"><b>var</b> done: Boolean</dt>
+								<dd>Set true when done</dd>
+							</dl>
+						</dd>
+						<dd class="fd">
+							<p class="f-decl">
+								<b>type</b><br>&nbsp; <a name="tzmstreamop">TZMStreamOp</a> = (zsoIdentify, zsoOpen, zsoClose);
+							</p>
+						</dd>
+						<dd class="fd">
+							<p class="tight"><b>Type</b></p>
+							<p class="tight">&nbsp; &nbsp;<a name="tzmsstats">TZMSStats</a> = packed record</p> 
+							<ul class="ul-tight">
+								<li><img class="bullet" src="WhtBullet.png" alt="public">  size: Int64;</li>
+								<li><img class="bullet" src="WhtBullet.png" alt="public">  Date: Cardinal;</li>
+								<li><img class="bullet" src="WhtBullet.png" alt="public">  Attrs: Cardinal;</li>
+							</ul>
+							<p class="tight">&nbsp; end;</p>
+						</dd> 
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        It can be used to Create/Open, Destroy/Close or Identify a stream.
+                    </p>
+                    <p class="f-p">
+                        If done is set it will override the default handling of stream operations.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-24 09:24</div>
+    </body>
+</html>

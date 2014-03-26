@@ -1,0 +1,104 @@
+// YU: Serbian
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x1A, 2 // 0x081A
+{
+  ZS_Canceled,               "Korisnik prekinuo operaciju"
+  ZS_CopyCentral,            "Central directory"
+  ZS_DllLoaded,              "%s aktiviran"
+  ZS_NothingToZip,           "Greska - nema sta da se kompresuje"
+  ZS_NothingToDel,           "Greska -  nisu zadati fajlovi za brisanje"
+  ZS_NoDll,                  "%s nije u putanji!"
+  ZS_WrongZipStruct,         "Upozorenje - Greska u strukturi ZIP-a"
+  ZC_UnatAddPWMiss,          "Greska - nema lozinke za dodavanje"
+  ZC_UnatExtPWMiss,          "Greska - nema lozinke za dekompresiju"
+  ZS_AskDeleteFile,          "Vec postoji fajl %s\nDa li zelite da pisete preko njega?"
+  ZS_AskPrevFile,            "PAZNJA: Ovo je prethodni disk br. %d!!!\nDa li ste sigurni da zelite da piset preko njega?"
+  ZS_InDrive,                "\nu drajvu: %s"
+  ZS_InsertAVolume,          "Molim Vas, ubacite disk %.1d"
+  ZS_InsertDisk,             "Molim Vas, ubacite poslednji disk"
+  ZS_InsertVolume,           "Molim Vas, ubacite disk %.1d od %.1d"
+  ZC_Caption,                "Lozinka "
+  ZC_MessageConfirm,         "Potvrdite lozinku"
+  ZC_MessageEnter,           "Unesite lozinku"
+  ZC_OK,                     "&Ok"
+  ZC_Cancel,                 "&Prekid"
+  ZS_UnattPassword,          "Unattended ne radi bez lozinke"
+  ZS_InputNotExe,            "Greska - ulazni fajl nije EXE fajl"
+  ZS_CEHWrongSig,            "central header otisak je pogresna"
+  ZS_DriveNoMount,           "Drajv %s nije definisan"
+  ZS_NoDiskSpace,            "Disk nema dovoljno slobodnog prostora"
+  ZS_NoInFile,               "Ulazni fajl ne postoji"
+  DS_NotaDrive,              "Ne validan drajv: %s"
+  ZS_NoUnattSpan,            "Unattended disk spanning nije implementiran"
+  ZS_NoValidZip,             "Arhiva nije validna Zip arhiva"
+  ZS_UnAttPassword,          "Upozorenje - Unattended Extract. Mozda nisu svi fajlovi dekompresovani"
+  ZS_NoZipSpecified,         "Greska - Ime Zip fajla nije dodeljeno!"
+  ZS_WrongPassword,          "Greska - unete lozinke se razlikuju\nLozinke ignorisane"
+  ZS_NoZipSFXBin,            "Greska - %s nije pronadjen!"
+  ZS_StringTooLong,          "Greska - jedna ili vise od dole navedenig stringova prelazi 255 karaktera!"
+  ZS_AutoSFXWrong,           "Greska %.1d prilikom samo-kreiranja SFX glave"
+  ZS_CECommentLen,           "Greska pri citanju komentara fajla"
+  ZS_CEHBadRead,             "Greska u citanju central header - a"
+  ZS_CEHBadWrite,            "Greska pri pisanju central header"
+  ZS_CENameLen,              "Greska u citanju central file name"
+  ZS_DataDesc,               "Greska pri citanju/pisanju data descriptor polja"
+  ZS_EOCBadRead,             "Greska u citanju End Of Central Directory"
+  ZS_EOCBadWrite,            "Greska pri pisanju End Of Central Directory"
+  ZS_ErrorUnknown,           "Nepoznata greska u funkciji ReadSpan(), WriteSpan() ili Rename()\n"
+  ZS_FailedSeek,             "Poziciona greska u ulaznom fajlu"
+  ZS_FileOpen,               "Ne mogu da otvorim Zip Fajl"
+  ZS_LOHBadRead,             "Greska u citanju local header - a"
+  ZS_LOHBadWrite,            "Greska pri pisanju local header"
+  DS_NoMem,                  "Nedovoljno memorije za MshBox"
+  ZS_NoOutFile,              "Neuspelo kreiranje izlanog fajla"
+  ZS_NoTempFile,             "Neuspelo kreiranje temp fajla"
+  ZS_NoVolume,               "Ne mogu da podesim Volume Label"
+  ZS_NoWrite,                "Greska prilikom pisanja izlaza"
+  ZS_FatalZip,               "Fatalna greska u DelZip179.DLL: Operacija prekinuta."
+  ZS_NoMem,                  "Nedovoljno memorije"
+  LI_ErrorUnknown,           "Nepoznata greska u List() funkciji\n"
+  ZS_ReadZipError,           "Greska u pozicioniranju prilikom citanja"
+  ZX_Language,               "YU: Serbian"
+}

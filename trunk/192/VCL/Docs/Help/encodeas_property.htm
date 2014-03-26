@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            EncodeAs property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="EncodeAs;EncodeAs,TZipMaster;TZipMaster,EncodeAs;">
+        <meta name="revised" content="2012-01-16">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="dll_version_property.htm">Previous</a></li>
+                <li><a href="encoding_cp_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                EncodeAs property
+            </h1>
+            <ul class="also-links">
+                <li><a href="de_encoded_property.htm">Encoded</a></li>
+                <li><a href="encoding_property.htm">Encoding</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> EncodeAs: <a href="tzmencodingopts_type.htm#encodeas">TZMEncodingOpts</a>;
+                    </p>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">   
+		    <p class="tight">Controls how to store the file name (and comment) in the zip's central directory</p>
+		<!--    <ul class="notop">
+			<li>zeoUPATH - convert to Ansi but have UTF8 proper name in data</li>
+			<li>zeoUTF  - convert to UTF8</li>
+			<li>zeoOEM  - convert to OEM</li>
+			<li>zeoNone - store 'as is' (Ansi on Windows)</li>
+			<li> 'default' (zeoAuto) - [in order of preference]<br>
+			    <ul class="tight">
+                                <li>is OEM - use zeoOEM</li>
+				<li>is Ansi - use zeoNone</li>
+				<li>can be converted to Ansi - use zeoUPath (unless comment also extended)</li>
+				<li>use zeoUTF8</li>
+			    </ul>
+			</li>
+		    </ul>-->
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-16 09:05</div>
+    </body>
+</html>

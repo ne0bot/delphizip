@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            ConvertToZIP method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="ConvertToSFX;ConvertToSpanSFX;ConvertToZIP;ConvertToZIP,TZipMaster;TZipMaster,ConvertToZIP;">
+        <meta name="revised" content="2012-01-12">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="converttospansfx.htm">Previous</a></li>
+                <li><a href="copyzippedfiles.htm">Next</a></li>
+            </ul>
+            <h1>
+                ConvertToZIP method
+            </h1>
+            <ul class="also-links">
+                <li><a href="sfxcaption_property.htm">SFXCaption</a></li>
+                <li><a href="sfxcommandline_property.htm">SFXCommandLine</a></li>
+                <li><a href="sfxdefaultdir_property.htm">SFXDefaultDir</a></li>
+                <li><a href="sfxicon_property.htm">SFXIcon</a></li>
+                <li><a href="sfxmessage_property.htm">SFXMessage</a></li>
+                <li><a href="sfxoptions_property.htm">SFXOptions</a></li>
+                <li><a href="sfxoverwritemode_property.htm">SFXOverwriteMode</a></li>
+                <li><a href="sfxpath_property.htm">SFXPath</a></li>
+                <li><a href="sfxregfailpath_property.htm">SFXRegFailPath</a></li>
+                <li><a href="sfx_stub.htm">SFXStub</a></li>
+                <li><a href="converttosfx.htm">ConvertToSFX</a></li>
+                <li><a href="converttospansfx.htm">ConvertToSpanSFX</a></li>
+            </ul>
+        </div>
+        <dl class="f">
+            <dt class="ft">Applies to</dt>
+            <dd class="fd">
+                <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+            </dd>
+            <dt class="ft">Declaration</dt>
+            <dd class="fd">
+                <p class="f-decl">
+                    <b>function</b> ConvertToZIP: Integer;
+                </p>
+            </dd>
+            <dt class="ft">Returns</dt>
+            <dd class="fd">
+                <p class="f-p">Returns 0 on success otherwise an <a href="errors_and_messages.htm">Error Code</a>.</p>
+            </dd>
+            <dt class="ft">Description</dt>
+            <dd class="fd">
+                <p class="f-p">
+                    Converts a self-extracting .exe file into a Zip archive.
+                </p>
+                <p class="f-p">
+                    This is accomplished by removing the SFX code from the beginning of a file,and rewriting the file with new offsets after changing its extension.
+                </p>
+                <p class="f-p">
+                    This function returns 0 on success or a negative error value on failure <a href="errors_and_messages.htm">Error Code</a>.
+                </p>
+                <p class="f-p">
+                    <span class="warning">WARNING:</span> The use of ConvertToZIP can NOT be guaranteed to work with all self-extracting archive formats.&nbsp; It will work on MS-DOS self-extracting zip archives, and on those made by WinZip (product of Nikko Mak Computing), but some self-extracting formats are not even based on Zip compression.
+                </p>
+                <p class="f-p">
+                    For example, the freeware &quot;ASetup&quot; program uses the .LZH&nbsp; compression format.&nbsp; In fact, most setup programs use compression formats that aren&#39;t Zip compatible. If you try to use ConvertToZIP on an archive that doesn&#39;t conform to the Zip standard, you will get errors. If fact, you can&#39;t even list the contents of an .EXE archive if it&#39;s not a standard Zip format.
+                </p>
+            </dd>
+        </dl>
+        <div class="foot">2012-01-12 11:03</div>
+    </body>
+</html>

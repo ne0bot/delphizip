@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnCRC32Error event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnCRC32Error;OnCRC32Error,TZipMaster;TZipMaster,OnCRC32Error;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="oncopyzippedoverwrite_event.htm">Previous</a></li>
+                <li><a href="ondirupdate_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnCRC32Error event
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> OnCRC32Error: <a href="#tzmcrc32errorevent">TZMCRC32ErrorEvent</a>;
+                    </p>
+                    <p class="f-decl">
+                        <b>Type</b><br>&nbsp; <a name="tzmcrc32errorevent">TZMCRC32ErrorEvent</a> = <b>Procedure</b>( Sender: TObject; <b>const</b> ForFile: <a href="tzmstring_type.htm">TZMString</a>; FoundCRC, ExpectedCRC: LongWord; <b>var</b> DoExtract: Boolean ) <b>of object</b>;
+                    </p>
+					<dl class="f">
+						<dt class="ft-args">Arguments</dt>
+						<dd class="fd">
+							<dl class="notop">
+								<dt class="ft-decl">Sender: TObject</dt>
+								<dd>The component firing the event</dd>
+								<dt class="ft-decl"><b>const</b> ForFile: TZMString</dt>
+								<dd>The name of the file</dd>
+								<dt class="ft-decl">FoundCRC: Longword</dt>
+								<dd>The calculated CRC</dd>
+								<dt class="ft-decl">ExpectedCRC: Longword</dt>
+								<dd>The required CRC</dd>
+								<dt class="ft-decl">var DoExtract: Boolean</dt>
+								<dd>Set True to force extraction</dd>
+							</dl>
+						</dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Occurs when during an <a href="extract.htm">Extract</a> a CRC error is found in the file ForFile.
+                    </p>
+                    <p class="f-p">
+                        You can choose to skip the extraction of the file by setting DoExtract to False. The default for DoExtract is True because that was the case in previous versions of ZipMaster where you could not choose.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-03-05 11:07</div>
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            ShowZipFmtMessage method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="ShowZipFmtMessage;ShowZipFmtMessage,TZipMaster;TZipMaster,ShowZipFmtMessage;">
+        <meta name="revised" content="2012-02-09">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="showexceptionerror.htm">Previous</a></li>
+                <li><a href="showzipmessage.htm">Next</a></li>
+            </ul>
+            <h1>
+                ShowZipFmtMessage method
+            </h1>
+            <ul class="also-links">
+                <li><a href="errmessage_property.htm">ErrMessage</a></li>
+                <li><a href="onmessage_event.htm">OnMessage</a></li>
+                <li><a href="showzipmessage.htm">ShowZipMessage</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>procedure</b> ShowZipFmtMessage(Id: Integer; <b>const</b> Args: <b>array</b> <b>of</b> <b>const</b>);
+                    </p>
+                </dd>
+                <dt class="ft">Arguments</dt>
+                <dd class="fd">
+                    <dl>
+                        <dt><span class="mono">Id: Integer</span></dt>
+                        <dd>a message identifier</dd>
+                        <dt><span class="mono">const Args: array of const</span></dt>
+                        <dd>the required arguments for that message</dd>
+                    </dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        The ShowZipMessage method reads a message identified by Ident from the program resource table, formats it and displays it.
+                    </p>
+                    <p class="f-p">
+                        All component messages, errors and warnings are as of version 1.5 contained in a resource message table.
+                    </p>
+                    <p class="f-p">
+                        To make it easier to also use them in your own program this function is included.
+                    </p>
+                    <p class="f-p">
+                        It reads the message with identifier &#39;Ident&#39; from the resource table, formats using &#39;Args&#39; and displays the message.
+                    </p>
+                    <p class="f-p">
+                        If the identifier is not present in the selected <a href="language_property.htm">language</a> the default message in US English will be displayed.
+                    </p>
+                    <p class="f-p">Reasons why the identifier may not be present normally :
+                    </p>
+					<ul>
+						<li>The resource file is not included in your project: include the ZMRes_str.res, created by ZipResMaker, into your project.</li>
+						<li>Your lanugage is not included in the resource file : with ZipResMaker include your language and rebuild the resource file, remember to rebuild your project as well.</li>
+						<li>Your language file 'ZipMsg??.rc' does not include a translation for this item : Add the translation to the 'ZipMsg??.rc' file, rebuild the resource with ZipResMaker and rebuild your project.</li>
+					</ul> 
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-02-09 11:16</div>
+    </body>
+</html>

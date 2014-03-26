@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            LanguageId property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="LanguageID;LanguageID,TZipMaster;TZipMaster,LanguageID;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="language_property.htm">Previous</a></li>
+                <li><a href="languageinfo_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                LanguageId property
+            </h1>
+            <ul class="also-links">
+	            <li><a href="language_property.htm">Language</a></li>
+                <li><a href="languageinfo_property.htm">LanguageInfo</a></li>
+                <li><a href="errmessage_property.htm">ErrMessage</a></li>
+                <li><a href="onmessage_event.htm">OnMessage</a></li>
+                <li><a href="resources.htm">Resources</a></li>
+                <li><a href="ziploadstr.htm">ZipLoadStr</a></li>
+                <li><a href="onloadstr_event.htm">OnLoadStr</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> LanguageId: <b>Cardinal</b>
+                    </p>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+						Indicates what language in the resource file has to be loaded.
+                    </p>
+                    <p class="f-p">
+						The language can be indicated with the numeric value of the LCID.
+                    </p>
+                    <p class="f-p">
+						If the identified language is not found the 'primary' language will be searched and used if found.
+                    </p>
+                    <p class="nobottom">
+                        usage:
+                    </p>
+                    <table border="0">
+                       <tr>
+                            <td>LanguageId := 1036;</td>
+                            <td><span class="rem">// set to French</span></td>
+                       </tr>
+                       <tr>
+                            <td>LanguageId := $040C;</td>
+                            <td><span class="rem">// set to French</span></td>
+                       </tr>    
+                       <tr>
+                            <td>LanguageId := 1024;</td>
+                            <td><span class="rem">// set to current user language</span></td>
+                       </tr>    
+                       <tr>
+                            <td>LanguageId := 12;</td>
+                            <td><span class="rem">// set to any language it can find that has French as &#39;primary&#39; language</span></td>
+                       </tr> 
+                    </table> 
+                    <p>
+                        <span class="note">Notes</span>
+                    </p>
+                    <p class="f-p">
+                        if a language cannot be found the default &#39;US: English&#39; will be used.
+                    </p>
+                    <p class="f-p">
+                        Languages other than the default US require the resources to be linked to the application
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-22 09:58</div>
+    </body>
+</html>

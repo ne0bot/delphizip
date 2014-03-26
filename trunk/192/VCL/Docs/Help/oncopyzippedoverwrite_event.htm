@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnCopyZippedOverwrite event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnCopyZippedOverwrite;OnCopyZippedOverwrite,TZipMaster;TZipMaster,OnCopyZippedOverwrite;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="oncheckterminate_event.htm">Previous</a></li>
+                <li><a href="oncrc32error_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnCopyZippedOverwrite event
+            </h1>
+            <ul class="also-links">
+                <li><a href="copyzippedfiles.htm">CopyZippedFiles</a></li>
+                <li><a href="addzippedfiles.htm">AddZippedFiles</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> OnCopyZippedOverwrite: <a href="#tzmcopyzippedoverwriteevent">TZMCopyZippedOverwriteEvent</a>;
+                    </p>
+                    <p class="f-decl">
+                        <b>Type</b><br>&nbsp; <a name="tzmcopyzippedoverwriteevent">TZMCopyZippedOverwriteEvent</a> = <b>procedure</b>(Sender: TObject; src, dst: <a href="tzmdirentry_class.htm">TZMDirEntry</a>; <b>var</b> DoOverwrite: Boolean) <b>of object</b>;
+                    </p>
+					<dl class="f">
+						<dt class="ft-args">Arguments</dt>
+						<dd class="fd">
+							<dl class="notop">
+								<dt><span class="mono">Sender: TObject</span></dt>
+								<dd>This component</dd>
+								<dt><span class="mono">src: TZMDirEntry</span></dt>
+								<dd>The entry being copied</dd>
+								<dt><span class="mono">dst: TZMDirEntry</span></dt>
+								<dd>The existing entry</dd>
+								<dt><span class="mono">var DoOverwrite: Boolean</span></dt>
+								<dd>Set True to overwrite existing entry (default: False)</dd>
+							</dl>
+						</dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Occurs when during the execution of the function <a href="copyzippedfiles.htm">CopyZippedFiles</a> or <a href="addzippedfiles.htm">AddZippedFiles</a> it is necessary to know if a file in the destination archive may be overwritten. It is possible that the event does NOT occur because you have let the function CopyZippedFiles know that it is always or never Ok to overwrite.
+                    </p>
+                    <p class="f-p">
+                        You can choose to overwrite the file dst.<a href="de_filename_property.htm">FileName</a> by setting DoOverwrite to <b>True</b>. The default for DoOverwrite is <b>False</b>.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-22 11:04</div>
+    </body>
+</html>

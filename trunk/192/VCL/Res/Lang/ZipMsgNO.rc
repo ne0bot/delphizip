@@ -1,0 +1,112 @@
+// NO: Norwegian
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x14, 1 // 0x0414
+{
+  ZS_Canceled,               "Bruker avbrøt operasjonen"
+  ZS_CopyCentral,            "Sentralkatalog"
+  ZS_DllLoaded,              "%s lastet"
+  ZS_NothingToZip,           "Feil - ingen filer å zippe!"
+  ZS_NothingToDel,           "Feil - ingen filer valgt for sletting"
+  ZS_NoDll,                  "%s ikke funnet!"
+  ZS_WrongZipStruct,         "Advarsel - Feil i ZIP strukturen!"
+  ZC_UnatAddPWMiss,          "Feil - ingen passord for innpakking"
+  ZC_UnatExtPWMiss,          "Feil - ingen passord for utpakking"
+  CF_OverwriteYN,            "Overskriv fil '%s' i '%s' ?"
+  ZS_AskDeleteFile,          "Filen %s finnes allerede\nVil du overskrive denne filen?"
+  ZS_AskPrevFile,            "ADVARSEL: Dette er den tidligere disk nr. %d!!!\nEr du sikker på at du vil overskrive innholdet"
+  ZS_InDrive,                "\ni stasjon: %s"
+  ZS_InsertAVolume,          "Vennligst sett inn volum %.1d"
+  ZS_InsertDisk,             "Vennligst sett inn siste disken"
+  ZS_InsertVolume,           "Vennligst sett inn volum %.1d av %.1d"
+  ZC_Caption,                "Passord"
+  ZC_MessageConfirm,         "Gjenta passord "
+  ZC_MessageEnter,           "Skriv inn passord "
+  ZC_OK,                     "&Ok"
+  ZC_Cancel,                 "A&vbryt"
+  ZC_Abort,                  "Avbryt "
+  ZC_CancelAll,              "Avbryt alle "
+  ZS_InIsOutStream,          "Input streamen er kanskje ikke satt til output streamen"
+  ZS_InvalidName,            "Wildcards (*, ?) er ikke tillatt i filnavn eller fil-spesifikasjonen"
+  ZS_UnattPassword,          "Handling ikke mulig uten passord"
+  ZS_SourceIsDest,           "Kilde-arkivet er det samme som destinasjons-arkivet!"
+  ZS_InputNotExe,            "Feil: filen er ikke en .EXE fil"
+  ZS_CEHWrongSig,            "En sentral headers signatur er feil"
+  ZS_DriveNoMount,           "Stasjonen %s er ikke definert"
+  ZS_NoDiskSpace,            "Denne stasjonen har ikke nok plass ledig"
+  ZS_NoInFile,               "Filen eksisterer ikke"
+  DS_NotaDrive,              "Ikke en gyldig stasjon: %s"
+  ZS_NoUnattSpan,            "Uforsiktig disk oppdeling ikke tilgjengelig"
+  ZS_NoValidZip,             "Dette arkivet er ikke et gyldig ZIP-arkiv"
+  ZS_UnAttPassword,          "Advarsel - Uforsiktig utpakking: mulig at ikke alle filer blir pakket ut"
+  ZS_NoZipSpecified,         "Feil - ingen ZIP fil spesifisert!"
+  ZS_WrongPassword,          "Feil - passordene er ulike\nPassord ignorert"
+  ZS_NoZipSFXBin,            "Feil - %s ikke funnet!"
+  ZS_StringTooLong,          "Feil - En eller flere av de 4 egenskaps-strengene nevnt nedenfor er lengre enn 255 bokstaver!"
+  ZS_AutoSFXWrong,           "Feil %.1d oppstod under Auto SFX dannelse."
+  ZS_CopyFailed,             "Kopi av en fil fra '%s' til '%s' feilet"
+  ZS_SFXCopyError,           "Feil under kopiering av SFX data"
+  ZS_CECommentLen,           "Feil under lesing av fil-kommentaren"
+  ZS_CEHBadRead,             "Feil under lesing av en sentral header"
+  ZS_CEHBadWrite,            "Feil under skriving av en sentral header"
+  ZS_CENameLen,              "Feil under lesing av et sentralt filnavn"
+  ZS_DataDesc,               "Feil under lesing/skriving av et data-beskrivelses område"
+  ZS_EOCBadRead,             "Feil under lesing av End of Central katalogen"
+  ZS_EOCBadWrite,            "Feil under skriving av End Of Central katalogen"
+  ZS_ErrorUnknown,           "Ukjent feil i funksjonen ReadSpan(), WriteSpan(), Rename() eller CopyZippedFiles()\n"
+  ZS_FailedSeek,             "Søke-feil i input-filen"
+  ZS_FileOpen,               "ZIP-filen kan ikke åpnes"
+  ZS_LOHBadRead,             "Feil under lesing av den lokale headeren"
+  ZS_LOHBadWrite,            "Feil under skriving av en lokal header"
+  DS_NoMem,                  "Ikke nok minne til å vise MsgBox"
+  ZS_NoOutFile,              "Dannelse av output filen feilet"
+  ZS_NoTempFile,             "Midlertidig fil kunne ikke opprettes"
+  ZS_NoVolume,               "Volumets navn kunne ikke skrivest"
+  ZS_NoWrite,                "Skrive feil i output filen"
+  ZS_FatalZip,               "Fatal feil i DelZip179.DLL: avbryts-unntak"
+  ZS_NoMem,                  "Etterspurt minne ikke tilgjengelig"
+  LI_ErrorUnknown,           "Ukjent feil i List() funksjonen\n"
+  ZS_ReadZipError,           "Søkefeil under lesing av ZIP-arkivet!"
+  ZX_Language,               "NO: Norwegian"
+}

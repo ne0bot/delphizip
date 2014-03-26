@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="DelZip190.dll"/>
+    <OBJFILES value="temp\ZTrees.obj 
+      temp\Common.obj temp\Crc32.obj temp\Crypt.obj temp\DivMod64.obj 
+      temp\DZ_StrW.obj temp\DZFrame.obj temp\DZMatch.obj temp\DZOper.obj 
+      temp\DZRaw.obj temp\enter.obj temp\Helpers.obj temp\lngmtch.obj 
+      temp\UInflate.obj temp\UnzCrypt.obj temp\UnzExec.obj temp\UnzFIO.obj 
+      temp\UnzInf.obj temp\UnzOp.obj temp\UnzProc.obj temp\UnzSS.obj 
+      temp\UnzSup.obj temp\UnzWin32.obj temp\UnzXplode.obj temp\UnzXtrct.obj 
+      temp\ZBits.obj temp\ZCrypt.obj temp\ZDeflate.obj temp\ZipDflt.obj 
+      temp\ZipFile.obj temp\ZipFIO.obj temp\ZipFnc.obj temp\ZipMain.obj 
+      temp\ZipOp.obj temp\ZipPrc.obj temp\ZipRead.obj temp\ZipSel.obj 
+      temp\ZipSS.obj temp\ZipUp.obj temp\ZipWin32.obj temp\ZStrings.obj 
+      temp\ZTreeAsm.obj temp\CrcTab.obj"/>
+    <RESFILES value="DelZip190.res ..\..\Source\dz190.res ..\..\Source\dz_msgs.res"/>
+    <DEFFILE value="..\..\Source\DelZipExp.def"/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value="rtl.bpi"/>
+    <PATHCPP value=".;..\..\Source"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;..\..\Source"/>
+    <PATHASM value=".;..\..\Source\Cows"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="NO_STRICT;UNICODE;_UNICODE;_USE_ASM_"/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL"/>
+    <MAINSOURCE value="DelZip190.bpf"/>
+    <INCLUDEPATH value="..\..\Source;..\..\Source\Cows;C:\Code\190\DLL\all\CB6;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="..\..\Source;..\..\Source\Cows;C:\Code\190\DLL\all\CB6;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-WD -O2 -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -a8 -5 -b- -k- -vi -tWD 
+      -tWM -c"/>
+    <PFLAGS value="-N2temp -N0temp -$Y- -$L- -$D- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zn"/>
+    <LFLAGS value="-Itemp -D&quot;&quot; -aa -Tpd -x -Gn -w"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0d32.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="DelZip190.res" FORMNAME="" UNITNAME="DelZip190.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="DelZip190.bpf" FORMNAME="" UNITNAME="DelZip190" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZTrees.cpp" FORMNAME="" UNITNAME="ZTrees.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\Common.cpp" FORMNAME="" UNITNAME="Common.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\Crc32.cpp" FORMNAME="" UNITNAME="Crc32.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\Crypt.cpp" FORMNAME="" UNITNAME="Crypt.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\DelZipExp.def" FORMNAME="" UNITNAME="DelZipExp.def" CONTAINERID="DefTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\DivMod64.cpp" FORMNAME="" UNITNAME="DivMod64.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\dz190.rc" FORMNAME="" UNITNAME="dz190.rc" CONTAINERID="RC" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\dz_msgs.rc" FORMNAME="" UNITNAME="dz_msgs.rc" CONTAINERID="RC" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\DZ_StrW.cpp" FORMNAME="" UNITNAME="DZ_StrW.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\DZFrame.cpp" FORMNAME="" UNITNAME="DZFrame.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\DZMatch.cpp" FORMNAME="" UNITNAME="DZMatch.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\DZOper.cpp" FORMNAME="" UNITNAME="DZOper.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\DZRaw.cpp" FORMNAME="" UNITNAME="DZRaw.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\enter.cpp" FORMNAME="" UNITNAME="enter.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\Helpers.cpp" FORMNAME="" UNITNAME="Helpers.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\lngmtch.cpp" FORMNAME="" UNITNAME="lngmtch.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UInflate.cpp" FORMNAME="" UNITNAME="UInflate.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzCrypt.cpp" FORMNAME="" UNITNAME="UnzCrypt.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzExec.cpp" FORMNAME="" UNITNAME="UnzExec.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzFIO.cpp" FORMNAME="" UNITNAME="UnzFIO.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzInf.cpp" FORMNAME="" UNITNAME="UnzInf.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzOp.cpp" FORMNAME="" UNITNAME="UnzOp.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzProc.cpp" FORMNAME="" UNITNAME="UnzProc.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzSS.cpp" FORMNAME="" UNITNAME="UnzSS.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzSup.cpp" FORMNAME="" UNITNAME="UnzSup.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzWin32.cpp" FORMNAME="" UNITNAME="UnzWin32.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzXplode.cpp" FORMNAME="" UNITNAME="UnzXplode.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\UnzXtrct.cpp" FORMNAME="" UNITNAME="UnzXtrct.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZBits.cpp" FORMNAME="" UNITNAME="ZBits.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZCrypt.cpp" FORMNAME="" UNITNAME="ZCrypt.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZDeflate.cpp" FORMNAME="" UNITNAME="ZDeflate.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipDflt.cpp" FORMNAME="" UNITNAME="ZipDflt.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipFile.cpp" FORMNAME="" UNITNAME="ZipFile.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipFIO.cpp" FORMNAME="" UNITNAME="ZipFIO.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipFnc.cpp" FORMNAME="" UNITNAME="ZipFnc.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipMain.cpp" FORMNAME="" UNITNAME="ZipMain.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipOp.cpp" FORMNAME="" UNITNAME="ZipOp.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipPrc.cpp" FORMNAME="" UNITNAME="ZipPrc.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipRead.cpp" FORMNAME="" UNITNAME="ZipRead.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipSel.cpp" FORMNAME="" UNITNAME="ZipSel.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipSS.cpp" FORMNAME="" UNITNAME="ZipSS.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipUp.cpp" FORMNAME="" UNITNAME="ZipUp.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZipWin32.cpp" FORMNAME="" UNITNAME="ZipWin32.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZStrings.cpp" FORMNAME="" UNITNAME="ZStrings.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\ZTreeAsm.cpp" FORMNAME="" UNITNAME="ZTreeAsm.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\..\Source\CrcTab.cpp" FORMNAME="" UNITNAME="CrcTab" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=3081
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=3
+Item0=..\..\Source;..\..\Source\Cows;C:\Code\190\DLL\Source;C:\Code\190\DLL\Source\Cows;C:\Code\190\DLL\all\CB6;$(BCB)\include;$(BCB)\include\vcl
+Item1=C:\Code\190\DLL\Source;C:\Code\190\DLL\Source\Cows;C:\Code\190\DLL\all\CB6;$(BCB)\include;$(BCB)\include\vcl
+Item2=..\..\Source;..\..\Source\Cows;C:\Code\190\DLL\all\CB6;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=..\..\Source;..\..\Source\Cows;C:\Code\190\DLL\all\CB6;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=3
+Item0=NO_STRICT;UNICODE;_UNICODE;ALLOW_WIN98;_USE_ASM_
+Item1=_DEBUG;NO_STRICT;UNICODE;_UNICODE;ALLOW_WIN98;_USE_ASM_
+Item2=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=temp
+Item1=temp\
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+
+[Linker]
+LibPrefix=
+LibSuffix=
+LibVersion=
+  </IDEOPTIONS>
+</PROJECT>

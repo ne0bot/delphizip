@@ -1,0 +1,165 @@
+// SP: Spanish
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0xA, 1 // 0x040A
+{
+  ZS_UnknownError,           "Error desconocido"
+  ZS_Canceled,               "Operación cancelada por el usuario"
+  ZS_CopyCentral,            "Directorio Central"
+  ZS_Skipped,                "Omitido %s %d"
+  ZS_TempZip,                "Fichero zip temporal: %s"
+  ZS_DllLoaded,              "Cargada %s"
+  ZS_DllUnloaded,            "Descargada %s"
+  ZS_NothingToZip,           "Error - no hay ficheros para incluir en el archivo Zip"
+  ZS_NothingToDel,           "Error - no se seleccionaron ficheros para borrar"
+  DS_NoDiskSpan,             "DiskSpanning no está soportado"
+  ZS_NoRenamePart,           "Último trozo guardado como : %s"
+  ZS_EventEx,                "Excepción en el evento "
+  ZS_BadDll,                 "Imposible cargar %s. Fichero antiguo o corrupto"
+  ZS_NoDll,                  "Fallo al cargar %s"
+  ZS_WrongZipStruct,         "Precaución - Error en la estructura del zip"
+  ZC_UnatAddPWMiss,          "Error - no se ha dado contrasenya de acceso para agregar"
+  ZC_UnatExtPWMiss,          "Error - no se ha dado contrasenya de acceso para extraer"
+  ZP_Archive,                "*Restaurando el bit de Archivo"
+  ZP_CopyZipFile,            "*Copiando el archivo Zip"
+  ZP_SFX,                    "*SFX"
+  ZP_Header,                 "*??"
+  ZP_Finish,                 "*Finalizando"
+  ZP_Copying,                "*Copiando"
+  ZP_CentrlDir,              "*Directorio Central"
+  ZP_Checking,               "*Comprobando"
+  ZP_Loading,                "*Cargando Directorio"
+  ZP_Joining,                "*Uniendo fichero zip partido"
+  ZP_Splitting,              "*Partiendo fichero zip"
+  CF_OverwriteYN,            "¿Sobreescribir el fichero '%s' en '%s' ?"
+  ZS_AskDeleteFile,          "El fichero %s ya existe.\n¿Desea reemplazarlo?"
+  ZS_AskPrevFile,            "ATENCION: este es el disco previo nº %d.\n¿Desea reemplazar su contenido?"
+  ZS_InDrive,                "\nen la unidad %s"
+  ZS_InsertAVolume,          "Por favor, inserte el disco nº %.ld"
+  ZS_InsertDisk,             "Por favor, inserte el último disco"
+  ZS_InsertVolume,           "Por favor, inserte el disco %.ld de %.ld"
+  ZS_Confirm,                "Confirmar"
+  ZS_Erase,                  "Borrar "
+  ZC_Caption,                "Contrasenya"
+  ZC_MessageConfirm,         "Confirme la contrasenya "
+  ZC_MessageEnter,           "Introduzca la contrasenya "
+  ZC_Yes,                    "&Si"
+  ZC_No,                     "&No"
+  ZC_OK,                     "&OK"
+  ZC_Cancel,                 "&Cancelar"
+  ZC_Abort,                  "&Abortar"
+  ZC_Retry,                  "&Reintentar"
+  ZC_Ignore,                 "&Ignorar"
+  ZC_CancelAll,              "CancelarTodo"
+  ZC_NoToAll,                "NoATodo"
+  ZC_YesToAll,               "SiATodo"
+  ZS_InIsOutStream,          "El stream de entrada no puede ser asignado al stream de salida"
+  ZS_InvalidName,            "No se permiten caracteres comodín en el nombre o la especificación del archivo Zip"
+  ZS_NoDestDir,              "La carpeta destino '%s' debe existir"
+  ZS_UnattPassword,          "Acción desatendida sin contrasenya"
+  ZS_CEHDataSize,            "La combinación de CEH + NombreFichero + ComentarioFichero + DatosExtra exceden 65535"
+  ZS_NoChangeDir,            "No se puede cambiar el path"
+  ZS_NoProtected,            "No se pueden canviar las propiedades de un Fichero Encriptado"
+  ZS_SourceIsDest,           "El archivo origen es el mismo que el archivo destino"
+  ZS_InputNotExe,            "Error - El fichero de entrada no es un archivo .EXE"
+  ZS_CEHWrongSig,            "Una firma de cabecera central es incorrecta"
+  ZS_DriveNoMount,           "La unidad %s no está definida"
+  ZS_NoDiskSpace,            "El disco no tiene suficiente espacio libre"
+  ZS_NoInFile,               "El archivo de entrada no existe"
+  DS_NotaDrive,              "Unidad %s no válida"
+  ZS_NotChangeable,          "No se puede escribir en %s"
+  ZS_NoUnattSpan,            "La expansión desatendida en varios discos no está implementada"
+  ZS_NoValidZip,             "Este archivo no es un archivo Zip válido"
+  ZS_NoExtrDir,              "La carpeta de extracción '%s' debe existir"
+  ZS_UnAttPassword,          "Aviso - Extracción desatendida: posiblemente no se hayan extraído todos los ficheros"
+  ZS_NoZipSpecified,         "Error - archivo zip no especificado"
+  ZS_WrongPassword,          "Error - las contraseñas de acceso no coinciden\nContraseña de Acceso ignorada"
+  ZS_InvalidDateTime,        "argumento fecha/hora incorrecto para el fichero: "
+  ZS_NoZipSFXBin,            "Error - No se encuentra %s"
+  ZS_StringTooLong,          "Error - Una o mas de las 4 propiedades de cadenas mencionadas anteriormente exceden los 255 caracteres!"
+  ZS_AutoSFXWrong,           "Error %.ld ocurrido durante la creación del archivo autoextraíble"
+  ZS_CopyFailed,             "Copia fallida del fichero '%s' en '%s'"
+  ZS_SFXCopyError,           "Error mientras se copiaban los datos de SFX"
+  ZS_BrowseError,            "Error en la busqueda de recursos."
+  ZS_ExeSections,            "Error durante la lectura de secciones del ejecutable."
+  ZS_NoCopyIcon,             "No se puede copiar el icono."
+  ZS_NoExeIcon,              "No se ha encontrado un icono en el ejecutable."
+  ZS_NoExeResource,          "No se han encontrado recursos en el ejecutable."
+  ZS_NoIcon,                 "No se ha encontrado ningun icono."
+  ZS_NoIconFound,            "No se ha encontrado el icono asociado."
+  ZS_CECommentLen,           "Error al leer el comentario de un fichero"
+  ZS_CEHBadRead,             "Error al leer una cabecera central"
+  ZS_CEHBadWrite,            "Error al escribir una cabecera central"
+  ZS_CENameLen,              "Error al leer un nombre de fichero central"
+  ZS_DataDesc,               "Error al leer/escribir un área de descripción de datos"
+  ZS_EOCBadRead,             "Error al leer el Final del Directorio Central"
+  ZS_EOCBadWrite,            "Error al escribir el Final del Directorio Central"
+  ZS_ErrorUnknown,           "Error desconocido en la función ReadSpan(), WriteSpan(), ChangeFileDetails() or CopyZippedFiles()\n"
+  ZS_FailedSeek,             "Error de búsqueda dentro del archivo de entrada"
+  ZS_FileOpen,               "No pudo abrirse el archivo Zip"
+  ZS_LOHBadRead,             "Error al leer una cabecera local"
+  ZS_LOHBadWrite,            "Error al escribir una cabecera local"
+  DS_NoMem,                  "No hay suficiente memoria para mostrar MsgBox"
+  ZS_NoOutFile,              "No se pudo crear el archivo de salida"
+  ZS_NoTempFile,             "No pudo crearse el fichero temporal"
+  ZS_NoVolume,               "No pudo especificarse una etiqueta de volumen"
+  ZS_NoWrite,                "Error de escritura en el archivo de salida"
+  ZS_DLLCritical,            "Error critico de la DLL %d"
+  ZS_Except,                 "Excepción en el Gestor de Eventos "
+  ZS_FatalZip,               "Error Fatal en DLL: excepción abortar"
+  ZS_Inactive,               "no Activo"
+  ZS_NoMem,                  "Memoria solicitada no disponible"
+  ZS_RangeError,             "Indice (%d) fuera del rango 1..%d"
+  ZS_Unknown,                " Error desconocido %d"
+  GE_WasBusy,                "Ocupado + %s"
+  LI_ErrorUnknown,           "Error desconocido en función List()"
+  ZS_ReadZipError,           "Error de búsqueda al leer el archivo Zip"
+  ZS_Deleting,               "EraseFloppy - Eliminando %s"
+  ZS_Erasing,                "EraseFloppy - Borrando %s"
+  ZS_GetNewDisk,             "Trace : Abriendo nuevo disco: %s"
+  TM_SystemError,            "Error de sistema: %d"
+  ZX_Author,                 "X.Mor-Mur"
+  ZX_Desc,                   "Idioma neutro"
+  ZX_Language,               "SP: Spanish"
+}

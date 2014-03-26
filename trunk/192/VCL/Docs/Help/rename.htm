@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            Rename method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="Rename;Rename,TZipMaster;TZipMaster,Rename;">
+        <meta name="revised" content="2012-02-07">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="readspan.htm">Previous</a></li>
+                <li><a href="showexceptionerror.htm">Next</a></li>
+            </ul>
+            <h1>
+                Rename method
+            </h1>
+            <ul class="also-links">
+                <li><a href="dr_changecomment.htm">ChangeComment</a></li>
+                <li><a href="dr_changedata.htm">ChangeData</a></li>
+                <li><a href="dr_changedate.htm">ChangeDate</a></li>
+                <li><a href="dr_changeencoding.htm">ChangeEncoding</a></li>
+                <li><a href="changefiledetails.htm">ChangeFileDetails</a></li>
+                <li><a href="dr_changename.htm">ChangeName</a></li>
+                <li><a href="dr_changestamp.htm">ChangeStamp</a></li>
+                <li><a href="working_with_sfx.htm">Working with SFX</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> Rename(RenameList: TList; DateTime: Integer; How: <a href="#tzmrenameopts">TZMRenameOpts</a> = htrDefault): Integer;
+                    </p>
+					<dl class="f">					
+						<dt class="ft">Arguments</dt>
+						<dd class="fd">
+							<dl class="tight">
+								<dt><span class="mono">RenameList: TList</span></dt>
+								<dd>The TList containing pointers to TZMRenameRec records
+<pre class="pas-source-tight">
+<span class="pas-kwd">type</span>
+  <span class="pas-ident"><a name="tzmrenamerec">TZMRenameRec</a></span> <span class="pas-sym">=</span> <span class="pas-kwd">record</span>
+    <span class="pas-ident">Source</span><span class="pas-sym">:</span> <span class="pas-kwd">string</span><span class="pas-sym">;</span>      <span class="pas-comment">// The entry name</span>
+    <span class="pas-ident">Dest</span><span class="pas-sym">:</span> <span class="pas-kwd">string</span><span class="pas-sym">;</span>        <span class="pas-comment">// The replacement name</span>
+    <span class="pas-ident">Comment</span><span class="pas-sym">:</span> <span class="pas-kwd">string</span><span class="pas-sym">;</span>     <span class="pas-comment">// A new comment for this entry (can be empty if changing name or date)</span>
+    <span class="pas-ident">DateTime</span><span class="pas-sym">:</span> <span class="pas-ident">Integer</span><span class="pas-sym">;</span>   <span class="pas-comment">// a new DOS Date stamp for this entry (can be empty if changing name or comment)</span>
+  <span class="pas-kwd">end</span><span class="pas-sym">;</span>
+  <span class="pas-ident">PZMRenameRec</span> <span class="pas-sym">=</span> <span class="pas-sym">^</span><span class="pas-ident">TZMRenameRec</span><span class="pas-sym">;</span></pre>
+								</dd>
+								<dt><span class="mono">DateTime: Integer</span></dt>
+								<dd>non-zero to set all entries</dd>
+								<dt><span class="mono">How: <a href="#tzmrenameopts">TZMRenameOpts</a> = htrDefault</span></dt>
+								<dd>Controls finding files to rename		
+								</dd>
+							</dl>
+						</dd>
+						<dt class="ft">Results</dt>
+						<dd class="fd">
+							<ul class="ul-left">
+								<li>Returns 0 on success otherwise an <a href="errors_and_messages.htm">Error Code</a>.</li>
+								<li>Sets <a href="errcode_property.htm">ErrCode</a> and <a href="errmessage_property.htm">ErrMessage</a></li>
+							</ul>
+						</dd>
+						<dd class="fd">
+							<p class="f-decl">
+								<b>type</b><br>&nbsp; <a name="tzmrenameopts">TZMRenameOpts</a> = (htrDefault, htrOnce, htrFull);
+							</p>					
+							<table summary="TZMRenameOpts enumerated values" border="1">
+								<tr>
+									<th>htrDefault</th><td>renames each exact matching name</td>
+								</tr>
+								<tr>
+									<th>htrOnce</th><td>rename the first matching name</td>
+								</tr>
+								<tr>
+									<th>htrFull</th><td>rename the first name matching wildcard search</td>
+								</tr>
+							</table>
+						</dd>	
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        With the Rename method you can rename a filename and/or path to a different one.
+                    </p>
+                    <p class="f-p">
+                        With Rename it is possible to change the filename(s) and/or path(&#39;s) to other name(s) and/or path(&#39;s).
+                    </p>
+                    <p class="f-p">
+                        When you specify a new DateTime then this has precedence over the global DateTime parameter.
+                    </p>
+                    <p class="f-p">
+                        Source and Dest can be a partial filename or path, and as such multiple entries in the archive could be renamed with a single entry in the RenameList.
+                    </p>
+                    <p class="f-p">
+                        <span class="warning">WARNING:</span> There is virtually no check on the destination specified.
+                    </p>
+                    <p class="f-p">
+                        This means that if you are not careful you can get multiple names or even wrong names that can&#39;t be extracted anymore.
+                    </p>
+                    <p class="f-p">
+                        -The DateTime parameter can be used to change the Date and Time of every entry in the zip archive.
+                    </p>
+                    <p class="f-p">
+                        If you do not want to change the Date/Time field set this parameter to 0.
+                    </p>
+                    <p class="f-p">
+                        Example:
+                    </p>
+                    <p class="f-p">
+                        DateTime := DateTimeToFileDate( StrToDateTime( &#39;12-21-2009 21:05:10&#39; ) );
+                    </p>
+                    <p class="f-p">
+                        In case of error Rename will return the error value, the meaning of these values can be found in <a href="errors_and_messages.htm">Error and warning messages</a>
+                    </p>
+                    <p class="f-p">
+                        This returned error values are indicators that there are errors reported, the correct error has to be looked up in the FSpecArgsExcl objects for each file
+                    </p>
+                    <p class="f-p">
+                        Path Names
+                    </p>
+                    <p class="f-p">
+                        When during the Rename action the pathnames has to be kept the AddOptions <a href="addoptions_property.htm#adddirnames">AddDirNames</a> has to be set before starting the Rename action.
+                    </p>
+                    <p class="f-p">
+                        Example:
+                    </p>
+                    <p class="f-p">
+                        zip.AddOptions = AddOptions + [AddDirNames];
+                    </p>
+                    <p class="f-p">
+                        If this option is NOT set Rename will remove the Path names in the archive.
+                    </p>
+                    <p class="f-p">
+                        Comments
+                    </p>
+                    <p class="f-p">
+                        Setting a file comment:
+                    </p>
+                    <p class="f-p">
+                        If not renaming then either set Dest = &#39;|&#39; or Dest = Source
+                    </p>
+                    <p class="f-p">
+                        To add/replace a file comment assign a non-empty string.
+                    </p>
+                    <p class="f-p">
+                        To delete a file comment assign the string #0 (RenRec.Comment = #0;)
+                    </p>
+                    <p class="f-p">
+                        Errors and skipped files during Rename:
+                    </p>
+                    <p class="f-p">
+                        &nbsp;&nbsp;&nbsp; When a file is skipped in a rename action because some problem is found an <a href="onskipped_event.htm">OnSkipped</a> event is fired.
+                    </p>
+                </dd>
+                <dt class="ft">Example</dt>
+                <dd class="fd">
+<!-- Highlighted Pascal code generated by DelphiDabbler PasHi -->
+<pre class="pas-source"> <span class="pas-kwd">Var</span>
+   <span class="pas-ident">ZipRenameList</span><span class="pas-sym">:</span><span class="pas-ident">TList</span><span class="pas-sym">;</span>
+   <span class="pas-ident">RenRec</span><span class="pas-sym">:</span><span class="pas-ident">PZipRenameRec</span><span class="pas-sym">;</span>
+   <span class="pas-ident">Err</span><span class="pas-sym">:</span><span class="pas-ident">Integer</span><span class="pas-sym">;</span>
+   <span class="pas-ident">i</span><span class="pas-sym">:</span><span class="pas-ident">Integer</span><span class="pas-sym">;</span>
+   <span class="pas-ident">FileErr</span><span class="pas-sym">:</span><span class="pas-ident">Integer</span><span class="pas-sym">;</span>
+   <span class="pas-ident">BadFile</span><span class="pas-sym">:</span><span class="pas-space"> </span><span class="pas-kwd">String</span><span class="pas-sym">;</span>
+   <span class="pas-ident">FileErrMsg</span><span class="pas-sym">:</span><span class="pas-space"> </span><span class="pas-kwd">String</span><span class="pas-sym">;</span>
+ <span class="pas-kwd">Begin</span>
+   <span class="pas-ident">ZipRenameList</span> <span class="pas-sym">:=</span><span class="pas-ident">TList</span><span class="pas-sym">.</span><span class="pas-ident">Create</span><span class="pas-sym">(</span> <span class="pas-sym">)</span><span class="pas-sym">;</span>
+   <span class="pas-ident">New</span><span class="pas-sym">(</span><span class="pas-ident">RenRec</span><span class="pas-sym">)</span><span class="pas-sym">;</span>
+   <span class="pas-ident">RenRec</span><span class="pas-sym">^</span><span class="pas-sym">.</span><span class="pas-ident">Source</span><span class="pas-sym">:=</span> <span class="pas-ident">SourceName</span><span class="pas-sym">;</span>
+   <span class="pas-ident">RenRec</span><span class="pas-sym">^</span><span class="pas-sym">.</span><span class="pas-ident">Dest</span><span class="pas-sym">:=</span> <span class="pas-ident">DestName</span><span class="pas-sym">;</span>
+   <span class="pas-ident">RenRec</span><span class="pas-sym">^</span><span class="pas-sym">.</span><span class="pas-ident">DateTime</span><span class="pas-sym">:=</span> <span class="pas-ident">DateTimeToFileDate</span><span class="pas-sym">(</span><span class="pas-ident">StrToDateTime</span><span class="pas-sym">(</span><span class="pas-str">'12-21-1998 21:06:12'</span><span class="pas-sym">)</span><span class="pas-sym">)</span><span class="pas-sym">;</span>
+   <span class="pas-ident">ZipRenameList</span><span class="pas-sym">.</span><span class="pas-ident">Add</span><span class="pas-sym">(</span><span class="pas-ident">RenRec</span> <span class="pas-sym">)</span><span class="pas-sym">;</span>
+ 
+   <span class="pas-ident">Err</span> <span class="pas-sym">:=</span> <span class="pas-ident">ZipMaster1</span><span class="pas-sym">.</span><span class="pas-ident">Rename</span><span class="pas-sym">(</span><span class="pas-space"> </span><span class="pas-ident">ZipRenameList</span><span class="pas-sym">,</span> <span class="pas-num">0</span> <span class="pas-sym">)</span><span class="pas-sym">;</span>
+   <span class="pas-ident">Dispose</span><span class="pas-sym">(</span><span class="pas-ident">RenRec</span> <span class="pas-sym">)</span><span class="pas-sym">;</span>
+   <span class="pas-ident">ZipRenameList</span><span class="pas-sym">.</span><span class="pas-ident">Free</span><span class="pas-sym">(</span> <span class="pas-sym">)</span><span class="pas-sym">;</span>
+   <span class="pas-kwd">if</span> <span class="pas-ident">Err</span> <span class="pas-kwd">then</span>     <span class="pas-comment">// there are errors</span>
+   <span class="pas-kwd">begin</span>          <span class="pas-comment">// read them</span>
+     <span class="pas-kwd">For</span> <span class="pas-ident">i</span> <span class="pas-sym">:=</span> <span class="pas-num">0</span> <span class="pas-kwd">to</span> <span class="pas-ident">Pred</span><span class="pas-sym">(</span><span class="pas-ident">ZipMaster1</span><span class="pas-sym">.</span><span class="pas-ident">FSpecArgsExcl</span><span class="pas-sym">.</span><span class="pas-ident">Count</span><span class="pas-sym">)</span> <span class="pas-kwd">do</span>
+     <span class="pas-kwd">begin</span>
+       <span class="pas-comment">// get the name of the file</span>
+       <span class="pas-ident">BadFile</span> <span class="pas-sym">:=</span> <span class="pas-ident">ZipMaster1</span><span class="pas-sym">.</span><span class="pas-ident">FSpecArgsExcl</span><span class="pas-sym">[</span><span class="pas-ident">i</span><span class="pas-sym">]</span><span class="pas-sym">;</span>
+       <span class="pas-comment">// get the error number for that file</span>
+       <span class="pas-ident">FileErr</span> <span class="pas-sym">:=</span>  <span class="pas-ident">Integer</span><span class="pas-sym">(</span><span class="pas-ident">Pointer</span><span class="pas-sym">(</span><span class="pas-ident">ZipMaster1</span><span class="pas-sym">.</span><span class="pas-ident">FSpecArgsExcl</span><span class="pas-sym">.</span><span class="pas-ident">Objects</span><span class="pas-sym">[</span><span class="pas-ident">i</span><span class="pas-sym">]</span><span class="pas-sym">)</span><span class="pas-sym">)</span><span class="pas-sym">;</span>
+       <span class="pas-comment">// get the message for that error</span>
+       <span class="pas-ident">FileErrMsg</span> <span class="pas-sym">:=</span>  <span class="pas-ident">ZipLoadStr</span><span class="pas-sym">(</span><span class="pas-ident">FileErr</span><span class="pas-sym">)</span><span class="pas-sym">;</span>
+     <span class="pas-kwd">end</span><span class="pas-sym">;</span>
+   <span class="pas-kwd">end</span><span class="pas-sym">;</span>
+ <span class="pas-kwd">End</span><span class="pas-sym">;</span></pre>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-02-07 09:32</div>
+    </body>
+</html>
