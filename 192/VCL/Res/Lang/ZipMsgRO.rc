@@ -1,0 +1,110 @@
+// RO: Romanian
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x18, 1 // 0x0418
+{
+  ZS_Canceled,               "Utilizatorul a abandonat operatiunea"
+  ZS_CopyCentral,            "Directorul central"
+  ZS_DllLoaded,              "%s incarcat"
+  ZS_NothingToZip,           "Eroare - nu sunt fisiere de zipuit!"
+  ZS_NothingToDel,           "Eroare - nu sunt fisiere selectate pentru stergere"
+  ZS_NoDll,                  "%s negasit!"
+  ZS_WrongZipStruct,         "Atentie - Eroare de structura in zip!"
+  ZC_UnatAddPWMiss,          "Eroare - nu ati adaugat parola"
+  ZC_UnatExtPWMiss,          "Eroare - nu ati introdus parola de extragere"
+  CF_OverwriteYN,            "Suprascrieti fisierul '%s' in '%s' ?"
+  ZS_AskDeleteFile,          "Exista un fisier cu numele %s\nDoriti sa il suprascrieti ?"
+  ZS_AskPrevFile,            "ATENTIE: Acesta este discul precedent numarul %d!!!\nSigur doriti sa suprascrieti continutul"
+  ZS_InDrive,                "\nin drive-ul: %s"
+  ZS_InsertAVolume,          "Introduceti discul volum %.1d"
+  ZS_InsertDisk,             "Introduceti ultimul disc"
+  ZS_InsertVolume,           "Introduceti discul volum %.1d din %.1d"
+  ZC_Caption,                "Parola"
+  ZC_MessageConfirm,         "Confirmati Parola "
+  ZC_MessageEnter,           "Introduceti Parola "
+  ZC_OK,                     "&Ok"
+  ZC_Cancel,                 "&Abandon"
+  ZS_InIsOutStream,          "Stream-ul input nu va putea fi folosit la stream-ul output"
+  ZS_InvalidName,            "Filtrele de fisiere nu sunt permise in Filename sau in specificatia fisierului"
+  ZS_UnattPassword,          "Actiunea necesara nu este posibila fara o parola"
+  ZS_SourceIsDest,           "Arhiva sursa este identica cu arhiva destinatie!"
+  ZS_InputNotExe,            "Eroare: fisierul specificat nu este de tip .EXE"
+  ZS_CEHWrongSig,            "Semnatura unui header central este eronata"
+  ZS_DriveNoMount,           "Drive-ul %s NU este definit"
+  ZS_NoDiskSpace,            "Acest disc nu are suficient spatiu disponibil"
+  ZS_NoInFile,               "Fisierul specificat nu exista"
+  DS_NotaDrive,              "%s nu este un drive valid"
+  ZS_NoUnattSpan,            "Crearea de arhiva multivolum nu este implementata"
+  ZS_NoValidZip,             "Aceasta archiva nu este o arhiva valida de tip Zip"
+  ZS_UnAttPassword,          "Atentie - Extragere : nu toate fisierele pot fi extrase"
+  ZS_NoZipSpecified,         "Eroare - nu este specificat nici un fisier zip!"
+  ZS_WrongPassword,          "Eroare - parola nu se potriveste\nParola este ignorata"
+  ZS_NoZipSFXBin,            "Eroare - %s negasit!"
+  ZS_StringTooLong,          "Eroare - Una sau mai multe din cele 4 proprietati sir de caractere mentionate aici depasesc 255 caractere!"
+  ZS_AutoSFXWrong,           "Eroare %.1d aparuta in timpul crearii Auto SFX."
+  ZS_CopyFailed,             "Copierea fisierului din '%s' in '%s' esuata"
+  ZS_SFXCopyError,           "Eroare in timpul copierii datelor SFX"
+  ZS_CECommentLen,           "Eroare in timpul citirii comentariului de fisier"
+  ZS_CEHBadRead,             "Eroare in timpul citirii unui header central"
+  ZS_CEHBadWrite,            "Eroare in timpul scrierii unui header central"
+  ZS_CENameLen,              "Eroare in timpul citirii unui fisier central"
+  ZS_DataDesc,               "Eroare in timpul citirii/scrierii datelor in aria descriptiva"
+  ZS_EOCBadRead,             "Eroare in timpul citirii End Of Central Directory"
+  ZS_EOCBadWrite,            "Eroare in timpul scrierii End Of Central Directory"
+  ZS_ErrorUnknown,           "Eroare in functia ReadSpan(), WriteSpan(), Rename() sau CopyZippedFiles()\n"
+  ZS_FailedSeek,             "Eroare de cautare in fisierul input"
+  ZS_FileOpen,               "Fisierul Zip nu poate fi deschis"
+  ZS_LOHBadRead,             "Eroare in timpul citirii header-ului local"
+  ZS_LOHBadWrite,            "Eroare in timpul scrierii unui header local"
+  DS_NoMem,                  "Memorie insuficienta pentru mesaje"
+  ZS_NoOutFile,              "Crearea fisierului output esuata"
+  ZS_NoTempFile,             "Fisierul temporar nu poate fi creat"
+  ZS_NoVolume,               "Eticheta de Volum nu poate fi setata"
+  ZS_NoWrite,                "Eroare de scriere in fisierul output"
+  ZS_FatalZip,               "Eroare Fatala in DelZip179.DLL: abort exception"
+  ZS_NoMem,                  "Memoria necesara nu este disponibila"
+  LI_ErrorUnknown,           "Eroare necunoscuta in functia List() \n"
+  ZS_ReadZipError,           "Eroare de localizare in timpul citirii arhivei Zip!"
+  ZX_Language,               "RO: Romanian"
+}

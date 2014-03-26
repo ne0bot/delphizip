@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+
+<HEAD>
+ <META HTTP-EQUIV="Content-Type" Content="text/html; charset=forms-1252">
+ <LINK REL="stylesheet" TYPE="text/css" HREF="mystyle.css">
+ <TITLE>ToolButtons</TITLE>
+</HEAD>
+
+<BODY>
+
+ <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+  <PARAM NAME="Keyword" VALUE="ToolButtons">
+ </OBJECT>
+
+
+ <A NAME="IDH_ToolButtons"></A>
+ <H1>ToolButtons</H1>
+ <div>
+  <img src="snifferbar.png" width="500" height="40" alt="Toolbar buttons" />
+ </div>
+ <p>
+  To know what a tool button is for, go over it with the mouse cursor and a little
+  help will appear and at the bottom left of the main form a hint will appear.</p>
+ <p>ZipSniffer has 16 Tool buttons in 7 groups on its main form from left to right
+  :</p>
+ <ol>
+  <li>File Group
+   <ul>
+    <li>New : Creates a new child form, you can use this form as you like.</li>
+    <li>Open : Opens a file selection dialog, the purpose is to open one of the log
+     files, then it creates a new child form and shows the content of the file
+     in that form.</li>
+    <li>Save : Not yet implmented.</li>
+   </ul>
+  </li>
+  <li>Edit Group
+   <ul>
+    <li>Cut : Cuts the actual selection and saves it to the clipboard, make a selection
+     in one of the child forms first.</li>
+    <li>Copy : Copies the actual selection and puts it on the clipboard, make a selection
+     in one of the child forms first.</li>
+    <li>Paste : Pastes the clipboard content into the selected child form.</li>
+   </ul>
+  </li>
+  <li>Messages Group
+   <ul>
+    <li>N - Noisy : all messages and diagnostics.</li>
+    <li>T - Trace : trace messages.</li>
+    <li>V - Verbose : verbose messages.</li>
+   </ul>
+   <p>Clicking on one clears the other flags, multiple clicks changes their state 
+   <ul>
+		<li>Empty : off</li>
+		<li>Coloured : on</li>
+		<li>White : default (as set by component)</li>
+   </ul></p>
+  </li>
+  <li>Logging : turns logging on or off</li>
+  <li>Record : turns writing log to disk on or off</li>
+  <li>Break : starts a new log file</li>
+  <li>Auto scroll : controls scrolling the display to show latest</li>
+  <li>Window Group
+   <ul>
+    <li>Cascade: cascades the child forms.</li>
+    <li>Tile Horizontally : arranges child forms so that they are all the same size,
+     tiled horizontally.</li>
+    <li>Tile Vertically : arranges child forms so that they are all the same size,
+     tiled vertically.</li>
+   </ul>
+  </li>
+ </ol>
+</BODY>
+
+</HTML>

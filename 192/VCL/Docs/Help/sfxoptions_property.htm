@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            SFXOptions property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="SFXOptions;SFXOptions,TZipMaster;TZipMaster,SFXOptions;">
+        <meta name="revised" content="2012-02-09">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="sfxoffset_property.htm">Previous</a></li>
+                <li><a href="sfxoverwritemode_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                SFXOptions property
+            </h1>
+            <ul class="also-links">
+                <li><a href="working_with_sfx.htm">Working with SFX</a></li>
+                <li><a href="sfxcaption_property.htm">SFXCaption</a></li>
+                <li><a href="sfxcommandline_property.htm">SFXCommandLine</a></li>
+                <li><a href="sfxdefaultdir_property.htm">SFXDefaultDir</a></li>
+                <li><a href="sfxicon_property.htm">SFXIcon</a></li>
+                <li><a href="sfxmessage_property.htm">SFXMessage</a></li>
+                <li><a href="sfxoverwritemode_property.htm">SFXOverwriteMode</a></li>
+                <li><a href="sfxpath_property.htm">SFXPath</a></li>
+                <li><a href="sfxregfailpath_property.htm">SFXRegFailPath</a></li>
+                <li><a href="sfx_stub.htm">SFXStub</a></li>
+                <li><a href="converttosfx.htm">ConvertToSFX</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> SFXOptions: <a href="#tzmsfxopts">TZMSFXOpts</a>;
+                    </p>
+                    <p class="f-decl"> 
+                        <b>type</b> <a name="tzmsfxopts">TZMSFXOpts</a> = <b>set</b> <b>of</b> <a href="#tzmsfxopt">TSFXOpt</a>;
+                    </p>
+                    <p class="f-decl"> 
+                        <b>type</b> <a name="tzmsfxopt">TZMSFXOpt</a> = (soAskCmdLine, soAskFiles, soHideOverWriteBox, soAutoRun, soNoSuccessMsg, soExpandVariables, soInitiallyHideFiles, soForceHideFiles, soCheckAutoRunFileName, soCanBeCancelled, soCreateEmptyDirs, soSuccessAlways);
+                    </p>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+						SFXOptions are used to control how the SFX stub displays and extracts its files. 
+					</p>
+                    <p class="f-p">
+						These options are set when a SFX file is built or rebuilt.
+                    </p>
+                    <p class="f-p">
+                        If you want an option to be <b>True</b> or <b>False</b>, you need to add or subtract it to/from the Set.
+                    </p>
+                    <table border="1">
+                        <tr>
+                            <th>soAskCmdLine</th>
+                            <td> allow user to prevent execution of the command line</td>
+                        </tr>  
+                        <tr>
+                            <th>soAskFiles</th>
+                            <td> allow user to prevent certain files from extraction</td>
+                        </tr>
+                        <tr>
+                            <th>soHideOverWriteBox</th>
+                            <td> do not allow user to choose the overwrite mode</td>
+                        </tr>
+                        <tr>
+                            <th>soAutoRun</th>
+                            <td> start extraction + evtl. command line automatically<br>only if sfx filename starts with &quot;!&quot; or is &quot;setup.exe&quot;</td>
+                        </tr>
+                        <tr>
+                            <th>soNoSuccessMsg</th>
+                            <td> don&#39;t show success message after extraction</td>
+                        </tr>
+                        <tr>
+                            <th>soExpandVariables</th>
+                            <td> expand environment variables in path/cmd line...</td>
+                        </tr>
+                        <tr>
+                            <th>soInitiallyHideFiles</th>
+                            <td> don&#39;t show file listview on startup</td>
+                        </tr>
+                        <tr>
+                            <th>soForceHideFiles</th>
+                            <td> do not allow user to show files list<br>(no effect if shfInitiallyShowFiles is set)</td>
+                        </tr>
+                        <tr>
+                            <th>soCheckAutoRunFileName</th>
+                            <td> can only autorun if !... or setup.exe</td>
+                        </tr>
+                        <tr>
+                            <th>soCanBeCancelled</th>
+                            <td> extraction can be cancelled</td>
+                        </tr>
+                        <tr>
+                            <th>soCreateEmptyDirs</th>
+                            <td> recreate empty directories</td>
+                        </tr>      
+                        <tr>
+                            <th>soSuccessAlways</th>
+                            <td> always give success message even if soAutoRun or soNoSuccessMsg</td>
+                        </tr>
+                    </table>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-02-09 10:32</div>
+    </body>
+</html>

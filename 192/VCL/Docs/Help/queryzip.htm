@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            QueryZip method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="QueryZip,TZipMaster;TZipMaster,QueryZip;">
+        <meta name="revised" content="2012-02-05">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="mergezippedfiles.htm">Previous</a></li>
+                <li><a href="readspan.htm">Next</a></li>
+            </ul>
+            <h1>
+                QueryZip method
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> QueryZip(<b>const</b> FName: TFileName): Integer;
+                    </p>
+					<dl class="f">
+                <dt class="ft">Arguments</dt>
+                <dd class="fd">
+                    <dl class="tight">
+                        <dt><span class="mono">const FName: TFileName</span></dt>
+                        <dd>Name of the zip archive</dd>
+                    </dl>
+                </dd>
+                <dt class="ft">Results</dt>
+                <dd class="fd">
+                    <ul class="ul-left">
+                        <li>On failure returns a negative value equal to -<a href="errors_and_messages.htm">Error Code</a>.</li>
+                        <li>On success returns a composite value combining the following flags
+                            <table summary="Table of returned flags">
+								<tr>
+								  <td>zqbStartEXE</td> <td> = 1; </td> <td> is EXE file may be SFX</td>
+								</tr>
+								<tr>
+								  <td>zqbStartLocal</td> <td> = 2; </td> <td> normal zip file start</td>
+								</tr>
+								<tr>
+								  <td>zqbStartSpan</td> <td> = 4; </td> <td> first part of span</td>
+								</tr>
+								<tr>
+								  <td>zqbStartCentral</td> <td> = 8; </td> <td> continuing Central Header</td>
+								</tr>
+								<tr>
+								  <td>zqbHasComment</td> <td> = 16; </td> <td> comment, length good (no junk at end)</td>
+								</tr>
+								<tr>
+								  <td>zqbHasLocal</td> <td> = 32; </td> <td> first Central entry points to local header</td>
+								</tr>
+								<tr>
+								  <td>zqbHasCentral</td> <td> = 64; </td> <td> Central entry where it should be</td>
+								</tr>
+								<tr>
+								  <td>zqbHasEOC</td> <td> = 128; </td> <td> End of Central entry</td>
+								</tr>
+								<tr>
+								  <td>zqbHasLoc64</td> <td> = 256; </td> <td> EOC64 locator entry</td>
+								</tr>
+								<tr>
+								  <td>zqbHasEOC64</td> <td> = 512; </td> <td> Zip64 EOC</td>
+								</tr>
+								<tr>
+								  <td>zqbJunkAtEnd</td> <td> = 1024;&nbsp; </td> <td> junk at end of zip</td>
+								</tr>
+								<tr>
+								  <td>zqbIsDiskZero</td> <td> = 2048;&nbsp; </td> <td> is disk 0</td>
+								</tr>
+								<tr>
+								  <td>zqFieldError</td> <td> = -5; </td> <td> bad field value</td>
+								</tr>
+								<tr>
+								  <td>zqGeneralError</td> <td> = -9; </td> <td> unspecified failure</td>
+								</tr>
+							</table>
+                        </li>                        
+                    </ul>
+                </dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Tests for the existence of various parts of a zip file returning a positive bit mapped integer of values.
+                    </p>
+            <!--        <p class="f-p">
+                        const&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // QueryZip return bit values and errors
+                    </p>
+                    <p class="f-p">
+                        zqbStartEXE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // is EXE file may be SFX
+                    </p>
+                    <p class="f-p">
+                        zqbStartLocal&nbsp;&nbsp;&nbsp; = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // normal zip file start
+                    </p>
+                    <p class="f-p">
+                        zqbStartSpan&nbsp;&nbsp;&nbsp;&nbsp; = 4;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // first part of span
+                    </p>
+                    <p class="f-p">
+                        zqbStartCentral&nbsp; = 8;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // continuing Central Header
+                    </p>
+                    <p class="f-p">
+                        zqbHasComment = 16; // comment length good (no junk at end)
+                    </p>
+                    <p class="f-p">
+                        zqbHasLocal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 32;&nbsp;&nbsp;&nbsp;&nbsp; // first Central entry points to local header
+                    </p>
+                    <p class="f-p">
+                        zqbHasCentral&nbsp;&nbsp;&nbsp; = 64;&nbsp;&nbsp;&nbsp;&nbsp; // Central entry where it should be
+                    </p>
+                    <p class="f-p">
+                        zqbHasEOC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 128;&nbsp;&nbsp;&nbsp; // End of Central entry
+                    </p>
+                    <p class="f-p">
+                        zqbHasLoc64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 256;&nbsp;&nbsp;&nbsp; // EOC64 locator entry
+                    </p>
+                    <p class="f-p">
+                        zqbHasEOC64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 512;&nbsp;&nbsp;&nbsp; // Zip64 EOC
+                    </p>
+                    <p class="f-p">
+                        zqbJunkAtEnd&nbsp;&nbsp;&nbsp;&nbsp; = 1024;&nbsp;&nbsp; // junk at end of zip
+                    </p>
+                    <p class="f-p">
+                        zqbIsDiskZero&nbsp;&nbsp;&nbsp; = 2048;&nbsp;&nbsp; // is disk 0
+                    </p>
+                    <p class="f-p">
+                        zqFieldError&nbsp;&nbsp;&nbsp; = -5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // bad field value
+                    </p>
+                    <p class="f-p">
+                        zqFileError&nbsp;&nbsp;&nbsp;&nbsp; = -7;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // file handling error
+                    </p>
+                    <p class="f-p">
+                        zqGeneralError&nbsp; = -9;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // unspecified failure
+                    </p>-->
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-02-05 11:37</div>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            ZMUtils unit
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="ZMUtils;ZMUtils unit;">
+        <meta name="revised" content="2012-03-10">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="zmutf8_unit.htm">Previous</a></li>
+                <li><a href="zipmstr_unit.htm">Next</a></li>
+            </ul>
+            <h1>
+                ZMUtils unit
+            </h1>
+            <ul class="also-links">
+				<li><a href="zmutf8_unit.htm">ZMUtf8 Unit</a></li>
+				<li><a href="zmutils_unit.htm">ZMUtils Unit</a></li>
+			</ul>
+        </div>
+        <div class="content">
+            <p>Utility functions used by TZipMaster that can also be used by users.</p>
+            <p>&nbsp;</p>
+            <dl class="f">
+            <dt>Routines</dt>
+            <dd>
+                <ul class="ul-left">
+					<li><a href="uf_abserr.htm">AbsErr</a></li>				
+					<li><a href="uf_calccrc32.htm">CalcCRC32</a></li>
+					<li><a href="uf_canhash.htm">CanHash</a></li>
+					<li><a href="uf_checksfxtype.htm">CheckSFXType</a></li>
+					<li><a href="uf_delimitpath.htm">DelimitPath</a></li>
+					<li><a href="uf_direxists.htm">DirExists</a></li>
+					<li><a href="uf_diskavailable.htm">DiskAvailable</a></li>
+					<li><a href="uf_exesize.htm">ExeSize</a></li>
+					<li><a href="uf_exevers.htm">ExeVers</a></li>
+					<li><a href="uf_exeversion.htm">ExeVersion</a></li>
+					<li><a href="uf_extractnameoffile.htm">ExtractNameOfFile</a></li>
+					<li><a href="uf_filedatetolocaldatetime.htm">FileDateToLocalDateTime</a></li>
+					<li><a href="uf_filetimetolocaldostime.htm">FileTimeToLocalDOSTime</a></li>
+					<li><a href="uf_file_close.htm">File_Close</a></li>
+					<li><a href="uf_file_delete.htm">File_Delete</a></li>
+					<li><a href="uf_file_size.htm">File_Size</a></li>
+					<li><a href="uf_forcedirectory.htm">ForceDirectory</a></li>
+					<li><a href="uf_getvolumelabel.htm">GetVolumeLabel</a></li>
+					<li><a href="uf_hashfunc.htm">HashFunc</a></li>
+					<li><a href="uf_hashfunc.htm#hashfuncnocase">HashFuncNoCase</a></li>
+					<li><a href="uf_haswild.htm">HasWild</a></li>
+					<li><a href="uf_haswild.htm">HasWildW</a></li>
+					<li><a href="uf_hi64.htm">Hi64</a></li>
+					<li><a href="uf_isfolder.htm">IsFolder</a></li> 
+					<li><a href="uf_issamefile.htm">IsSameFile</a></li>
+					<li><a href="uf_iswild.htm">IsWild</a></li>
+					<li><a href="uf_iswinxp.htm">IsWinXP</a></li>
+					<li><a href="uf_lastpos.htm">LastPos</a></li>
+					<li><a href="uf_lastpos.htm">LastPosW</a></li>
+					<li><a href="uf_lo64.htm">Lo64</a></li>
+					<li><a href="uf_nameisbad.htm">NameIsBad</a></li>
+					<li><a href="uf_oemtostr.htm">OEMToStr</a></li>
+					<li><a href="uf_openresstream.htm">OpenResStream</a></li>
+					<li><a href="uf_pathconcat.htm">PathConcat</a></li>
+					<li><a href="uf_qualifiedname.htm">QualifiedName function</a></li>
+					<li><a href="uf_queryzip.htm">QueryZip</a></li>
+					<li><a href="uf_setslash.htm">SetSlash</a></li>
+					<li><a href="uf_setslash.htm">SetSlashW</a></li>
+					<li><a href="uf_splitqualifiedname.htm">SplitQualifiedName procedure</a></li>
+					<li><a href="uf_strhasext.htm">StrHasExt</a></li>
+					<li><a href="uf_strtooem.htm">StrToOEM</a></li>
+					<li><a href="uf_versstr.htm">VersStr</a></li>
+					<li><a href="uf_winversion.htm">WinVersion</a></li>
+					<li><a href="uf_zsplitstring.htm">ZSplitString</a> function</li>
+					<li><a href="uf_zsplitstringlast.htm">ZSplitStringLast</a> function</li>
+                </ul>
+            </dd>
+            <dt>Constants</dt>
+            <dd>
+                <li><a href="uf_checksfxtype.htm">CheckSFXType</a> values</li>
+                <li>cstNone = 0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // not found</li>
+                <li>cstExe&nbsp; = 1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // might be stub of unknown type</li>
+                <li>cstSFX17 = 17;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // found 1.7 SFX headers</li>
+                <li>cstSFX19 = 19;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // found 1.9 SFX headers</li>
+                <li>cstDetached = 2048; // is detached - if name specified ZipName will modified for it</li>
+                <li>&nbsp;</li>
+                <li><a href="uf_queryzip.htm">QueryZip</a> return bit values and errors</li>
+                <li>zqbStartEXE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1;&nbsp;&nbsp;&nbsp;&nbsp; // is EXE file may be SFX</li>
+                <li>zqbStartLocal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 2;&nbsp;&nbsp;&nbsp;&nbsp; // normal zip file start</li>
+                <li>zqbStartSpan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 4;&nbsp;&nbsp;&nbsp;&nbsp; // first part of span</li>
+                <li>zqbStartCentral&nbsp;&nbsp;&nbsp;&nbsp; = 8;&nbsp;&nbsp;&nbsp;&nbsp; // continuing Central Header</li>
+                <li>zqbHasComment&nbsp;&nbsp; = 16;</li>
+                <li>zqbHasLocal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 32;&nbsp;&nbsp;&nbsp; // first Central entry points to local header</li>
+                <li>zqbHasCentral&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 64;&nbsp;&nbsp;&nbsp; // Central entry where it should be</li>
+                <li>zqbHasEOC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 128;&nbsp;&nbsp; // End of Central entry</li>
+                <li>zqbHasLoc64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 256;&nbsp;&nbsp; // EOC64 locator entry</li>
+                <li>zqbHasEOC64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 512;&nbsp;&nbsp; // Zip64 EOC</li>
+                <li>zqbJunkAtEnd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1024;&nbsp; // junk at end of zip</li>
+                <li>zqbIsDiskZero&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 2048;&nbsp; // is disk 0</li>
+                <li>&nbsp;</li>
+                <li>zqFieldError&nbsp;&nbsp; = -5;&nbsp;&nbsp;&nbsp;&nbsp; // bad field value</li>
+                <li>zqFileError&nbsp;&nbsp;&nbsp; = -7;&nbsp;&nbsp;&nbsp;&nbsp; // file handling error</li>
+                <li>zqGeneralError = -9;&nbsp;&nbsp;&nbsp;&nbsp; // unspecified failure</li>
+            </dd>
+        </div>
+        <div class="foot">2012-03-10 11:27</div>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            EraseFile method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="EraseFile,TZipMaster;TZipMaster,EraseFile;">
+        <meta name="revised" content="2012-03-03">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="delete.htm">Previous</a></li>
+                <li><a href="extract.htm">Next</a></li>
+            </ul>
+            <h1>
+                EraseFile method
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> EraseFile(<b>const</b> FName: <b>String</b>; How: <a href="howtodelete_property.htm#tzmdeleteopts">TZMDeleteOpts</a>): Integer;
+                    </p>
+					<dl class="f">
+						<dt class="ft">Arguments</dt>
+						<dd class="fd">
+							<dl>
+								<dt><span class="mono">const FName: String</span></dt>
+								<dd>?</dd>
+								<dt><span class="mono">How: TZMDeleteOpts</span></dt>
+								<dd>The method to use</dd>
+							</dl>
+						</dd>
+						<dt class="ft">Results</dt>
+						<dd class="fd">
+							<ul class="ul-left">
+								<li>Returns 0 on success otherwise a negative value equal to - <a href="errors_and_messages.htm">Error Code</a>.</li>
+							</ul>
+						</dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        EraseFile is like DeleteFile, but depending on the value of &#39;How&#39; the specified file will be deleted completely or will be put into the recycle bin. When just a filename is specified the drive and directory will be taken from the current drive and directory.
+                    </p>
+                    <p class="f-p">
+                        EraseFile is also used internally by the component functions ConvertZip, ConvertSFX, CopyFile, CopyZippedFiles and ReadSpan but then uses the property <a href="howtodelete_property.htm">HowToDelete</a> as How value.
+                    </p>
+                 <!--   <p class="f-p">
+                        The return value will be the return value of SHFileOperation (0 if Ok else not zero) or -1 in case of memory error.
+                    </p> -->
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-03-03 16:20</div>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+// BR: Brazilian
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x16, 1 // 0x0416
+{
+  ZS_Canceled,               "Operação cancelada pelo usuário"
+  ZS_CopyCentral,            "Diretório Central"
+  ZS_DllLoaded,              "%s Carregada"
+  ZS_NothingToZip,           "Erro - nenhum arquivo para zipar!"
+  ZS_NothingToDel,           "Erro - nenhum arquivo selecionado para deleção"
+  DS_NoDiskSpan,             "Divisão em Múltiplos Volumes (discos) nãosuportada"
+  ZS_BadDll,                 "Tentou carregar %s desatualizada de "
+  ZS_NoDll,                  "%s não encontrada!"
+  ZS_WrongZipStruct,         "Advertência - Erro de estrutura no Zip!"
+  ZC_UnatAddPWMiss,          "Erro - nenhuma senha foi fornecida para adição"
+  ZC_UnatExtPWMiss,          "Erro - nenhuma senha foi fornecida para extração"
+  CF_OverwriteYN,            "Sobrescreve o arquivo '%s' em '%s' ?"
+  ZS_AskDeleteFile,          "O arquivo %s já existe.\nVocê quer gravar sobre este arquivo?"
+  ZS_AskPrevFile,            "ATENÇÃO: Este é o disco anterior número %d!!!\nVocê tem certeza que deseja gravar sobre seu conteúdo?"
+  ZS_InDrive,                "\nno drive: %s"
+  ZS_InsertAVolume,          "Por favor insira o disco %.1d"
+  ZS_InsertDisk,             "Por favor, insira o último disco"
+  ZS_InsertVolume,           "Por favor, insira o disco %.1d de %.1d"
+  ZC_Caption,                "Senha"
+  ZC_MessageConfirm,         "Confirme a Senha "
+  ZC_MessageEnter,           "Informe a Senha "
+  ZC_OK,                     "&Ok"
+  ZC_Cancel,                 "&Cancelar"
+  ZC_Abort,                  "Abortar"
+  ZC_CancelAll,              "Cancelar Tudo"
+  ZS_InIsOutStream,          "Stream de Entrada não pode ser definida como Stream de Saída"
+  ZS_InvalidName,            "Caracteres coringas não são permitidos no Nome do Arquivo ou na especificação de arquivos"
+  ZS_UnattPassword,          "Ação desassistida não é possivel sem uma senha"
+  ZS_SourceIsDest,           "Arquivos de Origem e Destino são o mesmo!"
+  ZS_InputNotExe,            "Erro: arquivo de entrada não é um arquivo .EXE"
+  ZS_CEHWrongSig,            "A assinatura de um cabeçalho central está errada"
+  ZS_DriveNoMount,           "O drive %s NÂO está definido"
+  ZS_NoDiskSpace,            "Este disco não dispõe de espaço livre suficiente"
+  ZS_NoInFile,               "O arquivo de entrada não existe"
+  DS_NotaDrive,              "O drive %s não é válido"
+  ZS_NoUnattSpan,            "Divisão desassistida em disco não implementada"
+  ZS_NoValidZip,             "Este arquivo não é um arquivo Zip válido"
+  ZS_UnAttPassword,          "Advertência - Extração desassistida: alguns arquivos podem não ter sido extraídos"
+  ZS_NoZipSpecified,         "Erro - nenhum arquivo Zip foi especificado!"
+  ZS_WrongPassword,          "Erro - Senhas NÃO coincidem\nSenha ignorada"
+  ZS_NoZipSFXBin,            "Erro - %s não encontrado!"
+  ZS_StringTooLong,          "Erro - Uma ou mais das 4 propriedades mencionadas abaixo excedem 255 caracteres!"
+  ZS_AutoSFXWrong,           "Ocorreu o erro %.1d durante a criação do Auto SFX."
+  ZS_CopyFailed,             "Falha ao copiar um arquivo de '%s' para '%s'"
+  ZS_SFXCopyError,           "Erro ao copiar dados SFX"
+  ZS_CECommentLen,           "Erro lendo um arquivo de comentário"
+  ZS_CEHBadRead,             "Erro lendo o cabeçalho central"
+  ZS_CEHBadWrite,            "Erro gravando um cabeçalho central"
+  ZS_CENameLen,              "Erro lendo um nome de arquivo central"
+  ZS_DataDesc,               "Erro lendo/gravando a área do descritor de dados"
+  ZS_EOCBadRead,             "Erro lendo o final do Diretório Central"
+  ZS_EOCBadWrite,            "Erro gravando o Final do Diretório Central"
+  ZS_ErrorUnknown,           "Erro desconhecido na função ReadSpan(), WriteSpan() ou Rename()\n"
+  ZS_FailedSeek,             "Erro de busca no arquivo de entrada"
+  ZS_FileOpen,               "O arquivo Zip não pode ser aberto"
+  ZS_LOHBadRead,             "Erro lendo o cabeçalho local"
+  ZS_LOHBadWrite,            "Erro gravando um cabeçalho local"
+  DS_NoMem,                  "Não há memória suficiente para exibir a MsgBox"
+  ZS_NoOutFile,              "Falha na criação do arquivo de saída"
+  ZS_NoTempFile,             "Arquivo temporário não pôde ser criado"
+  ZS_NoVolume,               "O rótulo do volume do drive não pode ser definido"
+  ZS_NoWrite,                "Erro de gravação do arquivo de saída"
+  ZS_FatalZip,               "Erro Fatal em DelZip179.DLL: abortando..."
+  ZS_NoMem,                  "Memória pedida não disponível"
+  LI_ErrorUnknown,           "Erro desconhecido na função List()"
+  ZS_ReadZipError,           "Erro de busca lendo arquivo Zip!"
+  ZX_Language,               "BR: Brazilian"
+}

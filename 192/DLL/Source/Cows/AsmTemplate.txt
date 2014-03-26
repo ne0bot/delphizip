@@ -1,0 +1,38 @@
+        .486p
+        model flat
+                    extern _LoadUnicowsSymbol : proc
+
+;;; repeat
+                    global NAME  : proc
+                    extern zNAME
+
+_TEXT	segment dword public use32 'CODE'
+zu_stub_NAME         proc near
+                    ; Load the symbol...
+                    pusha
+                    push dword ptr __imp__NAME     ; place to save the pointer
+                    push dword ptr [zu_def_NAME]      ; default proc, if any
+                    push dword DLL                    ; dll id
+                    push dword ptr zu_name_NAME      ; name of the function
+                    call _LoadUnicowsSymbol
+                    add  esp, 16
+                    popa
+                    jmp NAME
+zu_stub_NAME   endp
+_TEXT   ends
+
+_TEXT	segment dword public use32 'CODE'
+NAME      proc near
+                    jmp dword ptr [__imp__NAME]
+NAME	endp
+_TEXT	ends
+
+_DATA	segment dword public use32 'DATA'
+	align	4
+__imp__NAME:   dd zu_stub_NAME
+zu_def_NAME:      dd zNAME
+zu_name_NAME:    db 'NAME',0
+_DATA  ends
+
+;;; end repeat
+        end

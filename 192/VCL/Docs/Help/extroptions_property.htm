@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            ExtrOptions property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="ExtrOptions;ExtrOptions,TZipMaster;TZipMaster,ExtrOptions;">
+        <meta name="revised" content="2012-01-17">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="extrbasedir_property.htm">Previous</a></li>
+                <li><a href="fspecargs_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                ExtrOptions property
+            </h1>
+            <ul class="also-links">
+                <li><a href="extract.htm">Extract</a></li>
+                <li><a href="noskipping_property.htm">NoSkipping</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> ExtrOptions: <a href="#tzmextropts">TZMExtrOpts</a>;
+                    </p>
+                </dd>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>type</b><br>&mbsp; <a name="tzmextropts">TZMExtrOpts</a> = <b>set</b> <b>of</b> <a href="#tzmextroptsenum">TZMExtrOptsEnum</a>;
+                    </p>
+                </dd>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>type</b><br>&nbsp; <a name="tzmextroptsenum">TZMExtrOptsEnum</a> = (ExtrDirNames, ExtrOverWrite, ExtrFreshen, ExtrUpdate, ExtrTest, ExtrForceDirs, ExtrNTFS);
+                    </p>
+					<dl class="f">
+						<dt class="ft">ExtrDirNames</dt>
+                        <dd>If <b>True</b>, extracts and recreates the relative pathname that may have been stored with each file.</dd>
+                        <dd class="fd"> Empty directories stored in the archive (if any) will also be recreated.</dd>
+                    	<dt class="ft">ExtrOverWrite</dt>
+                        <dd>If <b>True</b>, overwrite pre-existing files during Extraction.</dd>
+                        <dd> <span class="note">NOTE:</span> -ReadOnly files will be overwritten too.</dd>
+                        <dd> If a file will be overwritten also depends on the return value set in the <a href="onextractoverwrite_event.htm">OnExtractOverwrite</a> event if present.</dd>
+                        <dd class="fd"> <span class="important">IMPORTANT:</span> Files opened by other applications (Windows a.o.) with exclusive rights are <b>not</b> overwritten. In this case an <a href="onskipped_event.htm">OnSkipped</a> event will follow.</dd>
+                    	<dt class="ft">ExtrFreshen</dt>
+                        <dd class="fd">If <b>True</b>, extract newer files from archive (only for files that already exist).&nbsp; Won&#39;t extract any file that isn&#39;t already present.</dd>
+                    	<dt class="ft">ExtrUpdate</dt>
+                        <dd class="fd">If <b>True</b>, extract files that don&#39;t already exist and if ExtrOverWrite is also set to true, it will extract newer files from the archive.</dd>
+                    	<dt class="ft">ExtrTest</dt>
+                        <dd>If <b>True</b>, only test the archive to see if the files could be successfully extracted.</dd>
+                        <dd> Testing is done by extracting the files, but NOT writing the extracted data to the disk.</dd>
+                        <dd> Only the CRC code of the files is used to determine if they are stored correctly.</dd>
+                        <dd class="fd"> To use this option, you will also need to define an Event handler for <a href="onmessage_event.htm">OnMessage</a>.</dd>
+                    	<dt class="ft">ExtrForceDirs</dt>
+                        <dd class="fd">If <b>True</b>, forces the existence of the destination directory.</dd>
+                    	<dt class="ft">ExtrNTFS</dt>
+                        <dd>If <b>True</b>, restores file NTFS time stamps.</dd>
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+					<p class="f-p">Controls extracting files from zip archive</p>
+				</dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-17 10:38</div>
+    </body>
+</html>

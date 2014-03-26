@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            Errors and Messages
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="ErrMessage;ErrMessage,TZipMaster;TZipMaster,ErrMessage;">
+        <meta name="revised" content="2012-01-16">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+            </ul>
+            <h1>
+                Errors and Messages
+            </h1>
+        </div>
+        <div class="content">
+            <p>Value Identifier Default message</p>
+			<dl>
+				<dt><b>DS_UnknownError</b> 1</dt>
+				<dd>'Unknown Error'</dd>
+				<dt><b>DS_Canceled</b> 2</dt>
+				<dd>'User canceled operation'</dd>
+				<dt><b>DS_CopyCentral</b> 3</dt>
+				<dd>'Central directory'</dd>
+				<dt><b>GE_Abort</b> 4</dt>
+				<dd>'User Abort'</dd>
+				<dt><b>GE_Copying</b> 5</dt>
+				<dd>'Copying %s'</dd>
+				<dt><b>GE_Skipped</b> 6</dt>
+				<dd>'Skipped %s %d'</dd>
+				<dt><b>GE_TempZip</b> 7</dt>
+				<dd>'Temporary zipfile %s'</dd>
+				<dt><b>LD_DllLoaded</b> 8</dt>
+				<dd>'Loaded %s'</dd>
+				<dt><b>LD_DllUnloaded</b> 9</dt>
+				<dd>'Unloaded %s'</dd>
+				<dt><b>LD_LoadErr</b> 10</dt>
+				<dd>'Error [%d %s] loading %s'</dd>
+				<dt><b>AD_NothingToZip</b> 11</dt>
+				<dd>'Error - no files to zip!'</dd>
+				<dt><b>AZ_NothingToDo</b> 12</dt>
+				<dd>'Nothing to do'</dd>
+				<dt><b>DL_NothingToDel</b> 13</dt>
+				<dd>'Error - no files selected for deletion'</dd>
+				<dt><b>DS_NoDiskSpan</b> 14</dt>
+				<dd>'DiskSpanning not supported'</dd>
+				<dt><b>DS_NoRenamePart</b> 15</dt>
+				<dd>'Last part left as %s'</dd>
+				<dt><b>GE_EventEx</b> 16</dt>
+				<dd>'Exception in Event '</dd>
+				<dt><b>GE_NoSkipping</b> 17</dt>
+				<dd>'Skipping not allowed'</dd>
+				<dt><b>LD_BadDll</b> 18</dt>
+				<dd>'Unable to load %s - It is old or corrupt'</dd>
+				<dt><b>LD_NoDll</b> 19</dt>
+				<dd>'Failed to load %s'</dd>
+				<dt><b>LI_WrongZipStruct</b> 20</dt>
+				<dd>'Warning - Error in zip structure!'</dd>
+				<dt><b>PW_UnatAddPWMiss</b> 21</dt>
+				<dd>'Error - no add password given'</dd>
+				<dt><b>PW_UnatExtPWMiss</b> 22</dt>
+				<dd>'Error - no extract password given'</dd>
+				<dt><b>PR_Archive</b> 33</dt>
+				<dd>'*Resetting Archive bit'</dd>
+				<dt><b>PR_CopyZipFile</b> 34</dt>
+				<dd>'*Copying Zip File'</dd>
+				<dt><b>PR_SFX</b> 35</dt>
+				<dd>'*SFX'</dd>
+				<dt><b>PR_Header</b> 36</dt>
+				<dd>'*??'</dd>
+				<dt><b>PR_Finish</b> 37</dt>
+				<dd>'*Finalising'</dd>
+				<dt><b>PR_Copying</b> 38</dt>
+				<dd>'*Copying'</dd>
+				<dt><b>PR_CentrlDir</b> 39</dt>
+				<dd>'*Writing Central Directory'</dd>
+				<dt><b>PR_Checking</b> 40</dt>
+				<dd>'*Checking'</dd>
+				<dt><b>PR_Loading</b> 41</dt>
+				<dd>'*Loading Directory'</dd>
+				<dt><b>PR_Joining</b> 42</dt>
+				<dd>'*Joining split zip file'</dd>
+				<dt><b>PR_Splitting</b> 43</dt>
+				<dd>'*Splitting zip file'</dd>
+				<dt><b>PR_Writing</b> 44</dt>
+				<dd>'*Writing zip file'</dd>
+				<dt><b>PR_PreCalc</b> 45</dt>
+				<dd>'*Precalculating CRC'</dd>
+				<dt><b>PR_Processing</b> 46</dt>
+				<dd>'*Processing'</dd>
+				<dt><b>PR_Merging</b> 47</dt>
+				<dd>'*Merging'</dd>
+				<dt><b>CF_FileConflict</b> 58</dt>
+				<dd>'File conflict!'</dd>
+				<dt><b>CF_Merge</b> 59</dt>
+				<dd>''''%s'''#10'will overwrite'#10' ''%s'''#10'Rename to ''%s''?'</dd>
+				<dt><b>CF_OverwriteYN</b> 60</dt>
+				<dd>'Overwrite file ''%s'' in ''%s'' ?'</dd>
+				<dt><b>DS_AnotherDisk</b> 61</dt>
+				<dd>'This disk is part of a backup set '#10'please insert another disk'</dd>
+				<dt><b>DS_AskDeleteFile</b> 62</dt>
+				<dd>'There is already a file %s'#10'Do you want to overwrite this file'</dd>
+				<dt><b>DS_AskPrevFile</b> 63</dt>
+				<dd>'ATTENTION This is previous disk no %d!!!'#10'Are you sure you want to overwrite the contents'</dd>
+				<dt><b>DS_InDrive</b> 64</dt>
+				<dd>''#10'in drive %s'</dd>
+				<dt><b>DS_InsertAVolume</b> 65</dt>
+				<dd>'Please insert disk volume %1d'</dd>
+				<dt><b>DS_InsertDisk</b> 66</dt>
+				<dd>'Please insert last disk'</dd>
+				<dt><b>DS_InsertVolume</b> 67</dt>
+				<dd>'Please insert disk volume %1d of %1d'</dd>
+				<dt><b>FM_Confirm</b> 68</dt>
+				<dd>'Confirm'</dd>
+				<dt><b>FM_Erase</b> 69</dt>
+				<dd>'Erase %s'</dd>
+				<dt><b>PW_Caption</b> 70</dt>
+				<dd>'Password'</dd>
+				<dt><b>PW_MessageConfirm</b> 71</dt>
+				<dd>'Confirm Password '</dd>
+				<dt><b>PW_MessageEnter</b> 72</dt>
+				<dd>'Enter Password '</dd>
+				<dt><b>ZB_Yes</b> 83</dt>
+				<dd>'&Yes'</dd>
+				<dt><b>ZB_No</b> 84</dt>
+				<dd>'&No'</dd>
+				<dt><b>ZB_OK</b> 85</dt>
+				<dd>'&OK'</dd>
+				<dt><b>ZB_Cancel</b> 86</dt>
+				<dd>'&Cancel'</dd>
+				<dt><b>ZB_Abort</b> 87</dt>
+				<dd>'&Abort'</dd>
+				<dt><b>ZB_Retry</b> 88</dt>
+				<dd>'&Retry'</dd>
+				<dt><b>ZB_Ignore</b> 89</dt>
+				<dd>'&Ignore'</dd>
+				<dt><b>ZB_CancelAll</b> 90</dt>
+				<dd>'CancelAll'</dd>
+				<dt><b>ZB_NoToAll</b> 91</dt>
+				<dd>'NoToAll'</dd>
+				<dt><b>ZB_YesToAll</b> 92</dt>
+				<dd>'YesToAll'</dd>
+				<dt><b>AD_BadFileName</b> 103</dt>
+				<dd>'Invalid Filename'</dd>
+				<dt><b>AD_DuplFileName</b> 104</dt>
+				<dd>'Duplicate Filename'</dd>
+				<dt><b>AD_InIsOutStream</b> 105</dt>
+				<dd>'Input stream may not be set to the output stream'</dd>
+				<dt><b>AD_InvalidEncode</b> 106</dt>
+				<dd>'Invalid encoding options'</dd>
+				<dt><b>AD_InvalidName</b> 107</dt>
+				<dd>'Wildcards are not allowed in Filename or file specification'</dd>
+				<dt><b>AD_InvalidZip</b> 108</dt>
+				<dd>'Invalid zip file'</dd>
+				<dt><b>AD_NoDestDir</b> 109</dt>
+				<dd>'Destination directory ''%s'' must exist!'</dd>
+				<dt><b>AD_UnattPassword</b> 110</dt>
+				<dd>'Unattended action not possible without a password'</dd>
+				<dt><b>AZ_SameAsSource</b> 111</dt>
+				<dd>'source and destination on same removable drive'</dd>
+				<dt><b>CD_CEHDataSize</b> 112</dt>
+				<dd>'The combined length of CEH + FileName + FileComment + ExtraData exceeds 65535'</dd>
+				<dt><b>CD_NoChangeDir</b> 113</dt>
+				<dd>'Cannot change path'</dd>
+				<dt><b>CD_NoProtected</b> 114</dt>
+				<dd>'Cannot change details of Encrypted file'</dd>
+				<dt><b>CF_NoDest</b> 115</dt>
+				<dd>'No destination specified'</dd>
+				<dt><b>CF_SourceIsDest</b> 116</dt>
+				<dd>'Source archive is the same as the destination archive!'</dd>
+				<dt><b>CZ_InputNotExe</b> 117</dt>
+				<dd>'Error input file is not an EXE file'</dd>
+				<dt><b>DS_BadDrive</b> 118</dt>
+				<dd>'cannot use drive'</dd>
+				<dt><b>DS_CEHWrongSig</b> 119</dt>
+				<dd>'A central header signature is wrong'</dd>
+				<dt><b>DS_DriveNoMount</b> 120</dt>
+				<dd>'Drive %s is NOT defined'</dd>
+				<dt><b>DS_NoDiskSpace</b> 121</dt>
+				<dd>'This disk has not enough free space available'</dd>
+				<dt><b>DS_NoEncrypt</b> 122</dt>
+				<dd>'encryption not supported'</dd>
+				<dt><b>DS_NoInFile</b> 123</dt>
+				<dd>'Input file does not exist'</dd>
+				<dt><b>DS_NotaDrive</b> 124</dt>
+				<dd>'Not a valid drive%s'</dd>
+				<dt><b>DS_NotChangeable</b> 125</dt>
+				<dd>'Cannot write to %s'</dd>
+				<dt><b>DS_NoUnattSpan</b> 126</dt>
+				<dd>'Unattended disk spanning not implemented'</dd>
+				<dt><b>DS_NoValidZip</b> 127</dt>
+				<dd>'This archive is not a valid Zip archive'</dd>
+				<dt><b>DS_Unsupported</b> 128</dt>
+				<dd>'Unsupported zip version'</dd>
+				<dt><b>EX_NoExtrDir</b> 129</dt>
+				<dd>'Extract directory ''%s'' must exist'</dd>
+				<dt><b>EX_UnAttPassword</b> 130</dt>
+				<dd>'Warning - Unattended Extract possible not all files extracted'</dd>
+				<dt><b>GE_InvalidArguments</b> 131</dt>
+				<dd>'Invalid Arguments'</dd>
+				<dt><b>GE_InvalidParameter</b> 132</dt>
+				<dd>'Invalid Parameter! ''%s'''</dd>
+				<dt><b>GE_NoZipSpecified</b> 133</dt>
+				<dd>'Error - no zip file specified!'</dd>
+				<dt><b>GE_WrongPassword</b> 134</dt>
+				<dd>'Error - passwords do NOT match'#10'Password ignored'</dd>
+				<dt><b>RN_InvalidDateTime</b> 135</dt>
+				<dd>'Invalid date/time argument for file '</dd>
+				<dt><b>SF_DetachedHeaderTooBig</b> 136</dt>
+				<dd>'Detached SFX Header too large'</dd>
+				<dt><b>SF_NoZipSFXBin</b> 137</dt>
+				<dd>'Error SFX stub ''%s'' not found!'</dd>
+				<dt><b>SF_StringTooLong</b> 138</dt>
+				<dd>'Error Combined SFX strings unreasonably long!'</dd>
+				<dt><b>AD_AutoSFXWrong</b> 139</dt>
+				<dd>'Error %1d occurred during Auto SFX creation '</dd>
+				<dt><b>AZ_InternalError</b> 140</dt>
+				<dd>'Internal error'</dd>
+				<dt><b>CF_CopyFailed</b> 141</dt>
+				<dd>'Copying a file from ''%s'' to ''%s'' failed'</dd>
+				<dt><b>CF_SFXCopyError</b> 142</dt>
+				<dd>'Error while copying the SFX data'</dd>
+				<dt><b>CZ_BrowseError</b> 143</dt>
+				<dd>'Error while browsing resources'</dd>
+				<dt><b>CZ_ExeSections</b> 144</dt>
+				<dd>'Error while reading executable sections '</dd>
+				<dt><b>CZ_NoCopyIcon</b> 145</dt>
+				<dd>'Cannot copy icon '</dd>
+				<dt><b>CZ_NoExeIcon</b> 146</dt>
+				<dd>'No icon resources found in executable '</dd>
+				<dt><b>CZ_NoExeResource</b> 147</dt>
+				<dd>'No resources found in executable '</dd>
+				<dt><b>CZ_NoIcon</b> 148</dt>
+				<dd>'No icon found'</dd>
+				<dt><b>CZ_NoIconFound</b> 149</dt>
+				<dd>'No matching icon found '</dd>
+				<dt><b>DS_BadCRC</b> 150</dt>
+				<dd>'CRC error'</dd>
+				<dt><b>DS_CECommentLen</b> 151</dt>
+				<dd>'Error while reading a file comment'</dd>
+				<dt><b>DS_CEHBadRead</b> 152</dt>
+				<dd>'Error while reading a central header'</dd>
+				<dt><b>DS_CEHBadWrite</b> 153</dt>
+				<dd>'Error while writing a central header'</dd>
+				<dt><b>DS_CENameLen</b> 154</dt>
+				<dd>'Error while reading a central file name'</dd>
+				<dt><b>DS_CopyError</b> 155</dt>
+				<dd>'File copy error'</dd>
+				<dt><b>DS_DataCopy</b> 156</dt>
+				<dd>'Error copying compressed data'</dd>
+				<dt><b>DS_DataDesc</b> 157</dt>
+				<dd>'Error while reading/writing a data descriptor area'</dd>
+				<dt><b>DS_EOCBadRead</b> 158</dt>
+				<dd>'Error while reading the End Of Central Directory'</dd>
+				<dt><b>DS_EOCBadWrite</b> 159</dt>
+				<dd>'Error while writing the End Of Central Directory'</dd>
+				<dt><b>DS_ErrorUnknown</b> 160</dt>
+				<dd>'UnKnown error in function ReadSpan()WriteSpan()ChangeFileDetails() or CopyZippedFiles()'#10</dd>
+				<dt><b>DS_FailedSeek</b> 161</dt>
+				<dd>'Seek error in input file'</dd>
+				<dt><b>DS_FileChanged</b> 162</dt>
+				<dd>'File changed'</dd>
+				<dt><b>DS_FileError</b> 163</dt>
+				<dd>'File Error'</dd>
+				<dt><b>DS_FileOpen</b> 164</dt>
+				<dd>'Zip file could not be opened'</dd>
+				<dt><b>DS_LOHBadRead</b> 165</dt>
+				<dd>'Error while reading a local header'</dd>
+				<dt><b>DS_LOHBadWrite</b> 166</dt>
+				<dd>'Error while writing a local header'</dd>
+				<dt><b>DS_LOHWrongName</b> 167</dt>
+				<dd>'Local and Central names different %s'</dd>
+				<dt><b>DS_NoAppend</b> 168</dt>
+				<dd>'Append failed'</dd>
+				<dt><b>DS_NoInStream</b> 169</dt>
+				<dd>'No input stream'</dd>
+				<dt><b>DS_NoMem</b> 170</dt>
+				<dd>'Not enough memory to display MsgBox'</dd>
+				<dt><b>DS_NoOutFile</b> 171</dt>
+				<dd>'Creation of output file failed'</dd>
+				<dt><b>DS_NoOutStream</b> 172</dt>
+				<dd>'No output stream'</dd>
+				<dt><b>DS_NoTempFile</b> 173</dt>
+				<dd>'Temporary file could not be created'</dd>
+				<dt><b>DS_NoVolume</b> 174</dt>
+				<dd>'Volume label could not be set'</dd>
+				<dt><b>DS_NoWrite</b> 175</dt>
+				<dd>'Write error in output file'</dd>
+				<dt><b>DS_ReadError</b> 176</dt>
+				<dd>'Error reading file'</dd>
+				<dt><b>DS_SeekError</b> 177</dt>
+				<dd>'File seek error'</dd>
+				<dt><b>DS_SFXBadRead</b> 178</dt>
+				<dd>'Error reading SFX'</dd>
+				<dt><b>DS_TooManyParts</b> 179</dt>
+				<dd>'More than 999 parts in multi volume archive'</dd>
+				<dt><b>DS_WriteError</b> 180</dt>
+				<dd>'Error writing file'</dd>
+				<dt><b>DS_Zip64FieldError</b> 181</dt>
+				<dd>'Error reading Zip64 field'</dd>
+				<dt><b>GE_DLLCritical</b> 192</dt>
+				<dd>'critical DLL Error %d'</dd>
+				<dt><b>GE_Except</b> 193</dt>
+				<dd>'Exception in Event handler '</dd>
+				<dt><b>GE_ExceptErr</b> 194</dt>
+				<dd>'Error Exception '</dd>
+				<dt><b>GE_FatalZip</b> 195</dt>
+				<dd>'Fatal Error in DLL abort exception'</dd>
+				<dt><b>GE_FileChanged</b> 196</dt>
+				<dd>'Zip file was changed!'</dd>
+				<dt><b>GE_Inactive</b> 197</dt>
+				<dd>'not Active'</dd>
+				<dt><b>GE_NoMem</b> 198</dt>
+				<dd>'Requested memory not available'</dd>
+				<dt><b>GE_RangeError</b> 199</dt>
+				<dd>'Index (%d) outside range 0 %d'</dd>
+				<dt><b>GE_Unknown</b> 200</dt>
+				<dd>'Unknown error %d'</dd>
+				<dt><b>GE_WasBusy</b> 201</dt>
+				<dd>'Busy + %s'</dd>
+				<dt><b>GE_NoProcess</b> 202</dt>
+				<dd>'Cannot process invalid zip'</dd>
+				<dt><b>LI_ErrorUnknown</b> 203</dt>
+				<dd>'Unknown error in List() function'</dd>
+				<dt><b>LI_ReadZipError</b> 204</dt>
+				<dd>'Seek error reading Zip archive!'</dd>
+				<dt><b>DS_SetDateError</b> 205</dt>
+				<dd>'Error setting file date'</dd>
+				<dt><b>GE_GeneralError</b> 206</dt>
+				<dd>'Unspecified error '</dd>
+				<dt><b>GE_SystemError</b> 207</dt>
+				<dd>'System error '</dd>
+				<dt><b>GE_SysErr</b> 208</dt>
+				<dd>' [$%x] %s'</dd>
+				<dt><b>TM_Deleting</b> 215</dt>
+				<dd>'EraseFloppy - Deleting %s'</dd>
+				<dt><b>TM_Erasing</b> 216</dt>
+				<dd>'EraseFloppy - Removing %s'</dd>
+				<dt><b>TM_GetNewDisk</b> 217</dt>
+				<dd>'Trace GetNewDisk Opening %s'</dd>
+				<dt><b>TM_SystemError</b> 218</dt>
+				<dd>'System error %d'</dd>
+				<dt><b>TM_Trace</b> 219</dt>
+				<dd>'Trace '</dd>
+				<dt><b>TM_Verbose</b> 220</dt>
+				<dd>'info '</dd>
+				<dt><b>DZ_RES_GOOD</b> 231</dt>
+				<dd>'Good'</dd>
+				<dt><b>DZ_RES_CANCELLED</b> 232</dt>
+				<dd>'Cancelled'</dd>
+				<dt><b>DZ_RES_ABORT</b> 233</dt>
+				<dd>'Aborted by User!'</dd>
+				<dt><b>DZ_RES_CALLBACK</b> 234</dt>
+				<dd>'Callback exception'</dd>
+				<dt><b>DZ_RES_MEMORY</b> 235</dt>
+				<dd>'No memory'</dd>
+				<dt><b>DZ_RES_STRUCT</b> 236</dt>
+				<dd>'Invalid structure'</dd>
+				<dt><b>DZ_RES_ERROR</b> 237</dt>
+				<dd>'Fatal error'</dd>
+				<dt><b>DZ_RES_PASSWORD_FAIL</b> 238</dt>
+				<dd>'Password failed!'</dd>
+				<dt><b>DZ_RES_PASSWORD_CANCEL</b> 239</dt>
+				<dd>'Password cancelled!'</dd>
+				<dt><b>DZ_RES_INVAL_ZIP</b> 240</dt>
+				<dd>'Invalid zip structure!'</dd>
+				<dt><b>DZ_RES_NO_CENTRAL</b> 241</dt>
+				<dd>'No Central directory!'</dd>
+				<dt><b>DZ_RES_ZIP_EOF</b> 242</dt>
+				<dd>'Unexpected end of Zip file!'</dd>
+				<dt><b>DZ_RES_ZIP_END</b> 243</dt>
+				<dd>'Premature end of file!'</dd>
+				<dt><b>DZ_RES_ZIP_NOOPEN</b> 244</dt>
+				<dd>'Error opening Zip file!'</dd>
+				<dt><b>DZ_RES_ZIP_MULTI</b> 245</dt>
+				<dd>'Multi-part Zips not supported!'</dd>
+				<dt><b>DZ_RES_NOT_FOUND</b> 246</dt>
+				<dd>'File not found!'</dd>
+				<dt><b>DZ_RES_LOGIC_ERROR</b> 247</dt>
+				<dd>'Internal logic error!'</dd>
+				<dt><b>DZ_RES_NOTHING_TO_DO</b> 248</dt>
+				<dd>'Nothing to do!'</dd>
+				<dt><b>DZ_RES_BAD_OPTIONS</b> 249</dt>
+				<dd>'Bad Options specified!'</dd>
+				<dt><b>DZ_RES_TEMP_FAILED</b> 250</dt>
+				<dd>'Temporary file failure!'</dd>
+				<dt><b>DZ_RES_NO_FILE_OPEN</b> 251</dt>
+				<dd>'File not found or no permission!'</dd>
+				<dt><b>DZ_RES_ERROR_READ</b> 252</dt>
+				<dd>'Error reading file!'</dd>
+				<dt><b>DZ_RES_ERROR_CREATE</b> 253</dt>
+				<dd>'Error creating file!'</dd>
+				<dt><b>DZ_RES_ERROR_WRITE</b> 254</dt>
+				<dd>'Error writing file!'</dd>
+				<dt><b>DZ_RES_ERROR_SEEK</b> 255</dt>
+				<dd>'Error seeking in file!'</dd>
+				<dt><b>DZ_RES_EMPTY_ZIP</b> 256</dt>
+				<dd>'Missing or empty zip file!'</dd>
+				<dt><b>DZ_RES_INVAL_NAME</b> 257</dt>
+				<dd>'Invalid characters in filename!'</dd>
+				<dt><b>DZ_RES_GENERAL</b> 258</dt>
+				<dd>'Error '</dd>
+				<dt><b>DZ_RES_MISS</b> 259</dt>
+				<dd>'Nothing found'</dd>
+				<dt><b>DZ_RES_WARNING</b> 260</dt>
+				<dd>'Warning '</dd>
+				<dt><b>DZ_ERR_ERROR_DELETE</b> 261</dt>
+				<dd>'Delete failed'</dd>
+				<dt><b>DZ_ERR_FATAL_IMPORT</b> 262</dt>
+				<dd>'Fatal Error - could not import symbol!'</dd>
+				<dt><b>DZ_ERR_SKIPPING</b> 263</dt>
+				<dd>'Skipping'</dd>
+				<dt><b>DZ_ERR_LOCKED</b> 264</dt>
+				<dd>'File locked'</dd>
+				<dt><b>DZ_ERR_DENIED</b> 265</dt>
+				<dd>'Access denied'</dd>
+				<dt><b>DZ_ERR_DUPNAME</b> 266</dt>
+				<dd>'Duplicate internal name'</dd>
+				<dt><b>DT_Author</b> 277</dt>
+				<dd>'RPeters'</dd>
+				<dt><b>DT_Desc</b> 278</dt>
+				<dd>'Language Neutral'</dd>
+				<dt><b>DT_Language</b> 279</dt>
+				<dd>'US'</dd> 
+			</dl>
+        </div>
+        <div class="foot">2012-01-16 10:58</div>
+    </body>
+</html>

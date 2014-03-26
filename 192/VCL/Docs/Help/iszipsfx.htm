@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            IsZipSFX method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="IsZipSFX;IsZipSFX,TZipMaster;TZipMaster,IsZipSFX;">
+        <meta name="revised" content="2012-01-22">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="indexof.htm">Previous</a></li>
+                <li><a href="list.htm">Next</a></li>
+            </ul>
+            <h1>
+                IsZipSFX method
+            </h1>
+            <ul class="also-links">
+                <li><a href="uf_queryzip.htm">QueryZip</a></li>
+                <li><a href="uf_checksfxtype.htm">CheckSFXType</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> IsZipSFX(<b>const</b> SFXExeName: <b>String</b>): Integer;
+                    </p>
+                </dd>
+                <dt class="ft">Arguments</dt>
+                <dd class="fd">
+                    <dl>
+                        <dt><span class="mono">const SFXExeName: String</span></dt>
+                        <dd>The name of the SFX</dd>
+                    </dl>
+                </dd>
+                <dt class="ft">Results</dt>
+                <dd class="fd">         
+                        Return values:
+                        <ul class="clean">
+                            <li>0 = The specified file is not a SFX</li>
+                            <li>1 = might be stub of unknown type</li>
+                            <li>17 =&nbsp; found 1.7 SFX headers</li>
+                            <li>19 =&nbsp; found 1.9 SFX headers</li>
+                            <li>&lt;0 on errors</li>
+                        </ul>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Checks if a file is likely to be an SFX archive.
+                    </p>    
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-01-22 09:45</div>
+    </body>
+</html>

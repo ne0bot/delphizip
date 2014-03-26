@@ -1,0 +1,11 @@
+VERSION 4.0
+EXPORTS
+ DZ_Exec
+ DZ_Path
+ DZ_Name
+ DZ_Abort
+ DZ_Banner
+ DZ_Version
+ DZ_PrivVersion
+ DllMain
+

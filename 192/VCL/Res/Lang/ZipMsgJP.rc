@@ -1,0 +1,114 @@
+// JP: Japanese
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x11, 1 // 0x0411
+{
+  ZS_Canceled,               "ユーザーにより操作がキャンセルされました"
+  ZS_CopyCentral,            "Central Directory"
+  ZS_DllLoaded,              "%s Loaded"
+  ZS_NothingToZip,           "エラー - 圧縮するファイルがありません！"
+  ZS_NothingToDel,           "エラー - 削除用に選ばれたファイルがありません"
+  DS_NoDiskSpan,             "Disk Spanningはサポートしていません"
+  ZS_BadDll,                 "以下のディレクトリから古い%sの読込みを試みました "
+  ZS_NoDll,                  "%sが見つかりません！"
+  ZS_WrongZipStruct,         "警告 - Zip構造体中にエラー！"
+  ZC_UnatAddPWMiss,          "エラー - まだパスワードがありません"
+  ZC_UnatExtPWMiss,          "エラー - 解凍用のパスワードがありません"
+  CF_OverwriteYN,            "上書き確認 '%s' in '%s' ?"
+  ZS_AskDeleteFile,          "同名ファイルがあります %s\nこのファイルを上書きしても良いですか"
+  ZS_AskPrevFile,            "注意：これは1つ前のディスクです。 No %d！！！\n内容を上書きしても良いですか"
+  ZS_InDrive,                "\nは Drive: %sにあります"
+  ZS_InsertAVolume,          "Disk Volume %.1dのディスクを入れてください"
+  ZS_InsertDisk,             "最後のディスクを入れてください"
+  ZS_InsertVolume,           "Disk Volume %.1d の %.1d ディスクを入れてください"
+  ZC_Caption,                "パスワード"
+  ZC_MessageConfirm,         "パスワードの確認"
+  ZC_MessageEnter,           "パスワードの入力"
+  ZC_OK,                     "&Ok"
+  ZC_Cancel,                 "&Cancel"
+  ZC_Abort,                  "中断"
+  ZC_CancelAll,              "Cancel all"
+  ZS_InIsOutStream,          "インプットストリームは、アウトプットストリームにセットされないかもしれません"
+  ZS_InvalidName,            "ワイルドカードはファイル名、ファイルの明細の中では使えません"
+  ZS_UnattPassword,          "Unattendedオプション付きの操作では、パスワードが必要です"
+  ZS_SourceIsDest,           "同名ファイルが存在します"
+  ZS_InputNotExe,            "エラー : 指定されたファイルはEXEファイルではありません"
+  ZS_CEHWrongSig,            "Central Header signatureが不正です"
+  ZS_DriveNoMount,           "未定義のドライブ %s"
+  ZS_NoDiskSpace,            "ディスクの空き容量が不足しています"
+  ZS_NoInFile,               "指定されたファイルは存在しません"
+  DS_NotaDrive,              "有効なドライブではありません: %s"
+  ZS_NoUnattSpan,            "Unattended Disk Spanningは未実装です"
+  ZS_NoValidZip,             "この書庫は不正なZip書庫です"
+  ZS_UnAttPassword,          "警告 - Unattendedオプション付き解凍：一部のファイルが解凍されない可能性があります"
+  ZS_NoZipSpecified,         "エラー - Zipファイルが指定されていません！"
+  ZS_WrongPassword,          "エラー - パスワードが違います\nパスワードは無視されました"
+  ZS_NoZipSFXBin,            "エラー - %sが見つかりません！"
+  ZS_StringTooLong,          "エラー - プロパティーの文字列が長すぎます。255文字を超えました！"
+  ZS_AutoSFXWrong,           "エラー %.1d 自動SFX生成中に生じました"
+  ZS_CopyFailed,             "ファイルのコピー '%s' から '%s' は、失敗しました"
+  ZS_SFXCopyError,           "SFX Data コピー中のエラー"
+  ZS_CECommentLen,           "File Comment読み込み中のエラー"
+  ZS_CEHBadRead,             "Central Header読み込み中のエラー"
+  ZS_CEHBadWrite,            "Central Header書き込み中のエラー"
+  ZS_CENameLen,              "Central File Name読み込み中のエラー"
+  ZS_DataDesc,               "Data Descriptor Area読み書き中のエラー"
+  ZS_EOCBadRead,             "Central Directory末尾を読み込み中のエラー"
+  ZS_EOCBadWrite,            "Central Directory末尾を書き込み中のエラー"
+  ZS_ErrorUnknown,           "以下の関数の中で未知のエラー ReadSpan(), WriteSpan(), Rename() or CopyZippedFiles()\n"
+  ZS_FailedSeek,             "指定ファイルのシークエラー"
+  ZS_FileOpen,               "Zipファイルを開けません"
+  ZS_LOHBadRead,             "Local Header読み込み中のエラー"
+  ZS_LOHBadWrite,            "Local Header書き込み中のエラー"
+  DS_NoMem,                  "メッセージを表示するメモリーが足りません"
+  ZS_NoOutFile,              "出力用ファイルの生成失敗"
+  ZS_NoTempFile,             "作業用ファイルの生成ができません"
+  ZS_NoVolume,               "ボリュームラベルをセットできません"
+  ZS_NoWrite,                "出力用ファイルへの書き込み失敗"
+  ZS_FatalZip,               "DelZip179.DLL内で致命的エラー : 例外により中断"
+  ZS_NoMem,                  "利用不可能なメモリを要求しました"
+  LI_ErrorUnknown,           "未知のエラー in List() Function\n"
+  ZS_ReadZipError,           "Zip書庫の読み込み中のシークエラー！"
+  ZX_Language,               "JP: Japanese"
+}

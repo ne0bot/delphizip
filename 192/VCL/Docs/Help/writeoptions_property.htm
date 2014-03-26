@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            WriteOptions property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="TZipMaster,WriteOptions;WriteOptions;WriteOptions,TZipMaster;">
+        <meta name="revised" content="2012-03-09">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="version_property.htm">Previous</a></li>
+                <li><a href="zipcomment_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                WriteOptions property
+            </h1>
+            <ul class="also-links">
+                <li><a href="writing_zips.htm">Writing Zips</a></li>
+                <li><a href="spanoptions_property.htm">SpanOptions</a></li>
+                <li><a href="addoptions_property.htm">AddOptions</a></li>
+                <li><a href="add.htm">Add</a></li>
+                <li><a href="mergezippedfiles.htm">MergeZippedFiles</a></li>
+                <li><a href="addzippedfiles.htm">AddZippedFiles</a></li>
+                <li><a href="changefiledetails.htm">ChangeFileDetails</a></li>
+                <li><a href="copyzippedfiles.htm">CopyZippedFiles</a></li>
+                <li><a href="delete.htm">Delete</a></li>
+                <li><a href="converttosfx.htm">ConvertToSFX</a></li>
+                <li><a href="converttospansfx.htm">ConvertToSpanSFX</a></li>
+                <li><a href="converttozip.htm">ConvertToZip</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> WriteOptions: <a href="#tzmwriteopts">TZMWriteOpts</a>;
+                    </p>
+                </dd>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>type</b><br>&nbsp; <a name="tzmwriteopts">TZMWriteOpts</a> = <b>set</b> <b>of</b> <a href="#tzmwriteoptsenum">TZMWriteOptsEnum</a>;
+                    </p>
+                </dd>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>type</b><br>&nbsp; <a name="tzmwriteoptsenum">TZMWriteOptsEnum</a> = (zwoDiskSpan, zwoZipTime, zwoForceDest, zwoSafe);
+                    </p>
+					<table summary="TZMWriteOpts" border="1">
+						<tr>
+							<th>zwoDiskSpan</th><td>Write as multi-part zip (using <a href="spanoptions_property.htm">SpanOptions</a>)</td>
+						</tr>
+						<tr>
+							<th>zwoZipTime</th><td>Set the zip time stamp to the latest contained file</td>
+						</tr>
+						<tr>
+							<th>zwoForceDest</th><td>Try to force that the destination folder exists</td>
+						</tr>
+						<tr>
+							<th>zwoSafe</th><td>Write a temporary zip first then replace the original file</td>
+						</tr>
+					</table>
+					
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Controls how a zip file will be written.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-03-09 09:41</div>
+    </body>
+</html>

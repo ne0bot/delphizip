@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            Changes v1.9.0.x
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="revised" content="2012-01-07">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+            </ul>
+            <h1>
+                Changes v1.9 
+            </h1>
+        </div>
+        <dl class="f">
+            <dt class="ft">New</dt>
+            <dd>
+			  <ul>
+			      <li>
+				    Zip extensions version 4.50 - 
+						<ul>
+						     <li>Files larger than 4Gb supported</li>
+							 <li>More than 64k files</li>
+						</ul>
+				  </li>
+						<li>Zip file names - can use UTF8 for storing international file names.</li>
+						<li>When writing zip files the format used is controlled by new WriteOptions
+							<ul>
+								<li>zeoAuto, use OEM unless extended characters, otherwise UPath or UTF8</li>
+								<li>zeoRaw, do not encode file names</li>
+								<li>zeoOEM, convert file names to OEM</li>
+								<li>zeoUTF8, store extended file names as UTF8 (Default)</li>
+								<li>zeoUPATH store extended file names using unique safe name and (Info-Zip) UTF8</li>
+							</ul> 
+						</li>
+						<li>When reading zip files the format expected is controlled by the new property Encoded
+							<ul>
+								<li>zeoAuto, unless flags/versions say otherwise, or it has UTF8 name in data, treat it as OEM (FAT) / Ansi (NTFS)</li>
+								<li>zeoNone, assume name is Ansi - convert to Ansi/Unicode</li>
+								<li>zeoOEM, assume name is OEM - convert to Ansi/Unicode</li>
+								<li>zeoUTF, assume name is UTF8 - convert to Ansi/Unicode</li>
+								<li>zeoUPATH, use UPATH if available</li>
+							</ul> 
+						</li>
+				  <li><span class="early">Pre-D2009 to prevent corruption of international names they can be kept as UTF8</span> - see property <a href="useutf8_property.htm">UseUTF8</a>.
+				  </li>
+				  <li><span class="latter">D2009 (and later) file names are converted to Unicode so no corruption should occur.</span></li>
+				  <li>NTFS file stamps can be saved or restored - see <a href="addoptions_property.htm#tzmaddopts">AddNTFS</a> and <a href="addoptions_property.htm#tzmaddopts">ExtrNTFS</a>.</li>
+				  <li>When adding new files to an existing archive the old file can be preserved - see <a href="addoptions_property.htm#addversion">AddVersion</a>.</li>
+			  </ul>
+            </dd>
+            <dt class="ft">Types</dt>
+            <dd>
+				<dl>
+					<dt><a href="tzmstring_type.htm">TZMString</a></dt>
+					<dd>
+						<p class="tight"><span class="latter">D2009+ UnicodeString</span></p>
+						<p class="tight"><span class="early">Pre D2009 Ansi/UTF8</span></p>
+					</dd>
+					<dt><a href="tzmwidestring_type.htm">TZMWideString</a></dt>
+					<dd>
+						<p class="tight"><span class="latter">D2009+ UnicodeString</span></p>
+						<p class="tight"><span class="early">Pre D2009 WideString</span></p>
+					</dd>
+					<dt><a href="tzmdirentry_class.htm">TZMDirEntry</a></dt>
+					<dd>now a class was TZipDirEntry</dd>
+					<dt><a href="tzmdirrec_class.htm">TZMDirRec</a></dt>
+					<dd>version of TZMDirEntry allowing limited editing</dd>
+					<dt><a href="onstream_event.htm#tzmsstats">TZMSStats</a></dt>
+					<dd>used to &#39;identify&#39; streams</dd>
+				</dl>
+            </dd>
+            <dt class="ft">Enumerations</dt>
+            <dd class="fd">
+                <dl>
+					<dt><a href="state_property.htm#tzmstates">TZMStates</a></dt>
+					<dd>component operating state - see <a href="onstatechange_event.htm#tzmstatechange">TZMStateChange</a></dd>
+					<dt><a href="tzmdeflates_type.htm">TZMDeflates</a></dt>
+					<dd>Deflate methods - see <a href="deflate.htm">Deflate</a> or <a href="undeflate.htm">Undeflate</a></dd>
+					<dt><a href="tzmencodingopts_type.htm">TZMEncodingOpts</a></dt>
+					<dd>how names are encoded (reading)</dd>
+					<dt><a href="onstream_event.htm#tzmstreamop">TZMStreamOp</a></dt>
+					<dd>used to handle stream event requests</dd>
+					<dt><a href="writeoptions_property.htm#tzmwriteopts"><span class="c3">TZMWriteOpts</span></a></dt>
+					<dd>used when writing a zip file</dd>
+					<dt>TZMAddOptsEnum.addSeparateDirs</dt>
+					<dd>has been renamed by<a href="addoptions_property.htm#addemptydirs">addEmptyDirs</a>.</dd>
+				</dl>
+            </dd>
+            <dt class="ft">Functions</dt>
+            <dd class="fd">
+                <dl>
+					<dt><a href="addzippedfiles.htm">AddZippedFiles</a></dt>
+					<dd>add specified files from another zip file</dd>
+					<dt><a href="changefiledetails.htm">ChangeFileDetails</a></dt>
+					<dd>apply a function to modify file details for specified zip entries</dd>
+					<dt><a href="foreach.htm">ForEach</a></dt>
+					<dd>use a function on specified read-only zip entries</dd>
+					<dt><a href="deflate.htm">Deflate</a></dt>
+					<dd>compress a stream</dd>
+					<dt><a href="undeflate.htm">Undeflate</a></dt>
+					<dd>uncompress deflated stream</dd>
+				</dl>
+            </dd>
+            <dt class="ft">Properties</dt>
+            <dd class="fd">
+                <dl>
+					<dt><a href="useutf8_property.htm"><span class="early">UseUTF8</span></a></dt>
+					<dd><span class="early">controls string representation (Pre D2009 only)</span></dd>
+					<dt><a href="encoding_property.htm">Encoding</a></dt>
+					<dd>Filename and comment character encoding</dd>
+					<dt><a href="encoding_cp_property.htm">Encoding_CP</a></dt>
+					<dd>codepage to use to decode filename - &#39;raw&#39; names only</dd>
+					<dt><a href="writeoptions_property.htm">WriteOptions</a></dt>
+					<dd>controls how zip files will be written</dd>
+					<dt><a href="maxvolumesizekb_property.htm">MaxVolumeSizeKb</a></dt>
+					<dd>maximum volume size in kbytes</dd>
+					<dt><a href="noskipping_property.htm">NoSkipping</a></dt>
+					<dd>if true skipping a file is an error</dd>
+				</dl>
+            </dd>
+            <dt class="ft">Events</dt>
+            <dd class="fd">
+                <dl>
+					<dt><a href="onstream_event.htm#tzmstreamevent">TZMStreamEvent</a></dt>
+					<dd>Allows using streams in add/extract operations</dd>
+					<dt><a href="onstatechange_event.htm#tzmstatechange">TZMStateChange</a></dt>
+					<dd>Indicates changes to component busy state</dd>
+					<dt><a href="oncopyzippedoverwrite_event.htm#tzmcopyzippedoverwriteevent">TZMCopyZippedOverwriteEvent</a></dt>
+					<dd>from <a href="addzippedfiles.htm">AddZippedFile</a>, <a href="copyzippedfiles.htm">CopyZippedFile</a> <span class="note">*changed</span></dd>
+					<dt><a href="onskipped_event.htm#tzmskippedevent">TZMSkippedEvent</a></dt>
+					<dd><span class="note">replaces</span> TExtractSkipped</dd>
+					<dt>TItemProgressEvent</dt>
+					<dd><span class="note">removed</span> - use <a href="onprogress_event.htm#tzmprogressevent">TZMProgressEvent</a></dd>
+					<dt>TProgressEvent</dt>
+					<dd><span class="note">removed</span> - use <a href="onprogress_event.htm#tzmprogressevent">TZMProgressEvent</a></dd>
+					<dt>TTotalProgressEvent</dt>
+					<dd><span class="note">removed</span> - use <a href="onprogress_event.htm#tzmprogressevent">TZMProgressEvent</a></dd>
+					<dt><a href="onnewname_event.htm#tzmnewnameevent">TZMNewNameEvent</a></dt>
+					<dd><span class="note">changed signature</span></dd>
+					<dt><a href="onsetcomplevel_event.htm#tzmsetcomplevel">TZMSetCompLevelEvent</a></dt>
+					<dd><span class="note">new</span></dd>
+				</dl>
+            </dd>
+        </dl>
+        <div class="foot">2012-01-07 09:08</div>
+    </body>
+</html>

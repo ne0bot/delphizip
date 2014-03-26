@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            SFXOffset property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="SFXOffset;SFXOffset,TZipMaster;TZipMaster,SFXOffset;">
+        <meta name="revised" content="2012-02-09">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="sfxmessage_property.htm">Previous</a></li>
+                <li><a href="sfxoptions_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                SFXOffset property
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> SFXOffset: Integer;
+                    </p>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        SFXOffset is the size of the self-extracting code at the beginning of the zipfile.
+                    </p>
+                    <p class="f-p">
+                        SFXOffset is valid after a zip file&#39;s contents have been read successfully (which happens when you assign something to <a href="zipfilename_property.htm">ZipFileName</a>). When using non SFX zip files or when using diskspanning this will be zero.
+                    </p>
+                    <p class="f-p">
+                        Run-time only
+                    </p>
+                    <p class="f-p">
+                        Read-only
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-02-09 10:31</div>
+    </body>
+</html>

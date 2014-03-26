@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            Resource Format
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="Resource Format;Tools;">
+        <meta name="revised" content="2012-02-07">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+            </ul>
+            <h1>
+                Resource Format
+            </h1>
+        </div>
+        <div class="content">
+            <dl class="f">
+				<dt class="ft"></dt>
+				<dd class="fd">
+					<p class="f-p">The component can get its required Dll and/or message strings in different languages from a resource integrated in the application.</p>
+					<p class="f-p">The easiest way to create this resource with the languages you need is to use the <a href="zipresmaker.htm">ZipResMaker tool.</a></p>
+					<p class="f-p">The ZipResMaker has a graphic user interface that let you choose all the elements you want in your resource and with a simple mouse click the resource is build for you.</p>
+					<p class="f-p">ZipResMaker creates resource files compiling .rc files to .res files using BRCC32.</p>
+					<p class="f-p">The possible .rc files that are created :
+						<ul class="cleantight">
+							<li>ZMRES191_dll.rc for the dll resulting in ZMRes191_dll.res</li>
+							<li>ZMRES191_str.rc for the selected languages resulting in ZMRes191_str.res</li>
+							<li>ZMRES191_sfx.rc for the SFX stub resulting in ZMRes191_sfx.res</li>
+							<li>ZMRES191_all.rc a combination of any of the above resulting in ZMRes191_all.res.</li>
+						</ul>
+					</p>
+				</dd>
+				<dt class="ft">Content of the resource script file</dt>
+				<dd class="fd">
+					<p class="f-p">Essentially the content of the .rc files is</p>
+					<p class="tight">ZMRES191_dll.rc :</p>
+					<p class="f-p">DZResDLL RCDATA LOADONCALL MOVEABLE DISCARDABLE &quot;DZ_Dll191.bin&quot;</p>
+					<p class="tight">ZMRES191_str.rc:</p>
+					<p class="f-p">DZResSTR RCDATA LOADONCALL MOVEABLE DISCARDABLE &quot;DZ_STR191.bin&quot;</p>
+					<p class="tight">ZMRES191_sfx.rc:</p>
+					<p class="f-p">DZResSFX RCDATA LOADONCALL MOVEABLE DISCARDABLE &quot;DZ_SFX191.bin&quot;</p>
+					<p class="tight">ZMRES191_sfx.rc:</p>
+					<p class="f-p">DZResSFX RCDATA LOADONCALL MOVEABLE DISCARDABLE &quot;DZ_SFXU191.bin&quot;</p>
+					<p class="tight">ZMRES191_All.rc:</p>
+					<p class="f-p">Can be any combination of the above.</p>
+					<p class="f-p">DZResDLL, DZResSTR, DZResSFX are the resource ID strings for DLL, Language strings and SFX.</p>
+					<ul class="cleantight">
+						<li>DZ_Dll191.bin is the binary file created from the Dll.</li>
+						<li>DZ_STR191.bin is a binary file created from all selected language resource files ( ZipMsgxx.res files)</li>
+						<li>DZ_SFX191.bin is a binary file created from the SFX stub ( ZMSfx19.exe)</li>
+						<li>DZ_SFXU191.bin is a binary file created from the SFX stub ( ZMSfxU19.exe)</li>
+					</ul>
+				</dd>
+				<dt class="ft">Format of DZ_Dll191.bin</dt>
+				<dd class="fd">
+					<p class="f-p">The first 4 bytes of DZ_Dll191.bin are the version values of the DelZip190.dll, followed by the deflated dll (using <a href="addstreamtostream.htm">AddStreamToStream</a>) </p>
+					<p class="f-p">Example: first 4 bytes of DZ_Dll191.bin are 0x2B 0xFE 0x1C 0x00</p>
+					<p class="f-p">Representing the version 1900075.</p>
+					<p class="f-p">The rest of DZ_Dll19.bin is the normal delzip190.dll deflated with or without additional UPX compression.</p>
+					<p class="f-p">For usage during debugging inside the IDE we recommend to only deflate the dll. Using the <a href="upx.htm">UPX</a> compression tool can cause loading problems in the IDE</p>
+					<p class="f-p">For normal usage outside the IDE use compression with the UPX compression tool</p>
+					<p class="f-p">The loader code for the Dll can handle both either format</p>
+					<p class="f-p">In ZipResMaker this can be indicated by checking/unchecking the &quot;Compress with UPX&quot; option</p>
+				</dd>            
+				<dt class="ft">Format of DZ_STR191.bin</dt>
+				<dd class="fd">
+					<p class="f-p">The binary file consists of blocks for all selected languages:</p>
+					<p class="f-p">Each language is in the file as a single bloc.</p>
+					<p class="f-p">The format for each languages is
+						<table summary="Language preamble">
+							<tr>
+							  <td>&nbsp;Language ID</td> <td>&nbsp;WORD</td> <td>&nbsp;the language code as indicated in the
+										ZipMsgxx.rc file</td>
+							</tr>
+							<tr>
+							  <td>&nbsp;Data Size</td> <td>&nbsp;WORD</td> <td>&nbsp;the size of the data</td>
+							</tr>
+							<tr>
+							  <td>&nbsp;Language Identifier</td> <td>&nbsp;4 AnsiChar</td> <td>&nbsp;the name of the language, padded
+											 with 0's </td>
+							</tr>
+							<tr>
+							  <td>&nbsp;Data</td> <td>&nbsp;variable length</td> <td>&nbsp;see language data (below)</td>
+							</tr>
+						</table>
+					</p>			
+					<p class="f-p">The data part starts with the preamble:
+						<table summary="Language data preamble">
+							<tr>
+							  <td>&nbsp;0</td> <td>WORD</td> <td>&nbsp;always 0</td>
+							</tr>
+							<tr>
+							  <td>&nbsp;DateTime as FileTime</td> <td>DWORD</td> <td>&nbsp;date time of creation</td>
+							</tr>
+							<tr>
+							  <td>&nbsp;IsAnsi</td> <td>WORD</td> <td>&nbsp;indicating if data is in ANSI or Unicode
+														 value of 1 = ANSI </td>
+							</tr>
+						</table>
+					</p>
+					<p class="f-p">The next part is the ranges table containing the identifier ranges and their offset in the data part,
+		The number of ranges depends on the organization of the ZipMsg.h file :
+						<table summary="Language ranges table">
+							<tr>
+							  <td>&nbsp;MaxVal</td> <td>WORD</td> <td>&nbsp;max value of identifier in the range</td>
+							</tr>
+							<tr>
+							  <td>&nbsp;MinVal</td> <td>DWORD</td> <td>&nbsp;min value of identifier in the range</td>
+							</tr>
+							<tr>
+							  <td>&nbsp;Base</td> <td>WORD</td> <td>&nbsp;Starting offset (from start of Language-data) for this range in the offsets table</td>
+							</tr>
+						</table>
+						The ranges part is closed with the end identifier 0xFFFF.
+					</p>
+					<p class="f-p">Next is the Offsets table which is a WORD array of the offset (from start of Language-data) of the start of each message string</p>
+					<p class="f-p">Then the characters part that consists of the content of the ZipMsgxx.rc file stored in AnsiChar or WideChar,
+					depending on the value in IsAnsi see above.</p>
+					<p class="f-p">The whole data part is compressed with the deflate (zip) method.</p>
+
+					<p class="f-p"><span class="note">Note:</span> The creation process of the above file does not use the ZipMsgxx.res files, hence these are no longer included in the downloads.</p>	
+					<p class="f-p"><span class="note">Note:</span> The component has a global copy of the uncompressed languange-data for the default (US) strings and when a language is selected it uncompresses a copy of the selected language language-data which gets searched first</p>			
+				</dd>
+				<dt class="ft">Format of DZ_SFX191.bin and DZ_SFXU191.bin</dt>
+				<dd class="fd">
+            <p class="f-p">The first 4 bytes of DZ_SFX191.bin and DZ_SFXU191.bin are the version values of the selected ZMSFX19.exe</p>
+            <p>Example: first 4 bytes of ZMSFXU.bin are 0x04 0xFE 0x1C 0x00</p>
+            <p>Representing the version 1900036.</p>
+            <p class="f-p">The rest of DZ_SFX191.bin and DZ_SFXU191.bin are the normal ZMSFX191.exe with or without compression including the selected languages.</p>
+            <p class="f-p">For usage during debugging of the SFX stub we recommend not to compress the stub.</p>
+            <p class="f-p">For normal usage outside the IDE use compression with the UPX compression tool</p>
+            <p class="f-p">In ZipResMaker this can be indicated by checking/unchecking the &quot;Compress with UPX&quot; option</p>
+            <p class="f-p">The selected languages will be included in the ZMSFX191.exe as resources.</p>
+            <p class="f-p">First the language strings are read from the SFXstr_xx.txt files into a table, that table is compressed using the</p>
+            <p class="f-p">TZipMaster component and the <a href="addstreamtostream.htm">AddStreamToStream</a> method.</p>
+            <p class="f-p">The compressed table is then added to the stub as a resource using the UpdateResource API with arguments</p>
+            <p>UpdateResource(hUpdateRes, // update resource handle</p>
+            <p>RT_RCDATA, // change resource</p>
+            <p>PChar(id), // resource name</p>
+            <p>MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL), // neutral language</p>
+            <p>ts.Memory,&nbsp; // ptr to resource info</p>
+            <p>ts.Size)) // size of resource info.</p>
+            <p>Were id is a sequence number starting with 129 for the first language, 130 for the second and so on.</p>
+            <p class="f-p">We use MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL) because the SFXStub will find the real language indicator in the</p>
+            <p>lanugage strings and use that information (Lang_ID is the first info in the table).</p>
+				</dd>
+            </dl>
+        </div>
+        <div class="foot">2012-04-18 10:09</div>
+    </body>
+</html>

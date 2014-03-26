@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            CopyZippedFiles method
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="CopyZippedFiles;CopyZippedFiles,TZipMaster;TZipMaster,CopyZippedFiles;">
+        <meta name="revised" content="2012-01-13">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="converttozip.htm">Previous</a></li>
+                <li><a href="copy_file.htm">Next</a></li>
+            </ul>
+            <h1>
+                CopyZippedFiles method
+            </h1>
+            <ul class="also-links">                                            
+                <li><a href="mergezippedfiles.htm">MergeZippedFiles</a></li>
+                <li><a href="working_with_sfx.htm">Working with SFX</a></li>
+                <li><a href="addzippedfiles.htm">AddZippedFiles</a></li>
+                <li><a href="oncopyzippedoverwrite_event.htm">OnCopyZipOverwrite</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>function</b> CopyZippedFiles(DestZipMaster: TCustomZipMaster; DeleteFromSource: Boolean; OverwriteDest: <a href="mergezippedfiles.htm#tzmmergeopts">TZMMergeOpts</a>): Integer;
+                    </p>
+					<p class="f-p"><b>Depreciated</b> new applications should use <a href="mergezippedfiles.htm">MergeZippedFiles</a></p>
+                </dd>
+                <dt class="ft">Arguments</dt>
+                <dd class="fd">
+                    <dl>
+                        <dt><span class="mono">DestZipMaster: TCustomZipMaster</span></dt>
+                        <dd>the ZipMaster component you are going to use as the destination zip archive.</dd>
+                        <dt><span class="mono">DeleteFromSource: Boolean</span></dt>
+                        <dd>if True the source file(s) will be deleted after a successful copy.</dd>
+                        <dt><span class="mono">OverwriteDest: TZMMergeOpts</span></dt>
+                        <dd class="tight">
+						    <p class="tight">can take one of the following values:</p>
+							<p class="tight">
+								<dl class="notop">
+									<dt class="notop">zmoConfirm</dt>
+									<dd>
+										Ask the user if the destination may be overwritten when a source file is found inside the destination or performs the <a href="oncopyzippedoverwrite_event.htm">OnCopyZipOverwrite</a> event when assigned.
+									</dd>
+									<dt>zmoAlways</dt>
+									<dd>
+										Always overwrite existing files in the destination
+									</dd>
+									<dt>zmoNewer</dt>
+									<dd>
+										Overwrite only when the source file is younger than the destination file
+									</dd>
+									<dt>zmoOlder</dt>
+									<dd>
+										Overwrite only when the source file is older than the destination file
+									</dd>
+									<dt>zmoNever</dt>
+									<dd>
+										Never overwrite - skip those files, afterwards these files can be found in FSpecArgs from the source.
+									</dd>
+								</dl>
+							</p>
+						</dd>
+						<dt class="notop"><a href="fspecargs_property.htm">FSpecArgs</a> and <a href="fspecargsexcl_property.htm">FSpecArgsExcl</a></dt>
+						<dd>the files to copy</dd>
+						<dt>Other properties controlling <a href="writing_zips.htm">writing zip files</a></dt>
+                    </dl>
+                </dd>
+                <dt class="ft">Results</dt>
+                <dd class="fd">
+                    <ul class="ul-left">
+                        <li>Returns 0 on success otherwise a negative value equal to - <a href="errors_and_messages.htm">Error Code</a>.</li>
+                        <li>Sets <a href="errcode_property.htm">ErrCode</a> and <a href="errmessage_property.htm">ErrMessage</a></li>
+                    </ul>
+                </dd>
+				<dt class="ft">Description</dt>
+				<dd class="fd">
+					<p class="f-p">
+						CopyZippedFiles copies zipped entries from the source zip archive to a destination zip archive without, the possibly time consuming need, of extracting and re-zipping again.&nbsp;
+					</p>
+					<p class="f-p">
+						The file(s) to be copied must be <a href="selecting_files.htm">selected</a> in the source archive before calling this function.
+					</p>
+					<p class="f-p">&nbsp;</p>
+					<p class="f-p">
+						<span class="note">NOTE:</span> the destination zip archive does not have to exist but must be writable.
+					</p>
+				</dd>
+				<dt class="ft">Example</dt>
+				<dd class="fd">
+<!-- Highlighted Pascal code generated by DelphiDabbler PasHi -->
+<pre class="pas-source"><span class="pas-space"> </span><span class="pas-comment">// copy AutoExec.bat and Config.sys to another zip        </span>
+<span class="pas-space"> </span><span class="pas-ident">Zip1</span><span class="pas-sym">.</span><span class="pas-ident">ZipFileName</span><span class="pas-space"> </span><span class="pas-sym">=</span><span class="pas-space"> </span><span class="pas-str">'SourceZip.zip'</span><span class="pas-sym">;</span><span class="pas-space">       </span><span class="pas-comment">// Open the source        </span>
+<span class="pas-space"> </span><span class="pas-kwd">if</span><span class="pas-space"> </span><span class="pas-ident">Zip1</span><span class="pas-sym">.</span><span class="pas-ident">ErrCode</span><span class="pas-space"> </span><span class="pas-sym">&lt;&gt;</span><span class="pas-space"> </span><span class="pas-num">0</span><span class="pas-space"> </span><span class="pas-kwd">then</span><span class="pas-space">         </span><span class="pas-comment">// check no error        </span>
+<span class="pas-space">    </span><span class="pas-ident">handle_the_error</span><span class="pas-err">!</span><span class="pas-space">        </span>
+<span class="pas-space"> </span><span class="pas-ident">Zip1</span><span class="pas-sym">.</span><span class="pas-ident">FSpecArgs</span><span class="pas-sym">.</span><span class="pas-ident">Clear</span><span class="pas-sym">;</span><span class="pas-space">        </span>
+<span class="pas-space"> </span><span class="pas-ident">Zip1</span><span class="pas-sym">.</span><span class="pas-ident">FSpecArgs</span><span class="pas-sym">.</span><span class="pas-ident">Add</span><span class="pas-sym">(</span><span class="pas-space"> </span><span class="pas-str">'AutoExec.bat'</span><span class="pas-space"> </span><span class="pas-sym">)</span><span class="pas-sym">;</span><span class="pas-space">       </span><span class="pas-comment">// select required files        </span>
+<span class="pas-space"> </span><span class="pas-ident">Zip1</span><span class="pas-sym">.</span><span class="pas-ident">FSpecArgs</span><span class="pas-sym">.</span><span class="pas-ident">Add</span><span class="pas-sym">(</span><span class="pas-space"> </span><span class="pas-str">'Config.sys'</span><span class="pas-space"> </span><span class="pas-sym">)</span><span class="pas-sym">;</span><span class="pas-space">        </span>
+<span class="pas-space"> </span><span class="pas-ident">Zip1</span><span class="pas-sym">.</span><span class="pas-ident">HowToDelete</span><span class="pas-space"> </span><span class="pas-sym">:=</span><span class="pas-space"> </span><span class="pas-ident">htdAllowUndo</span><span class="pas-sym">;</span><span class="pas-space">       </span><span class="pas-comment">// 'safely' replace the destination        </span>
+<span class="pas-space">             </span>
+<span class="pas-space"> </span><span class="pas-ident">Zip2</span><span class="pas-sym">:=</span><span class="pas-space"> </span><span class="pas-ident">TZipMaster19</span><span class="pas-sym">.</span><span class="pas-ident">Create</span><span class="pas-sym">(</span><span class="pas-ident">self</span><span class="pas-sym">)</span><span class="pas-sym">;</span><span class="pas-space">       </span><span class="pas-comment">// create ZipMaster 2        </span>
+<span class="pas-space"> </span><span class="pas-ident">Zip2</span><span class="pas-sym">.</span><span class="pas-ident">ZipFileName</span><span class="pas-space"> </span><span class="pas-sym">:=</span><span class="pas-space"> </span><span class="pas-str">'DestinationZip.zip'</span><span class="pas-sym">;</span><span class="pas-space">       </span><span class="pas-comment">// set the destination        </span>
+<span class="pas-space"> </span><span class="pas-kwd">if</span><span class="pas-space"> </span><span class="pas-ident">Zip2</span><span class="pas-sym">.</span><span class="pas-ident">ErrCode</span><span class="pas-space"> </span><span class="pas-sym">&lt;&gt;</span><span class="pas-space"> </span><span class="pas-num">0</span><span class="pas-space"> </span><span class="pas-kwd">then</span><span class="pas-space">        </span>
+<span class="pas-space">    </span><span class="pas-ident">handle_the_error</span><span class="pas-err">!</span><span class="pas-space">        </span>
+<span class="pas-space">          </span>
+<span class="pas-space"> </span><span class="pas-ident">Result</span><span class="pas-space"> </span><span class="pas-sym">:=</span><span class="pas-space"> </span><span class="pas-ident">Zip1</span><span class="pas-sym">.</span><span class="pas-ident">CopyZippedFiles</span><span class="pas-sym">(</span><span class="pas-space"> </span><span class="pas-ident">Zip2</span><span class="pas-sym">,</span><span class="pas-space"> </span><span class="pas-ident">true</span><span class="pas-sym">,</span><span class="pas-space"> </span><span class="pas-ident">zmoConfirm</span><span class="pas-space"> </span><span class="pas-sym">)</span><span class="pas-sym">;</span><span class="pas-space">   </span><span class="pas-comment">// copy files to destination, remove from source          </span>
+<span class="pas-space"> </span><span class="pas-kwd">if</span><span class="pas-space"> </span><span class="pas-ident">Result</span><span class="pas-space"> </span><span class="pas-sym">&lt;&gt;</span><span class="pas-space"> </span><span class="pas-num">0</span><span class="pas-space"> </span><span class="pas-kwd">then</span><span class="pas-space">        </span>
+<span class="pas-space">    </span><span class="pas-ident">handle_the_error</span><span class="pas-err">!</span><span class="pas-space">        </span>
+<span class="pas-space">          </span>
+<span class="pas-space"> </span><span class="pas-ident">When</span><span class="pas-space"> </span><span class="pas-ident">the</span><span class="pas-space"> </span><span class="pas-ident">Result</span><span class="pas-space"> </span><span class="pas-kwd">is</span><span class="pas-space"> </span><span class="pas-num">0</span><span class="pas-space"> </span><span class="pas-sym">(</span><span class="pas-ident">Ok</span><span class="pas-sym">)</span><span class="pas-space"> </span><span class="pas-kwd">then</span><span class="pas-space"> </span><span class="pas-ident">the</span><span class="pas-space"> </span><span class="pas-ident">two</span><span class="pas-space"> </span><span class="pas-ident">files</span><span class="pas-space"> </span><span class="pas-ident">are</span><span class="pas-space"> </span><span class="pas-ident">removed</span><span class="pas-space"> </span><span class="pas-ident">from</span><span class="pas-space"> </span><span class="pas-ident">SourceZip</span><span class="pas-sym">.</span><span class="pas-ident">zip</span><span class="pas-space"> </span><span class="pas-kwd">and</span><span class="pas-space"> </span><span class="pas-ident">were</span><span class="pas-space"> </span><span class="pas-ident">copied</span><span class="pas-space"> </span><span class="pas-ident">into</span><span class="pas-space"> </span><span class="pas-ident">DestinationZip</span><span class="pas-sym">.</span><span class="pas-ident">zip</span><span class="pas-sym">.</span><span class="pas-space">         </span>
+<span class="pas-space"> </span><span class="pas-ident">The</span><span class="pas-space"> </span><span class="pas-ident">Original</span><span class="pas-space"> </span><span class="pas-ident">destination</span><span class="pas-space"> </span><span class="pas-ident">archive</span><span class="pas-space"> </span><span class="pas-sym">(</span><span class="pas-ident">DestinationZip</span><span class="pas-sym">.</span><span class="pas-ident">zip</span><span class="pas-sym">)</span><span class="pas-space"> </span><span class="pas-kwd">is</span><span class="pas-space"> </span><span class="pas-ident">placed</span><span class="pas-space"> </span><span class="pas-ident">into</span><span class="pas-space"> </span><span class="pas-ident">the</span><span class="pas-space"> </span><span class="pas-ident">recycle</span><span class="pas-space"> </span><span class="pas-ident">bin</span><span class="pas-sym">.</span><span class="pas-space">         </span>
+<span class="pas-space"> </span><span class="pas-kwd">File</span><span class="pas-sym">(</span><span class="pas-ident">s</span><span class="pas-sym">)</span><span class="pas-space"> </span><span class="pas-ident">that</span><span class="pas-space"> </span><span class="pas-ident">are</span><span class="pas-space"> </span><span class="pas-kwd">not</span><span class="pas-space"> </span><span class="pas-ident">copied</span><span class="pas-space"> </span><span class="pas-ident">because</span><span class="pas-space"> </span><span class="pas-ident">you</span><span class="pas-space"> </span><span class="pas-ident">answered</span><span class="pas-space"> </span><span class="pas-ident">NO</span><span class="pas-space"> </span><span class="pas-kwd">on</span><span class="pas-space"> </span><span class="pas-ident">the</span><span class="pas-space"> </span><span class="pas-ident">overwrite</span><span class="pas-space"> </span><span class="pas-ident">question</span><span class="pas-sym">,</span><span class="pas-space"> </span><span class="pas-kwd">or</span><span class="pas-space"> </span><span class="pas-kwd">in</span><span class="pas-space"> </span><span class="pas-kwd">case</span><span class="pas-space"> </span><span class="pas-ident">OvrNever</span><span class="pas-space"> </span><span class="pas-ident">was</span><span class="pas-space"> </span><span class="pas-ident">specified</span><span class="pas-sym">,</span><span class="pas-space"> </span><span class="pas-ident">can</span><span class="pas-space"> </span><span class="pas-ident">be</span><span class="pas-space"> </span><span class="pas-ident">found</span><span class="pas-space"> </span><span class="pas-kwd">in</span><span class="pas-space"> </span><span class="pas-ident">the</span><span class="pas-space"> </span><span class="pas-ident">FSpecArgs</span><span class="pas-space"> </span><span class="pas-ident">list</span><span class="pas-space"> </span><span class="pas-ident">from</span><span class="pas-space"> </span><span class="pas-ident">the</span><span class="pas-space"> </span><span class="pas-ident">source</span><span class="pas-space"> </span><span class="pas-ident">afterwards</span><span class="pas-sym">.</span><span class="pas-space">         </span></pre>
+				</dd>
+			</dl>
+        </div>
+        <div class="foot">2012-01-15 09:36</div>
+    </body>
+</html>

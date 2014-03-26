@@ -1,0 +1,163 @@
+// NL: Dutch
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 0x13, 1 // 0x0413
+{
+  ZS_UnknownError,           "Onbekende fout"
+  ZS_Canceled,               "Gebruiker annuleerde aktie"
+  ZS_CopyCentral,            "Centrale struktuur"
+  ZS_Skipped,                "Niet uitgepakt %s %d"
+  ZS_TempZip,                "Tijdelijk zip bestand: %s"
+  ZS_DllLoaded,              "Geladen %s"
+  ZS_DllUnloaded,            "Verwijderd %s"
+  ZS_NothingToZip,           "Fout - geen bron bestand(en) aanwezig!"
+  ZS_NothingToDel,           "Fout - geen bestand(en) gekozen om te verwijderen"
+  DS_NoDiskSpan,             "Archieveren naar meerdere disken is niet voorzien"
+  ZS_NoRenamePart,           "Naam van laatste deel blijft : %s"
+  ZS_EventEx,                "Exceptie in Event "
+  ZS_BadDll,                 "Kan %s niet laden - Is te oud of beschadigd"
+  ZS_NoDll,                  "Laden van %s is mislukt"
+  ZS_WrongZipStruct,         "Waarschuwing - Fout in Zip struktuur!"
+  ZC_UnatAddPWMiss,          "Fout - geen Add wachtwoord gegeven"
+  ZC_UnatExtPWMiss,          "Fout - geen Extract wachtwoord gegeven"
+  ZP_Archive,                "*Archievering bit op nul zetten"
+  ZP_CopyZipFile,            "*Copieren van Zip File"
+  ZP_SFX,                    "*SFX"
+  ZP_Header,                 "*Hoofding"
+  ZP_Finish,                 "*Beëindigen"
+  ZP_Copying,                "*Copieren"
+  ZP_CentrlDir,              "*Centrale Struktuur"
+  ZP_Checking,               "*Kontroleren"
+  ZP_Loading,                "*Laden Directory"
+  ZP_Joining,                "*Herenigen van gesplitste zip bestand"
+  ZP_Splitting,              "*Splitsen van zip bestand"
+  CF_OverwriteYN,            "Mag bestand '%s' in '%s' overschreven worden?"
+  ZS_AskDeleteFile,          "Er is al een bestand %s\n Wilt u dit bestand overschrijven."
+  ZS_AskPrevFile,            "ATTENTIE: Dit is vorige disk nr. %d!!!\nWeet u het zeker dat u de inhoud wilt overschrijven."
+  ZS_InDrive,                "\nin drive: %s"
+  ZS_InsertAVolume,          "Plaats disk volume %.1d"
+  ZS_InsertDisk,             "Plaats de laatste disk"
+  ZS_InsertVolume,           "Plaats disk volume %.1d van %.1d"
+  ZS_Confirm,                "Bevestig"
+  ZS_Erase,                  "Leeg maken "
+  ZC_Caption,                "Wachtwoord"
+  ZC_MessageConfirm,         "Bevestig wachtwoord "
+  ZC_MessageEnter,           "Geef wachtwoord "
+  ZC_Yes,                    "&Ja"
+  ZC_No,                     "&Nee"
+  ZC_OK,                     "&OK"
+  ZC_Cancel,                 "&Annuleren"
+  ZC_Abort,                  "&Afbreken"
+  ZC_Retry,                  "&Opnieuw"
+  ZC_Ignore,                 "&Negeer"
+  ZC_CancelAll,              "Alles Annuleren"
+  ZC_NoToAll,                "Nee op alles"
+  ZC_YesToAll,               "Ja op alles"
+  ZS_InIsOutStream,          "Input stream mag niet hetzelfde zijn als de output stream"
+  ZS_InvalidName,            "Wildcard tekens niet toegestaan in Filename of file specifikatie"
+  ZS_NoDestDir,              "Bestemmingsmap '%s' moet bestaan!"
+  ZS_UnattPassword,          "Onbeheerde aktie niet mogelijk zonder een wachtwoord op te geven"
+  ZS_CEHDataSize,            "De gecombineerde lengte van CEH + FileName + FileComment + ExtraData is groter dan 65535"
+  ZS_NoChangeDir,            "Kan de data van bestand '%s' niet wijzigen"
+  ZS_NoProtected,            "Details veranderen van beschermd bestand is niet toegelaten"
+  ZS_SourceIsDest,           "Bron archief is hetzelfde als het doel archief!"
+  ZS_InputNotExe,            "Fout: Gekozen bestand is geen .EXE bestand"
+  ZS_CEHWrongSig,            "Een centrale herkenning is fout"
+  ZS_DriveNoMount,           "Drive %s is niet beschikbaar"
+  ZS_NoDiskSpace,            "Deze disk heeft niet genoeg vrije ruimte beschikbaar"
+  ZS_NoInFile,               "Gekozen bron bestand bestaat niet"
+  DS_NotaDrive,              "Drive %s is niet bekend"
+  ZS_NotChangeable,          "Kan niet schrijven naar %s"
+  ZS_NoUnattSpan,            "Onbeheerd kopieren naar meerdere disks is niet geimplementeerd"
+  ZS_NoValidZip,             "Dit bestand is geen (goed) Zip archief bestand"
+  ZS_NoExtrDir,              "Bestemmingsmap '%s' voor extraheren moet bestaan"
+  ZS_UnAttPassword,          "Waarschuwing - Onbeheerde Extract: mogelijk niet alle bestanden uitgepakt."
+  ZS_NoZipSpecified,         "Fout - geen zip file opgegeven!"
+  ZS_WrongPassword,          "Fout - Wachtwoorden verschillend\nWachtwoord wordt niet gebruikt"
+  ZS_InvalidDateTime,        "Ongeldig datum/tijd argument voor bestand: "
+  ZS_NoZipSFXBin,            "Fout - SFX stub '%s' niet gevonden!"
+  ZS_AutoSFXWrong,           "Fout %.1d opgetreden tijdens het automatisch maken van een SFX bestand"
+  ZS_CopyFailed,             "Kopieren van een bestand uit '%s' naar '%s' is mislukt"
+  ZS_SFXCopyError,           "Fout tijdens het kopieren van de SFX gegevens"
+  ZS_BrowseError,            "Fout tijdens zoeken in resources."
+  ZS_ExeSections,            "Fout tijdens lezen van executable secties."
+  ZS_NoCopyIcon,             "Kan icon niet kopiëren."
+  ZS_NoExeIcon,              "Geen icon resources gevonden in de executable."
+  ZS_NoExeResource,          "Geen resources gevonden in het programma."
+  ZS_NoIcon,                 "Geen icon gevonden."
+  ZS_NoIconFound,            "Geen overeenstemmend Icon gevonden."
+  ZS_CECommentLen,           "Fout tijdens het lezen van een bestands commentaar"
+  ZS_CEHBadRead,             "Fout tijdens het lezen een centrale struktuur"
+  ZS_CEHBadWrite,            "Fout tijdens het schrijven van een centraal record"
+  ZS_CENameLen,              "Fout tijdens het lezen van een centrale bestandsnaam"
+  ZS_DataDesc,               "Fout tijdens het lezen/schrijven van een gegevens beschrijvings gebied"
+  ZS_EOCBadRead,             "Fout tijdens het lezen van de EOC struktuur"
+  ZS_EOCBadWrite,            "Fout tijdens het schrijven van de EOC struktuur"
+  ZS_ErrorUnknown,           "Onbekende fout in de functie ReadSpan(), WriteSpan(), ChangeFileDetails() or CopyZippedFiles()\n"
+  ZS_FailedSeek,             "Zoek fout in het bron bestand"
+  ZS_FileOpen,               "Zip bestand kan niet worden geopend"
+  ZS_LOHBadRead,             "Fout tijdens het lezen van een lokale struktuur"
+  ZS_LOHBadWrite,            "Fout tijdens het schrijven van een lokaal record"
+  DS_NoMem,                  "Niet genoeg geheugen om MsgBox te tonen"
+  ZS_NoOutFile,              "Maken van het doel bestand mislukt"
+  ZS_NoTempFile,             "Tijdelijke bestand kon niet worden gemaakt"
+  ZS_NoVolume,               "Volume label kon niet worden aangepast"
+  ZS_NoWrite,                "Schrijffout in het doel bestand"
+  ZS_DLLCritical,            "Kritische DLL Fout %d"
+  ZS_Except,                 "Exceptie in Event handler "
+  ZS_FatalZip,               "Fatale fout in DLL: Actie afgebroken"
+  ZS_Inactive,               "Niet aktief"
+  ZS_NoMem,                  "Gevraagde hoeveelheid geheugen niet beschikbaar"
+  ZS_RangeError,             "Index (%d) buiten bereik 1..%d"
+  ZS_Unknown,                "Onbekende fout %d"
+  GE_WasBusy,                "Bezig + %s"
+  LI_ErrorUnknown,           "Onbekende fout in de List() functie!\n"
+  ZS_ReadZipError,           "Zoek fout bij het lezen van het Zip archief!"
+  ZS_Deleting,               "EraseFloppy - Schrappen van %s"
+  ZS_Erasing,                "EraseFloppy - Verwijderen van %s"
+  ZS_GetNewDisk,             "Trace : GetNewDisk Openen van : %s"
+  TM_SystemError,            "Systeem fout: %d"
+  ZX_Author,                 "Roger Aelbrecht"
+  ZX_Language,               "NL: Dutch"
+}

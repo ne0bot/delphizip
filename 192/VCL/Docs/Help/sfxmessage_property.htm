@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            SFXMessage property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="SFXMessage;SFXMessage,TZipMaster;TZipMaster,SFXMessage;">
+        <meta name="revised" content="2012-02-09">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="sfxicon_property.htm">Previous</a></li>
+                <li><a href="sfxoffset_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                SFXMessage property
+            </h1>
+            <ul class="also-links">
+                <li><a href="working_with_sfx.htm">Working with SFX</a></li>
+                <li><a href="sfxcaption_property.htm">SFXCaption</a></li>
+                <li><a href="sfxcommandline_property.htm">SFXCommandLine</a></li>
+                <li><a href="sfxdefaultdir_property.htm">SFXDefaultDir</a></li>
+                <li><a href="sfxicon_property.htm">SFXIcon</a></li>
+                <li><a href="sfxoptions_property.htm">SFXOptions</a></li>
+                <li><a href="sfxoverwritemode_property.htm">SFXOverwriteMode</a></li>
+                <li><a href="sfxpath_property.htm">SFXPath</a></li>
+                <li><a href="sfxregfailpath_property.htm">SFXRegFailPath</a></li>
+                <li><a href="sfx_stub.htm">SFXStub</a></li>
+                <li><a href="converttosfx.htm">ConvertToSFX</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> SFXMessage: <a href="tzmstring_type.htm">TZMString</a>;
+                    </p>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        You can specify a message that will be displayed before the main extraction dialog pops up.
+                    </p>                                                  
+                    <dl class="f">
+                        <dt>You can also specify the type of the message box:</dt>
+                        <dd>
+                            <table cellspacing="0" border="1">
+                                <tr>
+                                    <th>Prefix</th>
+                                    <th>Type</th>
+                                    <th>explanation</th>
+                                </tr>
+                                <tr>
+                                     <td>&nbsp;</td>
+                                     <td><b>Standard</b></td>
+                                     <td>&nbsp;The messagebox shows an &#39;OK&#39; button. The User cannot cancel starting the SFX application.</td>
+                                </tr> 
+                                <tr>     
+                                     <td>1|</td>
+                                     <td><b>Information</b></td>
+                                     <td>&nbsp;The messagebox shows the buttons &#39;OK&#39; and &#39;Cancel&#39;. if the User presses &#39;Cancel&#39;, sfx will stop.</td>
+                                </tr>
+                                <tr>       
+                                     <td>2|</td>
+                                     <td><b>Confirmation</b></td>
+                                     <td>&nbsp;The messagebox shows the buttons &#39;Yes&#39; and &#39;No&#39;. if the User presses &#39;No&#39;, sfx will stop.</td>
+                                </tr>
+                            </table>
+                        </dd>
+                    </dl>           
+                    <p class="f-p">
+                    &nbsp;
+                    </p>
+                    <p class="f-p">
+                        <span class="note">NOTE:</span> When the first character of the string = &#39;|&#39; then all following chars will be included in the message.&nbsp;
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-02-09 10:15</div>
+    </body>
+</html>

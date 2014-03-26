@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            OnSetCompLevel event
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="OnSetCompLevel;OnSetCompLevel,TZipMaster;TZipMaster,OnSetCompLevel;">
+        <meta name="revised" content="2012-03-14">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="onsetaddname_event.htm">Previous</a></li>
+                <li><a href="onsetextname_event.htm">Next</a></li>
+            </ul>
+            <h1>
+                OnSetCompLevel event
+            </h1>
+            <ul class="also-links">
+                <li><a href="addcomplevel_property.htm">AddCompLevel</a></li>
+                <li><a href="add.htm">Add</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> OnSetCompLevel: <a href="#tzmsetcomplevel">TZMSetCompLevel</a>;
+                    </p>
+                </dd>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>type</b><br>&nbsp; <a name="tzmsetcomplevel">TZMSetCompLevel</a> = <b>procedure</b>(Sender: TObject; <b>const</b> ForFile: <a href="tzmstring_type.htm">TZMString</a>; <b>var</b> level: Integer; <b>var</b> IsChanged: Boolean) <b>of</b> <b>object</b>;
+                    </p>
+					<dl class="f">
+						<dt class="ft">Arguments</dt>
+						<dd class="fd">
+							<dl class="tight">
+								<dt><span class="mono">Sender: TObject</span></dt>
+								<dd>the ZipMaster component firing the event</dd>
+								<dt><span class="mono">const ForFile: TZMString</span></dt>
+								<dd>the name of the file that will be compressed</dd>
+								<dt><span class="mono">var level: Integer</span></dt>
+								<dd>the new compression level (0..9)</dd>
+								<dt><span class="mono">var IsChanged: Boolean</span></dt>
+								<dd>set True if level is changed</dd>
+							</dl>
+						</dd>					
+					</dl>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Occurs only when adding files to the archive, use this when you want to set a compression level other than the value in <a href="addcomplevel_property.htm">AddCompLevel</a> property to the archive.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-03-14 09:52</div>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            Using relative paths with ZipMaster
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="Dll;Relative paths with ZipMaster;">
+        <meta name="revised" content="2012-02-14">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+            </ul>
+            <h1>
+                Using relative paths with ZipMaster
+            </h1>
+        </div>
+        <div class="content">
+            <p>How to Use and Store Relative Paths&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>1) Set the AddOptions to AddRecurseDirs and AddDirNames:</p>
+            <p>with ZipMaster1 do</p>
+            <p>AddOptions := AddOptions + [AddRecurseDirs, AddDirNames];</p>
+            <p>2) Add a file specification like *.* or *.pas or something like this:</p>
+            <p>ZipMaster1.FSpecArgs.Append( &#39;*.*&#39; );</p>
+            <p>3) Set the RootDir property to the desired base directory, Drive and Directory where the relative path should start.</p>
+            <p><i>ZipMaster1.RootDir :=</i>&#39;<i>C:\aBaseDir\AnotherBaseDir</i>&#39;<i>;</i></p>
+            <p>4) Now do an Add, and you should have the desired result. The Drive ID and Dirname of your base directory will not be stored in the archive.</p>
+            <p>ZipMaster1.Add;</p>
+            <p>NOTE: The reason that demo1 saves whole pathnames is because it&#39;s GUI design intentionally stores complete pathnames in the FSpecArgs.</p>
+        </div>
+        <div class="foot">2012-02-14 10:18</div>
+    </body>
+</html>

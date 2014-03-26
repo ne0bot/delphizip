@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>
+            AddStoreSuffixes property
+        </title>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" >
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="AddStoreSuffixes;AddStoreSuffixes,TZipMaster;TZipMaster,AddStoreSuffixes;" >
+        <meta name="revised" content="2012-01-03" >
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012" >
+        <meta name="author" content="Russell Peters" >
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="addoptions_property.htm">Previous</a></li>
+                <li><a href="build_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                AddStoreSuffixes property
+            </h1>
+        </div>
+        <dl class="f">
+            <dt class="ft">Applies to</dt>
+            <dd class="fd">
+                <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+            </dd>
+            <dt class="ft">Declaration</dt>
+            <dd class="fd">
+                <p class="f-decl">
+                    <b>property</b> AddStoreSuffixes: <a href="#tzmaddstoreexts">TZMAddStoreExts</a>;
+                </p>
+                <p class="f-decl">
+                    <b>type</b><br>&nbsp; <a name="tzmaddstoreexts">TZMAddStoreExts</a> = <b>set of</b> <a href="#tzmaddstoresuffixenum">TZMAddStoreSuffixEnum</a>;
+                </p>
+                <p class="f-decl">
+                    <b>type</b><br>&nbsp; <a name="tzmaddstoresuffixenum">TZMAddStoreSuffixEnum</a> = 
+					(assGIF, assPNG, assZ, assZIP, assZOO, assARC, assLZH, assARJ, assTAZ, assTGZ, assLHA, assRAR, assACE, assCAB, assGZ, assGZIP, assJAR, assEXE, assEXT, assJPG, assJPEG, ass7Zp, assMP3, assWMV, assWMA, assDVR, assAVI);
+                </p>
+            </dd>
+            <dt class="ft">Description</dt>
+            <dd class="fd">
+                <p class="f-p">
+                    AddStoreSuffixes is a Set of options to modify the default action of the <a href="add.htm" target="add method">Add</a> method, 
+					files with these extensions will stored without compression.
+                </p>
+                <p class="f-p">
+                    This is because these types of files normally will not compress enough to warrant the time it takes to compress them.
+                </p>
+				<ul class="ul-plain">
+                <li>assGIF <b>True</b></li>
+                <li>assPNG <b>True</b></li>
+                <li>assZ <b>True</b></li>
+                <li>assZIP <b>True</b></li>
+                <li>assZOO <b>True</b></li>
+                <li>assARC <b>True</b></li>
+                <li>assLZH <b>True</b></li>
+                <li>assARJ <b>True</b></li>
+                <li>assTAZ <b>True</b></li>
+                <li>assTGZ <b>True</b></li>
+                <li>assLHA <b>True</b></li>
+                <li>assRAR <b>True</b></li>
+                <li>assACE <b>True</b></li>
+                <li>assCAB <b>True</b></li>
+                <li>assGZ <b>True</b></li>
+                <li>assGZIP <b>True</b></li>
+                <li>assJAR <b>True</b></li>
+                <li>assEXE False</li>
+                <li>assEXT False</li>
+                <li>assJPG <b>True</b></li>
+                <li>assJPEG <b>True</b></li>
+                <li>ass7Zp <b>True</b></li>
+                <li>assMP3 <b>True</b></li>
+                <li>assWMV <b>True</b></li>
+                <li>assWMA <b>True</b></li>
+                <li>assDVR <b>True</b></li>
+                <li>assAVI <b>True</b></li>
+                </ul>
+                <p class="f-p">
+                    // default file extensions that are best &#39;stored&#39;
+                </p>
+                <p class="pas-source">
+                    const<br>
+                    &nbsp; ZMDefAddStoreSuffixes = [assGIF..assJAR, assJPG..ass7Zp, assMP3..assAVI];
+                </p>
+                <p class="f-p">
+                    Note when any type of <a href="addoptions_property.htm#addencrypt" target="addoptions property">encryption</a> is used it is best to compress all files!
+                </p>
+            </dd>
+        </dl>
+        <div class="foot">2012-01-03 11:30</div>
+    </body>
+</html>

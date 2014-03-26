@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+
+<HEAD>
+ <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+ <LINK REL="stylesheet" TYPE="text/css" HREF="mystyle.css">
+ <TITLE>Menu Items</TITLE>
+</HEAD>
+
+<BODY>
+ <OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+  <PARAM NAME="Keyword" VALUE="Menu Items">
+ </OBJECT>
+
+ <A NAME="IDH_MenuItems"></A>
+ <H1>Menu Items</H1>
+ <P>
+  When you go over it with the mouse cursor a hint will appear at the bottom left
+  of the main form .</p>
+ <p>ZipSniffer has 28 Menu items in 6 groups on its main menu :</p>
+ <ol>
+  <li>File Items
+   <ul>
+    <li>Save Log : Creates a log file and puts the content of the message buffer in
+     that file. The log file is named
+     <i><b>dzlogxxx.txt</b></i> where xxx is a number from 001, if that file is
+     already open then we use 002 and so on.
+    </li>
+    <li>New : Creates a new child form, you can use this form as you like.</li>
+    <li>Open : Opens a file selection dialog, the purpose is to open one of the log
+     files, then it creates a new child form and shows the content of the file
+     in that form.</li>
+    <li>Close : Closes the child form that has focus</li>
+    <li>Save : Not yet implemented</li>
+    <li>Save As: Not yet implemented</li>
+    <li>Exit : Will close ZipSniffer, before closing the tool a Save Log operation
+     is executed.</li>
+   </ul>
+  </li>
+  <li>Edit Items
+   <ul>
+    <li>Cut : Cuts the actual selection and saves it to the clipboard, make a selection
+     in one of the child forms first.</li>
+    <li>Copy : Copies the actual selection and puts it on the clipboard, make a selection
+     in one of the child forms first.</li>
+    <li>Paste : Pastes the clipboard content into the selected child form.</li>
+   </ul>
+  </li>
+  <li>Window Items
+   <ul>
+    <li>Cascade: cascades the child forms.</li>
+    <li>Tile Horizontally : arranges child forms so that they are all the same size,
+     tiled horizontally.</li>
+    <li>Tile Vertically : arranges child forms so that they are all the same size,
+     tiled vertically.</li>
+    <li>Minimize All : minimizes all of the child forms.</li>
+    <li>Arrange All : Arranges all minimized windows, lines them up to the Left of
+     the bottom of the main form.</li>
+   </ul>
+  </li>
+  <li>Verbosity
+	<ul>
+		<li>Default : as set by code</li>
+		<li>Force Off : minimal messages</li>
+		<li>Force Verbose : information messages</li>
+		<li>Force Trace : Information and diagnostics messages</li>
+		<li>Force Full : Noisy, all messages (as helpful as it can be but slow</li>
+	</ul>
+  </li>
+  <li>Logs
+	<ul>
+		<li>Folder : set where logs are written</li>
+		<li>Base name : set the name of log files</li>
+		<li>New : forces starting a new log file</li>
+		<li>Close : closes the current file</li>
+		<li>Pause : suspends writing to the current file</li>
+	</ul>
+  </li>
+  <li>Help Items
+   <ul>
+    <li>HelpContent : to call this help file</li>
+    <li>About : that displays the version info for this application.</li>
+   </ul>
+  </li>
+ </ol>
+
+</BODY>
+
+</HTML>

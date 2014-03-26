@@ -1,0 +1,112 @@
+// TW: Taiwanese
+#include "ZipMsg.h"
+/* **************************************************
+TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
+  Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
+Copyright (C) 1997-2002 Chris Vleghert and Eric W. Engler
+Copyright (C) 1992-2008 Eric W. Engler
+Copyright (C) 2009, 2010, 2011 Russell Peters and Roger Aelbrecht
+ 
+All rights reserved.
+For the purposes of Copyright and this license "DelphiZip" is the current
+ authors, maintainers and developers of its code:
+  Russell Peters and Roger Aelbrecht.
+ 
+Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+* Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+* DelphiZip reserves the names "DelphiZip", "ZipMaster", "ZipBuilder",
+   "DelZip" and derivatives of those names for the use in or about this
+   code and neither those names nor the names of its authors or
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL DELPHIZIP, IT'S AUTHORS OR CONTRIBUTERS BE
+ LIABLE FOR ANYDIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT(INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+ 
+contact: problems AT delphizip DOT org
+updates: http://www.delphizip.org
+************************************************** */
+//Generated 2011-11-14
+ 
+STRINGTABLE LANGUAGE 4, 1 // 0x0404
+{
+  ZS_Canceled,               "使用者取消"
+  ZS_CopyCentral,            "Central directory"
+  ZS_DllLoaded,              "%s 動態連結檔已載入"
+  ZS_NothingToZip,           "錯誤 - 沒有指定檔案!"
+  ZS_NothingToDel,           "錯誤 - 未選擇要刪除的檔案"
+  ZS_NoDll,                  "找不到 %s"
+  ZS_WrongZipStruct,         "警告 - Zip 結構錯誤!"
+  ZC_UnatAddPWMiss,          "錯誤 - 未提供壓縮時的密碼"
+  ZC_UnatExtPWMiss,          "錯誤 - 未提供解壓縮時的密碼"
+  CF_OverwriteYN,            "覆蓋檔案 '%s' 在 '%s' ?"
+  ZS_AskDeleteFile,          "檔案已經存在: %s\n您是否要覆蓋掉這個檔案?"
+  ZS_AskPrevFile,            "注意: 這片磁碟片是之前的第 %d 片!!!\n您確定要覆蓋掉這塊磁碟片的資料嗎?"
+  ZS_InDrive,                "\n於磁碟機: %s"
+  ZS_InsertAVolume,          "請插入第 %.1d 片磁碟片"
+  ZS_InsertDisk,             "請插入最後一片磁碟片"
+  ZS_InsertVolume,           "請插入第 %1d 片磁碟片(共 %.1d 片)"
+  ZC_Caption,                "密碼"
+  ZC_MessageConfirm,         "確認密碼 "
+  ZC_MessageEnter,           "輸入密碼 "
+  ZC_OK,                     "確定(&O)"
+  ZC_Cancel,                 "取消(&C)"
+  ZC_Abort,                  "放棄"
+  ZC_CancelAll,              "取消全部"
+  ZS_InIsOutStream,          "輸入串流不可被設定至輸出串流"
+  ZS_InvalidName,            "檔案名稱不可以使用萬用字元"
+  ZS_UnattPassword,          "使用 Unattended 模式必須同時使用密碼"
+  ZS_SourceIsDest,           "來源與目的是同一個壓縮檔!"
+  ZS_InputNotExe,            "錯誤 - 輸入的檔案不是 .EXE 檔"
+  ZS_CEHWrongSig,            "Central header 識別符號不正確"
+  ZS_DriveNoMount,           "磁碟機未定義: %s"
+  ZS_NoDiskSpace,            "磁碟的空間不夠"
+  ZS_NoInFile,               "指定的檔案不存在"
+  DS_NotaDrive,              "無效的磁碟機: %s"
+  ZS_NoUnattSpan,            "不支援 Unattended 模式下的磁碟切割"
+  ZS_NoValidZip,             "這個壓縮檔不是有效的 Zip 檔案"
+  ZS_UnAttPassword,          "警告 - Unattended 模式: 可能不會將全部的檔案解壓縮"
+  ZS_NoZipSpecified,         "錯誤 - 未指定 Zip 檔案!"
+  ZS_WrongPassword,          "錯誤 - 密碼不正確\n密碼已被忽略"
+  ZS_NoZipSFXBin,            "錯誤 - 找不到 %s"
+  ZS_StringTooLong,          "錯誤 - 以下所列出的字串屬性至少有一個其長度超過 255 個字元"
+  ZS_AutoSFXWrong,           "在自動建立自解檔的過程發生錯誤 %.1d"
+  ZS_CopyFailed,             "無法將檔案 '%s' 複製為 '%s'"
+  ZS_SFXCopyError,           "複製 SFX 資料時發生錯誤!"
+  ZS_CECommentLen,           "錯誤 - 讀取檔案註解"
+  ZS_CEHBadRead,             "錯誤 - 讀取 central header"
+  ZS_CEHBadWrite,            "錯誤 - 寫入 central header"
+  ZS_CENameLen,              "錯誤 - 讀取 central file name"
+  ZS_DataDesc,               "錯誤 - 讀取/寫入資料描述區(data descriptor area)"
+  ZS_EOCBadRead,             "錯誤 - 讀取 End Of Central Directory"
+  ZS_EOCBadWrite,            "錯誤 - 寫入 End Of Central Directory"
+  ZS_ErrorUnknown,           "未知的錯誤發生於函式 ReadSpan()、WriteSpan() 或 Rename()\n"
+  ZS_FailedSeek,             "檔案指標移動(seek)時發生錯誤"
+  ZS_FileOpen,               "Zip 檔案無法開啟"
+  ZS_LOHBadRead,             "錯誤 - 讀取 local header"
+  ZS_LOHBadWrite,            "錯誤 - 寫入 local header"
+  DS_NoMem,                  "沒有足夠的記憶體以顯示 MsgBox"
+  ZS_NoOutFile,              "無法建立輸出的檔案"
+  ZS_NoTempFile,             "無法建立暫存檔案"
+  ZS_NoVolume,               "無法設定磁碟標籤"
+  ZS_NoWrite,                "檔案寫入失敗"
+  ZS_FatalZip,               "致命的錯誤發生於 DelZip179.DLL: abort exception"
+  ZS_NoMem,                  "記憶體配置失敗"
+  LI_ErrorUnknown,           "不明的錯誤發生於 List() 函式\n"
+  ZS_ReadZipError,           "讀取 Zip 檔案時發生 seek error!"
+  ZX_Language,               "TW: Taiwanese"
+}

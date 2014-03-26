@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            NoSkipping property
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="NoSkipping;NoSkipping,TZipMaster;TZipMaster,NoSkipping;">
+        <meta name="revised" content="2012-03-05">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+                <li><a href="noreadaux_property.htm">Previous</a></li>
+                <li><a href="notmainthread_property.htm">Next</a></li>
+            </ul>
+            <h1>
+                NoSkipping property
+            </h1>
+            <ul class="also-links">
+                <li><a href="onskipped_event.htm">OnSkipped event</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <dl class="f">
+                <dt class="ft">Applies to</dt>
+                <dd class="fd">
+                    <p class="f-applies"><a href="tzipmaster_component.htm">TZipMaster</a> component</p>
+                </dd>
+                <dt class="ft">Declaration</dt>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>property</b> NoSkipping: <a href="#tzmskipaborts">TZMSkipAborts</a>;
+                    </p>
+                </dd>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>type</b><br>&nbsp; <a name="tzmskipaborts">TZMSkipAborts</a> = <b>set</b> <b>of</b> <a href="#tzmskiptypes">TZMSkipTypes</a>;
+                    </p>
+                </dd>
+                <dd class="fd">
+                    <p class="f-decl">
+                        <b>type</b><br>&nbsp; <a name="tzmskiptypes">TZMSkipTypes</a> = (stOnFreshen, stNoOverwrite, stFileExists, stBadPassword, stBadName, stCompressionUnknown, stUnknownZipHost, stZipFileFormatWrong, stGeneralExtractError, stUser, stCannotDo, stNotFound, stNoShare, stNoAccess, stNoOpen, stDupName, stReadError, stSizeChange);
+                    </p>
+					<table summary="TZMSkipTypes enum" border="1">
+						<tr>
+							<th>Value</th><th>Default</th><th>Condition</th>
+						</tr>
+						<tr>
+							<th>stOnFreshen</th><td>false</td><td>existing file is newer than the current file</td>
+						</tr>
+						<tr>
+							<th>stNoOverwrite</th><td>false</td><td>did not overwrite existing</td>
+						</tr>
+						<tr>
+							<th>stFileExists</th><td>false</td><td>file exists</td>
+						</tr>
+						<tr>
+							<th>stBadPassword</th><td>false</td><td>cannot extract because of bad password</td>
+						</tr>
+						<tr>
+							<th>stBadName</th><td>false</td><td>skipped file because its name is invalid</td>
+						</tr>
+						<tr>
+							<th>stCompressionUnknown</th><td>false</td><td>skipped extract because we cannot handle its method</td>
+						</tr>
+						<tr>
+							<th>stUnknownZipHost</th><td>false</td><td>unknown host, cannot handle it</td>
+						</tr>
+						<tr>
+							<th>stZipFileFormatWrong</th><td>false</td><td>bad file format</td>
+						</tr>
+						<tr>
+							<th>stGeneralExtractError</th><td>false</td><td>something went wrong</td>
+						</tr>
+						<tr>
+							<th>stUser</th><td>false</td><td>user command that the file is skipped</td>
+						</tr>
+						<tr>
+							<th>stCannotDo</th><td>false</td><td>could not handle the operation</td>
+						</tr>
+						<tr>
+							<th>stNotFound</th><td>false</td><td>file or filespec was not found</td>
+						</tr>
+						<tr>
+							<th>stNoShare</th><td>false</td><td>file share problem</td>
+						</tr>
+						<tr>
+							<th>stNoAccess</th><td>false</td><td>could not access file (already in use)</td>
+						</tr>
+						<tr>
+							<th>stNoOpen</th><td>false</td><td>could not open the file</td>
+						</tr>
+						<tr>
+							<th rowspan=2>stDupName</th><td><b>true</b></td><td>zip operation caused duplicate internal name</td>
+						</tr>
+						<tr>
+							<td>false</td><td>will only keep the first file producing that name.</td>
+						</tr>
+						<tr>
+							<th>stReadError</th><td><b>true</b></td><td>file read error during zip operation.</td>
+						</tr>
+						<tr>
+							<th>stSizeChange</th><td>false</td><td>the file changed during zip operation.</td>
+						</tr>
+					</table>
+                </dd>
+                <dt class="ft">Description</dt>
+                <dd class="fd">
+                    <p class="f-p">
+                        Sets the default action for various failures to process the requested file.
+                    </p>
+                    <p class="f-p">
+                        If True, that <a href="#tzmskiptypes">skip type</a> will fail unless <a href="de_extrafield_property.htm">OnSkipped</a> handler sets Err &gt;= 0.
+                    </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="foot">2012-03-05 09:46</div>
+    </body>
+</html>

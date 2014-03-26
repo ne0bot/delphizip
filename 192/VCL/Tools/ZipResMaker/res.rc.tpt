@@ -1,0 +1,22 @@
+/* {FILENAME}
+    machine generated 
+      by ZipResMaker (c) 
+     Do NOT edit 
+  {NAME}.rc - component resource script
+
+  TZipMaster{MAJOR}{MINOR} VCL originally by Chris Vleghert and Eric W. Engler
+                   modified and updated by
+               Roger Aelbrecht (http://www.drehoeksw.net)
+               Russell Peters (http://www.delphizip.org)
+ 
+  {VERSION}
+  Copyright (C) {YEAR}  AUTHOR
+ 
+  {LICENCE}
+ 
+  generated {STAMP}
+---------------------------------------------------------------------------*/
+ 
+  {STR_RES@ {STR_RES} RCDATA LOADONCALL MOVEABLE DISCARDABLE "{STR_BIN}"}
+  {SFX_RES@ {SFX_RES} RCDATA LOADONCALL MOVEABLE DISCARDABLE "{SFX_BIN}"}
+  {DLL_RES@ {DLL_RES} RCDATA LOADONCALL MOVEABLE DISCARDABLE "{DLL_BIN}"}

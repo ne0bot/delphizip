@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <title>
+            DLL loading and unloading
+        </title>
+        <link rel="stylesheet" type="text/css" href="zmhelp.css">
+        <meta name="keywords" content="Dll;DLL_Loaded;DLLDirectory;ZipDLL&#39;s;">
+        <meta name="revised" content="2012-01-15">
+        <meta name="copyright" content="Copyright &#169; DelphiZip 2009,2010,2011,2012">
+        <meta name="author" content="Russell Peters">
+    </head>
+    <body>
+        <div class="heading">
+            <ul class="nav-links">
+                <li><a href="cnt.htm" target="cnt">Contents</a></li>
+                <li><a href="idx.htm" target="cnt">Index</a></li>
+            </ul>
+            <h1>
+                DLL Loading and Unloading
+            </h1>
+        </div>
+        <div class="content">
+        <p>
+            DLL Loading and Unloading
+        </p>
+        <p>
+            This table shows you which methods require the DLL:
+        </p>
+        <ul>
+            <li>Add</li>
+            <li>AddFileToStream</li>
+            <li>AddStreamToStream</li>
+            <!--<li>Delete</li> -->
+            <li>Extract</li>
+            <li>ExtractFileToStream</li>
+            <li>ExtractStreamToStream</li>
+        </ul>
+        <p>
+            &nbsp;
+        </p>
+        <p>
+            All other methods do not need the DLL.
+        </p>
+        <p>
+            NOTE:&nbsp; &#39;Test&#39; is a sub-option of Extract.
+        </p>
+        <p>
+            <span class="note">NOTE:</span> If static binding of the DLL to the component is used then the DLL is always loaded or the application (or the IDE) will not load.
+        </p>
+        <p>
+            The following properties give you control over loading and unloading the DLL
+        </p>
+        <ul>
+            <li><a href="dlldirectory_property.htm">DLLDirectory</a> optionally specify where to look for the DLL.</li>
+            <li><a href="dll_load_property.htm">DLL_Load</a> Set true to load the DLL, false to unload - returns true if loaded</li>
+            <li><a href="dll_path_property.htm">DLL_Path</a> returns the path from which the dll was loaded</li>
+            <li><a href="dll_build_property.htm">DLL_Build</a> returns the DLL build</li>
+            <li><a href="dll_version_property.htm">DLL_Version</a> returns the DLL version</li>
+        </ul>
+        <p>
+            For compatibility with older programs the loading and unloading will be done automatically if your program does not do it.
+        </p>
+        <p>
+            This can, however, incur performance penalty because it will reload the DLL for each operation.
+        </p>
+        </div>
+        <div class="foot">2012-01-15 11:14</div>
+    </body>
+</html>
