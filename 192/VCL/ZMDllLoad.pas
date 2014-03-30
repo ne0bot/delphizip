@@ -43,7 +43,7 @@ unit ZMDllLoad;
  contact: problems AT delphizip DOT org
  updates: http://www.delphizip.org
  *************************************************************************** *)
-// modified 2013-12-06
+// modified 2014-03-29
 
 {$I   '.\ZipVers.inc'}
 {$I   '.\ZMConfig192.inc'}
@@ -79,9 +79,9 @@ uses
 {$ENDIF}
   ZMXcpt,
 {$IFNDEF STATIC_LOAD_DELZIP_DLL}
-  ZMEngine, ZMUtils, {$IFNDEF VERpre6}SyncObjs, {$ENDIF}
+  ZMEngine, {$IFNDEF VERpre6}SyncObjs, {$ENDIF}
 {$ENDIF}
-  ZMMsg, ZMWinFuncs;
+  ZMUtils, ZMMsg, ZMWinFuncs;
 
 const
   __UNIT__ = 13;

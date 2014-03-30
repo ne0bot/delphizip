@@ -43,7 +43,7 @@ unit ZMUTF8;
  contact: problems AT delphizip DOT org
  updates: http://www.delphizip.org
  *************************************************************************** *)
-// modified 2013-12-11
+// modified 2014-03-28
 
 {$INCLUDE   '.\ZipVers.inc'}
 {$IFDEF VERD6up}
@@ -409,7 +409,7 @@ end;
 
 // convert to MultiByte escaping unsupported characters
 function WideToSafe(const Wstr: TZMWideString; ToOEM: Boolean): AnsiString;
-{$IFNDEF UNICODE}
+{$IFNDEF VERDXE2up}
 const
   WC_NO_BEST_FIT_CHARS = $00000400;
 {$ENDIF}

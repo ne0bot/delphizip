@@ -60,9 +60,9 @@ uses
   ZMHandler;
 
 const
-  ZIPMASTERBUILD: string = '1.9.2.0005';
-  ZIPMASTERDATE: string = '14/02/2014';
-  ZIPMASTERPRIV: Integer = 1920005;
+  ZIPMASTERBUILD: string =  '1.9.2.0006';
+  ZIPMASTERDATE: string =  '28/03/2014';
+  ZIPMASTERPRIV: Integer = 1920006;
   DELZIPVERSION = 192;
   MIN_DLL_BUILD = 1920002;
 
