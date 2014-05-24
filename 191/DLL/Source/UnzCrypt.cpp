@@ -93,8 +93,8 @@ int __fastcall UnzInf::decrypt(ulg crc, bool noAsk)
 //    if (Verbose < 0)
 //        Notify(ITRACE, _T("EWE - in crypt.c, near fnewzip test"));
 
-    if (!fPwdReqCount)
-        return PK_WARN;
+//    if (!fPwdReqCount)
+//        return PK_WARN;
 //    if (fnewzip)
 //    {
 //        fnewzip = false;
@@ -133,6 +133,8 @@ int __fastcall UnzInf::decrypt(ulg crc, bool noAsk)
     if (Verbose < 0)
         Notify(ITRACE, _T("EWE- near 'try a few keys' test"));
 
+    if (!fPwdReqCount)
+        return PK_WARN;
     /* try a few keys */
     n  = fPwdReqCount;
     n1 = 15;
