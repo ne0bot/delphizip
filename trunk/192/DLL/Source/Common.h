@@ -40,23 +40,19 @@
 #ifdef __MT__
     #define MULTITHREAD
 #else
+#define __fastcall
+#define __cdecl
 #undef MULTITHREAD
     #error no Multithread
 #endif
 
 #endif
-//#define  MAX_UNSIGNED 0xFFFFFFFFul
-//#define  MAX_WORD 0xFFFFu
-//#define  MAX_BYTE = 0xFFu
-//#ifndef MAXINT
-//    #define MAXINT      0x7fffffff
-//#endif
-//#ifndef MAXLONG
-//    #define MAXLONG     0x7fffffffl
-//#endif
 
 #include "DelZip.h"
 #include "dz_msgs.h"
+
+//#define __fastcall
+//#define __cdecl
 
 __int64 SetFilePointer64(HANDLE hf, __int64 ofs, int from);
 
@@ -67,7 +63,11 @@ typedef size_t  extent;
 
 typedef char zchar;
 
-extern HINSTANCE ModuleInst;
+//#ifdef _WIN64
+//  extern HANDLE ModuleInst;
+//#else
+  extern HINSTANCE ModuleInst;
+//#endif
 
 typedef unsigned long OperKeys;
 
@@ -340,8 +340,10 @@ ulg             unix2dostime(time_t *);
 
 char * __fastcall zstrdupB(const char* from);
 TCHAR * __fastcall zstrdup(const TCHAR* from);
+#ifndef _WIN64
 void Cleanup_Process(void);
 DWORD __fastcall GetFileAttrs(const TCHAR *p);
+#endif
 
 #endif
 

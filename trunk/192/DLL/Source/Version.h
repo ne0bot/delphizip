@@ -38,7 +38,7 @@
 #define DZ_VER_MAJOR  1
 #define DZ_VER_MINOR  9
 #define DZ_VER_REVISION  2
-#define DZ_VER_BUILD  119
+#define DZ_VER_BUILD  120
 #ifdef _WIN64
    #ifdef _DEBUG
       #define DLLNAME "DelZip192x64D"

@@ -103,11 +103,11 @@
 #define NIL 0
 
 // Tail of hash chains
-//#define FAST  4
-//#define SLOW  2
+#define FAST  4
+#define SLOW  2
 
 // speed options for the general purpose bit flag
-//#define TOO_FAR 4096
+#define TOO_FAR 4096
 
 // Matches of length 3 are discarded if their distance exceeds TOO_FAR
 // Local data used by the "longest match" routines.

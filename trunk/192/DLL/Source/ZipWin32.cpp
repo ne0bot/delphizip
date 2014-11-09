@@ -864,7 +864,9 @@ BOOL ZipFunc::zfiletime(const DZStrW &name, ulg *attr, __int64 *size,
 
 
 
-//#define EAID  0x0009
+#ifdef _WIN64
+#define EAID  0x0009
+#endif
 
 // NOTE: NTFS is handled by the HPFS code. FAT / HPFS detection.
 int ZipOp::IsFileSystemOldFAT(const DZStrW &dir)

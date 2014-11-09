@@ -339,7 +339,7 @@ Notify(ITRACE, _T("newname 2: %s dosflag %i"), f->xname, f->options.dosflag);
     return ErrMsg;
 }
 
-//#define PATHCUT _T('\\')
+#define PATHCUT _T('\\')
 // If the file name *s has a dot (other than the first char), or if the -A
 //   option is used (adjust self-extracting file) then return the name,
 //   otherwise append .zip to the name. Allocate the space for the name in

@@ -61,7 +61,7 @@
 #pragma pack(push, 4)
 union FOpts
 {
-	struct
+    struct
     {
         unsigned dosflag: 2;  // nz forces dos
         unsigned level:   4;
@@ -168,7 +168,7 @@ public:
     att,
     lflg;                   // local header flag
 //#pragma pack(pop)
-	ulg           atx;
+    ulg           atx;
     ulg           tim,        // file time (dos)
     crc;                    // crc
     ZInt64        siz;        // compressed

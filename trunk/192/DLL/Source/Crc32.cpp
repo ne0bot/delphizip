@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #pragma hdrstop
-#if defined(_USE_ASM_) && (__BORLANDC__ < 0x0570)
-#pragma inline
+#ifndef _WIN64
+  #if defined(_USE_ASM_) && (__BORLANDC__ < 0x0570)
+  #pragma inline
+  #endif
 #endif
 #include "common.h"
 #include "dz_errs.h"

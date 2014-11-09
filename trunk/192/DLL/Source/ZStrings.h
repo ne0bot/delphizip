@@ -38,6 +38,10 @@
 #ifndef CP_OEM
 #define CP_OEM 1
 #endif
+#ifdef _WIN64
+#define __fastcall
+#define __cdecl
+#endif
 
 #define SLASH _T('/')
 #define BSLASH _T('\\')
