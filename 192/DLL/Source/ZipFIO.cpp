@@ -70,7 +70,8 @@
 //    if (t < 0)
 //        return p;
 //	return p.Mid(t+1);
-//}
+//}
+
 
 
 int ZipFunc::check_dupExt(void)

@@ -128,7 +128,11 @@ DZStrA __fastcall StrExtSep(const DZStrA &str)
 //}
 
 
+#ifndef _WIN64
 const char hx[] = "0123456789ABCDEF";
+#else
+const char hx[17/*16*/] = "0123456789ABCDEF";
+#endif
 
 DZStrA __fastcall toHex(unsigned val, unsigned cnt)
 {
@@ -321,22 +325,26 @@ int __fastcall Is_Drv(const DZStrW &spec)
     if (spec.length() < 2)
         return 0;
 
-    int colon = spec.Find(_T(':'));
-    if (colon < 1)
+//	int colon = spec.Find(_T(':'));
+//    if (colon < 1)
+	if (spec[1] != _T(':'))
         return 0;
 
     TCHAR c = spec[0];
-    if (colon == 1 && _istalpha(c))
+	if (/*colon == 1 &&*/ _istalpha(c))
       return 1;
 
-    int sno = 0;
-    for (int i = 0; i < colon; i++)
-    {
-		if (!_istdigit(spec[(unsigned)i]))
-            return 0; // invalid
-		sno = (sno * 10) + (spec[(unsigned)i] & 15);
-    }
-    return -(sno + 2);
+	if (c == _T('0'))
+	  return -2;
+	return 0; // error
+//	int sno = 0;
+//	for (int i = 0; i < colon; i++)
+//	{
+//		if (!_istdigit(spec[i]))
+//			return 0; // invalid
+//		sno = (sno * 10) + (spec[i] & 15);
+//	}
+//    return -(sno + 2);
 }
 
 // return >0 has drive, 0 no drive, -1 stream, -2 autostream
@@ -442,8 +450,8 @@ int __fastcall CheckComponent(const DZStrW& c)
                 // starts with bad
                 if (m > 7 && (clen == 3 || c[3] == DOT))
                     return Z_BAD_NAME;
-
-                if (clen > 3 && Is_In(_T("123456789"), c[3]) &&
+//                if (clen > 3 && Is_In(_T("123456789"), c[3]) &&
+                if (m < 8 && clen > 3 && Is_In(_T("123456789"), c[3]) &&
                         (clen == 4 || c[4] == DOT))
                     return Z_BAD_NAME;
             }

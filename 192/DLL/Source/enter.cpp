@@ -41,6 +41,9 @@
 #ifndef MULTITHREAD
 #error Multithread required
 #endif
+//HINSTANCE ModuleInst = 0;
+//#else
+//HANDLE ModuleInst = 0;
 #endif
 CRITICAL_SECTION csSync;
 HINSTANCE ModuleInst = 0;

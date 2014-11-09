@@ -808,7 +808,7 @@ void __fastcall UserCallback::SetMsg2(const DZStrW& value)
 *   (O) MsgP = the internal filename as the dll thinks it should be.
 *   (I) ActionCode = -1 if changed
 *   (I) MsgP => new internal fileanme
-*   (I) Msg = the new internal filename
+//*   (I) Msg = the new internal filename
 *
 *   ActionCode = 8, zacPassword,
 *      get Password
@@ -816,7 +816,7 @@ void __fastcall UserCallback::SetMsg2(const DZStrW& value)
 *   (O) MsgP = filename
 *   (I) ActionCode = -1 if has password
 *       (I) MsgP => password
-*       (I) Msg = password
+//*       (I) Msg = password
 *       (I) Arg1 = request count
 *   (I) ActionCode = -2 if responded 'cancel'
 *       (I) Arg1 = request count
@@ -854,14 +854,14 @@ void __fastcall UserCallback::SetMsg2(const DZStrW& value)
 *   (I) ActionCode = -1 if comment changed
 *       (I) Arg1 = length of new comment
 *       (I) MsgP = new comment
-*       (I) Msg = new comment
+//*       (I) Msg = new comment
 *
 *   Actioncode = 13, zacStream,
 *      Adjust unzip stream size
 *   (O) FileSize (u64) = required size
 *   (I) ActionCode = -1 if ok
 *       (I) MsgP = Memory
-*       (I) Msg2P = Memory
+//*       (I) Msg2P = Memory
 *
 *   Actioncode = 14, zacData,
 *      Set Extra Data  or Compression level
@@ -872,8 +872,8 @@ void __fastcall UserCallback::SetMsg2(const DZStrW& value)
 *   (I) ActionCode & 0xff0f = 0xff0f if data changed
 *       (I) Arg1 = new size of data
 *       (I) MsgP => new data (data must remain until next callback)
-*       (I) Msg = new data (< 512 bytes)
-*       (I) MsgP2 = new data (> 512 bytes) (data must remain until next callback)
+//*       (I) Msg = new data (< 512 bytes)
+//*       (I) MsgP2 = new data (> 512 bytes) (data must remain until next callback)
 *   (I) ActionCode &0xff0e = 0xff0e if level changed
 *       (I) (ActionCode & 0xf0) >> 4 = new level (0..9)
 *
@@ -897,7 +897,7 @@ void __fastcall UserCallback::SetMsg2(const DZStrW& value)
 *   (O) MsgP = filename
 *   (I) ActionCode = -1 if changed
 *      (I) MsgP => new name
-*      (I) Msg = new name
+//*      (I) Msg = new name
 *
 *   ActionCode = 18, zacNone
 *

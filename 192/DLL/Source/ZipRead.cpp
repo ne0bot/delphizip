@@ -49,7 +49,9 @@
 #define LOCSIG    0x04034b50L
 #define CENSIG    0x02014b50L
 #define ENDSIG    0x06054b50L
-//#define EXTLOCSIG 0x08074b50L
+#ifdef _WIN64
+#define EXTLOCSIG 0x08074b50L
+#endif
 
 // Make first pass through zip file, reading information from local file
 // headers and then verifying that information with the central file headers.
@@ -143,7 +145,9 @@ static void adjust_zip_central_entry(ZipItem *z)
 		z->off = *(ZInt64*)pTemp;
 }
 
-//# define ZIP64_EOCD_SIG                  0x06064b50
+#ifdef _WIN64
+# define ZIP64_EOCD_SIG                  0x06064b50
+#endif
 
 static bool NeedEOC64(ZipEndOfCentral *eoc)
 {
