@@ -1301,7 +1301,7 @@ begin
         if FLastOpened <> nil then
           FLastOpened.File_Close;
         LastOpened := InFile;
-        Err := InFile.File_Reopen(FmOpenRead); // open it
+        Err := InFile.File_Reopen(FmOpenRead or FmShareDenyWrite); // open it
         if Err < 0 then
         begin
           Result := Err;

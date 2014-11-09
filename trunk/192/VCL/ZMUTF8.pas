@@ -1,5 +1,5 @@
 unit ZMUTF8;
-
+                      
 // ZMUTF8.pas - Some UTF8/16 utility functions
 
 (* ***************************************************************************
@@ -43,7 +43,7 @@ unit ZMUTF8;
  contact: problems AT delphizip DOT org
  updates: http://www.delphizip.org
  *************************************************************************** *)
-// modified 2014-03-28
+// modified 2014-09-06
 
 {$INCLUDE   '.\ZipVers.inc'}
 {$IFDEF VERD6up}
@@ -88,16 +88,21 @@ function StrToWideEx(const Astr: AnsiString; Cp: Cardinal; Len: Integer)
   : TZMWideString;
 
 // convert to Ansi/OEM escaping unsupported characters
-function WideToSafe(const Wstr: TZMWideString; ToOEM: Boolean): AnsiString;
+function PWideToSafe(const PWstr: PWideChar; ToOEM: Boolean): AnsiString;
 
 // test all characters are supported
 function WideIsSafe(const Wstr: TZMWideString; ToOEM: Boolean): Boolean;
+
+// convert to Ansi/OEM escaping unsupported characters
+function WideToSafe(const Wstr: TZMWideString; ToOEM: Boolean): AnsiString;
+
 {$IFNDEF UNICODE}
 function UTF8ToSafe(const Ustr: AnsiString; ToOEM: Boolean): AnsiString;
 function PUTF8ToSafe(const Raw: PAnsiChar; Len: Integer): AnsiString;
 function UTF8IsSafe(const Ustr: AnsiString; ToOEM: Boolean): Boolean;
 // only applicable when converting to OEM
 function AnsiIsSafe(const Ustr: AnsiString; ToOEM: Boolean): Boolean;
+
 {$ENDIF}
 
 // -------------------------- ------------ -------------------------
@@ -170,8 +175,8 @@ begin
       nil, nil);
     if Cnt < 1 then
       Result := ''; // oops - something went wrong
-    if (Len = -1) and (Result[Cnt] = #0) then
-      SetLength(Result, Cnt - 1); // remove trailing nul
+    if Len = -1 then
+      SetLength(Result, Cnt - 1); // remove end nul
   end // ;
   else
     RaiseLastOSError;
@@ -408,7 +413,7 @@ begin
 end;
 
 // convert to MultiByte escaping unsupported characters
-function WideToSafe(const Wstr: TZMWideString; ToOEM: Boolean): AnsiString;
+function PWideToSafe(const PWstr: PWideChar; ToOEM: Boolean): AnsiString;
 {$IFNDEF VERDXE2up}
 const
   WC_NO_BEST_FIT_CHARS = $00000400;
@@ -417,16 +422,17 @@ var
   Bad: Bool;
   C: AnsiChar;
   Cnt: Integer;
-  I: Integer;
+//  I: Integer;
   Pa: PAnsiChar;
+  Pw: PWideChar;
   Tmp: AnsiString;
   Subst: array [0 .. 1] of AnsiChar;
   ToCP: Cardinal;
   Wc: WideChar;
-  Wlen: Integer;
+//  Wlen: Integer;
 begin
   Result := '';
-  if Wstr <> '' then
+  if (PWstr <> nil) and (PWstr^ <> #0) then
   begin
     if ToOEM then
       ToCP := CP_OEMCP
@@ -434,32 +440,38 @@ begin
       ToCP := CP_ACP;
     Subst[0] := #$1B; // substitute char - escape
     Subst[1] := #0;
-    Cnt := WideCharToMultiByte(ToCP, WC_NO_BEST_FIT_CHARS, PWideChar(Wstr),
-      Length(Wstr), nil, 0, PAnsiChar(@Subst), @Bad);
+    Cnt := WideCharToMultiByte(ToCP, WC_NO_BEST_FIT_CHARS, PWstr,
+      -1, nil, 0, PAnsiChar(@Subst), @Bad);
     if Cnt > 0 then
     begin
       SetLength(Result, Cnt);
-      Cnt := WideCharToMultiByte(ToCP, WC_NO_BEST_FIT_CHARS, PWideChar(Wstr),
-        Length(Wstr), PAnsiChar(Result), Cnt, PAnsiChar(@Subst), @Bad);
+      Cnt := WideCharToMultiByte(ToCP, WC_NO_BEST_FIT_CHARS, PWstr,
+        -1, PAnsiChar(Result), Cnt, PAnsiChar(@Subst), @Bad);
       if Cnt < 1 then
-        Result := ''; // oops - something went wrong
+        Result := ''//; // oops - something went wrong
+      else
+        SetLength(Result, Cnt - 1); // remove end nul
     end;
     if Bad then
     begin
       Tmp := Result;
       Result := '';
       Pa := PAnsiChar(Tmp);
-      I := 1;
-      Wc := #0;
-      Wlen := Length(Wstr);
+      Pw := PWstr;
+//      I := 1;
+//      Wc := #0;
+//      Wlen := Length(Wstr);
       while (Pa^ <> #0) do
       begin
         C := Pa^;
-        if I < Wlen then
-        begin
-          Wc := Wstr[I];
-          Inc(I);
-        end;
+        Wc := Pw^;
+        if Wc <> #0 then
+          Inc(Pw);
+//        if I < Wlen then
+//        begin
+//          Wc := PWstr^[I];
+//          Inc(I);
+//        end;
         if C = #$1B then
           Result := Result + '#$' + AnsiString(IntToHex(Ord(Wc), 4))
         else
@@ -500,7 +512,7 @@ begin
   begin
     Cnt := WideCharToMultiByte(ToCP, 0, PWideChar(Wstr), Length(Wstr), nil, 0,
       nil, @Bad);
-    Result := (not Bad) and (Cnt > 0);
+    Result := (not Bad) and (Cnt > 1);//0);
   end;
 end;
 
@@ -510,6 +522,13 @@ begin
   Result := WideIsSafe(UTF8ToWide(Ustr), ToOEM);
 end;
 {$ENDIF}
+
+
+// convert to MultiByte escaping unsupported characters
+function WideToSafe(const Wstr: TZMWideString; ToOEM: Boolean): AnsiString;
+begin
+  Result := PWideToSafe(PWideChar(Wstr), ToOEM);
+end;
 
 {$IFNDEF UNICODE}
 // only applicable when converting to OEM

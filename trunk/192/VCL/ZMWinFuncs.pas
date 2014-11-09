@@ -1,7 +1,7 @@
 unit ZMWinFuncs;
 
 //  ZMWinFuncs.pas - Functions supporting UTF8/16 file names
-
+                   
 (* ***************************************************************************
 TZipMaster VCL originally by Chris Vleghert, Eric W. Engler.
   Present Maintainers and Authors Roger Aelbrecht and Russell Peters.
@@ -43,7 +43,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 contact: problems AT delphizip DOT org
 updates: http://www.delphizip.org
  *************************************************************************** *)
-//Modified 2013-12-05
+//Modified 2014-05-19
 
 interface
 
@@ -57,6 +57,9 @@ uses
   {$ENDIF}
 
 type
+{$IFDEF UNICODE}
+  _Z_TSearchRec = TSearchRec;
+{$ELSE}
   _Z_TSearchRec = record
     Time: Integer;
     Size: Int64;
@@ -66,6 +69,7 @@ type
     FindHandle: THandle {$IFNDEF VERpre6} platform{$ENDIF};
     FindData: TWin32FindDataW {$IFNDEF VERpre6} platform{$ENDIF};
   end;
+{$ENDIF}
 
 function _Z_CreateFile(const FileName: String; dwDesiredAccess, dwShareMode:
     DWORD; lpSecurityAttributes: PSecurityAttributes; dwCreationDisposition,
@@ -110,9 +114,9 @@ begin
   Result := FN;
   if (Length(FN) >= MAX_PATH) and
     ((FN[1] <> '\') or (FN[2] <> '\') or (FN[3] <> '?') or (FN[4] <> '\')) then
-    Result := '\\?\' + FN
-  else
-    Result := FN;
+    Result := '\\?\' + FN;
+//  else
+//    Result := FN;
 end;
 {$ELSE}
 function PrefixLongPath(const FN: string): WideString;
@@ -299,20 +303,27 @@ function _FindMatchingFileW(var F: _Z_TSearchRec): Integer;
 var
   LocalFileTime: TFileTime;
 begin
-  with F do
-  begin
-    while FindData.dwFileAttributes and ExcludeAttr <> 0 do
-      if not FindNextFileW(FindHandle, FindData) then
+//  with F do
+//  begin
+    while F.FindData.dwFileAttributes and F.ExcludeAttr <> 0 do
+      if not FindNextFileW(F.FindHandle, F.FindData) then
       begin
         Result := GetLastError;
         Exit;
       end;
-    FileTimeToLocalFileTime(FindData.ftLastWriteTime, LocalFileTime);
-    FileTimeToDosDateTime(LocalFileTime, LongRec(Time).Hi, LongRec(Time).Lo);
-    Size := FindData.nFileSizeLow or Int64(FindData.nFileSizeHigh) shl 32;
-    Attr := FindData.dwFileAttributes;
-    Name := FindData.cFileName;
-  end;
+    FileTimeToLocalFileTime(F.FindData.ftLastWriteTime, LocalFileTime);
+    FileTimeToDosDateTime(LocalFileTime, LongRec(F.Time).Hi, LongRec(F.Time).Lo);
+    F.Size := F.FindData.nFileSizeLow or Int64(F.FindData.nFileSizeHigh) shl 32;
+    F.Attr := F.FindData.dwFileAttributes;
+{$IFDEF UNICODE}
+    F.Name := F.FindData.cFileName;
+{$ELSE}
+    if UsingUTF8 then
+      F.Name := PWideToUTF8(PWideChar(@F.FindData.cFileName), -1)
+    else
+      F.Name := PWideToSafe(PWideChar(@F.FindData.cFileName), False);
+{$ENDIF}
+//  end;
   Result := 0;
 end;
 

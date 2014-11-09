@@ -1095,6 +1095,8 @@ procedure TZMLister.SetCurrent(const Value: TZMZipReader);
 begin
   if FCurrent <> Value then
   begin
+    if FCurrent <> nil then
+      FCurrent.File_Close;
     ClearEntries;
     FreeAndNil(FCurrent);
     FCurrent := Value;
@@ -1273,6 +1275,7 @@ var
   Czip: TZMZipReader;
   TmpDirUpdate: TNotifyEvent;
 begin
+  Current.File_Close;
   if WasGood then
   begin
     if Cancel <> 0 then
@@ -1287,7 +1290,10 @@ begin
 
     if (Reload = ZlrAny) or
       ((Reload = ZlrReload) and not IsDetachedSFX(ZipFileName)) then
+    begin
       LoadZip(ZipFileName, False);
+      Current.File_Close;
+    end;
 
     if Reload >= ZlrClear then
     begin

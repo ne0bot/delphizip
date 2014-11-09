@@ -43,7 +43,7 @@ unit ZMOprCore;
  contact: problems AT delphizip DOT org
  updates: http://www.delphizip.org
  *************************************************************************** *)
-// modified 2013-12-05
+// modified 2014-09-11
 
 {$I '.\ZipVers.inc'}
 
@@ -93,6 +93,7 @@ type
   TZMOpClear = class(TZMOperationRoot)
   public
     constructor Create;
+    function Changes: TZMOperRes; override;
     function Execute(TheBody: TZMHandler): Integer; override;
     function Name: string; override;
   end;
@@ -225,6 +226,11 @@ end;
 constructor TZMOpClear.Create;
 begin
   inherited;
+end;
+
+function TZMOpClear.Changes: TZMOperRes;
+begin
+  Result := [ZorFSpecArgs];
 end;
 
 function TZMOpClear.Execute(TheBody: TZMHandler): Integer;
