@@ -43,7 +43,7 @@ unit ZMUnzipOpr;
  contact: problems AT delphizip DOT org
  updates: http://www.delphizip.org
  *************************************************************************** *)
-// modified 2013-12-06
+// modified 2014-09-10
 
 {$I   '.\ZipVers.inc'}
 
@@ -1102,6 +1102,14 @@ begin
     Body.Inform('Invalid zip entry', {_LINE_}1112, __UNIT__);
     Exit;
   end;
+  if ((ZRec.VersionNeeded and VerMask) > 45) or (ZRec.CompressionMethod > 8) then
+  begin
+    Result := ZM_Error({_LINE_}1107, ZE_Unsupported);
+    Body.InformFmt('Unsupported zip entry: need version %d.%d or compressed %d',
+      [(ZRec.VersionNeeded and VerMask) div 10, (ZRec.VersionNeeded and VerMask) mod 10,
+      ZRec.CompressionMethod], {_LINE_}1111, __UNIT__);
+    Exit;
+  end;
   ZReader.Guage.NewItem(ZName, ZRec.CompressedSize);
   if not Options.JunkDir then
     DefaultName := ZName
@@ -1216,7 +1224,8 @@ begin
   // if we get here we definitely want to extract or test the entry
   if not ZReader.IsOpen then
   begin
-    Result := ZReader.File_Reopen(FmOpenRead);
+    Result := ZReader.File_Reopen(FmOpenRead or fmShareDenyWrite);
+//    Result := ZReader.File_Reopen(FmOpenRead);
     if Result < 0 then
       Exit;
   end;
@@ -1243,6 +1252,14 @@ begin
     Body.Inform('Invalid zip entry', {_LINE_}1253, __UNIT__);
     Exit;
   end;
+  if ((ZRec.VersionNeeded and VerMask) > 45) or (ZRec.CompressionMethod > 8) then
+  begin
+    Result := ZM_Error({_LINE_}1107, ZE_Unsupported);
+    Body.InformFmt('Unsupported zip entry: need version %d.%d or compressed %d',
+      [(ZRec.VersionNeeded and VerMask) div 10, (ZRec.VersionNeeded and VerMask) mod 10,
+      ZRec.CompressionMethod], {_LINE_}1260, __UNIT__);
+    Exit;
+  end;
 
   // Test not ExtStream
   if @DestStream = @ZReader.Stream then
@@ -1260,7 +1277,8 @@ begin
 
   if not ZReader.IsOpen then
   begin
-    Result := ZReader.File_Reopen(FmOpenRead);
+    Result := ZReader.File_Reopen(FmOpenRead or fmShareDenyWrite);
+//    Result := ZReader.File_Reopen(FmOpenRead);
     if Result < 0 then
       Exit;
   end;
@@ -1467,7 +1485,8 @@ begin
   CurZip.Guage.SetSize(USize);
   if not CurZip.IsOpen then
   begin
-    if CurZip.File_Reopen(FmOpenRead) < 0 then
+//    if CurZip.File_Reopen(FmOpenRead) < 0 then
+    if CurZip.File_Reopen(FmOpenRead or fmShareDenyWrite) < 0 then
       Exit;
   end;
   SuccessCnt := 0;

@@ -310,7 +310,7 @@ begin
     // load specified file
     if FileExists(ReqName) then
     begin
-      AStream := TFileStream.Create(ReqName, FmOpenRead);
+      AStream := TFileStream.Create(ReqName, FmOpenRead or FmShareDenyWrite);
       try
         AStream.Position := 0;
         Result := Body.LoadMessageStrs(DstStrs, AStream);

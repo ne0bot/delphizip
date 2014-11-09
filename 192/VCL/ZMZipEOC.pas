@@ -292,7 +292,7 @@ var
 begin
   try
     if not IsOpen then
-      File_Open(FileName, FmOpenRead + FmShareDenyWrite);
+      File_Open(FileName, FmOpenRead or FmShareDenyWrite);
     if not IsOpen then
     begin
       if IsExtStream or FileExists(FileName) then

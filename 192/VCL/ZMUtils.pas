@@ -1614,7 +1614,7 @@ function ExeSize(const Name: string): Cardinal;
 var
   Fs: TFileStream;
 begin
-  Fs := TFileStream.Create(Name, FmOpenRead);
+  Fs := TFileStream.Create(Name, FmOpenRead or FmShareDenyWrite);
   try
     Result := ExeSize(Fs);
   finally
@@ -1631,7 +1631,7 @@ begin
   if FileExists(Name) and (AnsiCompareText(ExtractFileExt(Name), '.exe') = 0)
   then
   begin
-    Fs := TFileStream.Create(Name, FmOpenRead);
+    Fs := TFileStream.Create(Name, FmOpenRead or FmShareDenyWrite);
     try
       ZipName := Name;
       Result := CheckSFXType(Fs, ZipName, Size);
@@ -2310,7 +2310,7 @@ begin
   Result := False;
   if FileExists(FName) then
   begin
-    Fs := TFileStream.Create(FName, FmOpenRead);
+    Fs := TFileStream.Create(FName, FmOpenRead or FmShareDenyWrite);
     try
       if (Fs.Size > (Sizeof(TZipLocalHeader) + Sizeof(Sg))) and
         (Fs.Read(Sg, Sizeof(Sg)) = Sizeof(Sg)) then

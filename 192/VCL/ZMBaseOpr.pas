@@ -377,7 +377,7 @@ function TZMBaseOpr.FinalizeInterimZip(OrigZip: TZMZipReader): Integer;
 begin
   if OrigZip = nil then
     OrigZip := Lister.Current;
-  OrigZip.File_Reopen(FmOpenRead);
+  OrigZip.File_Reopen(FmOpenRead or FmShareDenyWrite);
   Result := InterimZip.Commit(ZwoZipTime in WriteOptions);
   OrigZip.File_Close;
   InterimZip.File_Close;
@@ -464,7 +464,7 @@ begin
   if BinExists then
   begin
     try
-      Stub := TFileStream.Create(Binpath, FmOpenRead);
+      Stub := TFileStream.Create(Binpath, FmOpenRead or FmShareDenyWrite);
       if (Stub.Size > MinStubSize) and (Stub.Size < MaxStubSize) then
       begin
         Stub.ReadBuffer(Result, Sizeof(Integer));
@@ -784,7 +784,7 @@ begin
       DestZip.PrepareWrite(ZwMultiple);
       DestZip.NewDisk := WantNewDisk;
       DestZip.File_Size := Intermed.File_Size; // to calc TotalDisks
-      Intermed.File_Open('', FmOpenRead);
+      Intermed.File_Open('', FmOpenRead or FmShareDenyWrite);
       DestZip.StampDate := Intermed.FileDate;
       AnswerAll := True;
       R := DestZip.WriteFile(Intermed, True);
@@ -844,7 +844,7 @@ begin
   begin // rebuild with sfx
     Body.Trace('Rebuild with SFX', {_LINE_}848, __UNIT__);
     Intermed.File_Close;
-    Intermed.File_Open('', FmOpenRead);
+    Intermed.File_Open('', FmOpenRead or FmShareDenyWrite);
     Result := Intermed.OpenZip(False, False);
     if Result < 0 then
       Exit;
@@ -897,7 +897,7 @@ begin
       raise EZipMaster.CreateMsg(Body, ZE_NoOutFile, {_LINE_}900, __UNIT__);
     ShowProgress := ZspFull;
     Intermed.ZipComment := CurZip.ZipComment;
-    CurZip.File_Reopen(FmOpenRead);
+    CurZip.File_Reopen(FmOpenRead or FmShareDenyWrite);
     Res := Intermed.WriteFile(CurZip, All);
     CurZip.File_Close;
     Intermed.File_Close;

@@ -60,9 +60,9 @@ uses
   ZMHandler;
 
 const
-  ZIPMASTERBUILD: string =  '1.9.2.0008';
-  ZIPMASTERDATE: string =  '20/04/2014';
-  ZIPMASTERPRIV: Integer = 1920008;
+  ZIPMASTERBUILD: string =  '1.9.2.0011';
+  ZIPMASTERDATE: string =  '9/11/2014';
+  ZIPMASTERPRIV: Integer = 1920011;
   DELZIPVERSION = 192;
   MIN_DLL_BUILD = 1920002;
 
@@ -586,12 +586,13 @@ type
     procedure Loaded; override;
     function ReEntry: Boolean;
   public
+    constructor Create(AOwner: TComponent); override;
     procedure AbortDLL;
     function Add: Integer;
     function AddStreamToFile(const FileName: string;
       FileDate, FileAttr: Dword): Integer;
     function AddStreamToStream(InStream: TMemoryStream): TMemoryStream;
-    procedure AfterConstruction; override;
+//    procedure AfterConstruction; override;
     function AppendSlash(const SDir: string): string;
     procedure BeforeDestruction; override;
     function ChangeFileDetails(Func: TZMChangeFunction; var Data): Integer;
@@ -987,6 +988,15 @@ begin
 end;
 {$ENDIF}
 
+constructor TCustomZipMaster.Create(AOwner: TComponent);
+begin
+  inherited;
+  FBody := TZMCommand.Create(Self);
+  FFSpecArgs := TZMStringList.Create;
+  FFSpecArgsExcl := TZMStringList.Create;
+  FHandle := Application.Handle;
+end;
+
 procedure TCustomZipMaster.AbortDLL;
 begin
   if TZMCommand(FBody).DLLWorking is TZMDLL then
@@ -1016,14 +1026,14 @@ begin
     Result := ZipStream;
 end;
 
-procedure TCustomZipMaster.AfterConstruction;
-begin
-  inherited;
-  FBody := TZMCommand.Create(Self);
-  FFSpecArgs := TZMStringList.Create;
-  FFSpecArgsExcl := TZMStringList.Create;
-  FHandle := Application.Handle;
-end;
+//procedure TCustomZipMaster.AfterConstruction;
+//begin
+//  inherited;
+//  FBody := TZMCommand.Create(Self);
+//  FFSpecArgs := TZMStringList.Create;
+//  FFSpecArgsExcl := TZMStringList.Create;
+//  FHandle := Application.Handle;
+//end;
 
 function TCustomZipMaster.AppendSlash(const SDir: string): string;
 begin
